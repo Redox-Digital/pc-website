@@ -1,22 +1,22 @@
 const Form = () => {
     return (
         <form action="/api/form" method="post">
-            <label>NOM*</label>
+            <label htmlFor="last">NOM*</label>
             <input type="text" id="last" name="last" required/>
-            <label >PRÉNOM*</label>
+            <label htmlFor="first">PRÉNOM*</label>
             <input type="text" id="first" name="first" required/>
-            <label >SOCIÉTÉ</label>
+            <label htmlFor="society">SOCIÉTÉ</label>
             <input type="text" id="society" name="society" />
-            <label >EMAIL*</label>
+            <label htmlFor="email">EMAIL*</label>
             <input type="email" id="email" name="email" required/>
-            <label >TÉLÉPHONE</label>
+            <label htmlFor="phone">TÉLÉPHONE</label>
             <input type="tel" id="phone" name="phone" />
-            <label >TYPE DE CLIENT</label>
+            <label htmlFor="type">TYPE DE CLIENT</label>
             <select id="type" name="type">
                 <option value="particulier">Particulier</option>
                 <option value="professionnel">Professionnel</option>
             </select>
-            <label >MESSAGE*</label>
+            <label htmlFor="message">MESSAGE*</label>
             <textarea id="message" name="message" required></textarea>
             <button type="submit">Submit</button>
         </form>
