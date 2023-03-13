@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Hero from "@/components/Hero";
 
 const About = () => {
     return (
@@ -7,10 +8,7 @@ const About = () => {
                 <title>Paris & Comtesse SA | À propos</title>
                 <meta name="keywords" content="À propos" />
             </Head>
-            <div className="about">
-                <h1>À propos</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adip</p>
-            </div>
+            <Hero title="À propos" subtitle="Lorem ipsum dolor sit amet" source="/bg-about.svg" />
         </>
     );
 }

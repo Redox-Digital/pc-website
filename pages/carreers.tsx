@@ -1,3 +1,4 @@
+import Hero from "@/components/Hero";
 import Head from "next/head";
 
 const Carreers = () => {
@@ -7,10 +8,7 @@ const Carreers = () => {
                 <title>Paris & Comtesse SA | Emplois</title>
                 <meta name="keywords" content="Emplois" />
             </Head>
-            <div>
-                <h1>Emplois</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adip</p>
-            </div>
+            <Hero title="Emplois" subtitle="Lorem ipsum dolor sit amet" source="/bg-carreers.svg" />
         </>
     );
 }

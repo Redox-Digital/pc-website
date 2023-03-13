@@ -1,5 +1,7 @@
 import Head from "next/head";
 import Form from "@/components/Form"
+import Hero from "@/components/Hero";
+import style from '@/styles/Form.module.css'
 
 const Contact = () => {
     return (
@@ -8,8 +10,8 @@ const Contact = () => {
                 <title>Paris & Comtesse SA | Contact</title>
                 <meta name="keywords" content="contact" />
             </Head>
-            <div>
-                <h1>Contact</h1>
+            <Hero title="Contact" subtitle="Lorem ipsum dolor sit amet" source="/bg-contact.svg" />
+            <div className={style.form}>
                 <Form />
             </div>
         </>

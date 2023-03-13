@@ -5,6 +5,8 @@
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
+  --goldwhite-bg: #F9F7F1;
+
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -106,22 +108,19 @@ a {
   }
 }
 
-
-
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 1rem;
+  /* padding: 0 1rem; */
 }
 
 nav{
-  margin: 10px auto 10px;
+  margin: 0 2rem;
   padding: 10px 0;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 2rem;
-  border-bottom: 1px solid #ddd;
 }
 
 nav .logo{
@@ -133,6 +132,8 @@ menu{
   flex-direction: row;
   justify-content: center;
   gap: 30px;
+  border-top: 1px solid #ddd;
+  padding:20px 0;
 }
 
 .hidden{
