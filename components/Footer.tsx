@@ -1,8 +1,8 @@
 const Footer = () => {
     return ( 
-        <div className="footer">
-            <p>© 2021 - PC-Website</p>
-        </div>
+        <footer>
+            <p>© 2023 - Redox Digital + Steve Mettraux</p>
+        </footer>
      );
 }
  

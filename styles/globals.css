@@ -105,3 +105,46 @@ a {
     color-scheme: dark;
   }
 }
+
+
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+nav{
+  margin: 10px auto 10px;
+  padding: 10px 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+  border-bottom: 1px solid #ddd;
+}
+
+nav .logo{
+  margin-right: auto;
+}
+
+menu{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+}
+
+.hidden{
+  display: none;
+}
+
+footer{
+  margin: 10px auto 10px;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  border-top: 1px solid #ddd;
+}
