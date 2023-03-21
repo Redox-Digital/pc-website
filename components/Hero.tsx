@@ -1,14 +1,23 @@
 import Image from 'next/image'
-import style from '@/styles/Hero.module.css'
+import style from '@/styles/components/Hero.module.scss'
+import Link from 'next/link';
 
+type Props = {
+    title: string;
+    subtitle: string;
+    source: string;
+    home?: boolean;
+}
 
-const Hero = (props) => {
+const Hero = (props: Props) => {
+    const { title, subtitle, source, home } = props;
+
     return (
-        <div className={style.hero}>
-            <h1 className={style.title}>{props.title}</h1>
-            <p className={style.subtitle}>{props.subtitle}</p>
-            <Image src={props.source} alt="hero" width={1100} height={620} className="a"/>
-        </div>
+        <header className={`${style.hero} ${home ? style.hero__home : ''}`} style={{ backgroundImage: `url(${source})` }}>
+            <h1 className={style.title}>{title}</h1>
+            <p className={style.subtitle}>{subtitle}</p>
+            <Link href="#"><i className="fa-solid fa-arrow-down-long"></i></Link>
+        </header>
     );
 }
 

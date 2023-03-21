@@ -1,0 +1,22 @@
+html {
+    background-color: var(--dark);
+    scroll-behavior: smooth;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+abbr,
+abbr[title] {
+    border: none;
+    text-decoration: none;
+}
+
+section {
+    padding: var(--sct-vert-margin) var(--sct-horiz-margin);
+}

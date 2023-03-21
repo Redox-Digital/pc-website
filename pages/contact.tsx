@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Form from "@/components/Form"
 import Hero from "@/components/Hero";
-import style from '@/styles/Form.module.css'
+import style from '@/styles/components/Form.module.scss'
 
 const Contact = () => {
     return (
