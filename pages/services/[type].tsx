@@ -2,7 +2,7 @@ const Service = () => {
     return ( 
         <div>
             <h1>Détails</h1>
-            tirelipimpon
+            test
         </div>
      );
 }
