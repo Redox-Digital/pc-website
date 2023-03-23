@@ -1,61 +1,62 @@
 * {
-    --white: #fafafa;
-    --gold-white: #f9f7f1;
-    --dark: #1d1f22;
-    --black: #000000;
-    --gray: #d9d9d9;
+  --white: #fafafa;
+  --gold-white: #f9f7f1;
+  --dark: #1d1f22;
+  --black: #000000;
+  --gray: #d9d9d9;
 
-    --accent: #a88d44;
-    --accent-dark: #fcc238;
+  --accent: #a88d44;
+  --accent-dark: #fcc238;
 
-    --shadow-hover: 0px 2px 4px rgba(0, 0, 0, 0.25);
-    --shadow-clicked: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
+  --shadow-hover: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  --shadow-clicked: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
 
-    --fs-h1: 80px;
-    --fs-h2: 50px;
-    --fs-h2-caps: 60px;
-    --fs-h3: 30px;
-    --fs-h4: 24px;
-    --fs-h5: 19px;
-    --fs-h6: 15px;
-    --fs-p: 18px;
-    --fs-sm: 14px;
+  --fs-h1: 80px;
+  --fs-h2: 50px;
+  --fs-h2-caps: 60px;
+  --fs-h3: 30px;
+  --fs-h4: 24px;
+  --fs-h5: 19px;
+  --fs-h6: 15px;
+  --fs-p: 18px;
+  --fs-sm: 14px;
 
-    --margin: 20px;
-    --sct-vert-margin: 150px;
-    --sct-horiz-margin: 20px;
-    --padding: 10px;
-    --navbar-height: 80px;
-    --max-block-width: 100%;
+  --margin: 20px;
+  --title-text-space: 30px;
+  --sct-vert-margin: 150px;
+  --sct-horiz-margin: 20px;
+  --padding: 10px;
+  --navbar-height: 80px;
+  --max-block-width: 100%;
 }
 
 #phone::before {
-    content: '+41 32 846 14 30';
-    display: inline;
+  content: "+41 32 846 14 30";
+  display: inline;
 }
 
 #mail::before {
-    content: 'info@pcsa.ch';
-    display: inline;
+  content: "info@pcsa.ch";
+  display: inline;
 }
 
 @media screen and (min-width: 768px) {
-    * {
-        --fs-h1: 120px;
-        --fs-h2: 70px;
-        --fs-h2-caps: 100px;
-        --fs-h3: 40px;
-        --fs-h4: 30px;
-        --fs-h5: 22px;
-        --fs-h6: 15px;
-        --fs-p: 21px;
-        --fs-sm: 16px;
+  * {
+    --fs-h1: 120px;
+    --fs-h2: 70px;
+    --fs-h2-caps: 100px;
+    --fs-h3: 40px;
+    --fs-h4: 30px;
+    --fs-h5: 22px;
+    --fs-h6: 15px;
+    --fs-p: 21px;
+    --fs-sm: 16px;
 
-        --margin: 20px;
-        --sct-vert-margin: 150px;
-        --sct-horiz-margin: 70px;
-        --padding: 15px;
-        --navbar-height: 140px;
-        --max-block-width: 940px;
-    }
+    --margin: 20px;
+    --sct-vert-margin: 150px;
+    --sct-horiz-margin: 70px;
+    --padding: 15px;
+    --navbar-height: 140px;
+    --max-block-width: 940px;
+  }
 }

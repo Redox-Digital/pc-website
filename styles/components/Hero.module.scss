@@ -1,44 +1,44 @@
 .hero {
-    height: 75vh;
-    height: 75svh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+  height: 75vh;
+  height: 75svh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
 
-    padding: 50px var(--sct-horiz-margin);
-    gap: var(--padding);
+  padding: 50px var(--sct-horiz-margin);
+  gap: var(--padding);
 
-    >a {
-        color: var(--accent-dark);
+  > a {
+    display: block;
+    color: var(--accent-dark);
+  }
+
+  > p {
+    margin: 0;
+  }
+
+  &__home {
+    position: relative;
+    height: 100vh;
+    height: 100svh;
+
+    justify-content: center;
+    align-items: center;
+
+    > a {
+      width: 60px;
+      height: 60px;
+      border: solid 1px var(--accent-dark);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      bottom: 50px;
     }
-
-    >p {
-        margin: 0;
-    }
-
-
-    &__home {
-        position: relative;
-        height: 100vh;
-        height: 100svh;
-
-        justify-content: center;
-        align-items: center;
-
-        >a {
-            width: 60px;
-            height: 60px;
-            border: solid 1px var(--accent-dark);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            bottom: 50px;
-        }
-    }
+  }
 }
