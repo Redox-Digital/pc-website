@@ -8,6 +8,10 @@
         flex-direction: column;
         gap: var(--title-surtitle-space);
         text-align: center;
+
+        >h5 {
+            color: var(--accent-dark);
+        }
     }
 
     &__content {
@@ -54,21 +58,20 @@
     }
 }
 
-
-
 .slide {
     overflow: hidden;
     display: flex;
     flex-direction: column;
     gap: 50px;
     height: fit-content;
-    transition: opacity 400ms, display 400ms, transform 400ms;
+    max-height: 2000px; // big number because of overflow: hidden
+    transition: opacity 400ms, display 400ms, transform 400ms, max-height 400ms;
 
     &.hide {
-        transition: opacity 200ms, display 200ms, transform 200ms;
+        transition: opacity 200ms, display 200ms, transform 200ms, max-height 200ms;
         transform: translateY(40px);
         opacity: 0;
-        height: 0;
+        max-height: 0;
         // display: none; // pas besoin de mettre car doit être lisible
 
     }
@@ -76,6 +79,11 @@
     &__text {
         display: flex;
         flex-direction: column;
+        gap: var(--margin);
+
+        >p {
+            margin: 0;
+        }
     }
 
     &__images {
@@ -88,6 +96,38 @@
             object-fit: contain;
             max-height: 340px;
             max-width: 100%;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .company {
+        gap: var(--vert-spacing);
+
+        &__content {
+
+            flex-direction: row;
+
+
+            &__nav {
+                min-width: 420px;
+            }
+        }
+    }
+
+    .slide {
+        flex-direction: column;
+
+
+        &__images {
+            flex-direction: row;
+            align-items: center;
+
+            >img {
+                object-fit: contain;
+                max-height: 340px;
+                max-width: 100%;
+            }
         }
     }
 }

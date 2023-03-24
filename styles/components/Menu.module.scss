@@ -5,7 +5,7 @@
   width: 100%;
   transition: all 0.3s ease-in-out;
 
-  > .mainMenu {
+  >.mainMenu {
     height: var(--navbar-height);
     display: flex;
     flex-direction: row;
@@ -17,9 +17,8 @@
   }
 
   &:hover {
-    > .mainMenu {
+    >.mainMenu {
       background: var(--black);
-
       transition: all 0.3s ease-in-out;
     }
   }
@@ -35,7 +34,7 @@
     text-transform: uppercase;
     letter-spacing: 0.07em;
 
-    > a:not(.btn) {
+    >a:not(:last-of-type) {
       display: flex;
       align-items: center;
       height: 100%;
@@ -106,7 +105,7 @@
   content: "▾";
 }
 
-.submenu:hover + .submenu__content,
+.submenu:hover+.submenu__content,
 .submenu__content:hover {
   display: flex;
   opacity: 1;
@@ -128,7 +127,7 @@
   gap: var(--margin);
   transition: all 0.3s ease-in-out;
 
-  > a {
+  >a {
     height: 100%;
     min-height: 180px;
     width: 320px;
@@ -144,22 +143,25 @@
     transition: all 0.3s ease-in-out;
 
     &:hover {
-      align-items: flex-start;
+
       transition: all 0.3s ease-in-out;
       color: var(--white);
-      > p {
-        display: block;
+
+      >p {
+        max-height: 500px;
+        height: fit-content;
         opacity: 1;
-        transition: all 0.3s ease-in-out;
+        transition: opacity .25s, max-height .3s;
       }
     }
 
-    > p {
+    >p {
       margin: 0;
       text-transform: none;
-      display: none;
+      max-height: 0px;
       opacity: 0;
-      transition: all 0.3s ease-in-out;
+      text-align: center;
+      transition: opacity .25s, max-height .3s;
     }
   }
 }

@@ -16,5 +16,15 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: var(--vert-spacing);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .careers__intro {
+    flex-direction: row;
+    gap: var(--sct-horiz-margin);
+    align-items: center;
+    padding-bottom: var(--vert-spacing);
   }
 }

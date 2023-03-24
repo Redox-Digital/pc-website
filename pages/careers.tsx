@@ -3,6 +3,7 @@ import InfographySection from "@/components/InfographySection";
 import Head from "next/head";
 import style from "@/styles/layouts/Careers.module.scss";
 import Newsletter from "@/components/Newsletter";
+import JobOffer from "@/components/JobOffer";
 
 const ourMotivations = [
   {
@@ -37,7 +38,39 @@ const ourMotivations = [
   },
 ];
 
+type Job = {
+  title: string;
+  desc: string;
+  extLink: string;
+  pdfLink: string;
+}
+
+
+const openJobs: Job[] = [{
+  title: "Chef(fe) de projet - Construction métallique 100%",
+  desc: "Si vous êtes intéressé(e) par ce poste, nous attendons avec impatience votre CV et une lettre de motivation à info@pc-sa.ch",
+  extLink: "https://www.jobup.ch/",
+  pdfLink: "#"
+}, {
+  title: "Constructeur(trice) métallique ou CAI 100%",
+  desc: "Si vous êtes intéressé(e) par ce poste, nous attendons avec impatience votre CV et une lettre de motivation à info@pc-sa.ch",
+  extLink: "https://www.jobup.ch/",
+  pdfLink: ""
+}]
+
+
 export default function Careers() {
+
+  const displayJobs = (jobs: Job[]) => {
+    if (jobs.length > 0) {
+      return ((jobs.map((job) => (
+        <JobOffer {...job} />
+      ))))
+    } else {
+      return (<h3>Actuellement aucune offre n’est disponible sur notre site.</h3>)
+    }
+  }
+
   return (
     <>
       <Head>
@@ -83,6 +116,9 @@ export default function Careers() {
         ></div>
         <section className={style.careers__jobs}>
           <h2>Nos offres d&rsquo;emplois</h2>
+
+          {displayJobs(openJobs)}
+
         </section>
         <Newsletter />
       </main>

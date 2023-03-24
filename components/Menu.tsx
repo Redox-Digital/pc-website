@@ -35,7 +35,7 @@ const Header = () => {
 
           <div className={style.menu__links}>
             <Link href="/">Accueil</Link>
-            <Link href="/services" className={style.submenu}>
+            <Link href="#" scroll={false} className={style.submenu}>
               Services
             </Link>
             <DropdownMenuItem />

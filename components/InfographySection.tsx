@@ -19,8 +19,9 @@ export default function InfographySection(props: Props) {
 
   return (
     <section className={`${style.infography} light`}>
-      <h2>{title}</h2>
-      <p>{desc}</p>
+      <div className={style.infography__titles}>
+        <h2>{title}</h2>
+        <p>{desc}</p></div>
       <div className={style.infography__blocks}>
         {blocks.map((block) => (
           <div className={style.infography__block} key={block.slug}>

@@ -25,8 +25,9 @@ export default function TextImageSection({
         style={{ backgroundImage: `url(${imgPath})` }}
       ></div>
       <div className={style.txtImgSection__content}>
+        <h5 className={light ? "color-accent" : ""}>{surtitle}</h5>
         <h2 className="all-caps">{title}</h2>
-        {children}
+        <div className={style.txtImgSection__texts}>{children}</div>
       </div>
     </section>
   );

@@ -1,0 +1,48 @@
+.job {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: var(--margin);
+    padding: 30px;
+    border: 1px solid var(--accent-dark);
+
+    &__texts {
+        display: flex;
+        flex-direction: column;
+        gap: var(--title-surtitle-space);
+
+        >h3 {
+            word-break: break-word;
+        }
+
+        >p {
+            margin: 0
+        }
+    }
+
+    &__btns {
+        display: flex;
+        flex-direction: column;
+        gap: var(--margin);
+
+        >a {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .job {
+        max-width: var(--max-block-width);
+
+        &__btns {
+            display: flex;
+            flex-direction: row;
+            gap: var(--margin);
+
+            >a {
+                width: inherit;
+            }
+        }
+    }
+}

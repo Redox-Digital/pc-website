@@ -13,7 +13,7 @@
     flex-direction: column;
     gap: var(--padding);
 
-    > p {
+    >p {
       margin: 0;
     }
   }
@@ -24,17 +24,28 @@
     flex-direction: column;
     gap: 15px;
 
-    > input[type="email"] {
+    >input[type="email"] {
+      height: 48px;
       background: transparent;
       color: var(--white);
       border: solid 1px var(--accent);
       font-size: var(--fs-p);
-      padding: var(--padding);
+      padding: 0 var(--padding);
     }
   }
 }
 
 .submit {
   color: inherit;
-  border: none;
+}
+
+@media screen and (min-width: 576px) {
+  .nl__input {
+    flex-direction: row;
+
+    >input[type="email"] {
+      height: auto;
+      min-width: 340px;
+    }
+  }
 }

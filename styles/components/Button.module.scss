@@ -9,7 +9,9 @@
   gap: 8px;
   text-transform: uppercase;
   width: fit-content;
+  min-width: 150px;
   max-height: 52px;
+  border: solid 2px var(--accent);
 
   font-size: var(--fs-h6);
   font-weight: 500;
@@ -33,6 +35,8 @@
 
   // Types
   &:hover {
+    cursor: pointer;
+    border: solid 2px var(--accent-dark);
     background: var(--accent-dark);
     color: var(--dark);
     transition: all 0.3s ease-in-out;
@@ -41,7 +45,7 @@
   }
 
   &:active {
-    outline: solid 2px var(--white);
+    border: solid 2px var(--white);
     background: var(--accent);
     box-shadow: var(--shadow-clicked);
     color: var(--white);
@@ -49,44 +53,51 @@
   }
 
   &__secondary {
+    border: solid 2px var(--gray);
     background: var(--gray);
 
     &:hover {
+      border: solid 2px var(--white);
       background: var(--white);
     }
 
     &:active {
       background: var(--white);
-      outline: solid 2px var(--accent);
+      border: solid 2px var(--accent);
     }
   }
 
   &__black {
+    border: solid 2px var(--dark);
     background: var(--dark);
 
     &:hover {
+      border: solid 2px var(--dark);
       color: var(--white);
       background: var(--black);
     }
 
     &:active {
       background: var(--dark);
-      outline: solid 2px var(--accent);
+      border: solid 2px var(--accent);
     }
   }
 
   &__outline {
-    outline: solid 2px var(--white);
+    border: solid 2px var(--gray);
+
     color: var(--white);
     background: transparent;
 
     &:hover {
-      outline: solid 2px var(--accent);
+      background: transparent;
+      border: solid 2px var(--accent);
       color: var(--white);
     }
 
     &:active {
-      outline: solid 2px var(--accent);
+      background: transparent;
+      border: solid 2px var(--accent);
       color: var(--accent);
     }
   }
