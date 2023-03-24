@@ -7,6 +7,7 @@
         display: flex;
         flex-direction: column;
         gap: var(--title-surtitle-space);
+        text-align: center;
     }
 
     &__content {
@@ -56,9 +57,21 @@
 
 
 .slide {
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     gap: 50px;
+    height: fit-content;
+    transition: opacity 400ms, display 400ms, transform 400ms;
+
+    &.hide {
+        transition: opacity 200ms, display 200ms, transform 200ms;
+        transform: translateY(40px);
+        opacity: 0;
+        height: 0;
+        // display: none; // pas besoin de mettre car doit être lisible
+
+    }
 
     &__text {
         display: flex;

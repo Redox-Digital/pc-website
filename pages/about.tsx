@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Infography from "@/components/InfographySection";
 import Newsletter from "@/components/Newsletter";
 import CompanySection from "@/components/CompanySection";
+import HistorySection from "@/components/HistorySection";
 
 const ourValues = [
     {
@@ -66,6 +67,33 @@ const companySlides = [
     },
 ]
 
+const historySlides = [
+    {
+        year: 2022,
+        title: "Transmission",
+        desc: (<p>À partir du 1er novembre 2022, M. Tony Perret passe le témoin à M. Jean Mesquita un professionnel de la construction métallique depuis de nombreuses années. L’équipe du bureau technique et de l’atelier reste inchangée.</p>),
+        img: "https://picsum.photos/200/300",
+    },
+    {
+        year: 2006,
+        title: "Titre 1",
+        desc: (<p>1. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam ex, nisi, consectetur quia nam porro explicabo necessitatibus expedita, velit recusandae quibusdam quisquam! Porro consequatur est accusamus itaque excepturi quo optio!</p>),
+        img: "https://picsum.photos/200/300",
+    },
+    {
+        year: 1970,
+        title: "Titre 2",
+        desc: (<p>2. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam ex, nisi, consectetur quia nam porro explicabo necessitatibus expedita, velit recusandae quibusdam quisquam! Porro consequatur est accusamus itaque excepturi quo optio!</p>),
+        img: "https://picsum.photos/200/300",
+    },
+    {
+        year: 1964,
+        title: "Titre 3",
+        desc: (<p>3. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam ex, nisi, consectetur quia nam porro explicabo necessitatibus expedita, velit recusandae quibusdam quisquam! Porro consequatur est accusamus itaque excepturi quo optio!</p>),
+        img: "https://picsum.photos/200/300",
+    },
+]
+
 export default function About() {
     return (
         <>
@@ -82,6 +110,7 @@ export default function About() {
                     desc="Nous sommes fiers de vous présenter les valeurs fondamentales qui guident notre entreprise."
                     blocks={ourValues}
                 />
+                <HistorySection slides={historySlides} />
 
                 <Newsletter />
             </main>

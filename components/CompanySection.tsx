@@ -30,14 +30,14 @@ export default function CompanySection({ slides }: Props) {
         <div className={style.company__content}>
             <div className={style.company__content__nav}>
                 {slides.map((slide) => (
-                    <label htmlFor={slide.id.toString()} className={selectedSlide === slide.id ? style.checked : ""}>{slide.label}
-                        <input type="radio" key={slide.id} id={slide.id.toString()} value={slide.label} checked={selectedSlide === slide.id} onChange={radioHandler} />
+                    <label key={slide.id} htmlFor={slide.id.toString()} className={selectedSlide === slide.id ? style.checked : ""}>{slide.label}
+                        <input type="radio" id={slide.id.toString()} value={slide.label} checked={selectedSlide === slide.id} onChange={radioHandler} />
                     </label>
                 ))}
             </div>
             <div className={style.company__content__slides}>
                 {slides.map((slide) => (
-                    <div className={`${style.slide} ${slide.id === selectedSlide ? '' : 'd-none'}`}>
+                    <div key={`slide_${slide.id}`} className={`${style.slide} ${slide.id === selectedSlide ? '' : style.hide}`}>
                         <div className={style.slide__text}>{slide.desc}</div>
                         <div className={style.slide__images}>
                             <img src={slide.img1} alt="" />
