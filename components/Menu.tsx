@@ -42,7 +42,7 @@ const Header = () => {
 
             <Link href="/about">À propos</Link>
             <Link href="/careers">Emplois</Link>
-            <Button to="/contact" size="small">
+            <Button to="/contact" size="small" addClass="btn">
               Contact
             </Button>
           </div>

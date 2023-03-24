@@ -21,11 +21,15 @@
   --fs-p: 18px;
   --fs-sm: 14px;
 
-  --margin: 20px;
+  --margin: 15px;
+  --padding: 10px;
+  --vert-spacing: 75px;
+  --title-surtitle-space: 10px;
   --title-text-space: 30px;
+
   --sct-vert-margin: 150px;
   --sct-horiz-margin: 20px;
-  --padding: 10px;
+
   --navbar-height: 80px;
   --max-block-width: 100%;
 }
@@ -53,9 +57,13 @@
     --fs-sm: 16px;
 
     --margin: 20px;
+    --padding: 15px;
+    --title-surtitle-space: 15px;
+    --title-text-space: 30px;
+
     --sct-vert-margin: 150px;
     --sct-horiz-margin: 70px;
-    --padding: 15px;
+
     --navbar-height: 140px;
     --max-block-width: 940px;
   }

@@ -23,7 +23,7 @@ const Hero = (props: Props) => {
         <p className={style.subtitle}>{subtitle}</p>
         <Link href="#intro" scroll={false}>
           <Image src={arrowDown} alt={""}></Image>
-          <i className="fa-solid fa-arrow-down-long"></i>
+
         </Link>
       </header>
       <span id="intro">{/* Anchor */}</span>

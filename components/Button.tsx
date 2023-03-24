@@ -7,6 +7,7 @@ type Props = {
   // type?: undefined | "submit";
   variation?: undefined | "secondary" | "black" | "outline";
   icon?: undefined | string;
+  addClass?: string;
   children: string;
 };
 
@@ -44,6 +45,7 @@ const getVariation = (param: string | undefined) => {
  * @param to : URL
  * @param size : undefined | "small" | "big";
  * @param type : undefined | "secondary" | "black" | "outline"
+ * @param addClass : undefined | string;
  * @param children: string, text on button;
  * @returns
  */
@@ -54,11 +56,12 @@ export default function Button({
   children,
   icon,
   variation,
+  addClass
 }: Props) {
   return (
     <Link
       href={to}
-      className={`${style.btn} ${getSize(size)} ${getVariation(variation)}`}
+      className={`${style.btn} ${getSize(size)} ${getVariation(variation)} ${addClass}`}
     >
       {children}
       {icon ? <i className={icon}></i> : ""}

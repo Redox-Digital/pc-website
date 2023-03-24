@@ -107,30 +107,6 @@ h6 {
 }
 
 
-
-.btn {
-    text-decoration: none;
-    color: var(--white);
-
-    font-size: var(--fs-h5);
-    font-weight: 400;
-    line-height: auto;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
-.btn--small {
-    text-decoration: none;
-    color: var(--white);
-
-    font-weight: 400;
-    font-size: var(--fs-h6);
-    letter-spacing: 0.07em;
-    line-height: auto;
-    text-transform: uppercase;
-}
-
-
 a {
     color: var(--white);
     transition: all ease-in-out 0.2s;

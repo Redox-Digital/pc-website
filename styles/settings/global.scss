@@ -22,13 +22,25 @@ section {
   padding: var(--sct-vert-margin) var(--sct-horiz-margin);
   display: flex;
 
-  &.dark {
-  }
+  &.dark {}
 
   &.light {
     background-color: var(--gold-white);
     color: var(--black);
   }
+}
+
+// Display 
+.d-none {
+  display: none !important;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.d-flex {
+  display: flex !important;
 }
 
 // Colors
