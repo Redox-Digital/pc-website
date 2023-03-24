@@ -17,8 +17,8 @@ export default function JobOffer(props: Job) {
                 <p>{desc}</p>
             </div>
             <div className={style.job__btns}>
-                {extLink ? (<Button to={extLink} children={"Voir l'annonce"} blank></Button>) : ""}
-                {pdfLink ? (<Button to={""} children={"Télécharger le pdf"} icon="fa-regular fa-file-pdf" variation="outline"></Button>) : ""}
+                {extLink ? (<Button to={extLink}  blank>Voir l&rsquo;annonce</Button>) : ""}
+                {pdfLink ? (<Button to={""} icon="fa-regular fa-file-pdf" variation="outline">Télécharger le pdf</Button>) : ""}
             </div>
         </div>
     )

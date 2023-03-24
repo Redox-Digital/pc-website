@@ -39,6 +39,7 @@ const ourMotivations = [
 ];
 
 type Job = {
+  id: number;
   title: string;
   desc: string;
   extLink: string;
@@ -47,11 +48,13 @@ type Job = {
 
 
 const openJobs: Job[] = [{
+  id: 0,
   title: "Chef(fe) de projet - Construction métallique 100%",
   desc: "Si vous êtes intéressé(e) par ce poste, nous attendons avec impatience votre CV et une lettre de motivation à info@pc-sa.ch",
   extLink: "https://www.jobup.ch/",
   pdfLink: "#"
 }, {
+  id: 1,
   title: "Constructeur(trice) métallique ou CAI 100%",
   desc: "Si vous êtes intéressé(e) par ce poste, nous attendons avec impatience votre CV et une lettre de motivation à info@pc-sa.ch",
   extLink: "https://www.jobup.ch/",
@@ -64,7 +67,7 @@ export default function Careers() {
   const displayJobs = (jobs: Job[]) => {
     if (jobs.length > 0) {
       return ((jobs.map((job) => (
-        <JobOffer {...job} />
+        <JobOffer key={job.id} {...job} />
       ))))
     } else {
       return (<h3>Actuellement aucune offre n’est disponible sur notre site.</h3>)

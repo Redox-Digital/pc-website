@@ -23,7 +23,7 @@ export default function CompanySection({ slides }: Props) {
 
     return (<section className={style.company}>
         <div className={style.company__titles}>
-            <h5>L'entreprise</h5>
+            <h5>L&rsquo;entreprise</h5>
             <h2>Paris & Comtesse sa</h2>
         </div>
 

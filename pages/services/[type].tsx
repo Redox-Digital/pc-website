@@ -6,6 +6,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import style from "@/styles/layouts/Services.module.scss";
 import btn from "@/styles/components/Button.module.scss";
+import ImageGallery from '@/components/ImageGallery';
 
 type Realisation = {
     id: number;
@@ -34,7 +35,7 @@ export default function Service() {
             heroSubtitle: "Laisser libre cours à ses envies",
             introDesc: "Nous sommes convaincus que chaque client est unique, avec des besoins et des demandes spécifiques, c’est pourquoi nous nous efforçons de personnaliser nos services pour répondre à ces besoins individuels. Nous travaillons en étroite collaboration avec nos clients pour comprendre leurs envies et leurs attentes afin de concevoir des solutions sur-mesure. Cette approche garantit que chaque projet est unique en s’adaptant aux choix esthétiques et contraintes techniques.",
             services: ["escalier", "pergola", "garde-corps", "passerelle", "porte", "agencement décoratif"],
-            realisations: [{ id: 0, title: "Exemple de titre", path: "https://picsum.photos/200/300" }, { id: 1, title: "Exemple de titre", path: "https://picsum.photos/200/300" }],
+            realisations: [{ id: 0, title: "Exemple de titre très long ladjfkdasfjladfkjaslfjasfl kjlsak jdsalk fjasld kjasl kads jals", path: "https://picsum.photos/200/300" }, { id: 1, title: "Exemple de titre", path: "https://picsum.photos/300/200" }, { id: 2, title: "Exemple de titre", path: "https://picsum.photos/200/300" }],
             otherSlugs: ["collectivites", "entreprises"],
         },
         {
@@ -87,7 +88,7 @@ export default function Service() {
                         <h2>Découvrez nos réalisations</h2>
                     </div>
                     <div className={style.gallery__images}>
-
+                        {service.realisations.map((img) => (<ImageGallery key={img.id} {...img} />))}
                     </div>
 
                     <button className={`${btn.btn} ${btn.btn__secondary}`} type="button">En voir plus</button>

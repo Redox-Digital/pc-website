@@ -39,4 +39,14 @@
     padding-top: var(--vert-spacing);
     flex-direction: column;
     gap: var(--vert-spacing);
+
+
+
+    &__images {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: var(--margin);
+    }
+
 }

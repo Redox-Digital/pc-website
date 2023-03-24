@@ -12,7 +12,7 @@ const Layout = ({ children }: Props) => {
       <Head>
         <script
           src="https://kit.fontawesome.com/71157948d4.js"
-          crossOrigin="anonymous"
+          crossOrigin="anonymous" async
         ></script>
       </Head>
       <Header />
