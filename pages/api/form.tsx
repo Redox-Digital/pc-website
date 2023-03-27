@@ -3,11 +3,11 @@ import nodemailer from 'nodemailer';
 export default function handler(req: any, res: any) {
   // Get data submitted in request's body.
   const body = req.body
-  const recipient = 'mettrauxsteve@gmail.com'
+  const recipient = 'steve@redoxdigital.ch'
 
   // Optional logging to see the responses
   // in the command line where next.js app is running.
-  console.log('body: ', body)
+  // console.log('body: ', body)
   // let parse = JSON.parse(JSON.stringify(body));
   // console.log('parse: ', parse)
 
@@ -19,31 +19,34 @@ export default function handler(req: any, res: any) {
   }
 
   let message = {
-    from: `${body.email}`,
+    from: recipient,
     to: recipient,
     subject: `Formulaire de contact, message de ${body.first} ${body.last}`,
     text: `Type de contact: ${body.type}
             Société: ${body.society}
             Message: ${body.message}
-            Téléphone: ${body.phone}`
+            Contact: ${body.phone} ${body.email}`
   }
-  // Found the name.
+
+  const transporter = nodemailer.createTransport({
+    host: 'mail.infomaniak.com',
+    port: 587,
+    secure: false,
+    tls: {rejectUnauthorized: false},
+    auth: {
+      user: 'steve@redoxdigital.ch',
+      pass: '7v.yJ#Tn#12L0H',
+    },
+  });
+  transporter.sendMail(message, (err, info) => {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log(info)
+    }
+  })
+
   // Sends a HTTP success code
   res.status(200).json(message)
-
-  let transporter = nodemailer.createTransport({
-    sendmail: true,
-    newline: 'windows',
-    path: '/usr/sbin/sendmail'
-  });
-  transporter.sendMail({
-    from: `${body.email}`,
-    to: recipient,
-    subject: `Formulaire de contact, message de ${body.first} ${body.last}`,
-    text: `Type de contact: ${body.type}
-            Société: ${body.society}
-            Message: ${body.message}
-            Téléphone: ${body.phone}`
-  });
 
 }
