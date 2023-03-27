@@ -85,3 +85,28 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Export to static
+
+You can export your Next.js app to static HTML, which can be run standalone without the need of a Node.js server.
+
+First, run the build command:
+
+```bash
+npm run build
+# or
+yarn build
+# or
+pnpm build
+```
+
+Then, run the export command:
+
+```bash
+npm run export
+# or
+yarn export
+# or
+pnpm export
+```
+
