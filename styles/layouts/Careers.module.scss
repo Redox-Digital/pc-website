@@ -1,0 +1,30 @@
+.careers {
+  &__intro {
+    flex-direction: column;
+    gap: var(--title-text-space);
+    padding-bottom: 0px;
+  }
+
+  &__imgBanner {
+    width: 100%;
+    height: 360px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__jobs {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--vert-spacing);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .careers__intro {
+    flex-direction: row;
+    gap: var(--sct-horiz-margin);
+    align-items: center;
+    padding-bottom: var(--vert-spacing);
+  }
+}

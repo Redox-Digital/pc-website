@@ -1,0 +1,42 @@
+.infography {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--vert-spacing);
+
+  &__titles {
+    display: flex;
+    flex-direction: column;
+    gap: var(--title-surtitle-space);
+  }
+
+  &__blocks {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--margin);
+    justify-content: center;
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  .infography {
+    &__blocks {
+      gap: var(--vert-spacing);
+    }
+  }
+}

@@ -1,0 +1,126 @@
+// Circular
+@font-face {
+    font-family: circular;
+    font-weight: 700;
+    src: url('../assets/fonts/CircularStd-Black.otf');
+}
+
+@font-face {
+    font-family: circular;
+    font-weight: 600;
+    src: url('../assets/fonts/CircularStd-Bold.otf');
+}
+
+@font-face {
+    font-family: circular;
+    font-weight: 500;
+    src: url('../assets/fonts/CircularStd-Medium.otf');
+}
+
+@font-face {
+    font-family: circular;
+    font-weight: 400;
+    src: url('../assets/fonts/CircularStd-Book.otf');
+}
+
+// Backup font
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: circular, 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: var(--fs-p);
+    color: var(--white);
+}
+
+p {
+    line-height: 1.3em;
+    letter-spacing: 0.01em;
+
+    &:first-of-type {
+        margin-top: 0px;
+    }
+
+    &:last-of-type {
+        margin-bottom: 0px;
+    }
+}
+
+small {
+    font-weight: 400;
+    font-size: var(--fs-sm);
+    line-height: 1.3em;
+    letter-spacing: 0.01em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+h1 {
+    font-weight: 500;
+    font-size: var(--fs-h1);
+    // text-transform: uppercase;
+    line-height: 1em;
+    letter-spacing: 0.01em;
+}
+
+h2 {
+    font-weight: 500;
+    font-size: var(--fs-h2);
+    line-height: 1em;
+    letter-spacing: 0.02em;
+
+    &.all-caps {
+        font-size: var(--fs-h2-caps);
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+    }
+}
+
+h3 {
+    font-weight: 500;
+    font-size: var(--fs-h3);
+    line-height: auto;
+    letter-spacing: 0.03em;
+}
+
+h4 {
+    font-weight: 500;
+    font-size: var(--fs-h4);
+    line-height: auto;
+    letter-spacing: 0.03em;
+}
+
+h5 {
+    font-weight: 400;
+    font-size: var(--fs-h5);
+    line-height: auto;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+h6 {
+    font-weight: 400;
+    font-size: var(--fs-h6);
+    letter-spacing: 0.07em;
+    line-height: auto;
+    text-transform: uppercase;
+}
+
+
+a {
+    color: var(--white);
+    transition: all ease-in-out 0.2s;
+}
+
+a:hover {
+    color: var(--accent-dark);
+    transition: all ease-in-out 0.2s;
+}
