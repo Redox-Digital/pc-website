@@ -1,43 +1,42 @@
-.infography{
+.infography {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--vert-spacing);
+
+  &__titles {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 3rem;
-    background-color: #f5f5f5;
+    gap: var(--title-surtitle-space);
+  }
+
+  &__blocks {
     width: 100%;
-    height: 100%;
-    color: #000;
-}
-
-.title {
-    font-size: 2rem;
-    font-weight: 700;
-    text-align: center;
-}
-
-.paragraph {
-    font-size: 1rem;
-    font-weight: 400;
-    text-align: center;
-}
-
-.label {
-    font-size: 1rem;
-    font-weight: 700;
-    text-align: center;
-}
-
-.line {
-    width: 80%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    margin: 50px 0;
-}
+    flex-wrap: wrap;
+    gap: var(--margin);
+    justify-content: center;
+  }
 
-.column {
+  &__block {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 300px;
     align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  .infography {
+    &__blocks {
+      gap: var(--vert-spacing);
+    }
+  }
 }

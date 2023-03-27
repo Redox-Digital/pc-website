@@ -14,12 +14,18 @@ The CSS class naming is inspired by [BEM](https://bem.info/). It stands for "Blo
 - Elements are items in the block; like title, button, ...
 - Modifier are variations; like states, alternative colors, ...
 
-*Example*
+_Example_
 
 ```css
-.poiCard { ... }                      /* Block */
-.poiCard__title { ... }               /* Block__Element */
-.poiCard__button--secondary { ... }   /* Block__Element--Modifier */
+.poiCard {
+  ...;
+} /* Block */
+.poiCard__title {
+  ...;
+} /* Block__Element */
+.poiCard__button__secondary {
+  ...;
+} /* Block__Element__Modifier */
 ```
 
 ### CSS: ITCSS
@@ -31,7 +37,5 @@ The folder structure is inspired by [ITCSS](https://developer.helpscout.com/seed
 - `elements` : Style rules for bare HTML elements (like `h1` or `button`).
 - `layouts` : Style rules for elements responsible for layout or structuring.
 - `components` : UI specific rules, like cards, call-to-actions, ...
-
-
 
 _(! Not relevant for now !)Note: don't forget to import your newly created `.scss` file into `/styles/index.scss`_

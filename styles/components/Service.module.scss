@@ -1,0 +1,25 @@
+.service {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 50px var(--margin);
+  align-items: center;
+  text-align: center;
+  border: solid 1px var(--white);
+  width: 300px;
+  // max-width: 300px;
+  transition: all 0.3s ease-in-out;
+  justify-content: space-between;
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  &:hover {
+    background: var(--dark);
+    border: solid 1px var(--accent-dark);
+  }
+}

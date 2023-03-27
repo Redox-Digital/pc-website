@@ -1,0 +1,54 @@
+.services {
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  flex-direction: column;
+  padding-left: 0px;
+  padding-right: 0px;
+  gap: var(--margin);
+  background-size: cover;
+  background-position: center;
+
+  &__holder {
+    display: flex;
+    gap: var(--margin);
+
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    justify-content: center;
+
+    scroll-snap-points-x: repeat(300px);
+    scroll-snap-type: mandatory;
+
+    > div {
+      scroll-snap-align: center;
+      flex-shrink: 0;
+      width: 300px;
+      transform-origin: center center;
+
+      &:last-of-type {
+        margin-right: var(--margin);
+      }
+
+      &:first-of-type {
+        margin-left: var(--margin);
+      }
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--margin);
+
+    > a {
+      width: 15px;
+      height: 15px;
+      background: var(--accent-dark);
+    }
+  }
+}

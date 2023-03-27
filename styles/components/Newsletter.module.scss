@@ -1,0 +1,51 @@
+.nl {
+  padding: var(--sct-vert-margin) var(--sct-horiz-margin);
+  display: flex;
+  background-size: cover;
+  background-position: center;
+  flex-direction: column;
+  gap: var(--padding);
+  position: relative;
+
+  &__titles {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding);
+
+    >p {
+      margin: 0;
+    }
+  }
+
+  &__input {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    >input[type="email"] {
+      height: 48px;
+      background: transparent;
+      color: var(--white);
+      border: solid 1px var(--accent);
+      font-size: var(--fs-p);
+      padding: 0 var(--padding);
+    }
+  }
+}
+
+.submit {
+  color: inherit;
+}
+
+@media screen and (min-width: 576px) {
+  .nl__input {
+    flex-direction: row;
+
+    >input[type="email"] {
+      height: auto;
+      min-width: 340px;
+    }
+  }
+}
