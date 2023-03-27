@@ -90,7 +90,13 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 You can export your Next.js app to static HTML, which can be run standalone without the need of a Node.js server.
 
-First, run the build command:
+First, kill your development server if it's running
+
+```bash
+Ctrl + C
+```
+
+Then, run the build command:
 
 ```bash
 npm run build
@@ -100,7 +106,7 @@ yarn build
 pnpm build
 ```
 
-Then, run the export command:
+Finally, run the export command:
 
 ```bash
 npm run export
@@ -109,4 +115,5 @@ yarn export
 # or
 pnpm export
 ```
+
 
