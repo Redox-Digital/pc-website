@@ -4,13 +4,13 @@ const Form = () => {
     return (
         <form action="/api/form" method="post">
             <label htmlFor="last">NOM*</label>
-            <input type="text" id="last" name="last" required/>
+            <input type="text" id="last" name="last" required />
             <label htmlFor="first">PRÉNOM*</label>
-            <input type="text" id="first" name="first" required/>
+            <input type="text" id="first" name="first" required />
             <label htmlFor="society">SOCIÉTÉ</label>
             <input type="text" id="society" name="society" />
             <label htmlFor="email">EMAIL*</label>
-            <input type="email" id="email" name="email" required/>
+            <input type="email" id="email" name="email" required />
             <label htmlFor="phone">TÉLÉPHONE</label>
             <input type="tel" id="phone" name="phone" />
             <label htmlFor="type">TYPE DE CLIENT</label>
@@ -26,3 +26,4 @@ const Form = () => {
 }
 
 export default Form;
+
