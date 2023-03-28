@@ -1,4 +1,31 @@
 .form{
-    background: var(--goldwhite-bg) ;
     color: #000;
+    height: 100%;
+    width: 100%;
+    margin: var(--sct-vert-margin) var(--sct-horiz-margin);
+}
+
+.container{
+    background: var(--gold-white);
+    height: 600px;
+    min-width: 300px;
+    // padding: var(--sct-vert-margin) var(--sct-horiz-margin);
+}
+
+.label {
+    display: block;
+    font-size: var(--fs-h5);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.title{
+    font-size: var(--fs-h2);
+    font-weight: 600;
+    margin: var(--vert-spacing);
+    text-transform: uppercase;
+}
+
+.input{
+    display: flex
 }

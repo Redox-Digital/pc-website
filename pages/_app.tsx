@@ -33,7 +33,7 @@ import type { AppProps } from 'next/app'
 export default function App({ Component, pageProps }: AppProps) {
   return (
     // <>
-    //   <style jsx global>{`
+    //   <style tsx global>{`
     //     html {
     //       font-family: ${circular.style.fontFamily};
     //     }
