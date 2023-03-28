@@ -2,7 +2,7 @@
 
 const Form = () => {
     return (
-        <form action="/api/form" method="post">
+        <form action="https://submit-form.com/O4fDebWI" method="post">
             <label htmlFor="last">NOM*</label>
             <input type="text" id="last" name="last" required />
             <label htmlFor="first">PRÉNOM*</label>
@@ -19,7 +19,7 @@ const Form = () => {
                 <option value="professionnel">Professionnel</option>
             </select>
             <label htmlFor="message">MESSAGE*</label>
-            <textarea id="message" name="message" required></textarea>
+            <textarea id="message" name="message" placeholder="Votre message ici..." required></textarea>
             <button type="submit">Submit</button>
         </form>
     );
