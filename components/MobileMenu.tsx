@@ -31,13 +31,21 @@ export default function MobileMenu(props: Props) {
         }`}
       >
         <div className={style.mobileMenu__links}>
-          <Link href="/">Accueil</Link>
+          <Link href="/" onClick={toggleMenu}>
+            Accueil
+          </Link>
           <button type="button" onClick={toggleSubMenu}>
             Services
           </button>
-          <Link href="/about">À propos</Link>
-          <Link href="/careers">Emplois</Link>
-          <Link href="/contact">Contact</Link>
+          <Link href="/about" onClick={toggleMenu}>
+            À propos
+          </Link>
+          <Link href="/careers" onClick={toggleMenu}>
+            Emplois
+          </Link>
+          <Link href="/contact" onClick={toggleMenu}>
+            Contact
+          </Link>
         </div>
         <div className={style.mobileMenu__contactInfos}>
           <div className={style.mobileMenu__contactInfos__elt}>
@@ -92,18 +100,21 @@ export default function MobileMenu(props: Props) {
         <div className={style.mobileSubMenu__body}>
           <Link
             href="/services/particuliers"
+            onClick={toggleAllMenus}
             style={{ backgroundImage: 'url(/layouts/bg-home.jpg)' }}
           >
             Particuliers
           </Link>
           <Link
             href="/services/collectivites"
+            onClick={toggleAllMenus}
             style={{ backgroundImage: 'url(/layouts/bg-home.jpg)' }}
           >
             Collectivités
           </Link>
           <Link
             href="/services/entreprises"
+            onClick={toggleAllMenus}
             style={{ backgroundImage: 'url(/layouts/bg-home.jpg)' }}
           >
             Entreprises

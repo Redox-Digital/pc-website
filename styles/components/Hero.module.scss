@@ -13,6 +13,13 @@
   padding: 50px var(--sct-horiz-margin);
   gap: var(--padding);
 
+  word-break: break-word;
+
+  > img {
+    max-width: 100%;
+    height: fit-content;
+  }
+
   > a {
     display: block;
     color: var(--accent-dark);

@@ -18,8 +18,37 @@
     gap: 30px;
   }
 
+  &__images {
+    display: flex;
+    flex-direction: column;
+
+    > .img {
+      &__white {
+        opacity: 1;
+        height: fit-content;
+      }
+
+      &__yellow {
+        opacity: 0;
+        height: 0;
+      }
+    }
+  }
+
   &:hover {
     background: var(--dark);
     border: solid 1px var(--accent-dark);
+
+    .img {
+      &__white {
+        opacity: 0;
+        height: 0;
+      }
+
+      &__yellow {
+        opacity: 1;
+        height: fit-content;
+      }
+    }
   }
 }

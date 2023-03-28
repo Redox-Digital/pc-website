@@ -19,6 +19,7 @@
   transition: all 0.3s ease-in-out;
 
   background: var(--accent);
+  color: var(--white);
 
   // Sizes
   &__small {
@@ -55,6 +56,7 @@
   &__secondary {
     border: solid 2px var(--gray);
     background: var(--gray);
+    color: var(--dark);
 
     &:hover {
       border: solid 2px var(--white);

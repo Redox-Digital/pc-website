@@ -7,8 +7,8 @@ const nextConfig = {
     domains: ['picsum.photos'],
     unoptimized : true
   },
-
-    assetPrefix: './',
+    trailingSlash: true,
+   // assetPrefix: './',
   // output: 'export',
   // distDir: 'dist',
 

@@ -1,25 +1,19 @@
-import Header from "./Menu";
-import Footer from "./Footer";
-import Head from "next/head";
+import Header from './Menu';
+import Footer from './Footer';
+import Head from 'next/head';
+import Script from 'next/script';
 
 type Props = {
   children: string | JSX.Element;
 };
 
-const Layout = ({ children }: Props) => {
+export default function Layout({ children }: Props) {
   return (
     <>
-      <Head>
-        <script
-          src="https://kit.fontawesome.com/71157948d4.js"
-          crossOrigin="anonymous" async
-        ></script>
-      </Head>
+      <Script src="https://kit.fontawesome.com/71157948d4.js" />
       <Header />
       {children}
       <Footer />
     </>
   );
-};
-
-export default Layout;
+}

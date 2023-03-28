@@ -1,21 +1,36 @@
-import Head from "next/head";
-import Form from "@/components/Form"
-import Hero from "@/components/Hero";
-import style from '@/styles/components/Form.module.scss'
+import Head from 'next/head';
+import Hero from '@/components/Hero';
+import style from '@/styles/components/Form.module.scss';
+import ContactForm from '@/components/ContactForm';
+import Address from '@/components/Address';
+import TextImageSection from '@/components/TextImageSection';
 
 const Contact = () => {
-    return (
-        <>
-            <Head>
-                <title>Paris & Comtesse SA | Contact</title>
-                <meta name="keywords" content="contact" />
-            </Head>
-            <Hero title="Contact" subtitle="Lorem ipsum dolor sit amet" source="/bg-contact.svg" />
-            <div className={style.form}>
-                <Form />
-            </div>
-        </>
-    );
-}
+  return (
+    <>
+      <Head>
+        <title>Paris & Comtesse SA | Contact</title>
+        <meta name="keywords" content="contact" />
+      </Head>
+      <Hero
+        title="Contact"
+        subtitle="Lorem ipsum dolor sit amet"
+        source="/layouts/bg-contact.svg"
+      />
+      <TextImageSection
+        title={'logo'}
+        surtitle={'Nos coordonnées'}
+        imgPath={'https://picsum.photos/200/300'}
+      >
+        <Address />
+      </TextImageSection>
+      <section>
+        <h2>Carte</h2>
+      </section>
+
+      <ContactForm />
+    </>
+  );
+};
 
 export default Contact;

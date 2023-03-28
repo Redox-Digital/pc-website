@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import logo from '/public/logo.svg';
-import DropdownMenuItem from './DropdownMenuItem';
+import logo from '/public/logo/Exports_P&C – Logo – BJ.svg';
+import DropdownMenu from './DropdownMenu';
 import style from '@/styles/components/Menu.module.scss';
 import Button from './Button';
 import { useEffect, useState } from 'react';
@@ -33,7 +33,11 @@ const Header = () => {
 
   return (
     <>
-      <nav className={`${style.menu} ${navbar ? 'bg-dark' : ''}`}>
+      <nav
+        className={`${style.menu} ${navbar ? style.menu__scrolling : ''} ${
+          menuOpen ? style.menu__open : ''
+        }`}
+      >
         <div className={style.mainMenu}>
           <Link href="/">
             <Image src={logo} alt="logo" height={30} className="logo" />
@@ -44,7 +48,7 @@ const Header = () => {
             <Link href="#" scroll={false} className={style.submenu}>
               Services
             </Link>
-            <DropdownMenuItem />
+            <DropdownMenu />
 
             <Link href="/about">À propos</Link>
             <Link href="/careers">Emplois</Link>
