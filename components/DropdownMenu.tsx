@@ -6,21 +6,30 @@ import style from '@/styles/components/Menu.module.scss';
 export default function DropdownMenu() {
   return (
     <div className={style.submenu__content}>
-      <Link href="/services/particuliers" style={{ backgroundImage: 'url(/layouts/bg-home.jpg)' }}>
+      <Link
+        href="/services/particuliers"
+        style={{ backgroundImage: 'url(/layouts/bg-particuliers.png)' }}
+      >
         <h5>Particuliers</h5>
         <p>
           Tôlerie industrielle, fabrication de structures métalliques sur-mesure, mise aux normes de
           structures existantes
         </p>
       </Link>
-      <Link href="/services/collectivites" style={{ backgroundImage: 'url(/layouts/bg-home.jpg)' }}>
+      <Link
+        href="/services/collectivites"
+        style={{ backgroundImage: 'url(/layouts/bg-collectivites.png)' }}
+      >
         <h5>Collectivités</h5>
         <p>
           Tôlerie industrielle, fabrication de structures métalliques sur-mesure, mise aux normes de
           structures existantes
         </p>
       </Link>
-      <Link href="/services/entreprises" style={{ backgroundImage: 'url(/layouts/bg-home.jpg)' }}>
+      <Link
+        href="/services/entreprises"
+        style={{ backgroundImage: 'url(/layouts/bg-entreprises.png)' }}
+      >
         <h5>Entreprises</h5>
         <p>
           Tôlerie industrielle, fabrication de structures métalliques sur-mesure, mise aux normes de

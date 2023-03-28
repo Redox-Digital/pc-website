@@ -30,7 +30,8 @@ export default function ContactForm() {
         <label htmlFor="type" className={style.input}>
           <select id="type" name="type">
             <option value="particulier">Particulier</option>
-            <option value="professionnel">Professionnel</option>
+            <option value="collectivite">Collectivité</option>
+            <option value="professionnel">Entreprise</option>
           </select>
           <span>Type de client</span>
         </label>

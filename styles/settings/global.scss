@@ -22,7 +22,8 @@ section {
   padding: var(--sct-vert-margin) var(--sct-horiz-margin);
   display: flex;
 
-  &.dark {}
+  &.dark {
+  }
 
   &.light {
     background-color: var(--gold-white);
@@ -30,7 +31,7 @@ section {
   }
 }
 
-// Display 
+// Display
 .d-none {
   display: none !important;
 }

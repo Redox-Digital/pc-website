@@ -14,7 +14,7 @@ const Contact = () => {
       </Head>
       <Hero
         title="Contact"
-        subtitle="Lorem ipsum dolor sit amet"
+        subtitle="Notre équipe est à votre disposition pour échanger sur votre projet"
         source="/layouts/bg-contact.svg"
       />
       <TextImageSection

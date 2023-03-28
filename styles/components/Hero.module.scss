@@ -4,6 +4,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  position: relative;
 
   display: flex;
   flex-direction: column;
@@ -14,19 +15,63 @@
   gap: var(--padding);
 
   word-break: break-word;
+  overflow: hidden;
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--black);
+    z-index: 1;
+  }
+
+  > video {
+    z-index: 0;
+    position: absolute;
+    height: 100%;
+  }
 
   > img {
     max-width: 100%;
     height: fit-content;
+    z-index: 2;
+  }
+
+  > h1 {
+    z-index: 2;
+  }
+
+  @keyframes bumping {
+    0% {
+      transform: translateY(0px);
+    }
+
+    25% {
+      transform: translateY(-2px);
+    }
+    75% {
+      transform: translateY(2px);
+    }
+
+    100% {
+      transform: translateY(0px);
+    }
   }
 
   > a {
     display: block;
     color: var(--accent-dark);
+    z-index: 2;
+    animation: bumping 2s infinite linear;
   }
 
   > p {
     margin: 0;
+    z-index: 2;
   }
 
   &__home {
@@ -36,6 +81,7 @@
 
     justify-content: center;
     align-items: center;
+    text-align: center;
 
     > a {
       width: 60px;

@@ -5,25 +5,28 @@
 
   &__surtitle {
     text-align: center;
-
   }
 
   &__image {
     height: 380px;
-    width: 310px;
+    width: 100%;
+    max-width: 310px;
     background-size: cover;
     background-position: center;
-    margin: 0 var(--margin);
   }
 
   &__content {
-    margin-top: calc(var(--margin) * -2);
+    margin-top: calc(var(--margin) * -2.5);
     display: flex;
     flex-direction: column;
     gap: var(--margin);
 
+    > img {
+      max-width: 100%;
+      height: auto;
+    }
 
-    >h5 {
+    > h5 {
       display: none;
     }
   }
@@ -33,7 +36,7 @@
     flex-direction: column;
     gap: var(--margin);
 
-    >p {
+    > p {
       margin: 0;
     }
   }
@@ -50,8 +53,6 @@
     gap: var(--sct-horiz-margin);
 
     &__image {
-      height: 460px;
-      min-width: 370px;
       margin: 0;
     }
 
@@ -67,12 +68,18 @@
       width: 100%;
       margin-top: 0;
 
-      >h2 {
+      > h2 {
         width: 100%;
         margin-left: calc(var(--sct-vert-margin) * -1);
       }
 
-      >h5 {
+      > img {
+        height: 100%;
+        width: auto;
+        margin-left: calc(var(--sct-vert-margin) * -1.2);
+      }
+
+      > h5 {
         display: flex;
       }
     }

@@ -1,4 +1,6 @@
-import style from "@/styles/components/TextImageSection.module.scss";
+import Image from 'next/image';
+import style from '@/styles/components/TextImageSection.module.scss';
+import logo from '/public/logo/Exports_P&C – Logo – BJ.svg';
 
 type Props = {
   title: string;
@@ -8,25 +10,23 @@ type Props = {
   light?: boolean;
 };
 
-export default function TextImageSection({
-  title,
-  surtitle,
-  children,
-  light,
-  imgPath,
-}: Props) {
+export default function TextImageSection({ title, surtitle, children, light, imgPath }: Props) {
   return (
-    <section className={`${style.txtImgSection} ${light ? "light" : ""}`}>
+    <section className={`${style.txtImgSection} ${light ? 'light' : ''}`}>
       <div className={style.txtImgSection__surtitle}>
-        <h5 className={light ? "color-accent" : ""}>{surtitle}</h5>
+        <h5 className={light ? 'color-accent' : ''}>{surtitle}</h5>
       </div>
       <div
         className={style.txtImgSection__image}
         style={{ backgroundImage: `url(${imgPath})` }}
       ></div>
       <div className={style.txtImgSection__content}>
-        <h5 className={light ? "color-accent" : ""}>{surtitle}</h5>
-        <h2 className="all-caps">{title}</h2>
+        <h5 className={light ? 'color-accent' : ''}>{surtitle}</h5>
+        {title === 'logo' ? (
+          <Image src={logo} alt={''} width="900" />
+        ) : (
+          <h2 className="all-caps">{title}</h2>
+        )}
         <div className={style.txtImgSection__texts}>{children}</div>
       </div>
     </section>

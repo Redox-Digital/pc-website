@@ -16,9 +16,14 @@ export default function Address() {
       <div className={style.address__elt}>
         <h5>Horaires</h5>
         <p>
-          Lundi au Jeudi:&nbsp;7h00-12h00 / 13h00-17h00
+          Lundi au Jeudi
           <br />
-          Vendredi:&nbsp;&nbsp;&nbsp;&emsp;&emsp;7h00-12h00
+          7h00-12h00 / 13h00-17h00
+        </p>
+        <p>
+          Vendredi
+          <br />
+          7h00-12h00
         </p>
       </div>
     </div>

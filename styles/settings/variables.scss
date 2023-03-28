@@ -35,12 +35,12 @@
 }
 
 #phone::before {
-  content: "+41 32 846 14 30";
+  content: '+41 32 846 14 30';
   display: inline;
 }
 
 #mail::before {
-  content: "info@pcsa.ch";
+  content: 'info@pcsa.ch';
   display: inline;
 }
 
@@ -66,6 +66,6 @@
     --sct-horiz-margin: 70px;
 
     --navbar-height: 140px;
-    --max-block-width: 940px;
+    --max-block-width: 1200px;
   }
 }

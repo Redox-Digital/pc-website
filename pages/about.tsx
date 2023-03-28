@@ -128,9 +128,8 @@ const historySlides = [
     title: 'Titre 1',
     desc: (
       <p>
-        1. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam ex, nisi, consectetur
-        quia nam porro explicabo necessitatibus expedita, velit recusandae quibusdam quisquam! Porro
-        consequatur est accusamus itaque excepturi quo optio!
+        M. Tony Perret qui a par ailleurs fait son apprentissage de la société reprendre le
+        capital-actions et la direction. Transformation de la société en SA.
       </p>
     ),
     img: 'https://picsum.photos/200/300',
@@ -138,25 +137,13 @@ const historySlides = [
   {
     year: 1970,
     title: 'Titre 2',
-    desc: (
-      <p>
-        2. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam ex, nisi, consectetur
-        quia nam porro explicabo necessitatibus expedita, velit recusandae quibusdam quisquam! Porro
-        consequatur est accusamus itaque excepturi quo optio!
-      </p>
-    ),
+    desc: <p>Inscription au registre du Commerce</p>,
     img: 'https://picsum.photos/200/300',
   },
   {
     year: 1964,
     title: 'Titre 3',
-    desc: (
-      <p>
-        3. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam ex, nisi, consectetur
-        quia nam porro explicabo necessitatibus expedita, velit recusandae quibusdam quisquam! Porro
-        consequatur est accusamus itaque excepturi quo optio!
-      </p>
-    ),
+    desc: <p>Création de la société Paris & Comtesse</p>,
     img: 'https://picsum.photos/200/300',
   },
 ];

@@ -10,31 +10,31 @@ const ourMotivations = [
     slug: 'teamwork',
     path: '/pictograms/Exports_P&C – Picto – Travail équipe.svg',
     title: 'Travail en équipe',
-    desc: 'Combiner les compétences et les forces de chacun pour accomplir les tâches plus efficacement',
+    desc: 'Combiner les compétences et les forces de chacun, l’union fait la force',
   },
   {
     slug: 'teamspirit',
     path: '/pictograms/Exports_P&C – Picto – Esprit équipe.svg',
     title: 'Esprit d’équipe',
-    desc: 'Travailler ensemble vers des objectifs communs, se soutenir et favoriser des relations positives en créant un environnement de travail positif et inspirant',
+    desc: 'Travailler ensemble vers des objectifs communs en créant un environnement de travail inspirant',
   },
   {
     slug: 'passion',
     path: '/pictograms/Exports_P&C – Picto – Passion.svg',
     title: 'Passion',
-    desc: 'Se concentrer sur l’excellence et travailler ensemble pour atteindre des résultats de haute qualité',
+    desc: 'L’étincelle qui allume le feu en nous et pousse à donner le meilleur de soi-même',
   },
   {
     slug: 'creativity',
     path: '/pictograms/Exports_P&C – Picto – Créativité.svg',
     title: 'Créativité',
-    desc: 'Explorer de nouvelles idées, prendre des risques pour résoudre les problèmes et trouver des solutions innovantes',
+    desc: 'L’art de voir les choses autrement, explorer de nouvelles idées et créer quelque chose d’unique',
   },
   {
     slug: 'formation',
     path: '/pictograms/Exports_P&C – Picto – Formation.svg',
     title: 'Formation & développement',
-    desc: 'Acquérir et renforcer des compétences pour se sentir à l’aise et motivé tout en contribuant au développement et réussite de l’entreprise',
+    desc: 'Le tremplin qui permet de s’élever, de grandir et de déployer son potentiel',
   },
 ];
 
@@ -47,6 +47,7 @@ type Job = {
 };
 
 const openJobs: Job[] = [
+  /*
   {
     id: 0,
     title: 'Chef(fe) de projet - Construction métallique 100%',
@@ -54,8 +55,9 @@ const openJobs: Job[] = [
     extLink: 'https://www.jobup.ch/',
     pdfLink: '#',
   },
+  */
   {
-    id: 1,
+    id: 0,
     title: 'Constructeur(trice) métallique ou CAI 100%',
     desc: 'Si vous êtes intéressé(e) par ce poste, nous attendons avec impatience votre CV et une lettre de motivation à info@pc-sa.ch',
     extLink: 'https://www.jobup.ch/',

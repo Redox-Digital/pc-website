@@ -101,21 +101,21 @@ export default function MobileMenu(props: Props) {
           <Link
             href="/services/particuliers"
             onClick={toggleAllMenus}
-            style={{ backgroundImage: 'url(/layouts/bg-home.jpg)' }}
+            style={{ backgroundImage: 'url(/layouts/bg-particuliers.png)' }}
           >
             Particuliers
           </Link>
           <Link
             href="/services/collectivites"
             onClick={toggleAllMenus}
-            style={{ backgroundImage: 'url(/layouts/bg-home.jpg)' }}
+            style={{ backgroundImage: 'url(/layouts/bg-collectivites.png)' }}
           >
             Collectivités
           </Link>
           <Link
             href="/services/entreprises"
             onClick={toggleAllMenus}
-            style={{ backgroundImage: 'url(/layouts/bg-home.jpg)' }}
+            style={{ backgroundImage: 'url(/layouts/bg-entreprises.png)' }}
           >
             Entreprises
           </Link>

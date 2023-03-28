@@ -22,9 +22,10 @@
   > textarea,
   > select {
     width: 100%;
-    padding: var(--margin) var(--padding);
+    padding: var(--padding);
     background: var(--white);
     border: 1px solid var(--gray);
+    font-size: var(--fs-sm);
   }
 
   > textarea {
@@ -39,5 +40,22 @@
     font-size: var(--fs-h5);
     letter-spacing: 0.08em;
     text-transform: uppercase;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .formSection > form {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--margin);
+  }
+
+  .input {
+    width: calc((100% - var(--margin)) / 2);
+    margin-bottom: var(--margin);
+
+    &:has(textarea) {
+      width: 100%;
+    }
   }
 }
