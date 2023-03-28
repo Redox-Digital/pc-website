@@ -11,7 +11,7 @@ const Contact = () => {
                 <meta name="keywords" content="contact" />
             </Head>
             <Hero title="Contact" subtitle="Lorem ipsum dolor sit amet" source="/bg-contact.svg" />
-            <div className={style.form}>
+            <div className={style.container}>
                 <Form />
             </div>
         </>
