@@ -16,7 +16,8 @@ const Form = () => {
       <label htmlFor="type">TYPE DE CLIENT</label>
       <select id="type" name="type">
         <option value="particulier">Particulier</option>
-        <option value="professionnel">Professionnel</option>
+        <option value="collectif">Collectif</option>
+        <option value="entreprise">Entreprise</option>
       </select>
       <label htmlFor="message">MESSAGE*</label>
       <textarea id="message" name="message" required></textarea>
