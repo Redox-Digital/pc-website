@@ -2,7 +2,7 @@ import Image from 'next/image';
 import style from '@/styles/components/Hero.module.scss';
 import Link from 'next/link';
 import arrowDown from '/public/pictograms/arrow-down.svg';
-import logo from '/public/logo/Exports_P&C – Logo – BJ.svg';
+import logo from '/public/logo/p-c_logo_bj.svg';
 
 type Props = {
   title: string;
