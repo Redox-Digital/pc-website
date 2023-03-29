@@ -8,31 +8,31 @@ import JobOffer from '@/components/JobOffer';
 const ourMotivations = [
   {
     slug: 'teamwork',
-    path: '/pictograms/Exports_P&C – Picto – Travailequipe.svg',
+    path: '/pictograms/p-c_teamwork.svg',
     title: 'Travail en équipe',
     desc: 'Combiner les compétences et les forces de chacun, l’union fait la force',
   },
   {
     slug: 'teamspirit',
-    path: '/pictograms/Exports_P&C – Picto – Esprit equipe.svg',
+    path: '/pictograms/p-c_esprit-equipe.svg',
     title: 'Esprit d’équipe',
     desc: 'Travailler ensemble vers des objectifs communs en créant un environnement de travail inspirant',
   },
   {
     slug: 'passion',
-    path: '/pictograms/Exports_P&C – Picto – Passion.svg',
+    path: '/pictograms/p-c_passion.svg',
     title: 'Passion',
     desc: 'L’étincelle qui allume le feu en nous et pousse à donner le meilleur de soi-même',
   },
   {
     slug: 'creativity',
-    path: '/pictograms/Exports_P&C – Picto – Creativite.svg',
+    path: '/pictograms/p-c_creativite.svg',
     title: 'Créativité',
     desc: 'L’art de voir les choses autrement, explorer de nouvelles idées et créer quelque chose d’unique',
   },
   {
     slug: 'formation',
-    path: '/pictograms/Exports_P&C – Picto – Formation.svg',
+    path: '/pictograms/p-c_formation.svg',
     title: 'Formation & développement',
     desc: 'Le tremplin qui permet de s’élever, de grandir et de déployer son potentiel',
   },

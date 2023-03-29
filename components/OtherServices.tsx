@@ -31,14 +31,14 @@ export default function OtherServices({ props }: Props) {
                   className={style.img__yellow}
                   height="120"
                   width="120"
-                  src={`/pictograms/Exports_P&C_Picto_${service.slug}_j.svg`}
+                  src={`/pictograms/p-c_${service.slug}_j.svg`}
                   alt={''}
                 />
                 <Image
                   className={style.img__white}
                   height="120"
                   width="120"
-                  src={`/pictograms/Exports_P&C_Picto_${service.slug}_w.svg`}
+                  src={`/pictograms/p-c_${service.slug}_w.svg`}
                   alt={''}
                 />
               </div>
