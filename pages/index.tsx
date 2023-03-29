@@ -28,7 +28,7 @@ const ourValues = [
   },
   {
     slug: 'entrepreneurship',
-    path: '/pictograms/Exports_P&C – Picto – Passion entreprendre.svg',
+    path: '/pictograms/Exports_P&C – Picto – Passionentreprendre.svg',
     title: "Passion d'entreprendre",
     desc: 'Essentiel pour construire une entreprise durable et résiliente',
   },
