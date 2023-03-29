@@ -19,6 +19,7 @@
     flex-wrap: wrap;
     gap: var(--margin);
     justify-content: center;
+    max-width: var(--max-container-width)
   }
 
   &__block {

@@ -24,7 +24,7 @@ const Form = () => {
                     <option value="entreprise">Entreprise</option>
                 </select>
                 <label htmlFor="message" className={style.label}>MESSAGE*</label>
-                <textarea id="message" name="message" required className={style.input}></textarea>
+                <textarea id="message" name="message" required className={style.input} placeholder="Message"></textarea>
                 <button type="submit" className={bStyle.btn}>Envoyer</button>
             </form>
     );

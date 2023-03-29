@@ -7,6 +7,10 @@
   background-size: cover;
   background-position: center;
 
+  @media only screen and (min-width: 1000px) {
+    align-items: center;
+  }
+
   > h2 {
     text-align: center;
   }
@@ -22,6 +26,7 @@
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    max-width: var(--large-content-width);
 
     &::-webkit-scrollbar {
       display: none;

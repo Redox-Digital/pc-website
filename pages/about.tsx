@@ -8,7 +8,7 @@ import HistorySection from '@/components/HistorySection';
 const ourValues = [
   {
     slug: 'quality',
-    path: '/pictograms/Exports_P&C – Picto – Qualité.svg',
+    path: '/pictograms/Exports_P&C – Picto – Qualite.svg',
     title: 'Qualité',
     desc: 'Engagement à fournir des produits et services de haute qualité',
   },

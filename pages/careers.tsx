@@ -8,13 +8,13 @@ import JobOffer from '@/components/JobOffer';
 const ourMotivations = [
   {
     slug: 'teamwork',
-    path: '/pictograms/Exports_P&C – Picto – Travail équipe.svg',
+    path: '/pictograms/Exports_P&C – Picto – Travailequipe.svg',
     title: 'Travail en équipe',
     desc: 'Combiner les compétences et les forces de chacun, l’union fait la force',
   },
   {
     slug: 'teamspirit',
-    path: '/pictograms/Exports_P&C – Picto – Esprit équipe.svg',
+    path: '/pictograms/Exports_P&C – Picto – Esprit equipe.svg',
     title: 'Esprit d’équipe',
     desc: 'Travailler ensemble vers des objectifs communs en créant un environnement de travail inspirant',
   },
@@ -26,7 +26,7 @@ const ourMotivations = [
   },
   {
     slug: 'creativity',
-    path: '/pictograms/Exports_P&C – Picto – Créativité.svg',
+    path: '/pictograms/Exports_P&C – Picto – Creativite.svg',
     title: 'Créativité',
     desc: 'L’art de voir les choses autrement, explorer de nouvelles idées et créer quelque chose d’unique',
   },

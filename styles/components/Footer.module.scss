@@ -1,10 +1,12 @@
 .footer {
   border-top: 4px solid var(--accent-dark);
+  
 
   &__submenu > a {
     font-size: var(--fs-sm);
     text-transform: capitalize;
     letter-spacing: 0.01em;
+    
 
     &::after {
       content: ' | ';
@@ -21,7 +23,11 @@
     justify-content: center;
     gap: 50px;
     padding: var(--margin) var(--sct-horiz-margin) 50px;
-
+    @media only screen and (min-width: 2400px) {
+    max-width: var(--large-content-width);
+    margin: 0 auto;
+    }
+    
     &__logo {
       order: 0;
 
