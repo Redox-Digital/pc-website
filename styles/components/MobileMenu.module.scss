@@ -6,6 +6,13 @@
   height: calc(100svh - var(--navbar-height));
   position: fixed;
   top: var(--navbar-height);
+  scrollbar-width: none;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   width: 100%;
 
