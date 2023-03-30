@@ -4,6 +4,7 @@
   --dark: #1d1f22;
   --black: #000000;
   --gray: #d9d9d9;
+  --dark-gray: #696969;
 
   --accent: #a88d44;
   --accent-dark: #fcc238;
@@ -35,6 +36,7 @@
   --max-container-width: 1200px;
 
   --large-content-width: 1600px;
+  --gallery-img-height: 500px;
 }
 
 #phone::before {
@@ -70,5 +72,7 @@
 
     --navbar-height: 140px;
     --max-block-width: 1200px;
+
+    --large-content-width: 1600px;
   }
 }

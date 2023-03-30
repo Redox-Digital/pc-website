@@ -1,13 +1,10 @@
 .txtImgSection {
-  flex-direction: column;
-  gap: var(--margin);
-  align-items: flex-start;
-  justify-content: center;
-  @media only screen and (min-width: 2400px) {
-  max-width: var(--large-content-width);
+  > div {
+    flex-direction: column;
+    gap: var(--margin);
+    align-items: flex-start;
+    justify-content: center;
   }
-  margin: 0 auto;
-  
 
   &__surtitle {
     text-align: center;
@@ -54,9 +51,11 @@
 
 @media screen and (min-width: 768px) {
   .txtImgSection {
-    flex-direction: row;
-    height: fit-content;
-    gap: var(--sct-horiz-margin);
+    > div {
+      flex-direction: row;
+      height: fit-content;
+      gap: var(--sct-horiz-margin);
+    }
 
     &__image {
       margin: 0;
@@ -77,7 +76,6 @@
       > h2 {
         width: 100%;
         margin-left: calc(var(--sct-vert-margin) * -1);
-        
       }
 
       > img {

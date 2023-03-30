@@ -1,6 +1,6 @@
-import Button from "./Button";
-import btn from "@/styles/components/Button.module.scss";
-import style from "@/styles/components/Newsletter.module.scss";
+import Button from './Button';
+import btn from '@/styles/components/Button.module.scss';
+import style from '@/styles/components/Newsletter.module.scss';
 
 export default function Newsletter() {
   return (
@@ -11,31 +11,33 @@ export default function Newsletter() {
       className={style.nl}
       style={{ backgroundImage: `url(/layouts/newsletter.jpg)` }}
     >
-      <div className={style.nl__titles}>
-        <h3>Recevez nos dernières informations</h3>
-        <p>Inscrivez-vous à notre newsletter</p>
-      </div>
-      <div className={style.nl__input}>
-        <input
-          type="email"
-          name="inf[1]"
-          data-inf-meta="1"
-          data-inf-error="Merci de renseigner une adresse email"
-          required
-          placeholder="Email"
-        />
-        <input
-          type="hidden"
-          name="key"
-          value="eyJpdiI6ImRFbk1LaG1oQVA2MVRcL2VZUFlnQkRUb1kzaFhWcjhFOVwvcm9YKzJZU3g3az0iLCJ2YWx1ZSI6Ik1hak9xcFwvbVpZeGpzanBNVDV5RXZlYm5LWFlOYzBXbVY1b3JWbXY2WUtJPSIsIm1hYyI6IjJkODE5OWZlMzVmNDQzOTNjYWI3Yjg3ZGJjMTUzNzAxNTVjMzI5M2U4NDQwMzI3NGRhOTY4OTA4ZTdhODA4N2QifQ=="
-        />
-        <input type="hidden" name="webform_id" value="14062" />
-        <input
-          className={`${btn.btn} ${btn.btn__big} ${btn.btn__black} ${style.submit}`}
-          type="submit"
-          name=""
-          value="S'inscrire"
-        />
+      <div className={style.nl__content}>
+        <div className={style.nl__titles}>
+          <h3>Recevez nos dernières informations</h3>
+          <p>Inscrivez-vous à notre newsletter</p>
+        </div>
+        <div className={style.nl__input}>
+          <input
+            type="email"
+            name="inf[1]"
+            data-inf-meta="1"
+            data-inf-error="Merci de renseigner une adresse email"
+            required
+            placeholder="Email"
+          />
+          <input
+            type="hidden"
+            name="key"
+            value="eyJpdiI6ImRFbk1LaG1oQVA2MVRcL2VZUFlnQkRUb1kzaFhWcjhFOVwvcm9YKzJZU3g3az0iLCJ2YWx1ZSI6Ik1hak9xcFwvbVpZeGpzanBNVDV5RXZlYm5LWFlOYzBXbVY1b3JWbXY2WUtJPSIsIm1hYyI6IjJkODE5OWZlMzVmNDQzOTNjYWI3Yjg3ZGJjMTUzNzAxNTVjMzI5M2U4NDQwMzI3NGRhOTY4OTA4ZTdhODA4N2QifQ=="
+          />
+          <input type="hidden" name="webform_id" value="14062" />
+          <input
+            className={`${btn.btn} ${btn.btn__big} ${btn.btn__black} ${style.submit}`}
+            type="submit"
+            name=""
+            value="S'inscrire"
+          />
+        </div>
       </div>
       <div className="overlay" style={{ opacity: 0.2 }} />
     </form>

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import style from '@/styles/components/ImageGallery.module.scss';
+import style from '@/styles/layouts/Services.module.scss';
 
 type Props = {
   path: string;
@@ -8,11 +8,11 @@ type Props = {
 
 export default function ImageGallery({ path, title }: Props) {
   return (
-    <div className={style.image}>
-      <img src={path} alt={''} />
-      <div className={style.image__overlay}>
+    <figure className={style.image}>
+      <img src={path} alt={title} />
+      <figcaption className={style.image__overlay}>
         <p>{title}</p>
-      </div>
-    </div>
+      </figcaption>
+    </figure>
   );
 }

@@ -1,12 +1,10 @@
 .footer {
   border-top: 4px solid var(--accent-dark);
-  
 
   &__submenu > a {
     font-size: var(--fs-sm);
     text-transform: capitalize;
     letter-spacing: 0.01em;
-    
 
     &::after {
       content: ' | ';
@@ -23,13 +21,13 @@
     justify-content: center;
     gap: 50px;
     padding: var(--margin) var(--sct-horiz-margin) 50px;
-    @media only screen and (min-width: 2400px) {
-    max-width: var(--large-content-width);
-    margin: 0 auto;
-    }
-    
+    width: 100%;
+
     &__logo {
       order: 0;
+      width: 100%;
+      max-width: var(--large-content-width);
+      margin: 0 auto;
 
       > img {
         max-width: 100%;
@@ -42,6 +40,9 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
+      width: 100%;
+      max-width: var(--large-content-width);
+      margin: 0 auto;
 
       &__socials {
         display: flex;
@@ -60,6 +61,9 @@
       display: flex;
       flex-direction: column;
       gap: var(--margin);
+      width: 100%;
+      max-width: var(--large-content-width);
+      margin: 0 auto;
 
       &__right {
         display: flex;
@@ -102,8 +106,18 @@
     display: flex;
     align-items: center;
     padding: var(--margin) var(--sct-horiz-margin);
-    color: var(--gray);
+    color: var(--dark-gray);
     background: var(--black);
+
+    > small {
+      width: 100%;
+      max-width: var(--large-content-width);
+      margin: 0 auto;
+
+      > a {
+        opacity: 0.75;
+      }
+    }
   }
 }
 

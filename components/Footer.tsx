@@ -54,6 +54,10 @@ export default function Footer() {
           <Link href="https://redoxdigital.ch" target="_blank">
             Redox&nbsp;Digital
           </Link>
+          , avec{' '}
+          <Link href="https://redoxdigital.ch" target="_blank">
+            S. Mettraux
+          </Link>
         </small>
       </div>
     </footer>

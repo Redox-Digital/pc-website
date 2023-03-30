@@ -21,23 +21,29 @@ const Hero = (props: Props) => {
         className={`${style.hero} ${home ? style.hero__home : ''}`}
         style={{ backgroundImage: `url(${source})` }}
       >
-        <div className={style.hero__overlay} style={{ opacity: opacity || 0.3 }} />
         {home ? (
-          <>
-            <Image src={logo} alt={''} width="900" />
-            {/* Pour optimiser : https://beta.nextjs.org/docs/optimizing/lazy-loading#example-adding-a-custom-loading-component */}
-            <video autoPlay muted loop>
-              <source src="/layouts/videoBg.mp4" type="video/mp4" />
-            </video>
-          </>
+          <video autoPlay muted loop>
+            <source src="/layouts/PC-Video_BG-V1-1080-LowBitrate.mp4" type="video/mp4" />
+          </video>
         ) : (
-          <h1 className={style.title}>{title}</h1>
+          ''
         )}
+        <div className={style.hero__overlay} style={{ opacity: opacity || 0.3 }} />
+        <div className={style.hero__content}>
+          {home ? (
+            <>
+              <Image src={logo} alt={''} width="1200" />
+              {/* Pour optimiser : https://beta.nextjs.org/docs/optimizing/lazy-loading#example-adding-a-custom-loading-component */}
+            </>
+          ) : (
+            <h1 className={style.title}>{title}</h1>
+          )}
 
-        <p className={style.subtitle}>{subtitle}</p>
-        <Link href="#intro" scroll={false}>
-          <Image src={arrowDown} alt={''}></Image>
-        </Link>
+          <p className={style.subtitle}>{subtitle}</p>
+          <Link href="#intro" scroll={false}>
+            <Image src={arrowDown} alt={''}></Image>
+          </Link>
+        </div>
       </header>
       <span id="intro">{/* Anchor */}</span>
     </>

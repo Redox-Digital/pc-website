@@ -61,10 +61,26 @@ const servicesStatic: Service[] = [
         id: 0,
         title:
           'Exemple de titre très long ladjfkdasfjladfkjaslfjasfl kjlsak jdsalk fjasld kjasl kads jals',
+        path: 'https://picsum.photos/300/500',
+      },
+      { id: 1, title: 'Exemple de titre', path: 'https://picsum.photos/300/500' },
+      { id: 2, title: 'Exemple de titre', path: 'https://picsum.photos/500/300' },
+      {
+        id: 3,
+        title:
+          'Exemple de titre très long ladjfkdasfjladfkjaslfjasfl kjlsak jdsalk fjasld kjasl kads jals',
+        path: 'https://picsum.photos/500/300',
+      },
+      { id: 4, title: 'Exemple de titre', path: 'https://picsum.photos/500/300' },
+      { id: 5, title: 'Exemple de titre', path: 'https://picsum.photos/500/300' },
+      {
+        id: 6,
+        title:
+          'Exemple de titre très long ladjfkdasfjladfkjaslfjasfl kjlsak jdsalk fjasld kjasl kads jals',
         path: 'https://picsum.photos/200/300',
       },
-      { id: 1, title: 'Exemple de titre', path: 'https://picsum.photos/300/200' },
-      { id: 2, title: 'Exemple de titre', path: 'https://picsum.photos/200/300' },
+      { id: 7, title: 'Exemple de titre', path: 'https://picsum.photos/300/500' },
+      { id: 8, title: 'Exemple de titre', path: 'https://picsum.photos/500/300' },
     ],
     otherServices: [otherCollectivites, otherEntreprises],
   },
@@ -109,33 +125,37 @@ export default function Service() {
       />
       <main className={style.service}>
         <section className={`${style.service__intro} light`}>
-          <div className={style.service__titles}>
-            <h5>Pour les {service.heroTitle}</h5>
-            <h2>Services sur-mesure</h2>
+          <div className="container">
+            <div className={style.service__titles}>
+              <h5>Pour les {service.heroTitle}</h5>
+              <h2>Services sur-mesure</h2>
+            </div>
+
+            <p>{service.introDesc}</p>
+
+            <ul className={style.service__list}>
+              {service.services.map((service, i) => (
+                <li key={`service_${i}`}>{service}</li>
+              ))}
+            </ul>
           </div>
-
-          <p>{service.introDesc}</p>
-
-          <ul className={style.service__list}>
-            {service.services.map((service, i) => (
-              <li key={`service_${i}`}>{service}</li>
-            ))}
-          </ul>
         </section>
         <section className={`${style.gallery} light`}>
-          <div className={style.service__titles}>
-            <h5>une image vaut mille mots</h5>
-            <h2>Découvrez nos réalisations</h2>
-          </div>
-          <div className={style.gallery__images}>
-            {service.realisations.map((img) => (
-              <ImageGallery key={img.id} {...img} />
-            ))}
-          </div>
+          <div className="container">
+            <div className={style.service__titles}>
+              <h5>une image vaut mille mots</h5>
+              <h2>Découvrez nos réalisations</h2>
+            </div>
+            <div className={style.gallery__images}>
+              {service.realisations.map((img) => (
+                <ImageGallery key={img.id} {...img} />
+              ))}
+            </div>
 
-          <button className={`${btn.btn} ${btn.btn__secondary}`} type="button">
-            En voir plus
-          </button>
+            <button className={`${btn.btn} ${btn.btn__secondary}`} type="button">
+              En voir plus
+            </button>
+          </div>
         </section>
         <ContactCTA />
         <OtherServices props={service.otherServices} />

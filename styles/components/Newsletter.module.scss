@@ -1,21 +1,26 @@
 .nl {
   padding: var(--sct-vert-margin) var(--sct-horiz-margin);
-  display: flex;
   background-size: cover;
   background-position: center;
-  flex-direction: column;
-  gap: var(--padding);
-  position: relative;
-  
-  
+
+  &__content {
+    width: 100%;
+    max-width: var(--large-content-width);
+    margin: 0 auto;
+    display: flex;
+
+    flex-direction: column;
+    gap: var(--padding);
+    position: relative;
+  }
+
   &__titles {
     z-index: 1;
     display: flex;
     flex-direction: column;
     gap: var(--padding);
-    
 
-    >p {
+    > p {
       margin: 0;
     }
   }
@@ -26,7 +31,7 @@
     flex-direction: column;
     gap: 15px;
 
-    >input[type="email"] {
+    > input[type='email'] {
       height: 48px;
       background: transparent;
       color: var(--white);
@@ -45,7 +50,7 @@
   .nl__input {
     flex-direction: row;
 
-    >input[type="email"] {
+    > input[type='email'] {
       height: auto;
       min-width: 340px;
     }

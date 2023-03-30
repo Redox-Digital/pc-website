@@ -13,21 +13,23 @@ type Props = {
 export default function TextImageSection({ title, surtitle, children, light, imgPath }: Props) {
   return (
     <section className={`${style.txtImgSection} ${light ? 'light' : ''}`}>
-      <div className={style.txtImgSection__surtitle}>
-        <h5 className={light ? 'color-accent' : ''}>{surtitle}</h5>
-      </div>
-      <div
-        className={style.txtImgSection__image}
-        style={{ backgroundImage: `url(${imgPath})` }}
-      ></div>
-      <div className={style.txtImgSection__content}>
-        <h5 className={light ? 'color-accent' : ''}>{surtitle}</h5>
-        {title === 'logo' ? (
-          <Image src={logo} alt={''} width="900" />
-        ) : (
-          <h2 className="all-caps">{title}</h2>
-        )}
-        <div className={style.txtImgSection__texts}>{children}</div>
+      <div className="container">
+        <div className={style.txtImgSection__surtitle}>
+          <h5 className={light ? 'color-accent' : ''}>{surtitle}</h5>
+        </div>
+        <div
+          className={style.txtImgSection__image}
+          style={{ backgroundImage: `url(${imgPath})` }}
+        ></div>
+        <div className={style.txtImgSection__content}>
+          <h5 className={light ? 'color-accent' : ''}>{surtitle}</h5>
+          {title === 'logo' ? (
+            <Image src={logo} alt={''} width="900" />
+          ) : (
+            <h2 className="all-caps">{title}</h2>
+          )}
+          <div className={style.txtImgSection__texts}>{children}</div>
+        </div>
       </div>
     </section>
   );
