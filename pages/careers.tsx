@@ -80,7 +80,7 @@ export default function Careers() {
         <title>Paris & Comtesse SA | Emplois</title>
         <meta name="keywords" content="Emplois" />
       </Head>
-      <Hero title="Emplois" subtitle="Nous rejoindre" source="/layouts/bg-careers.svg" />
+      <Hero title="Emplois" subtitle="Nous rejoindre" source="/layouts/bg-careers.jpg" />
       <main className={style.careers}>
         <section className={`${style.careers__intro} light`}>
           <div className="container">

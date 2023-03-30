@@ -17,7 +17,7 @@ export default function ServicesSection() {
   return (
     <section
       className={style.services}
-      style={{ backgroundImage: `url(./layouts/bg-careers.svg)` }}
+      style={{ backgroundImage: `url(./layouts/bg-careers.jpg)` }}
     >
       <h2>Nos services</h2>
       <div className={style.services__holder}>
