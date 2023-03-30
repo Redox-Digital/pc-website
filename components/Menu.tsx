@@ -39,31 +39,33 @@ const Header = () => {
         }`}
       >
         <div className={style.mainMenu}>
-          <Link href="/" className={style.logo}>
-            <Image src={logo} alt="logo" height={30} className="logo" />
-          </Link>
-
-          <div className={style.menu__links}>
-            <Link href="/">Accueil</Link>
-            <Link href="#" scroll={false} className={style.submenu}>
-              Services
+          <div className={style.mainMenu__container}>
+            <Link href="/" className={style.logo}>
+              <Image src={logo} alt="logo" height={30} className="logo" />
             </Link>
-            <DropdownMenu />
 
-            <Link href="/about">À propos</Link>
-            <Link href="/careers">Emplois</Link>
-            <Button to="/contact" size="small" addClass="btn">
-              Contact
-            </Button>
+            <div className={style.menu__links}>
+              <Link href="/">Accueil</Link>
+              <Link href="#" scroll={false} className={style.submenu}>
+                Services
+              </Link>
+              <DropdownMenu />
+
+              <Link href="/about">À propos</Link>
+              <Link href="/careers">Emplois</Link>
+              <Button to="/contact" size="small" addClass="btn">
+                Contact
+              </Button>
+            </div>
+            <button
+              className={`${style.burger} ${menuOpen ? style.burger__closed : ''}`}
+              onClick={toggleMenu}
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
           </div>
-          <button
-            className={`${style.burger} ${menuOpen ? style.burger__closed : ''}`}
-            onClick={toggleMenu}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
         </div>
       </nav>
       <MobileMenu open={menuOpen} toggleMenu={toggleMenu} />

@@ -6,23 +6,27 @@
   transition: all 0.3s ease-in-out;
 
   > .mainMenu {
+    width: 100%;
     height: var(--navbar-height);
+
     display: flex;
-    flex-direction: row;
+
     padding: 0px var(--sct-horiz-margin);
-    align-items: center;
-    justify-content: space-between;
+
     border-bottom: 1px solid rgba(125, 125, 125, 0);
     transition: all 0.3s ease-in-out;
-  }
 
-  @media only screen and (min-width: 2400px) {
-    > .mainMenu {
+    > .mainMenu__container {
+      width: 100%;
+      max-width: var(--large-content-width);
+      margin: 0 auto;
+
       display: flex;
-      justify-content: space-around;
-      padding: 0px;
+      flex-direction: row;
+
+      align-items: center;
+      justify-content: space-between;
     }
-    
   }
 
   &:hover {

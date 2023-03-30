@@ -2,6 +2,7 @@
   padding: var(--sct-vert-margin) var(--sct-horiz-margin);
   background-size: cover;
   background-position: center;
+  position: relative;
 
   &__content {
     width: 100%;
@@ -44,6 +45,16 @@
 
 .submit {
   color: inherit;
+}
+
+.overlay {
+  position: absolute;
+  background-color: var(--black);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
 }
 
 @media screen and (min-width: 576px) {

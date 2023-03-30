@@ -83,22 +83,24 @@ export default function Careers() {
       <Hero title="Emplois" subtitle="Nous rejoindre" source="/layouts/bg-careers.svg" />
       <main className={style.careers}>
         <section className={`${style.careers__intro} light`}>
-          <div className="title">
-            <h2>Travaillez chez nous</h2>
-          </div>
-          <div className="text">
-            <p>
-              Nous sommes une entreprise dynamique et passionnée, spécialisée dans la construction
-              métallique. Nous sommes constamment à la recherche de nouveaux talents pour rejoindre
-              notre équipe.
-            </p>
-            <p>
-              Travailler chez nous, c’est avoir l’opportunité de travailler sur des projets
-              stimulants et innovants, dans un environnement de travail convivial et centré sur
-              l’humain. Nous croyons que notre succès est lié à celui de nos employés, c’est
-              pourquoi nous proposons des formations et nous engageons également dans la formation
-              d’apprentis.
-            </p>
+          <div className="container">
+            <div className={style.careers__intro__title}>
+              <h2>Travaillez chez nous</h2>
+            </div>
+            <div className={style.careers__intro__text}>
+              <p>
+                Nous sommes une entreprise dynamique et passionnée, spécialisée dans la construction
+                métallique. Nous sommes constamment à la recherche de nouveaux talents pour
+                rejoindre notre équipe.
+              </p>
+              <p>
+                Travailler chez nous, c’est avoir l’opportunité de travailler sur des projets
+                stimulants et innovants, dans un environnement de travail convivial et centré sur
+                l’humain. Nous croyons que notre succès est lié à celui de nos employés, c’est
+                pourquoi nous proposons des formations et nous engageons également dans la formation
+                d’apprentis.
+              </p>
+            </div>
           </div>
         </section>
         <InfographySection

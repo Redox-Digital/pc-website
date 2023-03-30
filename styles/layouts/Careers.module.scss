@@ -1,5 +1,5 @@
 .careers {
-  &__intro {
+  &__intro > div {
     flex-direction: column;
     gap: var(--title-text-space);
     padding-bottom: 0px;
@@ -22,9 +22,15 @@
 
 @media screen and (min-width: 1200px) {
   .careers__intro {
-    flex-direction: row;
-    gap: var(--sct-horiz-margin);
-    align-items: center;
-    padding-bottom: var(--vert-spacing);
+    > div {
+      flex-direction: row;
+      gap: var(--sct-horiz-margin);
+      align-items: center;
+      padding-bottom: var(--vert-spacing);
+    }
+
+    &__title {
+      min-width: 340px;
+    }
   }
 }
