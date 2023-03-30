@@ -25,9 +25,7 @@ const Contact = () => {
       >
         <Address />
       </TextImageSection>
-      <section>
-        <Map />
-      </section>
+      <Map />
 
       <ContactForm />
     </>
