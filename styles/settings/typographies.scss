@@ -1,36 +1,47 @@
 // Circular
+
 /*
 @font-face {
   font-family: circular;
   font-weight: 700;
-  src: url('/fonts/CircularStd-Black.otf');
+  src: url('/fonts/circular/CircularStd-Black.otf');
 }
 
 @font-face {
   font-family: circular;
   font-weight: 600;
-  src: url('/fonts/CircularStd-Bold.otf');
+  src: url('/fonts/circular/CircularStd-Bold.otf');
 }
 
 @font-face {
   font-family: circular;
   font-weight: 500;
-  src: url('/fonts/CircularStd-Medium.otf');
+  src: url('/fonts/circular/CircularStd-Medium.otf');
 }
 
 @font-face {
   font-family: circular;
   font-weight: 400;
-  src: url('/fonts/CircularStd-Book.otf');
+  src: url('/fonts/circular/CircularStd-Book.otf');
 }
 */
 
-// Backup font
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+// Jakarta
+@font-face {
+  font-family: jakarta;
+  font-style: normal;
+  src: url('/fonts/jakarta/PlusJakartaSans-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: jakarta;
+  font-style: italic;
+  src: url('/fonts/jakarta/PlusJakartaSans-Italic-VariableFont_wght.ttf');
+}
 
 body {
-  // font-family: circular, 'Plus Jakarta Sans', serif;
-  font-family: 'Plus Jakarta Sans', serif;
+  font-family: jakarta, 'Plus Jakarta Sans', serif;
+  // font-family: 'Plus Jakarta Sans', serif;
   font-style: normal;
   font-weight: 400;
   font-size: var(--fs-p);
