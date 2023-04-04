@@ -8,28 +8,33 @@ export default function DropdownMenu() {
     <div className={style.submenu__content}>
       <Link
         href="/services/particuliers"
-        style={{ backgroundImage: 'url(/layouts/bg-particuliers.png)' }}
+        style={{ backgroundImage: 'url(/layouts/particuliers-hero.jpg)' }}
       >
+        {' '}
+        <div className={style.overlay}></div>
         <h5>Particuliers</h5>
         <p>
-          Tôlerie industrielle, fabrication de structures métalliques sur-mesure, mise aux normes de
-          structures existantes
+          Conception et réalisation de projets d’aménagement intérieur et extérieur, décoration
+          d&rsquo;intérieur
         </p>
       </Link>
       <Link
         href="/services/collectivites"
-        style={{ backgroundImage: 'url(/layouts/bg-collectivites.png)' }}
+        style={{ backgroundImage: 'url(/layouts/collectivites-hero.jpg)' }}
       >
+        <div className={style.overlay}></div>
         <h5>Collectivités</h5>
         <p>
-          Tôlerie industrielle, fabrication de structures métalliques sur-mesure, mise aux normes de
-          structures existantes
+          Conception et réalisation de projets d’aménagement extérieur, gestion de projets publics
+          pour les communes, écoles, crèches, homes, etc.
         </p>
       </Link>
       <Link
         href="/services/entreprises"
-        style={{ backgroundImage: 'url(/layouts/bg-entreprises.png)' }}
+        style={{ backgroundImage: 'url(/layouts/entreprises-hero.jpg)' }}
       >
+        {' '}
+        <div className={style.overlay}></div>
         <h5>Entreprises</h5>
         <p>
           Tôlerie industrielle, fabrication de structures métalliques sur-mesure, mise aux normes de
@@ -38,13 +43,4 @@ export default function DropdownMenu() {
       </Link>
     </div>
   );
-  {
-    /* 
-    <menu className="hidden">
-      <Image src={placeholder} alt="vercel" width={150} height={100} />
-      <Image src={placeholder} alt="next" width={150} height={100} />
-      <Image src={placeholder} alt="logo" width={150} height={100} />
-    </menu>
-  */
-  }
 }

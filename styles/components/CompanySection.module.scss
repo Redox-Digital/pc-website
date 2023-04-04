@@ -16,6 +16,12 @@
     flex-direction: column;
     gap: var(--title-surtitle-space);
     text-align: center;
+    align-items: center;
+
+    > img {
+      width: 640px;
+      height: auto;
+    }
 
     > h5 {
       color: var(--accent-dark);

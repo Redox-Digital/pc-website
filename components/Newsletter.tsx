@@ -39,7 +39,7 @@ export default function Newsletter() {
           />
         </div>
       </div>
-      <div className={style.overlay} style={{ opacity: 0.25 }} />
+      <div className={style.overlay} style={{ opacity: 0.1 }} />
     </form>
   );
 }

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import style from '@/styles/components/CompanySection.module.scss';
+import logo from '/public/logo/p-c_logo_bj.svg';
 
 type Slide = {
   id: number;
@@ -26,7 +27,7 @@ export default function CompanySection({ slides }: Props) {
       <div className={style.company__container}>
         <div className={style.company__titles}>
           <h5>L&rsquo;entreprise</h5>
-          <h2>Paris & Comtesse sa</h2>
+          <Image src={logo} alt="" className="logo" />
         </div>
 
         <div className={style.company__content}>

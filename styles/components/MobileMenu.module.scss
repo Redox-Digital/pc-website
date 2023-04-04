@@ -39,6 +39,14 @@
       border: none;
       color: var(--white);
 
+      transition: color 0.3s ease-in-out;
+
+      &:hover {
+        transition: color 0.3s ease-in-out;
+        color: var(--accent-dark);
+        cursor: pointer;
+      }
+
       &::after {
         content: ' ▸';
         color: var(--accent);
@@ -114,6 +122,13 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--white);
+      transition: color 0.3s ease-in-out;
+
+      &:hover {
+        transition: color 0.3s ease-in-out;
+        color: var(--accent-dark);
+        cursor: pointer;
+      }
 
       &::before {
         content: '◂ ';
@@ -124,17 +139,32 @@
 
   &__body {
     height: 100%;
+
     > a {
       display: flex;
-      font-size: var(--fs-h5);
-      letter-spacing: 0.08em;
       align-items: center;
       justify-content: center;
-      text-transform: uppercase;
       width: 100%;
       height: calc((100% - var(--navbar-height)) / 3);
       background-size: cover;
       background-position: center;
+      position: relative;
+
+      > h5 {
+        z-index: 2;
+      }
     }
   }
+}
+
+.overlay {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
 }

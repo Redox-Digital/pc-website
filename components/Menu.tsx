@@ -41,7 +41,7 @@ const Header = () => {
         <div className={style.mainMenu}>
           <div className={style.mainMenu__container}>
             <Link href="/" className={style.logo}>
-              <Image src={logo} alt="logo" height={30} className="logo" />
+              <Image src={logo} alt="" height={30} className="logo" />
             </Link>
 
             <div className={style.menu__links}>

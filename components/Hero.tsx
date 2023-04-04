@@ -28,7 +28,7 @@ const Hero = (props: Props) => {
         ) : (
           ''
         )}
-        <div className={style.hero__overlay} style={{ opacity: opacity || 0.3 }} />
+        <div className={style.hero__overlay} style={{ opacity: opacity || 0.5 }} />
         <div className={style.hero__content}>
           {home ? (
             <>
@@ -40,9 +40,13 @@ const Hero = (props: Props) => {
           )}
 
           <p className={style.subtitle}>{subtitle}</p>
-          <Link href="#intro" scroll={false}>
-            <Image src={arrowDown} alt={''}></Image>
-          </Link>
+          {home ? (
+            <Link href="#intro" scroll={false}>
+              <Image src={arrowDown} alt={''}></Image>
+            </Link>
+          ) : (
+            ''
+          )}
         </div>
       </header>
       <span id="intro">{/* Anchor */}</span>

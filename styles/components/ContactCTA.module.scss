@@ -1,9 +1,22 @@
 .contactCTA {
-    height: 400px;
-    padding: var(--margin);
-    flex-direction: column;
-    gap: var(--padding);
-    background-size: cover;
-    background-position: center;
-    justify-content: center;
+  height: 400px;
+  padding: var(--margin);
+  flex-direction: column;
+  gap: var(--padding);
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+  align-items: flex-end;
+
+  > .container {
+    min-width: 100%;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .contactCTA > .container {
+    min-width: 640px;
+    width: 50%;
+  }
 }

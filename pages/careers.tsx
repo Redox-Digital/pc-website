@@ -47,21 +47,12 @@ type Job = {
 };
 
 const openJobs: Job[] = [
-  /*
-  {
-    id: 0,
-    title: 'Chef(fe) de projet - Construction métallique 100%',
-    desc: 'Si vous êtes intéressé(e) par ce poste, nous attendons avec impatience votre CV et une lettre de motivation à info@pc-sa.ch',
-    extLink: 'https://www.jobup.ch/',
-    pdfLink: '#',
-  },
-  */
   {
     id: 0,
     title: 'Constructeur(trice) métallique ou CAI 100%',
     desc: 'Si vous êtes intéressé(e) par ce poste, nous attendons avec impatience votre CV et une lettre de motivation à info@pc-sa.ch',
-    extLink: 'https://www.jobup.ch/',
-    pdfLink: '',
+    extLink: '',
+    pdfLink: '/job-offers/PC_Offre_Constructeur_metallique.pdf',
   },
 ];
 
@@ -80,7 +71,7 @@ export default function Careers() {
         <title>Paris & Comtesse SA | Emplois</title>
         <meta name="keywords" content="Emplois" />
       </Head>
-      <Hero title="Emplois" subtitle="Nous rejoindre" source="/layouts/bg-careers.jpg" />
+      <Hero title="Emplois" subtitle="Nous rejoindre" source="/layouts/careers-hero.jpg" />
       <main className={style.careers}>
         <section className={`${style.careers__intro} light`}>
           <div className="container">
@@ -112,7 +103,7 @@ export default function Careers() {
         ></InfographySection>
         <div
           className={style.careers__imgBanner}
-          style={{ backgroundImage: 'url(https://picsum.photos/1000/300)' }}
+          style={{ backgroundImage: 'url(/layouts/careers-banner.jpg)' }}
         ></div>
         <section className={style.careers__jobs}>
           <h2>Nos offres d&rsquo;emplois</h2>

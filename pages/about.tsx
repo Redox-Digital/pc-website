@@ -55,8 +55,7 @@ const companySlides = [
         </p>
       </>
     ),
-    img1: 'https://picsum.photos/200/300',
-    img2: 'https://picsum.photos/300/200',
+    img1: '/layouts/about-company-1.jpg',
   },
   {
     id: 1,
@@ -82,8 +81,7 @@ const companySlides = [
         </p>
       </>
     ),
-    img1: 'https://picsum.photos/340/200',
-    img2: 'https://picsum.photos/220/300',
+    img1: '/layouts/about-company-2.jpg',
   },
   {
     id: 2,
@@ -105,8 +103,7 @@ const companySlides = [
         </p>
       </>
     ),
-    img1: 'https://picsum.photos/240/300',
-    img2: 'https://picsum.photos/320/200',
+    img1: '/layouts/about-company-3.jpg',
   },
 ];
 
@@ -121,30 +118,30 @@ const historySlides = [
         technique et de l’atelier reste inchangée.
       </p>
     ),
-    img: 'https://picsum.photos/200/300',
+    img: '/layouts/about-jean.jpg',
   },
   {
     year: 2006,
-    title: 'Titre 1',
+    title: 'Transformation',
     desc: (
       <p>
-        M. Tony Perret qui a par ailleurs fait son apprentissage de la société reprendre le
+        M. Tony Perret qui a par ailleurs fait son apprentissage dans la société reprendre le
         capital-actions et la direction. Transformation de la société en SA.
       </p>
     ),
-    img: 'https://picsum.photos/200/300',
+    img: '/layouts/about-tony.jpg',
   },
   {
     year: 1970,
-    title: 'Titre 2',
+    title: 'Fondation',
     desc: <p>Inscription au registre du Commerce</p>,
-    img: 'https://picsum.photos/200/300',
+    img: '/layouts/about-1.jpg',
   },
   {
     year: 1964,
-    title: 'Titre 3',
+    title: 'Création',
     desc: <p>Création de la société Paris & Comtesse</p>,
-    img: 'https://picsum.photos/200/300',
+    img: '/layouts/about-2.jpg',
   },
 ];
 
@@ -158,7 +155,7 @@ export default function About() {
       <Hero
         title="À propos"
         subtitle="Découvrez notre histoire et notre engagement envers la qualité et le savoir-faire"
-        source="/layouts/bg-about.svg"
+        source="/layouts/about-hero.jpg"
       />
 
       <main className="about">

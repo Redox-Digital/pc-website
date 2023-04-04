@@ -1,24 +1,15 @@
 import Service from './Service';
 import style from '@/styles/components/ServicesSection.module.scss';
-import { useState } from 'react';
 
 export default function ServicesSection() {
   const types = ['particuliers', 'collectivites', 'entreprises'];
-  const [activeSlide, setSlide] = useState<string>(types[0]);
-
-  const radioHandler = (evt: React.ChangeEvent<HTMLInputElement>) => {
-    setSlide(evt.target.id);
-  };
-
-  const goTo = (id: number): void => {
-    setSlide(types[id]);
-  };
 
   return (
     <section
       className={style.services}
-      style={{ backgroundImage: `url(./layouts/bg-careers.jpg)` }}
+      style={{ backgroundImage: `url(./layouts/entreprises-hero.jpg)` }}
     >
+      <div className={style.overlay} />
       <h2>Nos services</h2>
       <div className={style.services__holder}>
         <Service slug="particuliers" title={'Particuliers'}>

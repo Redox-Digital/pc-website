@@ -14,14 +14,21 @@ export default function Service({ title, children, slug }: Props) {
       <div className={style.service__title}>
         <div className={style.service__images}>
           <Image
-            className={style.img__yellow}
+            className={`${style.img} ${style.img__placeholder}`}
             height="120"
             width="120"
             src={`/pictograms/p-c_${slug}_j.svg`}
             alt={''}
           />
           <Image
-            className={style.img__white}
+            className={`${style.img} ${style.img__yellow}`}
+            height="120"
+            width="120"
+            src={`/pictograms/p-c_${slug}_j.svg`}
+            alt={''}
+          />
+          <Image
+            className={`${style.img} ${style.img__white}`}
             height="120"
             width="120"
             src={`/pictograms/p-c_${slug}_w.svg`}
@@ -32,7 +39,9 @@ export default function Service({ title, children, slug }: Props) {
         <h5>{title}</h5>
       </div>
       <small>{children}</small>
-      <Button to={`/services/${slug}`}>En savoir plus</Button>
+      <Button to={`/services/${slug}`} variation="secondary">
+        En savoir plus
+      </Button>
     </article>
   );
 }

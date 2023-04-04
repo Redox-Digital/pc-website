@@ -4,6 +4,7 @@ import logo from '/public/logo/p-c_logo_bj.svg';
 import style from '@/styles/components/Footer.module.scss';
 import Button from './Button';
 import Address from './Address';
+import Socials from './Socials';
 
 export default function Footer() {
   return (
@@ -15,15 +16,7 @@ export default function Footer() {
         <div className={style.footerBody__top}>
           <h5>Suivez-nous sur les réseaux sociaux</h5>
           <div className={style.footerBody__top__socials}>
-            <Link href="#" target="_blank">
-              <i className="fa-brands fa-instagram"></i>
-            </Link>
-            <Link href="#" target="_blank">
-              <i className="fa-brands fa-facebook"></i>
-            </Link>
-            <Link href="#" target="_blank">
-              <i className="fa-brands fa-linkedin-in"></i>
-            </Link>
+            <Socials />
           </div>
         </div>
         <div className={style.footerBody__bottom}>
@@ -51,12 +44,8 @@ export default function Footer() {
       <div className={style.footerBottom}>
         <small>
           &copy; 2023 Paris & Comtesse SA – Site web réalisé par{' '}
-          <Link href="https://redoxdigital.ch" target="_blank">
+          <Link href="https://redoxdigital.ch" target="_blank" rel="noopener noreferrer">
             Redox&nbsp;Digital
-          </Link>
-          , avec{' '}
-          <Link href="https://redoxdigital.ch" target="_blank">
-            S. Mettraux
           </Link>
         </small>
       </div>

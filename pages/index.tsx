@@ -51,13 +51,13 @@ export default function Home() {
         title="Paris & Comtesse SA"
         home
         subtitle="CONSTRUCTION MÉTALLIQUE À BOUDRY (NE)"
-        source="./layouts/bg-home.jpg"
+        source="./layouts/home-hero.jpg"
       />
       <main className="home">
         <TextImageSection
           title={'sur-mesure'}
           surtitle={'Un engagement'}
-          imgPath="./layouts/img-placeholder.png"
+          imgPath="./layouts/home-sur-mesure.jpg"
         >
           <>
             <p>
@@ -85,7 +85,7 @@ export default function Home() {
         <TextImageSection
           title={'Le métal'}
           surtitle={'Un choix éco-responsable'}
-          imgPath="./layouts/metal.jpg"
+          imgPath="./layouts/home-metal.jpg"
           light
         >
           <>

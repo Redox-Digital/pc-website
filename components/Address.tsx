@@ -1,4 +1,5 @@
 import style from '@/styles/components/Address.module.scss';
+import Link from 'next/link';
 
 export default function Address() {
   return (
@@ -6,12 +7,14 @@ export default function Address() {
       <div className={style.address__elt}>
         <h5>Téléphone</h5>
         <p>
-          <span id="phone"></span>
+          <Link href="tel:+41 32 846 14 30">
+            <span id="phone"></span>
+          </Link>
         </p>
       </div>
       <div className={style.address__elt}>
         <h5>Adresse</h5>
-        <p>Chem. de la Baconnière 55, 2017 Boudry</p>
+        <p>Baconnière 55, 2017 Boudry</p>
       </div>
       <div className={style.address__elt}>
         <h5>Horaires</h5>

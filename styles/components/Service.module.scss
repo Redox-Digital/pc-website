@@ -21,16 +21,26 @@
   &__images {
     display: flex;
     flex-direction: column;
+    position: relative;
 
     > .img {
+      position: absolute;
+      height: 100px;
+      width: auto;
+
+      &__placeholder {
+        position: relative;
+        opacity: 0;
+      }
+
       &__white {
         opacity: 1;
-        height: fit-content;
+        transition: opacity 0.3s ease-in-out;
       }
 
       &__yellow {
         opacity: 0;
-        height: 0;
+        transition: opacity 0.3s ease-in-out;
       }
     }
   }
@@ -39,15 +49,21 @@
     background: var(--dark);
     border: solid 1px var(--accent-dark);
 
+    > a {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: var(--white);
+    }
+
     .img {
       &__white {
         opacity: 0;
-        height: 0;
+        transition: opacity 0.3s ease-in-out;
       }
 
       &__yellow {
         opacity: 1;
-        height: fit-content;
+        transition: opacity 0.3s ease-in-out;
       }
     }
   }

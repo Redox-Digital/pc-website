@@ -85,16 +85,31 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
       }
     }
 
     .img {
+      display: flex;
+      position: absolute;
+      margin: 0 auto;
+      transition: opacity 0.3s ease-in-out;
+      height: 120px;
+      width: auto;
+
+      &__placeholder {
+        position: relative;
+        opacity: 0;
+      }
+
       &__white {
-        display: flex;
+        transition: opacity 0.3s ease-in-out;
+        opacity: 1;
       }
 
       &__yellow {
-        display: none;
+        transition: opacity 0.3s ease-in-out;
+        opacity: 0;
       }
     }
 
@@ -107,15 +122,17 @@
 
       .otherServiceBlock__overlay {
         opacity: 1;
-        transition: all 0.3s ease-in-out;
       }
       .img {
+        transition: opacity 0.3s ease-in-out;
         &__white {
-          display: none;
+          transition: opacity 0.3s ease-in-out;
+          opacity: 0;
         }
 
         &__yellow {
-          display: flex;
+          transition: opacity 0.3s ease-in-out;
+          opacity: 1;
         }
       }
     }

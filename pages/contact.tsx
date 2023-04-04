@@ -16,12 +16,12 @@ const Contact = () => {
       <Hero
         title="Contact"
         subtitle="Notre équipe est à votre disposition pour échanger sur votre projet"
-        source="/layouts/bg-contact.jpg"
+        source="/layouts/contact-hero.jpg"
       />
       <TextImageSection
         title={'logo'}
         surtitle={'Nos coordonnées'}
-        imgPath={'https://picsum.photos/200/300'}
+        imgPath={'/layouts/contact-address.jpg'}
       >
         <Address />
       </TextImageSection>

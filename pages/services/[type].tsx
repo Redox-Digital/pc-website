@@ -121,7 +121,7 @@ export default function Service() {
       <Hero
         title={service.heroTitle}
         subtitle={service.heroSubtitle}
-        source={`/layouts/bg-${service.slug}.png`}
+        source={`/layouts/${service.slug}-hero.jpg`}
       />
       <main className={style.service}>
         <section className={`${style.service__intro} light`}>

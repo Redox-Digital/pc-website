@@ -3,6 +3,7 @@ import menu from '@/styles/components/Menu.module.scss';
 import Link from 'next/link';
 import Button from './Button';
 import { useState } from 'react';
+import Socials from './Socials';
 
 type Props = {
   open: boolean;
@@ -68,15 +69,7 @@ export default function MobileMenu(props: Props) {
           </div>
         </div>
         <div className={style.mobileMenu__socials}>
-          <Link href="#" target="_blank">
-            <i className="fa-brands fa-instagram"></i>
-          </Link>
-          <Link href="#" target="_blank">
-            <i className="fa-brands fa-facebook"></i>
-          </Link>
-          <Link href="#" target="_blank">
-            <i className="fa-brands fa-linkedin-in"></i>
-          </Link>
+          <Socials />
         </div>
       </nav>
       <nav
@@ -101,23 +94,26 @@ export default function MobileMenu(props: Props) {
           <Link
             href="/services/particuliers"
             onClick={toggleAllMenus}
-            style={{ backgroundImage: 'url(/layouts/bg-particuliers.png)' }}
+            style={{ backgroundImage: 'url(/layouts/particuliers-hero.jpg)' }}
           >
-            Particuliers
+            <div className={style.overlay}></div>
+            <h5>Particuliers</h5>
           </Link>
           <Link
             href="/services/collectivites"
             onClick={toggleAllMenus}
-            style={{ backgroundImage: 'url(/layouts/bg-collectivites.png)' }}
+            style={{ backgroundImage: 'url(/layouts/collectivites-hero.jpg)' }}
           >
-            Collectivités
+            <div className={style.overlay}></div>
+            <h5>Collectivités</h5>
           </Link>
           <Link
             href="/services/entreprises"
             onClick={toggleAllMenus}
-            style={{ backgroundImage: 'url(/layouts/bg-entreprises.png)' }}
+            style={{ backgroundImage: 'url(/layouts/entreprises-hero.jpg)' }}
           >
-            Entreprises
+            <div className={style.overlay}></div>
+            <h5>Entreprises</h5>
           </Link>
         </div>
       </nav>
