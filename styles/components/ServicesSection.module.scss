@@ -18,6 +18,23 @@
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.6);
+
+    &__particuliers,
+    &__collectivites,
+    &__entreprises {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      transition: 0.3s opacity ease-in-out;
+
+      &.overlay__active {
+        opacity: 1;
+        transition: 0.3s opacity ease-in-out;
+      }
+    }
   }
 
   @media only screen and (min-width: 1000px) {
@@ -42,6 +59,7 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
     max-width: var(--large-content-width);
+    padding: 0 var(--margin);
 
     &::-webkit-scrollbar {
       display: none;

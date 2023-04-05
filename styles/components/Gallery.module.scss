@@ -152,6 +152,7 @@
   }
 
   &:hover {
+    cursor: pointer;
     > .image__overlay {
       opacity: 1;
       transition: all 0.3s ease-in-out;

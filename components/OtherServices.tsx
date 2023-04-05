@@ -19,7 +19,8 @@ export default function OtherServices({ props }: Props) {
       <h5>Nos autres services</h5>
       <div className={style.otherServicesLine}>
         {props.map((service) => (
-          <div
+          <Link
+            href={`/services/${service.slug}`}
             className={style.otherServiceBlock}
             key={service.slug}
             style={{ backgroundImage: `url(/layouts/${service.slug}-hero.jpg)` }}
@@ -50,11 +51,11 @@ export default function OtherServices({ props }: Props) {
                   alt={''}
                 />
               </div>
-              <h2>{service.title}</h2>
+              <h3>{service.title}</h3>
               <small>{service.desc}</small>
             </div>
             <Button to={`/services/${service.slug}`}>En savoir plus</Button>
-          </div>
+          </Link>
         ))}
       </div>
     </section>

@@ -10,6 +10,7 @@
   // max-width: 300px;
   transition: all 0.3s ease-in-out;
   justify-content: space-between;
+  height: 100%;
 
   &__title {
     display: flex;
@@ -48,6 +49,11 @@
   &:hover {
     background: var(--dark);
     border: solid 1px var(--accent-dark);
+
+    > small,
+    h5 {
+      color: var(--white);
+    }
 
     > a {
       background-color: var(--accent);

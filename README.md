@@ -5,18 +5,19 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 The project is organized in the following way:
 
 1. Node Modules
-	Contains all the modules installed with npm install.
+   Contains all the modules installed with npm install.
 
 2. Public
-	Contains the index.html file. This file is the entry point of the project. It contains the root div of the where the react app is mounted.
+   Contains the index.html file. This file is the entry point of the project. It contains the root div of the where the react app is mounted.
 
 3. Src
-	Contains all the files of the project. The files are organized in folders. The folders are organized in the following way:
+   Contains all the files of the project. The files are organized in folders. The folders are organized in the following way:
 
-	1. Components
-		Contains all the components of the project. All components are in a folder with the same name as the component. The component is in a file with the same name as the folder. The css of the component is in a file with the same name as the folder but with the extension .css.
+   1. Components
+      Contains all the components of the project. All components are in a folder with the same name as the component. The component is in a file with the same name as the folder. The css of the component is in a file with the same name as the folder but with the extension .css.
 
 # Commit message format
+
 Each commit message consists of a **header**, a **body** and a **footer**. The header has a special format that includes a **type**, a **scope** and a **subject**:
 
 Format: `<type>(<scope>): <subject>`
@@ -45,6 +46,7 @@ More Examples:
 - `chore`: (updating grunt tasks etc; no production code change)
 
 References:
+
 - https://www.conventionalcommits.org/
 - https://seesparkbox.com/foundry/semantic_commit_messages
 - http://karma-runner.github.io/1.0/dev/git-commit-msg.html
@@ -115,5 +117,3 @@ yarn export
 # or
 pnpm export
 ```
-
-

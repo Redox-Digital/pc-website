@@ -53,6 +53,13 @@
     flex-direction: column;
     gap: var(--title-text-space);
 
+    &:hover {
+      > small,
+      > h3 {
+        color: var(--white);
+      }
+    }
+
     &__images {
       display: none;
     }
@@ -114,6 +121,10 @@
     }
 
     &:hover {
+      > small {
+        color: var(--white);
+      }
+
       > a {
         color: var(--white);
         background-color: var(--accent);

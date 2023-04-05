@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import Button from './Button';
 import style from '@/styles/components/Service.module.scss';
+import Link from 'next/link';
+import { MouseEventHandler } from 'react';
 
 type Props = {
   title: string;
@@ -10,7 +12,7 @@ type Props = {
 
 export default function Service({ title, children, slug }: Props) {
   return (
-    <article id={slug} className={style.service}>
+    <Link id={slug} href={`/services/${slug}`} className={style.service}>
       <div className={style.service__title}>
         <div className={style.service__images}>
           <Image
@@ -42,6 +44,6 @@ export default function Service({ title, children, slug }: Props) {
       <Button to={`/services/${slug}`} variation="secondary">
         En savoir plus
       </Button>
-    </article>
+    </Link>
   );
 }
