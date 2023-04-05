@@ -1,9 +1,9 @@
 import style from '@/styles/components/MobileMenu.module.scss';
 import menu from '@/styles/components/Menu.module.scss';
 import Link from 'next/link';
-import Button from './Button';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Socials from './Socials';
+import Address from './Address';
 
 type Props = {
   open: boolean;
@@ -23,6 +23,10 @@ export default function MobileMenu(props: Props) {
     toggleSubMenu();
     toggleMenu();
   };
+
+  useEffect(() => {
+    open ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'auto');
+  }, [open]);
 
   return (
     <>
@@ -48,26 +52,7 @@ export default function MobileMenu(props: Props) {
             Contact
           </Link>
         </div>
-        <div className={style.mobileMenu__contactInfos}>
-          <div className={style.mobileMenu__contactInfos__elt}>
-            <h5>Téléphone</h5>
-            <p>
-              <span id="phone"></span>
-            </p>
-          </div>
-          <div className={style.mobileMenu__contactInfos__elt}>
-            <h5>Adresse</h5>
-            <p>Chem. de la Baconnière 55, 2017 Boudry</p>
-          </div>
-          <div className={style.mobileMenu__contactInfos__elt}>
-            <h5>Horaires</h5>
-            <p>
-              Lundi au Jeudi:&nbsp;7h00-12h00 / 13h00-17h00
-              <br />
-              Vendredi:&nbsp;&nbsp;&nbsp;&emsp;&emsp;7h00-12h00
-            </p>
-          </div>
-        </div>
+        <Address />
         <div className={style.mobileMenu__socials}>
           <Socials />
         </div>

@@ -19,7 +19,8 @@
     align-items: center;
 
     > img {
-      width: 640px;
+      width: 100%;
+      max-width: 640px;
       height: auto;
     }
 

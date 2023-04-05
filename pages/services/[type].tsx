@@ -5,44 +5,47 @@ import OtherServices from '@/components/OtherServices';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import style from '@/styles/layouts/Services.module.scss';
-import btn from '@/styles/components/Button.module.scss';
-import ImageGallery from '@/components/ImageGallery';
+import Gallery from '@/components/Gallery';
+
+// Importing static data (Realisations)
+import RealisationsParticuliers from '@/data/particuliers';
+import RealisationsEntreprises from '@/data/entreprises';
+import RealisationsCollectivites from '@/data/collectivites';
 
 type Realisation = {
   id: number;
   title: string;
-  path: string;
 };
 
 type Service = {
-  slug: string;
+  slug: 'particuliers' | 'collectivites' | 'entreprises';
   heroTitle: string;
   heroSubtitle: string;
   introDesc: string | JSX.Element;
   services: string[];
-  realisations: Realisation[];
   otherServices: OtherService[];
+  realisations: Realisation[];
 };
 
 type OtherService = {
-  slug: string;
+  slug: 'particuliers' | 'collectivites' | 'entreprises';
   title: string;
   desc: string;
 };
 
-const otherParticuliers = {
+const otherParticuliers: OtherService = {
   slug: 'particuliers',
   title: 'Particuliers',
   desc: 'Conception et réalisation de projets d’aménagement intérieur et extérieur, décoration d’intérieur',
 };
 
-const otherCollectivites = {
+const otherCollectivites: OtherService = {
   slug: 'collectivites',
   title: 'Collectivités',
   desc: 'Conception & réalisation de projets d’aménagement extérieur, gestion de projets publics pour les communes, écoles, crèches, homes, etc.',
 };
 
-const otherEntreprises = {
+const otherEntreprises: OtherService = {
   slug: 'entreprises',
   title: 'Entreprises',
   desc: 'Rénovation de structures existantes, fabrication de structures métalliques sur-mesure',
@@ -56,33 +59,8 @@ const servicesStatic: Service[] = [
     introDesc:
       'Nous sommes convaincus que chaque client est unique, avec des besoins et des demandes spécifiques, c’est pourquoi nous nous efforçons de personnaliser nos services pour répondre à ces besoins individuels. Nous travaillons en étroite collaboration avec nos clients pour comprendre leurs envies et leurs attentes afin de concevoir des solutions sur-mesure. Cette approche garantit que chaque projet est unique en s’adaptant aux choix esthétiques et contraintes techniques.',
     services: ['escalier', 'pergola', 'garde-corps', 'passerelle', 'porte', 'agencement décoratif'],
-    realisations: [
-      {
-        id: 0,
-        title:
-          'Exemple de titre très long ladjfkdasfjladfkjaslfjasfl kjlsak jdsalk fjasld kjasl kads jals',
-        path: 'https://picsum.photos/300/500',
-      },
-      { id: 1, title: 'Exemple de titre', path: 'https://picsum.photos/300/500' },
-      { id: 2, title: 'Exemple de titre', path: 'https://picsum.photos/500/300' },
-      {
-        id: 3,
-        title:
-          'Exemple de titre très long ladjfkdasfjladfkjaslfjasfl kjlsak jdsalk fjasld kjasl kads jals',
-        path: 'https://picsum.photos/500/300',
-      },
-      { id: 4, title: 'Exemple de titre', path: 'https://picsum.photos/500/300' },
-      { id: 5, title: 'Exemple de titre', path: 'https://picsum.photos/500/300' },
-      {
-        id: 6,
-        title:
-          'Exemple de titre très long ladjfkdasfjladfkjaslfjasfl kjlsak jdsalk fjasld kjasl kads jals',
-        path: 'https://picsum.photos/200/300',
-      },
-      { id: 7, title: 'Exemple de titre', path: 'https://picsum.photos/300/500' },
-      { id: 8, title: 'Exemple de titre', path: 'https://picsum.photos/500/300' },
-    ],
     otherServices: [otherCollectivites, otherEntreprises],
+    realisations: RealisationsParticuliers(),
   },
   {
     slug: 'collectivites',
@@ -91,8 +69,8 @@ const servicesStatic: Service[] = [
     introDesc:
       'Nous sommes fiers de notre engagement envers la qualité de service pour les collectivités. Nous croyons que chaque collectivité mérite un service de haute qualité et une expérience client satisfaisante. Notre approche personnalisée nous permet de créer des relations solides et durables avec nos clients, en leur offrant des services qui répondent à leurs besoins à long terme.',
     services: [],
-    realisations: [],
     otherServices: [otherParticuliers, otherEntreprises],
+    realisations: RealisationsCollectivites(),
   },
   {
     slug: 'entreprises',
@@ -101,8 +79,8 @@ const servicesStatic: Service[] = [
     introDesc:
       'Nous sommes spécialisés dans la conception, fabrication et installations de structures métalliques pour les bâtiments commerciaux, industriels et institutionnels. Nous veillons à ce que nos réalisations soient effectuées dans les délais impartis et avec le plus grand soin. Notre approche personnalisée nous permet de créer des relations solides et durables avec nos clients, en leur offrant des services qui répondent à leurs besoins à long terme.',
     services: [],
-    realisations: [],
     otherServices: [otherParticuliers, otherCollectivites],
+    realisations: RealisationsEntreprises(),
   },
 ];
 
@@ -140,23 +118,12 @@ export default function Service() {
             </ul>
           </div>
         </section>
-        <section className={`${style.gallery} light`}>
-          <div className="container">
-            <div className={style.service__titles}>
-              <h5>une image vaut mille mots</h5>
-              <h2>Découvrez nos réalisations</h2>
-            </div>
-            <div className={style.gallery__images}>
-              {service.realisations.map((img) => (
-                <ImageGallery key={img.id} {...img} />
-              ))}
-            </div>
-
-            <button className={`${btn.btn} ${btn.btn__secondary}`} type="button">
-              En voir plus
-            </button>
-          </div>
-        </section>
+        <Gallery
+          realisations={service.realisations}
+          surtitle={'une image vaut mille mots'}
+          title={'Découvrez nos réalisations'}
+          slug={service.slug}
+        />
         <ContactCTA />
         <OtherServices props={service.otherServices} />
         <Newsletter />

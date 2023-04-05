@@ -67,3 +67,7 @@ section {
 .bg-dark {
   background: var(--dark);
 }
+
+.noscroll {
+  overflow: hidden;
+}
