@@ -76,7 +76,7 @@ export default function Careers() {
         <section className={`${style.careers__intro} light`}>
           <div className="container">
             <div className={style.careers__intro__title}>
-              <h2>Travaillez chez nous</h2>
+              <h2>Travailler chez nous</h2>
             </div>
             <div className={style.careers__intro__text}>
               <p>
