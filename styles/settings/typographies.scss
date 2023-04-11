@@ -31,16 +31,18 @@
   font-family: jakarta;
   font-style: normal;
   src: url('/fonts/jakarta/PlusJakartaSans-VariableFont_wght.ttf');
+  font-display: swap;
 }
 
 @font-face {
   font-family: jakarta;
   font-style: italic;
   src: url('/fonts/jakarta/PlusJakartaSans-Italic-VariableFont_wght.ttf');
+  font-display: swap;
 }
 
 body {
-  font-family: jakarta, 'Plus Jakarta Sans', serif;
+  font-family: jakarta, 'Plus Jakarta Sans', sans-serif;
   // font-family: 'Plus Jakarta Sans', serif;
   font-style: normal;
   font-weight: 400;
