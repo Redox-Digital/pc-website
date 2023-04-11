@@ -6,6 +6,7 @@ import TextImageSection from '@/components/TextImageSection';
 import Newsletter from '@/components/Newsletter';
 import Button from '@/components/Button';
 import ServicesSection from '@/components/ServicesSection';
+import Script from 'next/script';
 
 const ourValues = [
   {
@@ -40,6 +41,23 @@ const ourValues = [
   },
 ];
 
+const structuredData = {
+  '@context': 'https://schema.org/',
+  '@type': 'Organization',
+  'url': 'https://www.pc-sa.ch',
+  'name': 'Paris & Comtesse SA',
+  'address': {
+    '@type': 'PostalAddress',
+    'streetAddress': 'Chemin de la Baconnière 55',
+    'addressLocality': 'Boudry',
+    'addressRegion': 'NE',
+    'postalCode': '2017',
+    'addressCountry': 'CH',
+  },
+  'logo': 'https:///www.pc-sa.ch/logo/p-c_logo_slogan_nj.svg',
+  'telephone': '+41 32 846 14 30',
+};
+
 export default function Home() {
   return (
     <>
@@ -52,6 +70,10 @@ export default function Home() {
         <meta
           name="description"
           content="Paris & Comtesse SA, construction métallique à Boudry (NE). Notre entreprise conçoit des ouvrages sur-mesure permettant une personnalisation complète pour répondre aux besoins spécifiques de nos clients."
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </Head>
       <Hero
