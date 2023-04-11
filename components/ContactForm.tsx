@@ -9,17 +9,15 @@ export default function ContactForm() {
       {/*  <form action="/api/form" method="post">
     // C'est triste mais c'est mieux comme ça :'( */}
       <div className="container">
-        <form action="https://submit-form.com/NW3KnoNd" method="post">
-          <TextInput type={'text'} id={'firstName'} required>
-            Nom
+        <form action="https://email.redoxdigital.ch" method="post" encType="multipart/form-data">
+          <TextInput type={'text'} id={'name'} required>
+            Prénom Nom
           </TextInput>
 
-          <TextInput type={'text'} id={'firstName'} required>
-            Prénom
-          </TextInput>
           <TextInput type={'text'} id={'society'}>
             Société
           </TextInput>
+
           <TextInput type={'email'} id={'mail'} required>
             E-Mail
           </TextInput>
