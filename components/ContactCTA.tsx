@@ -7,9 +7,10 @@ export default function ContactCTA() {
       className={`${style.contactCTA} light`}
       style={{ backgroundImage: 'url(/layouts/cta-bg.jpg)' }}
     >
+      <div className={style.contactCTA__overlay} />
       <div className={style.container}>
         <h3>Un projet en tête ?</h3>
-        <p>N’hésitez pas à nous contacter pour discuter de vos projets</p>
+        <p>N&rsquo;hésitez pas à nous contacter pour discuter de vos projets</p>
         <Button to="/contact">Contact</Button>
       </div>
     </section>

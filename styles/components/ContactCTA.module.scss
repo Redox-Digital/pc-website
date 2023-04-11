@@ -7,10 +7,38 @@
   background-position: center;
   justify-content: center;
   align-items: flex-end;
+  position: relative;
 
   > .container {
     min-width: 100%;
     width: 100%;
+    z-index: 1;
+
+    > a {
+      margin-top: var(--padding);
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+
+    // Background color : gold-white
+    background: linear-gradient(0deg, hsla(45, 40%, 96%, 0.1) 0%, hsla(45, 40%, 96%, 0.8) 100%);
+    background: -moz-linear-gradient(
+      0deg,
+      hsla(45, 40%, 96%, 0.1) 0%,
+      hsla(45, 40%, 96%, 0.8) 100%
+    );
+    background: -webkit-linear-gradient(
+      0deg,
+      hsla(45, 40%, 96%, 0.1) 0%,
+      hsla(45, 40%, 96%, 0.8) 100%
+    );
   }
 }
 
