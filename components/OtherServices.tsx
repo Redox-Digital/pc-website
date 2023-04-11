@@ -20,6 +20,7 @@ export default function OtherServices({ props }: Props) {
       <div className={style.otherServicesLine}>
         {props.map((service) => (
           <Link
+            aria-label={`Accéder à nos services pour les ${service.title}`}
             href={`/services/${service.slug}`}
             className={style.otherServiceBlock}
             key={service.slug}

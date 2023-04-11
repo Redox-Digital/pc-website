@@ -21,21 +21,42 @@ export default function Footer() {
         </div>
         <div className={style.footerBody__bottom}>
           <div className={style.footerBody__bottom__right}>
-            <Link href="/">Accueil</Link>
+            <Link aria-label="Accéder à la page d'accueil" href="/">
+              Accueil
+            </Link>
             <div className={style.footer__submenu}>
               <h5>Services</h5>
-              <Link href="/services/particuliers">Particuliers</Link>
-              <Link href="/services/collectivites">Collectivités</Link>
-              <Link href="/services/entreprises">Entreprises</Link>
+              <Link
+                href="/services/particuliers"
+                aria-label="Accéder à la page des services pour Particuliers"
+              >
+                Particuliers
+              </Link>
+              <Link
+                href="/services/collectivites"
+                aria-label="Accéder à la page des services pour Collectivités"
+              >
+                Collectivités
+              </Link>
+              <Link
+                href="/services/entreprises"
+                aria-label="Accéder à la page des services pour entreprises"
+              >
+                Entreprises
+              </Link>
             </div>
 
-            <Link href="/about">À propos</Link>
-            <Link href="/careers">Emplois</Link>
+            <Link aria-label="Accéder à la page d'à propos" href="/about">
+              À propos
+            </Link>
+            <Link aria-label="Accéder à la page d'emploi" href="/careers">
+              Emplois
+            </Link>
           </div>
           <div className={style.footerBody__bottom__left}>
             <Address />
 
-            <Button size="big" to="/contact">
+            <Button ariaLabel="Vers le formulaire de contact" size="big" to="/contact">
               Contact
             </Button>
           </div>
@@ -44,7 +65,12 @@ export default function Footer() {
       <div className={style.footerBottom}>
         <small>
           &copy; 2023 Paris & Comtesse SA – Site web réalisé par{' '}
-          <Link href="https://redoxdigital.ch" target="_blank" rel="noopener noreferrer">
+          <Link
+            aria-label="Accéder au site de Redox Digital"
+            href="https://redoxdigital.ch"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Redox&nbsp;Digital
           </Link>
         </small>

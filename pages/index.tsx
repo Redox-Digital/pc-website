@@ -45,7 +45,14 @@ export default function Home() {
     <>
       <Head>
         <title>Paris & Comtesse SA | Accueil</title>
-        <meta name="keywords" content="Accueil" />
+        <meta
+          name="keywords"
+          content="construction métallique, construction métallique Neuchâtel, Neuchâtel"
+        />
+        <meta
+          name="description"
+          content="Paris & Comtesse SA, construction métallique à Boudry (NE). Notre entreprise conçoit des ouvrages sur-mesure permettant une personnalisation complète pour répondre aux besoins spécifiques de nos clients."
+        />
       </Head>
       <Hero
         title="Paris & Comtesse SA"
@@ -73,7 +80,9 @@ export default function Home() {
               Les ouvrages sont conçus et fabriqués avec une attention particulière aux détails et à
               la qualité afin de garantir une longue durée de vie.
             </p>
-            <Button to={'/about'}>En savoir plus</Button>
+            <Button ariaLabel="Accéder à la page d'À propos" to={'/about'}>
+              En savoir plus
+            </Button>
           </>
         </TextImageSection>
         <Infography
@@ -102,7 +111,9 @@ export default function Home() {
               La main de l&rsquo;homme reste essentielle pour travailler le métal avec précision et
               créer des pièces uniques et personnalisées.
             </p>
-            <Button to={'/about'}>En savoir plus</Button>
+            <Button ariaLabel="Accéder à la page d'À propos" to={'/about'}>
+              En savoir plus
+            </Button>
           </>
         </TextImageSection>
         <Newsletter />

@@ -7,6 +7,7 @@ export default function DropdownMenu() {
   return (
     <div className={style.submenu__content}>
       <Link
+        aria-label="Accéder à la page des services pour particuliers"
         href="/services/particuliers"
         style={{ backgroundImage: 'url(/layouts/particuliers-hero.jpg)' }}
       >
@@ -19,6 +20,7 @@ export default function DropdownMenu() {
         </p>
       </Link>
       <Link
+        aria-label="Accéder à la page des services pour collectivités"
         href="/services/collectivites"
         style={{ backgroundImage: 'url(/layouts/collectivites-hero.jpg)' }}
       >
@@ -30,6 +32,7 @@ export default function DropdownMenu() {
         </p>
       </Link>
       <Link
+        aria-label="Accéder à la page des services pour entreprises"
         href="/services/entreprises"
         style={{ backgroundImage: 'url(/layouts/entreprises-hero.jpg)' }}
       >

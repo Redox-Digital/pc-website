@@ -69,26 +69,43 @@ const Header = () => {
       >
         <div className={style.mainMenu}>
           <div className={style.mainMenu__container}>
-            <Link href="/" className={style.logo}>
+            <Link href="/" className={style.logo} aria-label="Accéder à la page d'accueil">
               <Image src={logo} alt="" height={30} className="logo" />
             </Link>
 
             <div className={style.menu__links}>
-              <Link href="/">Accueil</Link>
-              <Link href="#" scroll={false} className={style.submenu}>
+              <Link href="/" aria-label="Accéder à la page d'accueil">
+                Accueil
+              </Link>
+              <Link
+                href="#"
+                scroll={false}
+                className={style.submenu}
+                aria-label="Afficher nos services"
+              >
                 Services
               </Link>
               <DropdownMenu />
 
-              <Link href="/about">À propos</Link>
-              <Link href="/careers">Emplois</Link>
-              <Button to="/contact" size="small" addClass="btn">
+              <Link href="/about" aria-label="Accéder à la page d'à propos">
+                À propos
+              </Link>
+              <Link href="/careers" aria-label="Accéder à la page d'emplois">
+                Emplois
+              </Link>
+              <Button
+                ariaLabel="Vers le formulaire de contact"
+                to="/contact"
+                size="small"
+                addClass="btn"
+              >
                 Contact
               </Button>
             </div>
             <button
               className={`${style.burger} ${menuOpen ? style.burger__closed : ''}`}
               onClick={toggleMenu}
+              aria-label="Ouvrir la navigation mobile"
             >
               <span></span>
               <span></span>

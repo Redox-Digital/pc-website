@@ -11,7 +11,9 @@ export default function ContactCTA() {
       <div className={style.container}>
         <h3>Un projet en tête ?</h3>
         <p>N&rsquo;hésitez pas à nous contacter pour discuter de vos projets</p>
-        <Button to="/contact">Contact</Button>
+        <Button to="/contact" ariaLabel="Vers le formulaire de contact">
+          Contact
+        </Button>
       </div>
     </section>
   );

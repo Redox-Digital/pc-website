@@ -22,7 +22,7 @@ type Service = {
   heroTitle: string;
   heroSubtitle: string;
   introTitle: string;
-  introDesc: string | JSX.Element;
+  introDesc: string;
   services: string[];
   otherServices: OtherService[];
   realisations: Realisation[];
@@ -118,7 +118,7 @@ export default function Service() {
     <>
       <Head>
         <title>Paris & Comtesse SA | Services pour les {service.heroTitle}</title>
-        <meta name="keywords" content="Services" />
+        <meta name="description" content={service.introDesc} />
       </Head>
       <Hero
         title={service.heroTitle}

@@ -9,6 +9,7 @@ type Props = {
   icon?: undefined | string;
   addClass?: string;
   blank?: boolean;
+  ariaLabel?: string;
   children: string;
 };
 
@@ -60,12 +61,14 @@ export default function Button({
   variation,
   addClass,
   blank,
+  ariaLabel,
 }: Props) {
   return (
     <Link
       href={to}
       className={`${style.btn} ${getSize(size)} ${getVariation(variation)} ${addClass}`}
       target={blank ? '_blank' : ''}
+      aria-label={ariaLabel}
     >
       {children}
       {icon ? <i className={icon}></i> : ''}

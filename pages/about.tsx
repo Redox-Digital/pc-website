@@ -156,7 +156,10 @@ export default function About() {
     <>
       <Head>
         <title>Paris & Comtesse SA | À propos</title>
-        <meta name="keywords" content="À propos" />
+        <meta
+          name="description"
+          content="Avec plus de 50 ans d'expérience dans le domaine de la construction métallique, Paris & Comtesse SA est reconnu pour son savoir-faire."
+        />
       </Head>
       <Hero
         title="À propos"

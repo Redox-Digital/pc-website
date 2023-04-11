@@ -36,19 +36,19 @@ export default function MobileMenu(props: Props) {
         }`}
       >
         <div className={style.mobileMenu__links}>
-          <Link href="/" onClick={toggleMenu}>
+          <Link href="/" onClick={toggleMenu} aria-label="Accéder à la page d'accueil">
             Accueil
           </Link>
-          <button type="button" onClick={toggleSubMenu}>
+          <button aria-label="Afficher nos services" type="button" onClick={toggleSubMenu}>
             Services
           </button>
-          <Link href="/about" onClick={toggleMenu}>
+          <Link href="/about" onClick={toggleMenu} aria-label="Accéder à la page d'à propos">
             À propos
           </Link>
-          <Link href="/careers" onClick={toggleMenu}>
+          <Link href="/careers" onClick={toggleMenu} aria-label="Accéder à la page d'emplois">
             Emplois
           </Link>
-          <Link href="/contact" onClick={toggleMenu}>
+          <Link href="/contact" onClick={toggleMenu} aria-label="Accéder à la page de contact">
             Contact
           </Link>
         </div>
@@ -63,10 +63,11 @@ export default function MobileMenu(props: Props) {
         }`}
       >
         <div className={style.mobileSubMenu__top}>
-          <button type="button" onClick={toggleSubMenu}>
+          <button aria-label="Afficher nos services" type="button" onClick={toggleSubMenu}>
             Services
           </button>
           <button
+            aria-label="Ouvrir la navigation mobile"
             className={`${menu.burger} ${open ? menu.burger__closed : ''}`}
             onClick={toggleAllMenus}
           >
@@ -77,6 +78,7 @@ export default function MobileMenu(props: Props) {
         </div>
         <div className={style.mobileSubMenu__body}>
           <Link
+            aria-label="Accéder à nos services pour les particuliers"
             href="/services/particuliers"
             onClick={toggleAllMenus}
             style={{ backgroundImage: 'url(/layouts/particuliers-hero.jpg)' }}
@@ -85,6 +87,7 @@ export default function MobileMenu(props: Props) {
             <h5>Particuliers</h5>
           </Link>
           <Link
+            aria-label="Accéder à nos services pour les collectivités"
             href="/services/collectivites"
             onClick={toggleAllMenus}
             style={{ backgroundImage: 'url(/layouts/collectivites-hero.jpg)' }}
@@ -93,6 +96,7 @@ export default function MobileMenu(props: Props) {
             <h5>Collectivités</h5>
           </Link>
           <Link
+            aria-label="Accéder à nos services pour les entreprises"
             href="/services/entreprises"
             onClick={toggleAllMenus}
             style={{ backgroundImage: 'url(/layouts/entreprises-hero.jpg)' }}

@@ -39,7 +39,11 @@ export default function ContactForm() {
             Message
           </TextInput>
 
-          <button type="submit" className={`${btn.btn} ${btn.btn__big}`}>
+          <button
+            aria-label="Envoyer votre demande"
+            type="submit"
+            className={`${btn.btn} ${btn.btn__big}`}
+          >
             Envoyer
           </button>
         </form>

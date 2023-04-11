@@ -41,7 +41,7 @@ const Hero = (props: Props) => {
 
           <p className={style.subtitle}>{subtitle}</p>
           {home ? (
-            <Link href="#intro" scroll={false}>
+            <Link href="#intro" scroll={false} aria-hidden>
               <Image src={arrowDown} alt={''}></Image>
             </Link>
           ) : (

@@ -13,7 +13,12 @@ type Props = {
 
 export default function Service({ title, children, slug }: Props) {
   return (
-    <Link id={slug} href={`/services/${slug}`} className={style.service}>
+    <Link
+      id={slug}
+      href={`/services/${slug}`}
+      className={style.service}
+      aria-label={`Accéder à nos services pour les ${title}`}
+    >
       <div className={style.service__title}>
         <div className={style.service__images}>
           <Image
@@ -42,7 +47,9 @@ export default function Service({ title, children, slug }: Props) {
         <h5>{title}</h5>
       </div>
       <small>{children}</small>
-      <div className={`${btn.btn} ${btn.btn__secondary}`}>En savoir plus</div>
+      <div className={`${btn.btn} ${btn.btn__secondary}`} aria-hidden>
+        En savoir plus
+      </div>
     </Link>
   );
 }

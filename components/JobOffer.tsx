@@ -18,14 +18,20 @@ export default function JobOffer(props: Job) {
       </div>
       <div className={style.job__btns}>
         {extLink ? (
-          <Button to={extLink} blank>
+          <Button ariaLabel="Ouvrir l'offre d'emploi sur un site externe" to={extLink} blank>
             Voir l&rsquo;annonce
           </Button>
         ) : (
           ''
         )}
         {pdfLink ? (
-          <Button to={pdfLink} blank icon="fa-regular fa-file-pdf" variation="outline">
+          <Button
+            to={pdfLink}
+            ariaLabel="Ouvrir le fichier PDF de l'offre d'emploi"
+            blank
+            icon="fa-regular fa-file-pdf"
+            variation="outline"
+          >
             Télécharger le pdf
           </Button>
         ) : (

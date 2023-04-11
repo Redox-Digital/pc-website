@@ -11,7 +11,10 @@ const Contact = () => {
     <>
       <Head>
         <title>Paris & Comtesse SA | Contact</title>
-        <meta name="keywords" content="contact" />
+        <meta
+          name="description"
+          content="Notre équipe est à votre disposition pour échanger sur votre projet."
+        />
       </Head>
       <Hero
         title="Contact"

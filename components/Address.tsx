@@ -7,7 +7,7 @@ export default function Address() {
       <div className={style.address__elt}>
         <h5>Téléphone</h5>
         <p>
-          <Link href="tel:+41 32 846 14 30">
+          <Link href="tel:+41 32 846 14 30" aria-label="Nous téléphoner">
             <span id="phone"></span>
           </Link>
         </p>
