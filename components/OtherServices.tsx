@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import Button from './Button';
+import btn from '@/styles/components/Button.module.scss';
 import style from '@/styles/components/OtherService.module.scss';
 
 type OtherService = {
@@ -54,7 +54,7 @@ export default function OtherServices({ props }: Props) {
               <h3>{service.title}</h3>
               <small>{service.desc}</small>
             </div>
-            <Button to={`/services/${service.slug}`}>En savoir plus</Button>
+            <div className={`${btn.btn} ${btn.btn__secondary}`}>En savoir plus</div>
           </Link>
         ))}
       </div>

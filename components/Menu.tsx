@@ -9,8 +9,26 @@ import MobileMenu from './MobileMenu';
 
 const Header = () => {
   //navbar scroll when active state
-  const [navbar, setNavbar] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [navbar, setNavbar] = useState<boolean>(false);
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+
+  const [scrollingUp, setScrollingUp] = useState<boolean>(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const displayOnScroll = () => {
+    if (typeof window !== 'undefined') {
+      if (window.scrollY > lastScrollY) {
+        // if scroll down hide the navbar
+        setScrollingUp(false);
+      } else {
+        // if scroll up show the navbar
+        setScrollingUp(true);
+      }
+
+      // remember current page location to use in the next move
+      setLastScrollY(window.scrollY);
+    }
+  };
 
   const changeBackground = () => {
     if (window.scrollY > 50) {
@@ -31,12 +49,23 @@ const Header = () => {
     window.addEventListener('scroll', changeBackground);
   });
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', displayOnScroll);
+
+      // cleanup function
+      return () => {
+        window.removeEventListener('scroll', displayOnScroll);
+      };
+    }
+  }, [lastScrollY]);
+
   return (
     <>
       <nav
         className={`${style.menu} ${navbar ? style.menu__scrolling : ''} ${
           menuOpen ? style.menu__open : ''
-        }`}
+        } ${scrollingUp ? '' : style.menu__hidden}`}
       >
         <div className={style.mainMenu}>
           <div className={style.mainMenu__container}>

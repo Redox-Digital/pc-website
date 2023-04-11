@@ -9,7 +9,6 @@ export default function ServicesSection() {
 
   const HandleBackground = (slug: 'particuliers' | 'collectivites' | 'entreprises') => {
     setActiveBg(slug);
-    console.log(slug);
   };
 
   return (

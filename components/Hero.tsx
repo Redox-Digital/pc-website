@@ -3,6 +3,8 @@ import style from '@/styles/components/Hero.module.scss';
 import Link from 'next/link';
 import arrowDown from '/public/pictograms/arrow-down.svg';
 import logo from '/public/logo/p-c_logo_bj.svg';
+import IntroVideo from './IntroVideo';
+import { Suspense } from 'react';
 
 type Props = {
   title: string;
@@ -21,18 +23,16 @@ const Hero = (props: Props) => {
         className={`${style.hero} ${home ? style.hero__home : ''}`}
         style={{ backgroundImage: `url(${source})` }}
       >
-        {home ? (
-          <video autoPlay muted loop>
-            <source src="/layouts/PC-Video_BG-V1-1080-LowBitrate.mp4" type="video/mp4" />
-          </video>
-        ) : (
-          ''
+        {home && (
+          <Suspense fallback={''}>
+            <IntroVideo />
+          </Suspense>
         )}
         <div className={style.hero__overlay} style={{ opacity: opacity || 0.5 }} />
         <div className={style.hero__content}>
           {home ? (
             <>
-              <Image src={logo} alt={''} width="1200" />
+              <Image src={logo} alt={''} width="1200" priority />
               {/* Pour optimiser : https://beta.nextjs.org/docs/optimizing/lazy-loading#example-adding-a-custom-loading-component */}
             </>
           ) : (

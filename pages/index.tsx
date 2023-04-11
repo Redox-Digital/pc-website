@@ -90,17 +90,17 @@ export default function Home() {
         >
           <>
             <p>
-              Notre entreprise conçoit des ouvrages sur-mesure permettant une personnalisation
-              complète pour répondre aux besoins spécifiques de nos clients.
+              Le métal est un matériau très prisé pour sa solidité, sa durabilité et sa résistance à
+              la corrosion.
             </p>
             <p>
-              Chaque projet est étudié de la conception par notre bureau technique à la fabrication
-              avec soin et savoir-faire dans notre atelier et à la pose par nos collaborateurs
-              qualifiés.
+              Reçu sous forme de feuilles ou de bobines, l&rsquo;acier est mécaniquement découpé,
+              plié, cintré. Il est également travaillé de différentes manières pour obtenir la forme
+              finale souhaitée.
             </p>
             <p>
-              Les ouvrages sont conçus et fabriqués avec une attention particulière aux détails et à
-              la qualité afin de garantir une longue durée de vie.
+              La main de l&rsquo;homme reste essentielle pour travailler le métal avec précision et
+              créer des pièces uniques et personnalisées.
             </p>
             <Button to={'/about'}>En savoir plus</Button>
           </>

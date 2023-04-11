@@ -85,11 +85,11 @@ export default function Careers() {
                 rejoindre notre équipe.
               </p>
               <p>
-                Travailler chez nous, c’est avoir l’opportunité de travailler sur des projets
-                stimulants et innovants, dans un environnement de travail convivial et centré sur
-                l’humain. Nous croyons que notre succès est lié à celui de nos employés, c’est
-                pourquoi nous proposons des formations et nous engageons également dans la formation
-                d’apprentis.
+                Travailler chez nous, c&rsquo;est avoir l&rsquo;opportunité de contribuer à des
+                projets stimulants et innovants, dans un environnement de travail convivial et
+                centré sur l&rsquo;humain. Nous croyons que notre succès est lié à celui de nos
+                employés, c&rsquo;est pourquoi nous proposons des formations et nous engageons
+                également dans la formation d&rsquo;apprentis.
               </p>
             </div>
           </div>

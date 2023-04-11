@@ -5,6 +5,11 @@
   width: 100%;
   transition: all 0.3s ease-in-out;
 
+  &__hidden {
+    top: calc(var(--navbar-height) * -1);
+    transition: all 0.3s ease-in-out;
+  }
+
   > .mainMenu {
     width: 100%;
     height: var(--navbar-height);

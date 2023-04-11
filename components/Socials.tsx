@@ -17,7 +17,11 @@ export default function Socials() {
       >
         <i className="fa-brands fa-facebook"></i>
       </Link>
-      <Link href="#" target="_blank" rel="noopener noreferrer">
+      <Link
+        href="https://www.linkedin.com/company/paris-comtesse-sa"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <i className="fa-brands fa-linkedin-in"></i>
       </Link>
     </>

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Button from './Button';
 import style from '@/styles/components/Service.module.scss';
+import btn from '@/styles/components/Button.module.scss';
 import Link from 'next/link';
 import { MouseEventHandler } from 'react';
 
@@ -41,9 +42,7 @@ export default function Service({ title, children, slug }: Props) {
         <h5>{title}</h5>
       </div>
       <small>{children}</small>
-      <Button to={`/services/${slug}`} variation="secondary">
-        En savoir plus
-      </Button>
+      <div className={`${btn.btn} ${btn.btn__secondary}`}>En savoir plus</div>
     </Link>
   );
 }

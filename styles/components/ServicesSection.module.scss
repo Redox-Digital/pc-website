@@ -29,6 +29,8 @@
       right: 0;
       opacity: 0;
       transition: 0.3s opacity ease-in-out;
+      background-position: center;
+      background-size: cover;
 
       &.overlay__active {
         opacity: 1;

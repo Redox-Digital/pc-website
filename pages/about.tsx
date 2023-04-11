@@ -125,8 +125,8 @@ const historySlides = [
     title: 'Transformation',
     desc: (
       <p>
-        M. Tony Perret qui a par ailleurs fait son apprentissage dans la société reprendre le
-        capital-actions et la direction. Transformation de la société en SA.
+        M. Tony Perret qui a par ailleurs fait son apprentissage dans la société reprend la
+        direction. Transformation de la société en SA.
       </p>
     ),
     img: '/layouts/about-tony.jpg',
@@ -140,7 +140,13 @@ const historySlides = [
   {
     year: 1964,
     title: 'Création',
-    desc: <p>Création de la société Paris & Comtesse</p>,
+    desc: (
+      <p>
+        Création de la société Paris & Comtesse par M. Albert{' '}
+        <span style={{ color: 'var(--accent-dark)' }}>Paris</span> et son beau-frère Jean-Pierre{' '}
+        <span style={{ color: 'var(--accent-dark)' }}>Comtesse</span> dans un local à Bevaix.
+      </p>
+    ),
     img: '/layouts/about-2.jpg',
   },
 ];

@@ -11,18 +11,31 @@ type Realisation = {
 };
 
 type Props = {
-  realisations: Realisation[];
+  allRealisations: Realisation[];
   surtitle: string;
   title: string;
   slug: 'particuliers' | 'collectivites' | 'entreprises';
 };
 
 export default function Gallery(props: Props) {
-  const { realisations, title, surtitle, slug } = props;
+  const { allRealisations, title, surtitle, slug } = props;
 
-  const galleryLength = realisations.length;
+  const galleryLength = allRealisations.length;
+  const paginationStep = 9;
 
+  const [pagination, setPagination] = useState<number>(paginationStep);
   const [fullImageId, setFullImageId] = useState<number | undefined>();
+
+  const displayedRealisations = allRealisations;
+
+  const displayGallery = () => {};
+
+  const increasePagination = () => {
+    setPagination(
+      pagination + paginationStep <= galleryLength ? pagination + paginationStep : galleryLength
+    );
+    console.log('page ', pagination, '/ total length: ', galleryLength);
+  };
 
   const showOverlay = (imgId: number) => {
     setFullImageId(imgId);
@@ -66,38 +79,42 @@ export default function Gallery(props: Props) {
           <h2>{title}</h2>
         </div>
         <div className={style.gallery__images}>
-          {realisations.map((img) => (
-            <ImageGallery key={img.id} slug={slug} {...img} showImg={showOverlay} />
-          ))}
+          {displayedRealisations
+            .map((img) => <ImageGallery key={img.id} slug={slug} {...img} showImg={showOverlay} />)
+            .slice(-1 * pagination)
+            .reverse()}
         </div>
 
-        {realisations.find((img) => img.id === fullImageId) ? (
+        {displayedRealisations.find((img) => img.id === fullImageId) ? (
           <div className={style.gallery__overlay}>
             <div className={style.gallery__overlay__drop} onClick={hideOverlay} />
             <figure className={style.image}>
               <Image
                 src={
-                  realisations.find((img) => img.id === fullImageId)
+                  displayedRealisations.find((img) => img.id === fullImageId)
                     ? `/realisations/${slug}/${slug}-${fullImageId}.jpg`
                     : ''
                 }
                 alt={''}
-                width={1000}
-                height={1000}
+                width={1500}
+                height={1500}
               />
               <figcaption className={style.gallery__overlay__img}>
-                <small>{realisations.find((img) => img.id === fullImageId)?.title || ''}</small>
+                <small>
+                  {displayedRealisations.find((img) => img.id === fullImageId)?.title || ''}
+                </small>
               </figcaption>
             </figure>
             <button type="button" onClick={hideOverlay} className={style.btn__close}>
               Fermer
             </button>
 
-            <button type="button" onClick={nextImg} className={style.btn__next}>
+            {/* fonctions onClick inversées car les images sont affichées dans l'ordre inverse */}
+            <button type="button" onClick={prevImg} className={style.btn__next}>
               <Image src={arrowDown} alt={''}></Image>
             </button>
 
-            <button type="button" onClick={prevImg} className={style.btn__prev}>
+            <button type="button" onClick={nextImg} className={style.btn__prev}>
               <Image src={arrowDown} alt={''}></Image>
             </button>
           </div>
@@ -105,9 +122,15 @@ export default function Gallery(props: Props) {
           ''
         )}
 
-        <button className={`${btn.btn} ${btn.btn__secondary}`} type="button">
-          En voir plus
-        </button>
+        {pagination < galleryLength && (
+          <button
+            className={`${btn.btn} ${btn.btn__secondary}`}
+            type="button"
+            onClick={increasePagination}
+          >
+            En voir plus
+          </button>
+        )}
       </div>
     </section>
   );

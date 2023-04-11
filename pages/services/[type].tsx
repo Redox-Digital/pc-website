@@ -21,6 +21,7 @@ type Service = {
   slug: 'particuliers' | 'collectivites' | 'entreprises';
   heroTitle: string;
   heroSubtitle: string;
+  introTitle: string;
   introDesc: string | JSX.Element;
   services: string[];
   otherServices: OtherService[];
@@ -56,9 +57,17 @@ const servicesStatic: Service[] = [
     slug: 'particuliers',
     heroTitle: 'Particuliers',
     heroSubtitle: 'Laisser libre cours à ses envies',
+    introTitle: 'Réalisation sur-mesure',
     introDesc:
       'Nous sommes convaincus que chaque client est unique, avec des besoins et des demandes spécifiques, c’est pourquoi nous nous efforçons de personnaliser nos services pour répondre à ces besoins individuels. Nous travaillons en étroite collaboration avec nos clients pour comprendre leurs envies et leurs attentes afin de concevoir des solutions sur-mesure. Cette approche garantit que chaque projet est unique en s’adaptant aux choix esthétiques et contraintes techniques.',
-    services: ['escalier', 'pergola', 'garde-corps', 'passerelle', 'porte', 'agencement décoratif'],
+    services: [
+      'escalier',
+      'avant-toit',
+      'garde-corps',
+      'passerelle',
+      'porte',
+      'agencement décoratif',
+    ],
     otherServices: [otherCollectivites, otherEntreprises],
     realisations: RealisationsParticuliers(),
   },
@@ -66,19 +75,34 @@ const servicesStatic: Service[] = [
     slug: 'collectivites',
     heroTitle: 'Collectivités',
     heroSubtitle: 'Un engagement durable',
+    introTitle: 'Engagement sur-mesure',
     introDesc:
-      'Nous sommes fiers de notre engagement envers la qualité de service pour les collectivités. Nous croyons que chaque collectivité mérite un service de haute qualité et une expérience client satisfaisante. Notre approche personnalisée nous permet de créer des relations solides et durables avec nos clients, en leur offrant des services qui répondent à leurs besoins à long terme.',
-    services: [],
+      'Nous sommes fiers de notre engagement envers la qualité de service pour les collectivités. Nous croyons que chaque demande mérite une prestation de haute qualité et une expérience client satisfaisante. Notre approche personnalisée nous permet de créer des relations solides et durables avec nos clients, en leur offrant des services qui répondent à leurs besoins.',
+    services: [
+      'abribus',
+      'couvert',
+      'porte',
+      'grill extérieur',
+      'devanture',
+      'agencement décoratif',
+    ],
     otherServices: [otherParticuliers, otherEntreprises],
     realisations: RealisationsCollectivites(),
   },
   {
     slug: 'entreprises',
     heroTitle: 'Entreprises',
+    introTitle: 'Partenariat sur-mesure',
     heroSubtitle: "L'échange et la confiance dans la fierté du travail bien fait",
     introDesc:
-      'Nous sommes spécialisés dans la conception, fabrication et installations de structures métalliques pour les bâtiments commerciaux, industriels et institutionnels. Nous veillons à ce que nos réalisations soient effectuées dans les délais impartis et avec le plus grand soin. Notre approche personnalisée nous permet de créer des relations solides et durables avec nos clients, en leur offrant des services qui répondent à leurs besoins à long terme.',
-    services: [],
+      'Nous sommes spécialisés dans la conception, fabrication et installations de structures métalliques pour les bâtiments commerciaux, industriels et institutionnels. Nous veillons à ce que nos réalisations soient effectuées dans les délais impartis et avec le plus grand soin. Notre approche personnalisée nous permet de créer des relations solides et durables avec nos clients, en leur offrant des services et une flexibilité à long terme.',
+    services: [
+      'tôlerie',
+      'fabrication industrielle',
+      'soudage certifié',
+      'mise aux normes de structures existantes',
+      'agencement décoratif',
+    ],
     otherServices: [otherParticuliers, otherCollectivites],
     realisations: RealisationsEntreprises(),
   },
@@ -106,7 +130,7 @@ export default function Service() {
           <div className="container">
             <div className={style.service__titles}>
               <h5>Pour les {service.heroTitle}</h5>
-              <h2>Services sur-mesure</h2>
+              <h2>{service.introTitle}</h2>
             </div>
 
             <p>{service.introDesc}</p>
@@ -119,7 +143,7 @@ export default function Service() {
           </div>
         </section>
         <Gallery
-          realisations={service.realisations}
+          allRealisations={service.realisations}
           surtitle={'une image vaut mille mots'}
           title={'Découvrez nos réalisations'}
           slug={service.slug}
