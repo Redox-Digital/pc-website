@@ -19,12 +19,12 @@ const Contact = () => {
       <Hero
         title="Contact"
         subtitle="Notre équipe est à votre disposition pour échanger sur votre projet"
-        source="/layouts/contact-hero.jpg"
+        source="/layouts/contact-hero.webp"
       />
       <TextImageSection
         title={'logo'}
         surtitle={'Nos coordonnées'}
-        imgPath={'/layouts/contact-address.jpg'}
+        imgPath={'/layouts/contact-address.webp'}
       >
         <Address />
       </TextImageSection>

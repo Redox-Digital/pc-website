@@ -74,7 +74,7 @@ export default function Careers() {
           content="Nous sommes une entreprise dynamique et passionnée, spécialisée dans la construction métallique. Nous sommes constamment à la recherche de nouveaux talents pour rejoindre notre équipe."
         />
       </Head>
-      <Hero title="Emplois" subtitle="Nous rejoindre" source="/layouts/careers-hero.jpg" />
+      <Hero title="Emplois" subtitle="Nous rejoindre" source="/layouts/careers-hero.webp" />
       <main className={style.careers}>
         <section className={`${style.careers__intro} light`}>
           <div className="container">
@@ -106,7 +106,7 @@ export default function Careers() {
         ></InfographySection>
         <div
           className={style.careers__imgBanner}
-          style={{ backgroundImage: 'url(/layouts/careers-banner.jpg)' }}
+          style={{ backgroundImage: 'url(/layouts/careers-banner.webp)' }}
         ></div>
         <section className={style.careers__jobs}>
           <h2>Nos offres d&rsquo;emplois</h2>

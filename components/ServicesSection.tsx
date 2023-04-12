@@ -17,19 +17,19 @@ export default function ServicesSection() {
         className={`${style.overlay__particuliers} ${
           activeBg === 'particuliers' ? style.overlay__active : ''
         }`}
-        style={{ backgroundImage: `url(/layouts/particuliers-hero.jpg)` }}
+        style={{ backgroundImage: `url(/layouts/particuliers-hero.webp)` }}
       />
       <div
         className={`${style.overlay__collectivites} ${
           activeBg === 'collectivites' ? style.overlay__active : ''
         }`}
-        style={{ backgroundImage: `url(/layouts/collectivites-hero.jpg)` }}
+        style={{ backgroundImage: `url(/layouts/collectivites-hero.webp)` }}
       />
       <div
         className={`${style.overlay__entreprises} ${
           activeBg === 'entreprises' ? style.overlay__active : ''
         }`}
-        style={{ backgroundImage: `url(/layouts/entreprises-hero.jpg)` }}
+        style={{ backgroundImage: `url(/layouts/entreprises-hero.webp)` }}
       />
       <div className={style.overlay} />
       <h2>Nos services</h2>

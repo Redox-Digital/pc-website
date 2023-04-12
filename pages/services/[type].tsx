@@ -77,7 +77,7 @@ const servicesStatic: Service[] = [
     heroSubtitle: 'Un engagement durable',
     introTitle: 'Engagement sur-mesure',
     introDesc:
-      'Nous sommes fiers de notre engagement envers la qualité de service pour les collectivités. Nous croyons que chaque demande mérite une prestation de haute qualité et une expérience client satisfaisante. Notre approche personnalisée nous permet de créer des relations solides et durables avec nos clients, en leur offrant des services qui répondent à leurs besoins.',
+      'Nous sommes fiers de notre engagement pour les collectivités. Nous croyons que chaque demande mérite une prestation de haute qualité et une expérience client satisfaisante. Notre approche personnalisée nous permet de créer des relations solides et durables avec nos clients, en leur offrant des services qui répondent à leurs besoins.',
     services: [
       'abribus',
       'couvert',
@@ -95,7 +95,7 @@ const servicesStatic: Service[] = [
     introTitle: 'Partenariat sur-mesure',
     heroSubtitle: "L'échange et la confiance dans la fierté du travail bien fait",
     introDesc:
-      'Nous sommes spécialisés dans la conception, fabrication et installations de structures métalliques pour les bâtiments commerciaux, industriels et institutionnels. Nous veillons à ce que nos réalisations soient effectuées dans les délais impartis et avec le plus grand soin. Notre approche personnalisée nous permet de créer des relations solides et durables avec nos clients, en leur offrant des services et une flexibilité à long terme.',
+      'Nous sommes spécialisés dans la conception, fabrication et installation de structures métalliques pour les bâtiments commerciaux, industriels et institutionnels. Nous veillons à ce que nos réalisations soient effectuées dans les délais impartis et avec le plus grand soin. Notre approche personnalisée nous permet de créer des relations solides et durables avec nos clients, en leur offrant une flexibilité et des services de qualité.',
     services: [
       'tôlerie',
       'fabrication industrielle',
@@ -123,7 +123,7 @@ export default function Service() {
       <Hero
         title={service.heroTitle}
         subtitle={service.heroSubtitle}
-        source={`/layouts/${service.slug}-hero.jpg`}
+        source={`/layouts/${service.slug}-hero.webp`}
       />
       <main className={style.service}>
         <section className={`${style.service__intro} light`}>

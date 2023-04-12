@@ -5,7 +5,7 @@ export default function ContactCTA() {
   return (
     <section
       className={`${style.contactCTA} light`}
-      style={{ backgroundImage: 'url(/layouts/cta-bg.jpg)' }}
+      style={{ backgroundImage: 'url(/layouts/cta-bg.webp)' }}
     >
       <div className={style.contactCTA__overlay} />
       <div className={style.container}>

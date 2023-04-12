@@ -9,7 +9,7 @@ export default function Newsletter() {
       action="https://newsletter.infomaniak.com/external/submit"
       target="_blank"
       className={style.nl}
-      style={{ backgroundImage: `url(/layouts/newsletter.jpg)` }}
+      style={{ backgroundImage: `url(/layouts/newsletter.webp)` }}
     >
       <div className={style.nl__content}>
         <div className={style.nl__titles}>

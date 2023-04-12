@@ -9,7 +9,7 @@ export default function DropdownMenu() {
       <Link
         aria-label="Accéder à la page des services pour particuliers"
         href="/services/particuliers"
-        style={{ backgroundImage: 'url(/layouts/particuliers-hero.jpg)' }}
+        style={{ backgroundImage: 'url(/layouts/particuliers-hero.webp)' }}
       >
         {' '}
         <div className={style.overlay}></div>
@@ -22,7 +22,7 @@ export default function DropdownMenu() {
       <Link
         aria-label="Accéder à la page des services pour collectivités"
         href="/services/collectivites"
-        style={{ backgroundImage: 'url(/layouts/collectivites-hero.jpg)' }}
+        style={{ backgroundImage: 'url(/layouts/collectivites-hero.webp)' }}
       >
         <div className={style.overlay}></div>
         <h5>Collectivités</h5>
@@ -34,7 +34,7 @@ export default function DropdownMenu() {
       <Link
         aria-label="Accéder à la page des services pour entreprises"
         href="/services/entreprises"
-        style={{ backgroundImage: 'url(/layouts/entreprises-hero.jpg)' }}
+        style={{ backgroundImage: 'url(/layouts/entreprises-hero.webp)' }}
       >
         {' '}
         <div className={style.overlay}></div>

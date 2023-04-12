@@ -4,7 +4,7 @@ import Link from 'next/link';
 import arrowDown from '/public/pictograms/arrow-down.svg';
 import logo from '/public/logo/p-c_logo_bj.svg';
 import IntroVideo from './IntroVideo';
-import { Suspense } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 
 type Props = {
   title: string;
@@ -17,17 +17,20 @@ type Props = {
 const Hero = (props: Props) => {
   const { title, subtitle, source, home, opacity } = props;
 
+  const [video, setVideo] = useState<JSX.Element | string>('');
+
+  useEffect(() => {
+    const pageWidth = window?.innerWidth || 0;
+    setVideo(pageWidth > 768 ? <IntroVideo /> : '');
+  }, []);
+
   return (
     <>
       <header
         className={`${style.hero} ${home ? style.hero__home : ''}`}
         style={{ backgroundImage: `url(${source})` }}
       >
-        {home && (
-          <Suspense fallback={''}>
-            <IntroVideo />
-          </Suspense>
-        )}
+        {home && video}
         <div className={style.hero__overlay} style={{ opacity: opacity || 0.5 }} />
         <div className={style.hero__content}>
           {home ? (

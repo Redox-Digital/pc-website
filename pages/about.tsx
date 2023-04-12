@@ -45,8 +45,8 @@ const companySlides = [
     desc: (
       <>
         <p>
-          Avec plus de 50 ans d’expérience dans le domaine de la construction métallique, Paris &
-          Comtesse SA est reconnu pour son savoir-faire.
+          De par ses plus de 50 ans d’expérience dans le domaine de la construction métallique,
+          Paris & Comtesse SA est reconnu pour son savoir-faire.
         </p>
         <p>
           Avec une équipe qualifiée et soudée, soucieuse de la qualité, nous réalisons des pièces
@@ -55,7 +55,7 @@ const companySlides = [
         </p>
       </>
     ),
-    img1: '/layouts/about-company-1.jpg',
+    img1: '/layouts/about-company-1.webp',
   },
   {
     id: 1,
@@ -65,7 +65,7 @@ const companySlides = [
         <p>
           Notre entreprise est spécialisée dans la conception, la fabrication et l’installation de
           structures métalliques. Nous offrons une gamme complète de services pour les particuliers,
-          les collectivités et les entreprises qui répondent aux attentes et comble les besoins
+          les collectivités et les entreprises qui répond aux attentes et comble les besoins
           spécifiques de chacun. Nous disposons d’une équipe de professionnels qualifiés qui
           utilisent des matériaux de haute qualité pour garantir la durabilité et la résistance des
           structures que nous construisons.
@@ -81,7 +81,7 @@ const companySlides = [
         </p>
       </>
     ),
-    img1: '/layouts/about-company-2.jpg',
+    img1: '/layouts/about-company-2.webp',
   },
   {
     id: 2,
@@ -103,7 +103,7 @@ const companySlides = [
         </p>
       </>
     ),
-    img1: '/layouts/about-company-3.jpg',
+    img1: '/layouts/about-company-3.webp',
   },
 ];
 
@@ -118,7 +118,7 @@ const historySlides = [
         technique et de l’atelier reste inchangée.
       </p>
     ),
-    img: '/layouts/about-jean.jpg',
+    img: '/layouts/about-jean.webp',
   },
   {
     year: 2006,
@@ -129,13 +129,13 @@ const historySlides = [
         direction. Transformation de la société en SA.
       </p>
     ),
-    img: '/layouts/about-tony.jpg',
+    img: '/layouts/about-tony.webp',
   },
   {
     year: 1970,
     title: 'Fondation',
     desc: <p>Inscription au registre du Commerce</p>,
-    img: '/layouts/about-1.jpg',
+    img: '/layouts/about-1.webp',
   },
   {
     year: 1964,
@@ -147,7 +147,7 @@ const historySlides = [
         <span style={{ color: 'var(--accent-dark)' }}>Comtesse</span> dans un local à Bevaix.
       </p>
     ),
-    img: '/layouts/about-2.jpg',
+    img: '/layouts/about-2.webp',
   },
 ];
 
@@ -164,7 +164,7 @@ export default function About() {
       <Hero
         title="À propos"
         subtitle="Découvrez notre histoire et notre engagement envers la qualité et le savoir-faire"
-        source="/layouts/about-hero.jpg"
+        source="/layouts/about-hero.webp"
       />
 
       <main className="about">

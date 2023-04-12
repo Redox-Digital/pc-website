@@ -24,7 +24,7 @@ export default function OtherServices({ props }: Props) {
             href={`/services/${service.slug}`}
             className={style.otherServiceBlock}
             key={service.slug}
-            style={{ backgroundImage: `url(/layouts/${service.slug}-hero.jpg)` }}
+            style={{ backgroundImage: `url(/layouts/${service.slug}-hero.webp)` }}
           >
             <div className={style.otherServiceBlock__overlay}></div>
             <div className={style.otherServiceBlock__titles}>

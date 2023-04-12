@@ -81,7 +81,7 @@ export default function MobileMenu(props: Props) {
             aria-label="Accéder à nos services pour les particuliers"
             href="/services/particuliers"
             onClick={toggleAllMenus}
-            style={{ backgroundImage: 'url(/layouts/particuliers-hero.jpg)' }}
+            style={{ backgroundImage: 'url(/layouts/particuliers-hero.webp)' }}
           >
             <div className={style.overlay}></div>
             <h5>Particuliers</h5>
@@ -90,7 +90,7 @@ export default function MobileMenu(props: Props) {
             aria-label="Accéder à nos services pour les collectivités"
             href="/services/collectivites"
             onClick={toggleAllMenus}
-            style={{ backgroundImage: 'url(/layouts/collectivites-hero.jpg)' }}
+            style={{ backgroundImage: 'url(/layouts/collectivites-hero.webp)' }}
           >
             <div className={style.overlay}></div>
             <h5>Collectivités</h5>
@@ -99,7 +99,7 @@ export default function MobileMenu(props: Props) {
             aria-label="Accéder à nos services pour les entreprises"
             href="/services/entreprises"
             onClick={toggleAllMenus}
-            style={{ backgroundImage: 'url(/layouts/entreprises-hero.jpg)' }}
+            style={{ backgroundImage: 'url(/layouts/entreprises-hero.webp)' }}
           >
             <div className={style.overlay}></div>
             <h5>Entreprises</h5>

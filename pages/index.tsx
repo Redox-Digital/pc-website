@@ -80,13 +80,13 @@ export default function Home() {
         title="Paris & Comtesse SA"
         home
         subtitle="CONSTRUCTION MÉTALLIQUE À BOUDRY (NE)"
-        source="./layouts/home-hero.jpg"
+        source="./layouts/home-hero.webp"
       />
       <main className="home">
         <TextImageSection
           title={'sur-mesure'}
           surtitle={'Un engagement'}
-          imgPath="./layouts/home-sur-mesure.jpg"
+          imgPath="./layouts/home-sur-mesure.webp"
         >
           <>
             <p>
@@ -116,13 +116,12 @@ export default function Home() {
         <TextImageSection
           title={'Le métal'}
           surtitle={'Un choix éco-responsable'}
-          imgPath="./layouts/home-metal.jpg"
+          imgPath="./layouts/home-metal.webp"
           light
         >
           <>
             <p>
-              Le métal est un matériau très prisé pour sa solidité, sa durabilité et sa résistance à
-              la corrosion.
+              Le métal est un matériau très prisé pour sa solidité, sa durabilité et sa résistance.
             </p>
             <p>
               Reçu sous forme de feuilles ou de bobines, l&rsquo;acier est mécaniquement découpé,

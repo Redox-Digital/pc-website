@@ -4,13 +4,21 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['picsum.photos'],
     unoptimized : true
   },
     trailingSlash: true,
    // assetPrefix: './',
   // output: 'export',
   // distDir: 'dist',
+
+  async rewrites() {
+    return [
+      {
+        source: "/my_external_api",
+        destination: "https://email.redoxdigital.ch",
+      },
+    ];
+  },
 
 }
 

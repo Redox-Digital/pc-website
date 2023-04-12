@@ -7,11 +7,11 @@ export default function Realisations(): Realisation[] {
   return [
     {
       id: 0,
-      title: 'Barrière intérieure',
+      title: 'Garde-corps industriel',
     },
     {
       id: 1,
-      title: 'Escalier',
+      title: 'Escalier industriel',
     },
     {
       id: 2,
@@ -19,7 +19,7 @@ export default function Realisations(): Realisation[] {
     },
     {
       id: 3,
-      title: 'Portail coulissant',
+      title: 'Porte coulissante parking',
     },
     {
       id: 4,
@@ -31,7 +31,7 @@ export default function Realisations(): Realisation[] {
     },
     {
       id: 6,
-      title: 'Escalier de secours',
+      title: 'Escalier industriel',
     },
     {
       id: 7,
@@ -39,19 +39,19 @@ export default function Realisations(): Realisation[] {
     },
     {
       id: 8,
-      title: 'Escalier accès extérieur',
+      title: 'Escalier industriel',
     },
     {
       id: 9,
-      title: 'Symbole logo de marque',
+      title: 'Totem publicitaire design',
     },
     {
       id: 10,
-      title: 'Symbole logo de marque',
+      title: 'Totem publicitaire design',
     },
     {
       id: 11,
-      title: 'Réhaussement balcon',
+      title: 'Mise en conformité balcons',
     },
     {
       id: 12,
@@ -59,7 +59,7 @@ export default function Realisations(): Realisation[] {
     },
     {
       id: 13,
-      title: 'Balcon métallique et barrière décorative',
+      title: 'Création de balcons design',
     },
   ];
 }

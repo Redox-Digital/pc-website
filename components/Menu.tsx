@@ -15,21 +15,6 @@ const Header = () => {
   const [scrollingUp, setScrollingUp] = useState<boolean>(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  const displayOnScroll = () => {
-    if (typeof window !== 'undefined') {
-      if (window.scrollY > lastScrollY) {
-        // if scroll down hide the navbar
-        setScrollingUp(false);
-      } else {
-        // if scroll up show the navbar
-        setScrollingUp(true);
-      }
-
-      // remember current page location to use in the next move
-      setLastScrollY(window.scrollY);
-    }
-  };
-
   const changeBackground = () => {
     if (window.scrollY > 50) {
       setNavbar(true);
@@ -46,11 +31,26 @@ const Header = () => {
   useEffect(() => {
     changeBackground();
     // adding the event when scroll change background
+
     window.addEventListener('scroll', changeBackground);
   });
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
+      const displayOnScroll = () => {
+        if (typeof window !== 'undefined') {
+          if (window.scrollY > lastScrollY) {
+            // if scroll down hide the navbar
+            setScrollingUp(false);
+          } else {
+            // if scroll up show the navbar
+            setScrollingUp(true);
+          }
+
+          // remember current page location to use in the next move
+          setLastScrollY(window.scrollY);
+        }
+      };
       window.addEventListener('scroll', displayOnScroll);
 
       // cleanup function

@@ -23,50 +23,42 @@ export default function Realisations(): Realisation[] {
     },
     {
       id: 4,
-      title: 'Barreau forgé',
+      title: 'Restauration de portail',
     },
     {
       id: 5,
-      title: 'Portail entrée',
-    },
-    {
-      id: 6,
       title: 'Avant-toit en verre',
     },
     {
+      id: 6,
+      title: 'Restauration de portail ancien',
+    },
+    {
       id: 7,
-      title: 'Portail entrée sur-mesure',
+      title: 'Ponton fixe de port',
     },
     {
       id: 8,
-      title: 'Passerelle flottante lac',
+      title: 'Verrière sur-mesure',
     },
     {
       id: 9,
-      title: 'Verrière  sur-mesure',
+      title: 'Cage ascenseur vitrée',
     },
     {
       id: 10,
-      title: 'Tôle de finition perforée',
-    },
-    {
-      id: 11,
-      title: 'Cage ascenseur en verre',
-    },
-    {
-      id: 12,
       title: 'Cage escalier sortie secours',
     },
     {
+      id: 11,
+      title: 'Cage escalier tôle perforée',
+    },
+    {
+      id: 12,
+      title: 'Cage escalier tôle perforée',
+    },
+    {
       id: 13,
-      title: 'Cage escalier tôle perforée',
-    },
-    {
-      id: 14,
-      title: 'Cage escalier tôle perforée',
-    },
-    {
-      id: 15,
       title: 'Entrée accès cage ascenseur vitrée',
     },
   ];
