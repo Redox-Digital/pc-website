@@ -2,7 +2,7 @@ import ImageGallery from './ImageGallery';
 import Image from 'next/image';
 import style from '@/styles/components/Gallery.module.scss';
 import btn from '@/styles/components/Button.module.scss';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import arrowDown from '/public/pictograms/arrow-down.svg';
 
 type Realisation = {
@@ -112,6 +112,8 @@ export default function Gallery(props: Props) {
           >
             <div className={style.gallery__overlay__drop} onClick={hideOverlay} />
             <figure className={style.image}>
+              <i className="fa-solid fa-spinner" />
+
               <Image
                 src={
                   displayedRealisations.find((img) => img.id === fullImageId)
@@ -122,6 +124,7 @@ export default function Gallery(props: Props) {
                 width={1500}
                 height={1500}
               />
+
               <figcaption className={style.gallery__overlay__img}>
                 <small>
                   {displayedRealisations.find((img) => img.id === fullImageId)?.title || ''}

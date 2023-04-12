@@ -1,14 +1,17 @@
 import style from '@/styles/components/ContactForm.module.scss';
 import btn from '@/styles/components/Button.module.scss';
 import Link from 'next/link';
-import { FormEventHandler } from 'react';
+import { FormEventHandler, useState } from 'react';
 import TextInput from './TextInput';
 // import TextInput from './TextInput';
 
 export default function ContactForm() {
+  const [status, setStatus] = useState<'sending' | 'success' | 'error'>();
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     // Stop the form from submitting and refreshing the page.
     event.preventDefault();
+    setStatus('sending');
 
     // Get data from the form.
     // Get data from the form.
@@ -34,11 +37,12 @@ export default function ContactForm() {
     try {
       const response = await fetch(endpoint, options);
       if (!response.ok) {
-        alert("Votre mail n'a pas pu être envoyé.");
+        setStatus('error');
       } else {
-        alert('Votre mail a bien été envoyé, nous vous reviendrons sous peu.');
+        setStatus('success');
       }
     } catch (error) {
+      setStatus('error');
       console.warn('Error: ', error);
     }
   };
@@ -57,13 +61,12 @@ export default function ContactForm() {
           </Link>
         </p>
 
-        {/* 
         <form onSubmit={handleSubmit} id="form">
-          <TextInput type={'text'} id={'name'} required>
+          <TextInput type={'text'} id={'name'} required min={2} max={50}>
             Prénom Nom
           </TextInput>
 
-          <TextInput type={'text'} id={'society'}>
+          <TextInput type={'text'} id={'company'} min={2} max={50}>
             Société
           </TextInput>
 
@@ -71,7 +74,7 @@ export default function ContactForm() {
             E-Mail
           </TextInput>
 
-          <TextInput type={'text'} id={'phone'}>
+          <TextInput type={'text'} id={'phone'} placeholder="+41 123 ..." min={10} max={18}>
             Téléphone
           </TextInput>
 
@@ -84,7 +87,12 @@ export default function ContactForm() {
             <span>Type de client</span>
           </label>
 
-          <TextInput type={'textarea'} id={'message'} required>
+          <TextInput
+            type={'textarea'}
+            id={'message'}
+            required
+            errorMsg="Merci de nous indiquer la raison de votre prise de contact."
+          >
             Message
           </TextInput>
 
@@ -95,8 +103,32 @@ export default function ContactForm() {
           >
             Envoyer
           </button>
+
+          {status === 'success' && (
+            <small className={style.status__success}>
+              <i className="fa-solid fa-circle-check"></i> Nous vous remercions pour votre demande,
+              et la traiterons dans les plus brefs délais.
+            </small>
+          )}
+
+          {status === 'error' && (
+            <small className={style.status__error}>
+              <i className="fa-solid fa-triangle-exclamation"></i> Une erreur est survenue, votre
+              demande n&rsquo;a pas pu être envoyée.
+              <br />
+              Vous pouvez nous transmettre votre demande à l&rsquo;adresse suivante :{' '}
+              <Link href={'mailto:info@pc-sa.ch'} style={{ color: 'var(--accent)' }}>
+                <span id="mail" />
+              </Link>
+            </small>
+          )}
+
+          {status === 'sending' && (
+            <small className={style.status__sending}>
+              <i className="fa-solid fa-spinner"></i> En cours d&rsquo;envoi...
+            </small>
+          )}
         </form>
-  */}
       </div>
     </section>
   );

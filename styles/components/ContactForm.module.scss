@@ -44,6 +44,40 @@
   }
 }
 
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.status {
+  &__success > i {
+    margin-right: 5px;
+    color: green;
+  }
+  &__error > i {
+    margin-right: 5px;
+    color: rgb(104, 0, 0);
+  }
+
+  &__sending {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    > i {
+      margin-right: 5px;
+      animation: spin 1.5s infinite linear;
+    }
+  }
+}
+
 @media screen and (min-width: 768px) {
   .formSection form {
     flex-direction: row;
