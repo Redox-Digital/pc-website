@@ -30,6 +30,7 @@
       font-size: var(--fs-h5);
       letter-spacing: 0.08em;
       text-align: center;
+      margin-bottom: 0;
     }
   }
 }
@@ -40,6 +41,7 @@
     flex-wrap: wrap;
     > li {
       width: calc((100% - 2 * var(--margin)) / 3);
+      margin-bottom: calc(2 * var(--margin));
     }
   }
 }

@@ -28,16 +28,26 @@
     z-index: 0;
 
     // Background color : gold-white
-    background: linear-gradient(0deg, hsla(45, 40%, 96%, 0.1) 0%, hsla(45, 40%, 96%, 0.8) 100%);
+    --start-opacity: 0;
+    --end-opacity: 0.9;
+    --angle: 180deg;
+    --start: 0%;
+    --end: 60%;
+
+    background: linear-gradient(
+      var(--angle),
+      hsla(45, 40%, 96%, var(--start-opacity)) var(--start),
+      hsla(45, 40%, 96%, var(--end-opacity)) var(--end)
+    );
     background: -moz-linear-gradient(
-      0deg,
-      hsla(45, 40%, 96%, 0.1) 0%,
-      hsla(45, 40%, 96%, 0.8) 100%
+      var(--angle),
+      hsla(45, 40%, 96%, var(--start-opacity)) var(--start),
+      hsla(45, 40%, 96%, var(--end-opacity)) var(--end)
     );
     background: -webkit-linear-gradient(
-      0deg,
-      hsla(45, 40%, 96%, 0.1) 0%,
-      hsla(45, 40%, 96%, 0.8) 100%
+      var(--angle),
+      hsla(45, 40%, 96%, var(--start-opacity)) var(--start),
+      hsla(45, 40%, 96%, var(--end-opacity)) var(--end)
     );
   }
 }
@@ -46,5 +56,19 @@
   .contactCTA > .container {
     min-width: 640px;
     width: 50%;
+  }
+
+  .contactCTA__overlay {
+    --angle: 0deg;
+    --end: 50%;
+    --start: 0%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .contactCTA__overlay {
+    --angle: 0deg;
+    --end: 80%;
+    --start: 20%;
   }
 }

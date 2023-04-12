@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 
   position: fixed;
   top: 0;
@@ -123,13 +123,13 @@
     }
 
     &__next {
-      left: calc(var(--margin) * 2 + 50px);
-      transform: rotate(-90deg);
+      //left: calc(var(--margin) * 2 + 50px);
+      transform: rotate(-90deg) translateY(calc((50px + var(--margin)) / 2));
     }
 
     &__prev {
-      left: var(--margin);
-      transform: rotate(90deg);
+      //left: var(--margin);
+      transform: rotate(90deg) translateY(calc((50px + var(--margin)) / 2));
     }
   }
 }

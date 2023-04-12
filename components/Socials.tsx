@@ -4,7 +4,7 @@ export default function Socials() {
   return (
     <>
       <Link
-        href="https://www.instagram.com/paris_et_comtesse/"
+        href="https://www.instagram.com/parisetcomtesse/"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Accéder à notre compte Instagram"

@@ -3,6 +3,7 @@ import '@/styles/globals.scss';
 import type { AppProps } from 'next/app';
 
 import localFont from 'next/font/local';
+import Script from 'next/script';
 
 const jakarta = localFont({
   src: [
@@ -37,6 +38,23 @@ export default function App({ Component, pageProps }: AppProps) {
           --jakarta-font: ${jakarta.style.fontFamily};
         }
       `}</style>
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-5H18VW1W7E" />
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-5H18VW1W7E');`,
+        }}
+      />
+      <Script
+        id="credits"
+        dangerouslySetInnerHTML={{
+          __html: `<!-- Realisation : Redox Digital Sàrl [redoxdigital.ch] & Steve Mettraux [github.com/Smettraux] -->`,
+        }}
+      />
       <Layout>
         <Component {...pageProps} />
       </Layout>

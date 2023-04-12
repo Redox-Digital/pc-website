@@ -28,7 +28,24 @@ export default function Gallery(props: Props) {
 
   const displayedRealisations = allRealisations;
 
-  const displayGallery = () => {};
+  const keyboardNavigation = (evt: React.KeyboardEvent) => {
+    switch (evt.key) {
+      case 'Escape':
+        hideOverlay();
+        break;
+
+      case 'ArrowRight':
+        prevImg();
+        break;
+
+      case 'ArrowLeft':
+        nextImg();
+        break;
+
+      default:
+        break;
+    }
+  };
 
   const increasePagination = () => {
     setPagination(
@@ -86,13 +103,19 @@ export default function Gallery(props: Props) {
         </div>
 
         {displayedRealisations.find((img) => img.id === fullImageId) ? (
-          <div className={style.gallery__overlay}>
+          <div
+            className={style.gallery__overlay}
+            aria-hidden
+            ref={(div) => div?.focus()}
+            onKeyDown={(evt) => keyboardNavigation(evt)}
+            tabIndex={-1}
+          >
             <div className={style.gallery__overlay__drop} onClick={hideOverlay} />
             <figure className={style.image}>
               <Image
                 src={
                   displayedRealisations.find((img) => img.id === fullImageId)
-                    ? `/realisations/${slug}/${slug}-${fullImageId}.jpg`
+                    ? `/realisations/${slug}/1500px/paris-et-comtesse_${slug}-${fullImageId}.jpg`
                     : ''
                 }
                 alt={''}
