@@ -39,7 +39,7 @@ const Header = () => {
     if (typeof window !== 'undefined') {
       const displayOnScroll = () => {
         if (typeof window !== 'undefined') {
-          if (window.scrollY > lastScrollY) {
+          if (window.scrollY >= lastScrollY) {
             // if scroll down hide the navbar
             setScrollingUp(false);
           } else {

@@ -1,32 +1,5 @@
-// Circular
-
-/*
-@font-face {
-  font-family: circular;
-  font-weight: 700;
-  src: url('/fonts/circular/CircularStd-Black.otf');
-}
-
-@font-face {
-  font-family: circular;
-  font-weight: 600;
-  src: url('/fonts/circular/CircularStd-Bold.otf');
-}
-
-@font-face {
-  font-family: circular;
-  font-weight: 500;
-  src: url('/fonts/circular/CircularStd-Medium.otf');
-}
-
-@font-face {
-  font-family: circular;
-  font-weight: 400;
-  src: url('/fonts/circular/CircularStd-Book.otf');
-}
-*/
-
 // Jakarta
+/*
 @font-face {
   font-family: jakarta;
   font-style: normal;
@@ -40,12 +13,44 @@
   src: url('/fonts/jakarta/PlusJakartaSans-Italic-VariableFont_wght.ttf');
   font-display: swap;
 }
+*/
+@font-face {
+  font-family: jakarta;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/jakarta/PlusJakartaSans-Regular.woff2') format('woff2'),
+    url('/fonts/jakarta/PlusJakartaSans-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: jakarta;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/jakarta/PlusJakartaSans-Medium.woff2') format('woff2'),
+    url('/fonts/jakarta/PlusJakartaSans-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: jakarta;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/jakarta/PlusJakartaSans-SemiBold.woff2') format('woff2'),
+    url('/fonts/jakarta/PlusJakartaSans-SemiBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: jakarta;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/jakarta/PlusJakartaSans-Bold.woff2') format('woff2'),
+    url('/fonts/jakarta/PlusJakartaSans-Bold.woff') format('woff');
+}
 
 body {
   font-family: jakarta, 'Plus Jakarta Sans', sans-serif;
   // font-family: 'Plus Jakarta Sans', serif;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: var(--fs-p);
   color: var(--white);
 }
@@ -64,7 +69,7 @@ p {
 }
 
 small {
-  font-weight: 400;
+  font-weight: 500;
   font-size: var(--fs-sm);
   line-height: 1.3em;
   letter-spacing: 0.01em;
@@ -80,7 +85,7 @@ h6 {
 }
 
 h1 {
-  font-weight: 600;
+  font-weight: 500;
   font-size: var(--fs-h1);
   // text-transform: uppercase;
   line-height: 1em;
@@ -88,7 +93,7 @@ h1 {
 }
 
 h2 {
-  font-weight: 600;
+  font-weight: 700;
   font-size: var(--fs-h2);
   line-height: 1em;
   letter-spacing: 0.02em;
@@ -101,21 +106,21 @@ h2 {
 }
 
 h3 {
-  font-weight: 600;
+  font-weight: 700;
   font-size: var(--fs-h3);
   line-height: auto;
   letter-spacing: 0.03em;
 }
 
 h4 {
-  font-weight: 600;
+  font-weight: 700;
   font-size: var(--fs-h4);
   line-height: auto;
   letter-spacing: 0.03em;
 }
 
 h5 {
-  font-weight: 600;
+  font-weight: 500;
   font-size: var(--fs-h5);
   line-height: auto;
   letter-spacing: 0.08em;

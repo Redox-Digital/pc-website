@@ -63,6 +63,7 @@ export default function Home() {
     <>
       <Head>
         <title>Paris & Comtesse SA | Accueil</title>
+
         <meta
           name="keywords"
           content="construction métallique, construction métallique Neuchâtel, Neuchâtel"
@@ -70,6 +71,13 @@ export default function Home() {
         <meta
           name="description"
           content="Paris & Comtesse SA, construction métallique à Boudry (NE). Notre entreprise conçoit des ouvrages sur-mesure permettant une personnalisation complète pour répondre aux besoins spécifiques de nos clients."
+        />
+        <meta name="author" content="Redox Digital, Steve Mettraux" />
+        <script
+          type="txt"
+          dangerouslySetInnerHTML={{
+            __html: `/* Realisation : Redox Digital Sàrl [redoxdigital.ch] & Steve Mettraux [github.com/Smettraux] */`,
+          }}
         />
         <script
           type="application/ld+json"
