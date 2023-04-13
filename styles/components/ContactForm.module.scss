@@ -88,9 +88,9 @@
   .input {
     width: calc((100% - var(--margin)) / 2);
     margin-bottom: var(--margin);
+  }
 
-    &:has(textarea) {
-      width: 100%;
-    }
+  .textarea {
+    width: 100%;
   }
 }

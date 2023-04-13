@@ -8,20 +8,36 @@ import TextInput from './TextInput';
 export default function ContactForm() {
   const [status, setStatus] = useState<'sending' | 'success' | 'error'>();
 
+  const [formInputs, setFormInputs] = useState({
+    name: '',
+    mail: '',
+    phone: '',
+    type: 'particulier',
+    company: '',
+    message: '',
+  });
+
+  const handleChange = (e: any) => {
+    setFormInputs((prevValues) => {
+      return {
+        ...prevValues,
+        [e.target.id]: e.target.value,
+      };
+    });
+  };
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     // Stop the form from submitting and refreshing the page.
     event.preventDefault();
     setStatus('sending');
 
     // Get data from the form.
-    // Get data from the form.
-
     const data = new FormData();
 
-    data.append('name', 'michel');
-    data.append('mail', 'ruffieux.mikael@gmail.com');
-
-    console.log(Array.from(data));
+    Object.entries(formInputs).forEach((input) => {
+      const [key, value] = input;
+      data.append(key, value);
+    });
 
     const endpoint = 'https://email.redoxdigital.ch';
 
@@ -29,7 +45,7 @@ export default function ContactForm() {
     const options: RequestInit = {
       method: 'POST',
       headers: {
-        'Access-Control-Allow-Origin': 'https://email.redoxdigital.ch',
+        'Access-Control-Allow-Origin': '*',
       },
       body: data,
     };
@@ -62,27 +78,56 @@ export default function ContactForm() {
         </p>
 
         <form onSubmit={handleSubmit} id="form">
-          <TextInput type={'text'} id={'name'} required min={2} max={50}>
+          <TextInput
+            changeHandler={handleChange}
+            type={'text'}
+            id={'name'}
+            required
+            min={2}
+            max={50}
+            value={formInputs.name}
+          >
             Prénom Nom
           </TextInput>
 
-          <TextInput type={'text'} id={'company'} min={2} max={50}>
+          <TextInput
+            changeHandler={handleChange}
+            type={'text'}
+            id={'company'}
+            min={2}
+            max={50}
+            value={formInputs.company}
+          >
             Société
           </TextInput>
 
-          <TextInput type={'email'} id={'mail'} required>
+          <TextInput
+            changeHandler={handleChange}
+            type={'email'}
+            id={'mail'}
+            required
+            value={formInputs.mail}
+          >
             E-Mail
           </TextInput>
 
-          <TextInput type={'text'} id={'phone'} placeholder="+41 123 ..." min={10} max={18}>
+          <TextInput
+            type={'text'}
+            id={'phone'}
+            placeholder="+41 123 ..."
+            min={10}
+            max={18}
+            value={formInputs.phone}
+            changeHandler={handleChange}
+          >
             Téléphone
           </TextInput>
 
           <label htmlFor="type" className={style.input}>
-            <select id="type" name="type">
+            <select id="type" name="type" onChange={handleChange}>
               <option value="particulier">Particulier</option>
               <option value="collectivite">Collectivité</option>
-              <option value="professionnel">Entreprise</option>
+              <option value="entreprise">Entreprise</option>
             </select>
             <span>Type de client</span>
           </label>
@@ -92,6 +137,8 @@ export default function ContactForm() {
             id={'message'}
             required
             errorMsg="Merci de nous indiquer la raison de votre prise de contact."
+            value={formInputs.message}
+            changeHandler={handleChange}
           >
             Message
           </TextInput>

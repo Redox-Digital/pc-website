@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Hero from '@/components/Hero';
 import Map from '@/components/Map';
-import style from '@/styles/components/Form.module.scss';
 import ContactForm from '@/components/ContactForm';
 import Address from '@/components/Address';
 import TextImageSection from '@/components/TextImageSection';
