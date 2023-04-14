@@ -8,7 +8,6 @@ type Slide = {
   label: string;
   desc: string | JSX.Element;
   img1: string;
-  img2?: string;
 };
 
 type Props = {
@@ -57,8 +56,7 @@ export default function CompanySection({ slides }: Props) {
               >
                 <div className={style.slide__text}>{slide.desc}</div>
                 <div className={style.slide__images}>
-                  <img src={slide.img1} alt="" />
-                  <img src={slide.img2} alt="" />
+                  <Image src={slide.img1} width="500" height="500" alt="" />
                 </div>
               </div>
             ))}

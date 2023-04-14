@@ -3,10 +3,15 @@ import btn from '@/styles/components/Button.module.scss';
 import Link from 'next/link';
 import { FormEventHandler, useState } from 'react';
 import TextInput from './TextInput';
-// import TextInput from './TextInput';
+import Head from 'next/head';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import React from 'react';
 
 export default function ContactForm() {
-  const [status, setStatus] = useState<'sending' | 'success' | 'error'>();
+  const [status, setStatus] = useState<'sending' | 'success' | 'error' | 'cooldown'>();
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
+  const reCaptchaPubKey = '6LepC4glAAAAAMJiuVnhbKoqazkub5Z8ZLvwKtTD';
 
   const [formInputs, setFormInputs] = useState({
     name: '',
@@ -31,8 +36,19 @@ export default function ContactForm() {
     event.preventDefault();
     setStatus('sending');
 
-    // Get data from the form.
+    if (!executeRecaptcha) {
+      console.log('Execute recaptcha not yet available');
+      setStatus('error');
+      return;
+    }
+
     const data = new FormData();
+
+    const key = await executeRecaptcha('enquiryFormSubmit').then(
+      (gReCaptchaToken) => gReCaptchaToken
+    );
+
+    // Get data from the form.P
 
     Object.entries(formInputs).forEach((input) => {
       const [key, value] = input;
@@ -46,6 +62,8 @@ export default function ContactForm() {
       method: 'POST',
       headers: {
         'Access-Control-Allow-Origin': '*',
+        'key': 'PCSA',
+        'gRecaptchaToken': key,
       },
       body: data,
     };
@@ -56,6 +74,14 @@ export default function ContactForm() {
         setStatus('error');
       } else {
         setStatus('success');
+        setFormInputs({
+          name: '',
+          mail: '',
+          phone: '',
+          type: 'particulier',
+          company: '',
+          message: '',
+        });
       }
     } catch (error) {
       setStatus('error');
@@ -67,16 +93,6 @@ export default function ContactForm() {
     <section className={`light ${style.formSection}`}>
       <h2>Formulaire de contact</h2>
       <div className="container">
-        <p style={{ textAlign: 'center' }}>
-          Notre formulaire de contact est en maintenance.
-          <br />
-          <br />
-          En cas de demande urgente, merci de nous contacter à l&rsquo;adresse suivante :{' '}
-          <Link href={'mailto:info@pc-sa.ch'} style={{ color: 'var(--accent)' }}>
-            <span id="mail" />
-          </Link>
-        </p>
-
         <form onSubmit={handleSubmit} id="form">
           <TextInput
             changeHandler={handleChange}
@@ -161,9 +177,10 @@ export default function ContactForm() {
           {status === 'error' && (
             <small className={style.status__error}>
               <i className="fa-solid fa-triangle-exclamation"></i> Une erreur est survenue, votre
-              demande n&rsquo;a pas pu être envoyée.
+              demande n&rsquo;a pas pu être envoyée. Merci de réessayer.
               <br />
-              Vous pouvez nous transmettre votre demande à l&rsquo;adresse suivante :{' '}
+              Le cas échéant, vous pouvez nous transmettre votre demande à l&rsquo;adresse suivante
+              :{' '}
               <Link href={'mailto:info@pc-sa.ch'} style={{ color: 'var(--accent)' }}>
                 <span id="mail" />
               </Link>

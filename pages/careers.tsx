@@ -4,6 +4,7 @@ import Head from 'next/head';
 import style from '@/styles/layouts/Careers.module.scss';
 import Newsletter from '@/components/Newsletter';
 import JobOffer from '@/components/JobOffer';
+import Link from 'next/link';
 
 const ourMotivations = [
   {
@@ -41,7 +42,7 @@ const ourMotivations = [
 type Job = {
   id: number;
   title: string;
-  desc: string;
+  desc: string | JSX.Element;
   extLink: string;
   pdfLink: string;
 };
@@ -50,7 +51,15 @@ const openJobs: Job[] = [
   {
     id: 0,
     title: 'Constructeur(trice) métallique ou CAI 100%',
-    desc: 'Si vous êtes intéressé(e) par ce poste, nous attendons avec impatience votre CV et une lettre de motivation à info@pc-sa.ch',
+    desc: (
+      <>
+        Si vous êtes intéressé(e) par ce poste, nous attendons avec impatience votre CV et une
+        lettre de motivation à{' '}
+        <Link href={'mailto:info@pc-sa.ch'} target="_blank" rel="noreferrer noopener">
+          <span id="mail" />
+        </Link>
+      </>
+    ),
     extLink: '',
     pdfLink: '/job-offers/PC_Offre_Constructeur_metallique.pdf',
   },

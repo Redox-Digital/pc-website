@@ -3,7 +3,7 @@ import Button from './Button';
 
 type Job = {
   title: string;
-  desc: string;
+  desc: string | JSX.Element;
   extLink?: string;
   pdfLink?: string;
 };
