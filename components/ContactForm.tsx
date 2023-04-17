@@ -170,14 +170,15 @@ export default function ContactForm() {
           {status === 'success' && (
             <small className={style.status__success}>
               <i className="fa-solid fa-circle-check"></i> Nous vous remercions pour votre demande,
-              et la traiterons dans les plus brefs délais.
+              et la traiterons dans les plus brefs délais. Vous avez reçu un e-mail de confirmation.
             </small>
           )}
 
           {status === 'error' && (
             <small className={style.status__error}>
               <i className="fa-solid fa-triangle-exclamation"></i> Une erreur est survenue, votre
-              demande n&rsquo;a pas pu être envoyée. Merci de réessayer.
+              demande n&rsquo;a pas pu être envoyée. Merci de contrôler votre adresse e-mail et de
+              réessayer.
               <br />
               Le cas échéant, vous pouvez nous transmettre votre demande à l&rsquo;adresse suivante
               :{' '}
