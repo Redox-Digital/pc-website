@@ -1,17 +1,18 @@
 import style from '@/styles/components/ContactForm.module.scss';
 import btn from '@/styles/components/Button.module.scss';
 import Link from 'next/link';
-import { FormEventHandler, useState } from 'react';
+import { FormEventHandler, RefObject, useState } from 'react';
 import TextInput from './TextInput';
-import Head from 'next/head';
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import ReCAPTCHA from 'react-google-recaptcha';
 import React from 'react';
+import Script from 'next/script';
 
 export default function ContactForm() {
-  const [status, setStatus] = useState<'sending' | 'success' | 'error' | 'cooldown'>();
-  const { executeRecaptcha } = useGoogleReCaptcha();
+  const [status, setStatus] = useState<'sending' | 'success' | 'error' | 'cooldown' | 'captcha'>();
+  const [captchaValue, setCaptchaValue] = useState<string>('');
 
-  const reCaptchaPubKey = '6LepC4glAAAAAMJiuVnhbKoqazkub5Z8ZLvwKtTD';
+  const reCaptchaPubKey = '6Ldws6olAAAAAH7p7Q1rKaAmjJmeQT3Dmcr-DJiH';
+  const recaptchaRef = React.useRef();
 
   const [formInputs, setFormInputs] = useState({
     name: '',
@@ -21,6 +22,10 @@ export default function ContactForm() {
     company: '',
     message: '',
   });
+
+  const onCaptchaChange = (e: any) => {
+    setCaptchaValue(e);
+  };
 
   const handleChange = (e: any) => {
     setFormInputs((prevValues) => {
@@ -36,24 +41,22 @@ export default function ContactForm() {
     event.preventDefault();
     setStatus('sending');
 
-    if (!executeRecaptcha) {
-      console.log('Execute recaptcha not yet available');
-      setStatus('error');
+    // CAPTCHA
+    if (!captchaValue) {
+      setStatus('captcha');
       return;
     }
 
     const data = new FormData();
 
-    const key = await executeRecaptcha('enquiryFormSubmit').then(
-      (gReCaptchaToken) => gReCaptchaToken
-    );
-
     // Get data from the form.P
-
     Object.entries(formInputs).forEach((input) => {
       const [key, value] = input;
       data.append(key, value);
     });
+
+    // Debug
+    data.forEach((value, key) => console.log(value, ': ', key));
 
     const endpoint = 'https://email.redoxdigital.ch';
 
@@ -63,7 +66,7 @@ export default function ContactForm() {
       headers: {
         'Access-Control-Allow-Origin': '*',
         'key': 'PCSA',
-        'gRecaptchaToken': key,
+        'gRecaptchaToken': captchaValue,
       },
       body: data,
     };
@@ -90,111 +93,131 @@ export default function ContactForm() {
   };
 
   return (
-    <section className={`light ${style.formSection}`}>
-      <h2>Formulaire de contact</h2>
-      <div className="container">
-        <form onSubmit={handleSubmit} id="form">
-          <TextInput
-            changeHandler={handleChange}
-            type={'text'}
-            id={'name'}
-            required
-            min={2}
-            max={50}
-            value={formInputs.name}
-          >
-            Prénom Nom
-          </TextInput>
+    <>
+      <section className={`light ${style.formSection}`}>
+        <h2>Formulaire de contact</h2>
+        <div className="container">
+          <form onSubmit={handleSubmit} id="form">
+            <TextInput
+              changeHandler={handleChange}
+              type={'text'}
+              id={'name'}
+              required
+              min={2}
+              max={50}
+              value={formInputs.name}
+            >
+              Prénom Nom
+            </TextInput>
 
-          <TextInput
-            changeHandler={handleChange}
-            type={'text'}
-            id={'company'}
-            min={2}
-            max={50}
-            value={formInputs.company}
-          >
-            Société
-          </TextInput>
+            <TextInput
+              changeHandler={handleChange}
+              type={'text'}
+              id={'company'}
+              min={2}
+              max={50}
+              value={formInputs.company}
+            >
+              Société
+            </TextInput>
 
-          <TextInput
-            changeHandler={handleChange}
-            type={'email'}
-            id={'mail'}
-            required
-            value={formInputs.mail}
-          >
-            E-Mail
-          </TextInput>
+            <TextInput
+              changeHandler={handleChange}
+              type={'email'}
+              id={'mail'}
+              required
+              value={formInputs.mail}
+            >
+              E-Mail
+            </TextInput>
 
-          <TextInput
-            type={'text'}
-            id={'phone'}
-            placeholder="+41 123 ..."
-            min={10}
-            max={18}
-            value={formInputs.phone}
-            changeHandler={handleChange}
-          >
-            Téléphone
-          </TextInput>
+            <TextInput
+              type={'text'}
+              id={'phone'}
+              placeholder="+41 123 ..."
+              min={10}
+              max={18}
+              value={formInputs.phone}
+              changeHandler={handleChange}
+            >
+              Téléphone
+            </TextInput>
 
-          <label htmlFor="type" className={style.input}>
-            <select id="type" name="type" onChange={handleChange}>
-              <option value="particulier">Particulier</option>
-              <option value="collectivite">Collectivité</option>
-              <option value="entreprise">Entreprise</option>
-            </select>
-            <span>Type de client</span>
-          </label>
+            <label htmlFor="type" className={style.input}>
+              <select id="type" name="type" onChange={handleChange}>
+                <option value="particulier">Particulier</option>
+                <option value="collectivite">Collectivité</option>
+                <option value="entreprise">Entreprise</option>
+              </select>
+              <span>Type de client</span>
+            </label>
 
-          <TextInput
-            type={'textarea'}
-            id={'message'}
-            required
-            errorMsg="Merci de nous indiquer la raison de votre prise de contact."
-            value={formInputs.message}
-            changeHandler={handleChange}
-          >
-            Message
-          </TextInput>
+            <TextInput
+              type={'textarea'}
+              id={'message'}
+              required
+              errorMsg="Merci de nous indiquer la raison de votre prise de contact."
+              value={formInputs.message}
+              changeHandler={handleChange}
+            >
+              Message
+            </TextInput>
 
-          <button
-            aria-label="Envoyer votre demande"
-            type="submit"
-            className={`${btn.btn} ${btn.btn__big}`}
-          >
-            Envoyer
-          </button>
+            <div className={style.form__bottom}>
+              <div className="g-recaptcha" data-sitekey={reCaptchaPubKey} />
 
-          {status === 'success' && (
-            <small className={style.status__success}>
-              <i className="fa-solid fa-circle-check"></i> Nous vous remercions pour votre demande,
-              et la traiterons dans les plus brefs délais. Vous avez reçu un e-mail de confirmation.
-            </small>
-          )}
+              <ReCAPTCHA size="normal" sitekey={reCaptchaPubKey} onChange={onCaptchaChange} />
 
-          {status === 'error' && (
-            <small className={style.status__error}>
-              <i className="fa-solid fa-triangle-exclamation"></i> Une erreur est survenue, votre
-              demande n&rsquo;a pas pu être envoyée. Merci de contrôler votre adresse e-mail et de
-              réessayer.
-              <br />
-              Le cas échéant, vous pouvez nous transmettre votre demande à l&rsquo;adresse suivante
-              :{' '}
-              <Link href={'mailto:info@pc-sa.ch'} style={{ color: 'var(--accent)' }}>
-                <span id="mail" />
-              </Link>
-            </small>
-          )}
+              <button
+                aria-label="Envoyer votre demande"
+                type="submit"
+                className={`${btn.btn} ${btn.btn__big}`}
+              >
+                Envoyer
+              </button>
 
-          {status === 'sending' && (
-            <small className={style.status__sending}>
-              <i className="fa-solid fa-spinner"></i> En cours d&rsquo;envoi...
-            </small>
-          )}
-        </form>
-      </div>
-    </section>
+              {status === 'success' && (
+                <small className={style.status__success}>
+                  <i className="fa-solid fa-circle-check"></i> Nous vous remercions pour votre
+                  demande, et la traiterons dans les plus brefs délais. Vous avez reçu un e-mail de
+                  confirmation.
+                </small>
+              )}
+
+              {status === 'error' && (
+                <small className={style.status__error}>
+                  <i className="fa-solid fa-triangle-exclamation"></i> Une erreur est survenue,
+                  votre demande n&rsquo;a pas pu être envoyée. Merci de contrôler votre adresse
+                  e-mail et de réessayer.
+                  <br />
+                  Le cas échéant, vous pouvez nous transmettre votre demande à l&rsquo;adresse
+                  suivante :{' '}
+                  <Link href={'mailto:info@pc-sa.ch'} style={{ color: 'var(--accent)' }}>
+                    <span id="mail" />
+                  </Link>
+                </small>
+              )}
+
+              {status === 'sending' && (
+                <small className={style.status__sending}>
+                  <i className="fa-solid fa-spinner"></i> En cours d&rsquo;envoi...
+                </small>
+              )}
+
+              {status === 'cooldown' && (
+                <small className={style.status__sending}>
+                  Afin d&rsquo;éviter le spam, nous vous demandons de patienter quelques instants
+                  avant de renvoyer votre demande.
+                </small>
+              )}
+
+              {status === 'captcha' && (
+                <small className={style.status__sending}>Merci de cocher le reCAPTCHA.</small>
+              )}
+            </div>
+          </form>
+        </div>
+      </section>
+    </>
   );
 }

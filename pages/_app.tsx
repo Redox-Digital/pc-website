@@ -19,6 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
           __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-5H18VW1W7E');`,
         }}
       />
+      {/*
       <GoogleReCaptchaProvider
         reCaptchaKey={reCaptchaPubKey}
         scriptProps={{
@@ -27,11 +28,11 @@ export default function App({ Component, pageProps }: AppProps) {
           appendTo: 'head',
           nonce: undefined,
         }}
-      >
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </GoogleReCaptchaProvider>
+      > */}
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+      {/* </GoogleReCaptchaProvider> */}
     </>
   );
 }
