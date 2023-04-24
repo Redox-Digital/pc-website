@@ -56,7 +56,7 @@ export default function ContactForm() {
     });
 
     // Debug
-    data.forEach((value, key) => console.log(value, ': ', key));
+    data.forEach((value, key) => console.log(key, ': ', value));
 
     const endpoint = 'https://email.redoxdigital.ch';
 
@@ -65,7 +65,7 @@ export default function ContactForm() {
       method: 'POST',
       headers: {
         'Access-Control-Allow-Origin': '*',
-        'key': 'PCSADEV',
+        'key': 'PCSA',
         'gRecaptchaToken': captchaValue,
       },
       body: data,
