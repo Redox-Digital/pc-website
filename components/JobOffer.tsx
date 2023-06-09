@@ -4,8 +4,8 @@ import Link from 'next/link';
 
 type Job = {
   title: string;
-  url?: string;
-  pdf?: string;
+  url: string | null;
+  pdf: string | null;
 };
 
 export default function JobOffer(props: { job: Job; baseUrl: string }) {

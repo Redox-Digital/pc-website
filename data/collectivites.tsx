@@ -1,65 +1,65 @@
 type Realisation = {
   id: number;
-  title: string;
+  description: string;
 };
 
 export default function Realisations(): Realisation[] {
   return [
     {
       id: 0,
-      title: 'Barrière de sécurité pour fenêtre',
+      description: 'Barrière de sécurité pour fenêtre',
     },
     {
       id: 1,
-      title: 'Main-courante inox',
+      description: 'Main-courante inox',
     },
     {
       id: 2,
-      title: 'Verrière',
+      description: 'Verrière',
     },
     {
       id: 3,
-      title: 'Barrière fer forgé',
+      description: 'Barrière fer forgé',
     },
     {
       id: 4,
-      title: 'Restauration de portail',
+      description: 'Restauration de portail',
     },
     {
       id: 5,
-      title: 'Avant-toit en verre',
+      description: 'Avant-toit en verre',
     },
     {
       id: 6,
-      title: 'Restauration de portail ancien',
+      description: 'Restauration de portail ancien',
     },
     {
       id: 7,
-      title: 'Ponton fixe de port',
+      description: 'Ponton fixe de port',
     },
     {
       id: 8,
-      title: 'Verrière sur-mesure',
+      description: 'Verrière sur-mesure',
     },
     {
       id: 9,
-      title: 'Cage ascenseur vitrée',
+      description: 'Cage ascenseur vitrée',
     },
     {
       id: 10,
-      title: 'Cage escalier sortie secours',
+      description: 'Cage escalier sortie secours',
     },
     {
       id: 11,
-      title: 'Cage escalier tôle perforée',
+      description: 'Cage escalier tôle perforée',
     },
     {
       id: 12,
-      title: 'Cage escalier tôle perforée',
+      description: 'Cage escalier tôle perforée',
     },
     {
       id: 13,
-      title: 'Entrée accès cage ascenseur vitrée',
+      description: 'Entrée accès cage ascenseur vitrée',
     },
   ];
 }

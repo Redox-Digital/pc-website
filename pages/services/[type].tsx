@@ -11,10 +11,13 @@ import Gallery from '@/components/Gallery';
 import RealisationsParticuliers from '@/data/particuliers';
 import RealisationsEntreprises from '@/data/entreprises';
 import RealisationsCollectivites from '@/data/collectivites';
+import { useEffect, useState } from 'react';
 
 type Realisation = {
   id: number;
-  title: string;
+  description: string;
+  image?: string;
+  category?: 'individual' | 'collectivity' | 'enterprise';
 };
 
 type Service = {
@@ -34,24 +37,27 @@ type OtherService = {
   desc: string;
 };
 
-const otherParticuliers: OtherService = {
-  slug: 'particuliers',
-  title: 'Particuliers',
-  desc: 'Conception et réalisation de projets d’aménagement intérieur et extérieur, décoration d’intérieur',
+const otherServices: {
+  particuliers: OtherService;
+  collectivites: OtherService;
+  entreprises: OtherService;
+} = {
+  particuliers: {
+    slug: 'particuliers',
+    title: 'Particuliers',
+    desc: 'Conception et réalisation de projets d’aménagement intérieur et extérieur, décoration d’intérieur',
+  },
+  collectivites: {
+    slug: 'collectivites',
+    title: 'Collectivités',
+    desc: 'Conception & réalisation de projets d’aménagement extérieur, gestion de projets publics pour les communes, écoles, crèches, homes, etc.',
+  },
+  entreprises: {
+    slug: 'entreprises',
+    title: 'Entreprises',
+    desc: 'Rénovation de structures existantes, fabrication de structures métalliques sur-mesure',
+  },
 };
-
-const otherCollectivites: OtherService = {
-  slug: 'collectivites',
-  title: 'Collectivités',
-  desc: 'Conception & réalisation de projets d’aménagement extérieur, gestion de projets publics pour les communes, écoles, crèches, homes, etc.',
-};
-
-const otherEntreprises: OtherService = {
-  slug: 'entreprises',
-  title: 'Entreprises',
-  desc: 'Rénovation de structures existantes, fabrication de structures métalliques sur-mesure',
-};
-
 const servicesStatic: Service[] = [
   {
     slug: 'particuliers',
@@ -68,7 +74,7 @@ const servicesStatic: Service[] = [
       'porte',
       'agencement décoratif',
     ],
-    otherServices: [otherCollectivites, otherEntreprises],
+    otherServices: [otherServices.collectivites, otherServices.entreprises],
     realisations: RealisationsParticuliers(),
   },
   {
@@ -86,7 +92,7 @@ const servicesStatic: Service[] = [
       'devanture',
       'agencement décoratif',
     ],
-    otherServices: [otherParticuliers, otherEntreprises],
+    otherServices: [otherServices.particuliers, otherServices.entreprises],
     realisations: RealisationsCollectivites(),
   },
   {
@@ -103,7 +109,7 @@ const servicesStatic: Service[] = [
       'mise aux normes de structures existantes',
       'agencement décoratif',
     ],
-    otherServices: [otherParticuliers, otherCollectivites],
+    otherServices: [otherServices.particuliers, otherServices.collectivites],
     realisations: RealisationsEntreprises(),
   },
 ];
@@ -112,6 +118,7 @@ export default function Service() {
   const router = useRouter();
   const { type } = router.query;
 
+  // Default service (particuliers)
   const service = servicesStatic.find((elt) => elt.slug === type) || servicesStatic[0];
 
   return (
@@ -143,7 +150,6 @@ export default function Service() {
           </div>
         </section>
         <Gallery
-          allRealisations={service.realisations}
           surtitle={'une image vaut mille mots'}
           title={'Découvrez nos réalisations'}
           slug={service.slug}

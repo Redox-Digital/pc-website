@@ -7,26 +7,43 @@ import arrowDown from '/public/pictograms/arrow-down.svg';
 
 type Realisation = {
   id: number;
-  title: string;
+  description: string;
+  image: string;
+  category: 'individual' | 'collectivity' | 'enterprise';
 };
 
 type Props = {
-  allRealisations: Realisation[];
   surtitle: string;
   title: string;
   slug: 'particuliers' | 'collectivites' | 'entreprises';
 };
 
-export default function Gallery(props: Props) {
-  const { allRealisations, title, surtitle, slug } = props;
+export default function Gallery({ title, surtitle, slug }: Props) {
+  const [realisationsApi, setRealisations] = useState<Realisation[] | null>(null);
+  const [isLoading, setLoading] = useState<boolean>(false);
 
-  const galleryLength = allRealisations.length;
+  const galleryLength = realisationsApi?.length || 0;
   const paginationStep = 9;
 
   const [pagination, setPagination] = useState<number>(paginationStep);
-  const [fullImageId, setFullImageId] = useState<number | undefined>();
+  const [fullImageId, setFullImageId] = useState<number>();
 
-  const displayedRealisations = allRealisations;
+  useEffect(() => {
+    try {
+      setLoading(true);
+      fetch(`https://pc.redoxdigital.ch/items/realisation?search=${slug}`)
+        .then((res) => res.json())
+        .then((realisations) => {
+          setRealisations(realisations.data);
+          setLoading(false);
+        });
+    } catch (err) {
+      console.warn(err);
+      setLoading(false);
+    }
+  }, [slug]);
+
+  const displayedRealisations = realisationsApi;
 
   const keyboardNavigation = (evt: React.KeyboardEvent) => {
     switch (evt.key) {
@@ -56,7 +73,7 @@ export default function Gallery(props: Props) {
 
   const showOverlay = (imgId: number) => {
     setFullImageId(imgId);
-    console.log('Showing Overlay');
+    console.log('Showing Overlay: ', imgId, 'array position: ');
   };
 
   const hideOverlay = () => {
@@ -65,11 +82,13 @@ export default function Gallery(props: Props) {
   };
 
   const nextImg = () => {
+    // setFullImageId(realisation.nextId);
     if (fullImageId !== undefined && fullImageId >= galleryLength - 1) {
       setFullImageId(0);
     } else if (fullImageId !== undefined) {
       setFullImageId(fullImageId + 1);
     }
+
     console.log('Next ', fullImageId);
   };
 
@@ -79,6 +98,7 @@ export default function Gallery(props: Props) {
     } else if (fullImageId !== undefined) {
       setFullImageId(fullImageId - 1);
     }
+
     console.log('Prev ', fullImageId);
   };
 
@@ -96,13 +116,22 @@ export default function Gallery(props: Props) {
           <h2>{title}</h2>
         </div>
         <div className={style.gallery__images}>
-          {displayedRealisations
-            .map((img) => <ImageGallery key={img.id} slug={slug} {...img} showImg={showOverlay} />)
-            .slice(-1 * pagination)
-            .reverse()}
+          {displayedRealisations &&
+            displayedRealisations
+              .map((realisation) => (
+                <ImageGallery
+                  key={realisation.id}
+                  id={realisation.id}
+                  image={realisation.image}
+                  description={realisation.description}
+                  showImg={showOverlay}
+                />
+              ))
+              .slice(-1 * pagination)
+              .reverse()}
         </div>
 
-        {displayedRealisations.find((img) => img.id === fullImageId) ? (
+        {fullImageId && (
           <div
             className={style.gallery__overlay}
             aria-hidden
@@ -116,9 +145,9 @@ export default function Gallery(props: Props) {
 
               <Image
                 src={
-                  displayedRealisations.find((img) => img.id === fullImageId)
-                    ? `/realisations/${slug}/1500px/paris-et-comtesse_${slug}-${fullImageId}.jpg`
-                    : ''
+                  `https://pc.redoxdigital.ch/assets/${
+                    displayedRealisations?.find((img) => img.id === fullImageId)?.image
+                  }` || ''
                 }
                 alt={''}
                 width={1500}
@@ -127,7 +156,7 @@ export default function Gallery(props: Props) {
 
               <figcaption className={style.gallery__overlay__img}>
                 <small>
-                  {displayedRealisations.find((img) => img.id === fullImageId)?.title || ''}
+                  {displayedRealisations?.find((img) => img.id === fullImageId)?.description || ''}
                 </small>
               </figcaption>
             </figure>
@@ -135,7 +164,6 @@ export default function Gallery(props: Props) {
               Fermer
             </button>
 
-            {/* fonctions onClick inversées car les images sont affichées dans l'ordre inverse */}
             <button type="button" onClick={prevImg} className={style.btn__next}>
               <Image src={arrowDown} alt={''}></Image>
             </button>
@@ -144,8 +172,6 @@ export default function Gallery(props: Props) {
               <Image src={arrowDown} alt={''}></Image>
             </button>
           </div>
-        ) : (
-          ''
         )}
 
         {pagination < galleryLength && (

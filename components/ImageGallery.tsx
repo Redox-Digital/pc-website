@@ -2,23 +2,23 @@ import Image from 'next/image';
 import style from '@/styles/components/Gallery.module.scss';
 
 type Props = {
-  slug: 'particuliers' | 'collectivites' | 'entreprises';
   id: number;
-  title: string;
+  description: string;
+  image: string;
   showImg: (id: number) => void;
 };
 
-export default function ImageGallery({ title, id, slug, showImg }: Props) {
+export default function ImageGallery({ description, image, id, showImg }: Props) {
   return (
     <figure className={style.image} onClick={() => showImg(id)}>
       <Image
-        src={`/realisations/${slug}/500px/paris-et-comtesse_${slug}-${id}_min.jpg`}
-        alt={title}
+        src={`https://pc.redoxdigital.ch/assets/${image}?key=thumbnail` || ''}
+        alt={description}
         width={500}
         height={500}
       />
       <figcaption className={style.image__overlay}>
-        <p>{title}</p>
+        <p>{description}</p>
       </figcaption>
     </figure>
   );

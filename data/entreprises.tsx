@@ -1,65 +1,65 @@
 type Realisation = {
   id: number;
-  title: string;
+  description: string;
 };
 
 export default function Realisations(): Realisation[] {
   return [
     {
       id: 0,
-      title: 'Garde-corps industriel',
+      description: 'Garde-corps industriel',
     },
     {
       id: 1,
-      title: 'Escalier industriel',
+      description: 'Escalier industriel',
     },
     {
       id: 2,
-      title: 'Porte grillagée',
+      description: 'Porte grillagée',
     },
     {
       id: 3,
-      title: 'Porte coulissante parking',
+      description: 'Porte coulissante parking',
     },
     {
       id: 4,
-      title: 'Porte coulissante zone industrielle',
+      description: 'Porte coulissante zone industrielle',
     },
     {
       id: 5,
-      title: 'Groupe de boîtes aux lettres',
+      description: 'Groupe de boîtes aux lettres',
     },
     {
       id: 6,
-      title: 'Escalier industriel',
+      description: 'Escalier industriel',
     },
     {
       id: 7,
-      title: 'Escalier accès parking',
+      description: 'Escalier accès parking',
     },
     {
       id: 8,
-      title: 'Escalier industriel',
+      description: 'Escalier industriel',
     },
     {
       id: 9,
-      title: 'Totem publicitaire design',
+      description: 'Totem publicitaire design',
     },
     {
       id: 10,
-      title: 'Totem publicitaire design',
+      description: 'Totem publicitaire design',
     },
     {
       id: 11,
-      title: 'Mise en conformité balcons',
+      description: 'Mise en conformité balcons',
     },
     {
       id: 12,
-      title: 'Tôle décorative',
+      description: 'Tôle décorative',
     },
     {
       id: 13,
-      title: 'Création de balcons design',
+      description: 'Création de balcons design',
     },
   ];
 }

@@ -4,6 +4,7 @@ import Head from 'next/head';
 import style from '@/styles/layouts/Careers.module.scss';
 import Newsletter from '@/components/Newsletter';
 import JobOffer from '@/components/JobOffer';
+import { useEffect, useState } from 'react';
 
 const ourMotivations = [
   {
@@ -41,21 +42,37 @@ const ourMotivations = [
 type Job = {
   id: number;
   title: string;
-  url: string;
-  pdfLink: string;
+  url: string | null;
+  pdf: string | null;
 };
 
-export default function Careers(props: any) {
-  const displayJobs = (jobs: Job[]) => {
-    console.log(props);
+export default function Careers() {
+  const [jobs, setJobs] = useState<Job[] | null>(null);
+  const [isLoading, setLoading] = useState<boolean>(false);
 
-    if (jobs && jobs.length) {
-      return jobs.map((job) => (
-        <JobOffer key={job.id} job={job} baseUrl="https://pc.redoxdigital.ch/assets/" />
-      ));
-    } else {
-      return <h3>Actuellement aucune offre n&rsquo;est disponible sur notre site.</h3>;
+  useEffect(() => {
+    try {
+      setLoading(true);
+      fetch('https://pc.redoxdigital.ch/items/job?filter={"archived": {"_eq": false}}')
+        .then((res) => res.json())
+        .then((jobs) => {
+          setJobs(jobs.data);
+          setLoading(false);
+        });
+    } catch (err) {
+      console.warn(err);
+      setLoading(false);
     }
+  }, []);
+
+  const displayJobs = () => {
+    if (isLoading) return <p>Chargement...</p>;
+    if (!jobs || jobs.length === 0)
+      return <h3>Actuellement aucune offre n&rsquo;est disponible sur notre site.</h3>;
+
+    return jobs.map((job) => (
+      <JobOffer key={job.id} job={job} baseUrl="https://pc.redoxdigital.ch/assets/" />
+    ));
   };
 
   return (
@@ -93,7 +110,7 @@ export default function Careers(props: any) {
         <section className={style.careers__jobs}>
           <h2>Nos offres d&rsquo;emplois</h2>
 
-          {displayJobs(props.jobs.data)}
+          {displayJobs()}
         </section>
         <div
           className={style.careers__imgBanner}
@@ -113,9 +130,12 @@ export default function Careers(props: any) {
   );
 }
 
+/*
+
 export const getStaticProps = async () => {
   const res = await fetch('http://pc.redoxdigital.ch/items/job');
   const jobs = await res.json();
 
   return { props: { jobs } };
 };
+*/
