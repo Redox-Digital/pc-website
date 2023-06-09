@@ -4,7 +4,6 @@ import Head from 'next/head';
 import style from '@/styles/layouts/Careers.module.scss';
 import Newsletter from '@/components/Newsletter';
 import JobOffer from '@/components/JobOffer';
-import Link from 'next/link';
 
 const ourMotivations = [
   {
@@ -42,35 +41,20 @@ const ourMotivations = [
 type Job = {
   id: number;
   title: string;
-  desc: string | JSX.Element;
-  extLink: string;
+  url: string;
   pdfLink: string;
 };
 
-const openJobs: Job[] = [
-  {
-    id: 0,
-    title: 'Constructeur(trice) métallique ou CAI 100%',
-    desc: (
-      <>
-        Si vous êtes intéressé(e) par ce poste, nous attendons avec impatience votre CV et une
-        lettre de motivation à{' '}
-        <Link href={'mailto:info@pc-sa.ch'} target="_blank" rel="noreferrer noopener">
-          <span id="mail" />
-        </Link>
-      </>
-    ),
-    extLink: '',
-    pdfLink: '/job-offers/PC_Offre_Constructeur_metallique.pdf',
-  },
-];
-
-export default function Careers() {
+export default function Careers(props: any) {
   const displayJobs = (jobs: Job[]) => {
-    if (jobs.length > 0) {
-      return jobs.map((job) => <JobOffer key={job.id} {...job} />);
+    console.log(props);
+
+    if (jobs && jobs.length) {
+      return jobs.map((job) => (
+        <JobOffer key={job.id} job={job} baseUrl="https://pc.redoxdigital.ch/assets/" />
+      ));
     } else {
-      return <h3>Actuellement aucune offre n’est disponible sur notre site.</h3>;
+      return <h3>Actuellement aucune offre n&rsquo;est disponible sur notre site.</h3>;
     }
   };
 
@@ -106,6 +90,15 @@ export default function Careers() {
             </div>
           </div>
         </section>
+        <section className={style.careers__jobs}>
+          <h2>Nos offres d&rsquo;emplois</h2>
+
+          {displayJobs(props.jobs.data)}
+        </section>
+        <div
+          className={style.careers__imgBanner}
+          style={{ backgroundImage: 'url(/layouts/careers-banner.webp)' }}
+        ></div>
         <InfographySection
           title="Nos motivations"
           desc={
@@ -113,17 +106,16 @@ export default function Careers() {
           }
           blocks={ourMotivations}
         ></InfographySection>
-        <div
-          className={style.careers__imgBanner}
-          style={{ backgroundImage: 'url(/layouts/careers-banner.webp)' }}
-        ></div>
-        <section className={style.careers__jobs}>
-          <h2>Nos offres d&rsquo;emplois</h2>
 
-          {displayJobs(openJobs)}
-        </section>
         <Newsletter />
       </main>
     </>
   );
 }
+
+export const getStaticProps = async () => {
+  const res = await fetch('http://pc.redoxdigital.ch/items/job');
+  const jobs = await res.json();
+
+  return { props: { jobs } };
+};
