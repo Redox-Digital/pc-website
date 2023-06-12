@@ -27,6 +27,7 @@ export default function Gallery({ title, surtitle, slug }: Props) {
 
   const [pagination, setPagination] = useState<number>(paginationStep);
   const [fullImageId, setFullImageId] = useState<number>();
+  const [realArrPos, setRealArrPos] = useState<number>();
 
   useEffect(() => {
     try {
@@ -68,45 +69,39 @@ export default function Gallery({ title, surtitle, slug }: Props) {
     setPagination(
       pagination + paginationStep <= galleryLength ? pagination + paginationStep : galleryLength
     );
-    console.log('page ', pagination, '/ total length: ', galleryLength);
   };
 
   const showOverlay = (imgId: number) => {
-    setFullImageId(imgId);
-    console.log('Showing Overlay: ', imgId, 'array position: ');
+    if (displayedRealisations)
+      setRealArrPos(displayedRealisations.findIndex((real) => real.id === imgId));
   };
 
   const hideOverlay = () => {
-    setFullImageId(undefined);
-    console.log('Hiding Overlay');
+    setRealArrPos(undefined);
   };
 
   const nextImg = () => {
     // setFullImageId(realisation.nextId);
-    if (fullImageId !== undefined && fullImageId >= galleryLength - 1) {
-      setFullImageId(0);
-    } else if (fullImageId !== undefined) {
-      setFullImageId(fullImageId + 1);
+    if (realArrPos !== undefined && realArrPos >= galleryLength - 1) {
+      setRealArrPos(0);
+    } else if (realArrPos !== undefined) {
+      setRealArrPos(realArrPos + 1);
     }
-
-    console.log('Next ', fullImageId);
   };
 
   const prevImg = () => {
-    if (fullImageId !== undefined && fullImageId <= 0) {
-      setFullImageId(galleryLength - 1);
-    } else if (fullImageId !== undefined) {
-      setFullImageId(fullImageId - 1);
+    if (realArrPos !== undefined && realArrPos <= 0) {
+      setRealArrPos(galleryLength - 1);
+    } else if (realArrPos !== undefined) {
+      setRealArrPos(realArrPos - 1);
     }
-
-    console.log('Prev ', fullImageId);
   };
 
   useEffect(() => {
-    fullImageId !== undefined
+    realArrPos !== undefined
       ? (document.body.style.overflow = 'hidden')
       : (document.body.style.overflow = 'auto');
-  }, [fullImageId]);
+  }, [realArrPos]);
 
   return (
     <section className={`${style.gallery} light`}>
@@ -116,6 +111,7 @@ export default function Gallery({ title, surtitle, slug }: Props) {
           <h2>{title}</h2>
         </div>
         <div className={style.gallery__images}>
+          {isLoading && <p>Chargement de la galerie.</p>}
           {displayedRealisations &&
             displayedRealisations
               .map((realisation) => (
@@ -129,9 +125,13 @@ export default function Gallery({ title, surtitle, slug }: Props) {
               ))
               .slice(-1 * pagination)
               .reverse()}
+
+          {!displayedRealisations && (
+            <p>Un problème est survenu. Impossible de charger les réalisations.</p>
+          )}
         </div>
 
-        {fullImageId && (
+        {realArrPos !== undefined && (
           <div
             className={style.gallery__overlay}
             aria-hidden
@@ -145,9 +145,8 @@ export default function Gallery({ title, surtitle, slug }: Props) {
 
               <Image
                 src={
-                  `https://pc.redoxdigital.ch/assets/${
-                    displayedRealisations?.find((img) => img.id === fullImageId)?.image
-                  }` || ''
+                  `https://pc.redoxdigital.ch/assets/${displayedRealisations?.[realArrPos].image}` ||
+                  ''
                 }
                 alt={''}
                 width={1500}
@@ -155,9 +154,7 @@ export default function Gallery({ title, surtitle, slug }: Props) {
               />
 
               <figcaption className={style.gallery__overlay__img}>
-                <small>
-                  {displayedRealisations?.find((img) => img.id === fullImageId)?.description || ''}
-                </small>
+                <small>{displayedRealisations?.[realArrPos].description}</small>
               </figcaption>
             </figure>
             <button type="button" onClick={hideOverlay} className={style.btn__close}>

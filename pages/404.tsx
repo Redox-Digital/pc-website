@@ -5,7 +5,6 @@ export default function NotFoundPage() {
   return (
     <section className={`light ${style.notFoundPage}`}>
       <div className="container">
-        {' '}
         <h5>Erreur 404</h5>
         <h2>Page introuvable</h2>
         <p>La page que vous recherchez n&rsquo;existe pas.</p>
