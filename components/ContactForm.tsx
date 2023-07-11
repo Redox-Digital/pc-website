@@ -3,16 +3,10 @@ import btn from '@/styles/components/Button.module.scss';
 import Link from 'next/link';
 import { FormEventHandler, RefObject, useState } from 'react';
 import TextInput from './TextInput';
-import ReCAPTCHA from 'react-google-recaptcha';
 import React from 'react';
-import Script from 'next/script';
 
 export default function ContactForm() {
   const [status, setStatus] = useState<'sending' | 'success' | 'error' | 'cooldown' | 'captcha'>();
-  const [captchaValue, setCaptchaValue] = useState<string>('');
-
-  const reCaptchaPubKey = '6Ldws6olAAAAAH7p7Q1rKaAmjJmeQT3Dmcr-DJiH';
-  const recaptchaRef = React.useRef();
 
   const [formInputs, setFormInputs] = useState({
     name: '',
@@ -22,10 +16,6 @@ export default function ContactForm() {
     company: '',
     message: '',
   });
-
-  const onCaptchaChange = (e: any) => {
-    setCaptchaValue(e);
-  };
 
   const handleChange = (e: any) => {
     setFormInputs((prevValues) => {
@@ -41,34 +31,16 @@ export default function ContactForm() {
     event.preventDefault();
     setStatus('sending');
 
-    // CAPTCHA
-    if (!captchaValue) {
-      setStatus('captcha');
-      return;
-    }
-
-    const data = new FormData();
-
-    // Get data from the form.P
-    Object.entries(formInputs).forEach((input) => {
-      const [key, value] = input;
-      data.append(key, value);
-    });
-
-    // Debug
-    data.forEach((value, key) => console.log(key, ': ', value));
-
-    const endpoint = 'https://email.redoxdigital.ch';
+    const endpoint = 'https://pc.redoxdigital.ch/items/formulaires';
 
     // Form the request for sending data to the server.
     const options: RequestInit = {
       method: 'POST',
       headers: {
-        'Access-Control-Allow-Origin': '*',
-        'key': 'PCSA',
-        'gRecaptchaToken': captchaValue,
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer syMIEC9W_nDrIdxhgjxfQSxZUZFB6g-f',
       },
-      body: data,
+      body: JSON.stringify(formInputs),
     };
 
     try {
@@ -102,10 +74,10 @@ export default function ContactForm() {
               changeHandler={handleChange}
               type={'text'}
               id={'name'}
-              required
               min={2}
               max={50}
               value={formInputs.name}
+              required
             >
               Prénom Nom
             </TextInput>
@@ -164,10 +136,6 @@ export default function ContactForm() {
             </TextInput>
 
             <div className={style.form__bottom}>
-              <div className="g-recaptcha" data-sitekey={reCaptchaPubKey} />
-
-              <ReCAPTCHA size="normal" sitekey={reCaptchaPubKey} onChange={onCaptchaChange} />
-
               <button
                 aria-label="Envoyer votre demande"
                 type="submit"

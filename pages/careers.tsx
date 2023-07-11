@@ -50,7 +50,7 @@ type Job = {
 const openJobs: Job[] = [
   {
     id: 0,
-    title: 'Constructeur(trice) métallique ou CAI 100%',
+    title: 'Responsable technique en construction métallique 100%',
     desc: (
       <>
         Si vous êtes intéressé(e) par ce poste, nous attendons avec impatience votre CV et une
@@ -61,7 +61,7 @@ const openJobs: Job[] = [
       </>
     ),
     extLink: '',
-    pdfLink: '/job-offers/PC_Offre_Constructeur_metallique.pdf',
+    pdfLink: '/job-offers/PC_ResponsableBureauTechnique.pdf',
   },
 ];
 
