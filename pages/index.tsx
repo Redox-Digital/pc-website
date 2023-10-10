@@ -54,7 +54,7 @@ const structuredData = {
     'postalCode': '2017',
     'addressCountry': 'CH',
   },
-  'logo': 'https:///www.pc-sa.ch/logo/p-c_logo_slogan_nj.svg',
+  'logo': 'https://pc-sa.ch/logo/p-c_logo_slogan_nj.svg',
   'telephone': '+41 32 846 14 30',
 };
 
@@ -62,7 +62,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Paris & Comtesse SA | Construction métallique à Boudry</title>
+        <title>Construction métallique à Boudry | Paris & Comtesse SA</title>
 
         <meta
           name="keywords"
@@ -87,7 +87,7 @@ export default function Home() {
       <Hero
         title="Paris & Comtesse SA"
         home
-        subtitle="CONSTRUCTION MÉTALLIQUE À BOUDRY (NE)"
+        subtitle="Construction métallique à Boudry, Neuchâtel"
         source="./layouts/home-hero.webp"
       />
       <main className="home">

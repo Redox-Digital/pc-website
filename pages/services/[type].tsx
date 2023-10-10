@@ -124,7 +124,7 @@ export default function Service() {
   return (
     <>
       <Head>
-        <title>Paris & Comtesse SA | Services pour les {service.heroTitle}</title>
+        <title>Pour les {service.heroTitle} | Paris & Comtesse SA</title>
         <meta name="description" content={service.introDesc} />
       </Head>
       <Hero

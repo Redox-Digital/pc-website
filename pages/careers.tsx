@@ -78,7 +78,7 @@ export default function Careers() {
   return (
     <>
       <Head>
-        <title>Paris & Comtesse SA | Emplois</title>
+        <title>Emplois | Paris & Comtesse SA</title>
         <meta
           name="description"
           content="Nous sommes une entreprise dynamique et passionnée, spécialisée dans la construction métallique. Nous sommes constamment à la recherche de nouveaux talents pour rejoindre notre équipe."

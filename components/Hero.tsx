@@ -42,13 +42,16 @@ const Hero = (props: Props) => {
             <h1 className={style.title}>{title}</h1>
           )}
 
-          <p className={style.subtitle}>{subtitle}</p>
           {home ? (
+            <h1 className={style.subtitle}>{subtitle}</h1>
+          ) : (
+            <p className={style.subtitle}>{subtitle}</p>
+          )}
+
+          {home && (
             <Link href="#intro" scroll={false} aria-hidden>
               <Image src={arrowDown} alt={''}></Image>
             </Link>
-          ) : (
-            ''
           )}
         </div>
       </header>

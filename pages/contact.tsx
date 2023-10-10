@@ -9,7 +9,7 @@ const Contact = () => {
   return (
     <>
       <Head>
-        <title>Paris & Comtesse SA | Contact</title>
+        <title>Nous contacter | Paris & Comtesse SA</title>
         <meta
           name="description"
           content="Notre équipe est à votre disposition pour échanger sur votre projet."
