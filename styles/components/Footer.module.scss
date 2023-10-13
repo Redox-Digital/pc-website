@@ -103,19 +103,33 @@
   }
 
   &Bottom {
-    display: flex;
-    align-items: center;
     padding: var(--margin) var(--sct-horiz-margin);
     color: var(--dark-gray);
     background: var(--black);
+    > div {
+      display: flex;
 
-    > small {
-      width: 100%;
-      max-width: var(--large-content-width);
-      margin: 0 auto;
+      flex-direction: column-reverse;
+      gap: var(--margin);
+      align-items: flex-start;
+      justify-content: space-between;
 
-      > a {
-        opacity: 0.75;
+      @media screen and (min-width: 856px) {
+        flex-direction: row;
+      }
+
+      small {
+        width: fit-content;
+        max-width: var(--large-content-width);
+
+        &:last-of-type {
+          text-align: right;
+        }
+
+        > a {
+          opacity: 0.75;
+          text-decoration: underline;
+        }
       }
     }
   }

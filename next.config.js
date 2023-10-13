@@ -2,24 +2,12 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
+  output: 'export',
   reactStrictMode: true,
   images: {
-    unoptimized : true
+    unoptimized: true,
   },
-    trailingSlash: true,
-   // assetPrefix: './',
-  // output: 'export',
-  // distDir: 'dist',
+  trailingSlash: true,
+};
 
-  async rewrites() {
-    return [
-      {
-        source: "/my_external_api",
-        destination: "https://email.redoxdigital.ch",
-      },
-    ];
-  },
-
-}
-
-module.exports = nextConfig
+module.exports = nextConfig;

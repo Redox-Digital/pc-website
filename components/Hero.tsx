@@ -7,8 +7,8 @@ import IntroVideo from './IntroVideo';
 import { Suspense, useEffect, useState } from 'react';
 
 type Props = {
-  title: string;
-  subtitle: string;
+  title: string | JSX.Element;
+  subtitle: string | JSX.Element;
   source: string;
   home?: boolean;
   opacity?: number;

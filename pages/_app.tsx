@@ -2,28 +2,40 @@ import Layout from '@/components/Layout';
 import '@/styles/globals.scss';
 import type { AppProps } from 'next/app';
 
-import localFont from 'next/font/local';
-import Script from 'next/script';
-import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
+import { setCookie, getCookie } from '@/components/helpers/CookiesHelper';
+import { useEffect, useState } from 'react';
+import GAnalytics from '@/components/GAnalytics';
+import CookiesPopUp from '@/components/CookiesPopUp';
 
 export default function App({ Component, pageProps }: AppProps) {
-  const reCaptchaPubKey = '6LepC4glAAAAAMJiuVnhbKoqazkub5Z8ZLvwKtTD';
+  const gKey = 'G-5H18VW1W7E';
+
+  const [cookiePolicy, setCookiePolicy] = useState<boolean | undefined>(undefined);
+
+  // Play once on page load;
+  useEffect(() => {
+    setCookiePolicy(getCookie('lpd') === 'true' || undefined);
+    console.log(getCookie('lpd'));
+  }, []);
+
+  useEffect(() => {
+    console.log('Cookies: ', cookiePolicy);
+  });
+
+  const handleCookiePolicy = (answer: boolean) => {
+    setCookiePolicy(answer);
+    if (answer) setCookie('lpd', answer ? 'true' : 'false', 60);
+  };
 
   return (
     <>
-      {/*
-      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-5H18VW1W7E" />
-      <Script
-        id="google-analytics"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-5H18VW1W7E');`,
-        }}
-      />
-      */}
+      {/* Google Tag (gtag.js) */}
+      {cookiePolicy === true ? <GAnalytics gKey={gKey} /> : ''}
+
+      {cookiePolicy === undefined && <CookiesPopUp handleCookiePolicy={handleCookiePolicy} />}
 
       <Layout>
-        <Component {...pageProps} />
+        <Component {...pageProps} handleCookiePolicy={handleCookiePolicy} />
       </Layout>
     </>
   );

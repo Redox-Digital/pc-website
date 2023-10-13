@@ -1,0 +1,32 @@
+.popup {
+  background: rgba(29, 31, 34, 0.8);
+  box-shadow: var(--shadow-card-sm);
+  width: 100%;
+  max-width: max-content;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 10;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+
+  padding: 6px 8px;
+  gap: 6px;
+
+  > small {
+    font-size: 12px;
+
+    > a {
+      text-decoration: underline;
+    }
+  }
+}

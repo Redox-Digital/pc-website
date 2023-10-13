@@ -1,0 +1,55 @@
+.lpd {
+  background-color: var(--gold-white);
+  padding-inline: var(--sct-horiz-margin);
+
+  > section {
+    max-width: var(--large-content-width);
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    padding-block: 50px;
+    padding-inline: 0;
+
+    > a:last-of-type {
+      margin-top: var(--margin);
+    }
+  }
+
+  hr {
+    width: 100%;
+    border-color: var(--gray);
+  }
+
+  h2,
+  h3,
+  h4 {
+    margin-bottom: var(--title-text-space);
+  }
+
+  h2 {
+    margin-top: var(--title-text-space);
+  }
+
+  h3,
+  h4 {
+    margin-top: var(--margin);
+  }
+
+  h2 + h3,
+  h3 + h4 {
+    margin-top: 0;
+  }
+
+  h5 {
+    margin-block: var(--margin);
+  }
+
+  a:not(.btn) {
+    text-decoration: underline;
+    color: var(--accent);
+    &:hover {
+      cursor: pointer;
+      color: var(--dark-gray);
+    }
+  }
+}

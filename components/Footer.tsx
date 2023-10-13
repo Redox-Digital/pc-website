@@ -63,17 +63,22 @@ export default function Footer() {
         </div>
       </div>
       <div className={style.footerBottom}>
-        <small>
-          &copy; 2023 Paris & Comtesse SA – Site web réalisé par{' '}
-          <Link
-            aria-label="Accéder au site de Redox Digital"
-            href="https://redoxdigital.ch"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redox&nbsp;Digital
-          </Link>
-        </small>
+        <div className="container">
+          <small>
+            &copy; 2023 Paris & Comtesse SA – Site web réalisé par{' '}
+            <Link
+              aria-label="Accéder au site de Redox Digital"
+              href="https://redoxdigital.ch"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Redox&nbsp;Digital
+            </Link>
+          </small>
+          <small>
+            <Link href="/confidentialite">Confidentialité & mentions légales</Link>
+          </small>
+        </div>
       </div>
     </footer>
   );
