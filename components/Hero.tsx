@@ -4,7 +4,7 @@ import Link from 'next/link';
 import arrowDown from '/public/pictograms/arrow-down.svg';
 import logo from '/public/logo/p-c_logo_bj.svg';
 import IntroVideo from './IntroVideo';
-import { Suspense, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 type Props = {
   title: string | JSX.Element;
@@ -12,22 +12,27 @@ type Props = {
   source: string;
   home?: boolean;
   opacity?: number;
+  addClass?: string;
 };
 
-const Hero = (props: Props) => {
-  const { title, subtitle, source, home, opacity } = props;
-
+const Hero = ({ title, subtitle, source, home, opacity, addClass }: Props) => {
   const [video, setVideo] = useState<JSX.Element | string>('');
 
   useEffect(() => {
     const pageWidth = window?.innerWidth || 0;
-    setVideo(pageWidth > 768 ? <IntroVideo /> : '');
+    setVideo(
+      pageWidth > 768 ? (
+        <IntroVideo url="/layouts/PC-Video_BG-V1-1080-LowBitrate.mp4" />
+      ) : (
+        <IntroVideo url="/layouts/PC_SiteWebMobileBG_720_Low_V5.mp4" />
+      )
+    );
   }, []);
 
   return (
     <>
       <header
-        className={`${style.hero} ${home ? style.hero__home : ''}`}
+        className={`${style.hero} ${home ? style.hero__home : ''} ${addClass}`}
         style={{ backgroundImage: `url(${source})` }}
       >
         {home && video}

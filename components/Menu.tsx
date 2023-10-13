@@ -87,12 +87,8 @@ const Header = () => {
               </Link>
               <DropdownMenu />
 
-              <Link href="/about" aria-label="Accéder à la page d'à propos">
-                À propos
-              </Link>
-              <Link href="/careers" aria-label="Accéder à la page d'emplois">
-                Emplois
-              </Link>
+              <Link href="/about">À propos</Link>
+              <Link href="/careers">Emplois</Link>
               <Button
                 ariaLabel="Vers le formulaire de contact"
                 to="/contact"

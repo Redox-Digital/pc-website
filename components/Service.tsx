@@ -13,12 +13,7 @@ type Props = {
 
 export default function Service({ title, children, slug }: Props) {
   return (
-    <Link
-      id={slug}
-      href={`/services/${slug}`}
-      className={style.service}
-      aria-label={`Accéder à nos services pour les ${title}`}
-    >
+    <Link id={slug} href={`/services/${slug}`} className={style.service}>
       <div className={style.service__title}>
         <div className={style.service__images}>
           <Image

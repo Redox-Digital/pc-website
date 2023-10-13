@@ -110,9 +110,7 @@ export default function Home() {
               Les ouvrages sont conçus et fabriqués avec une attention particulière aux détails et à
               la qualité afin de garantir une longue durée de vie.
             </p>
-            <Button ariaLabel="Accéder à la page d'À propos" to={'/about'}>
-              En savoir plus
-            </Button>
+            <Button to={'/about'}>Découvrez notre entreprise</Button>
           </>
         </TextImageSection>
         <Infography
@@ -140,9 +138,7 @@ export default function Home() {
               La main de l&rsquo;homme reste essentielle pour travailler le métal avec précision et
               créer des pièces uniques et personnalisées.
             </p>
-            <Button ariaLabel="Accéder à la page d'À propos" to={'/about'}>
-              En savoir plus
-            </Button>
+            <Button to={'/about'}>Nos valeurs</Button>
           </>
         </TextImageSection>
         <Newsletter />

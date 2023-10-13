@@ -26,32 +26,13 @@ export default function Footer() {
             </Link>
             <div className={style.footer__submenu}>
               <h5>Services</h5>
-              <Link
-                href="/services/particuliers"
-                aria-label="Accéder à la page des services pour Particuliers"
-              >
-                Particuliers
-              </Link>
-              <Link
-                href="/services/collectivites"
-                aria-label="Accéder à la page des services pour Collectivités"
-              >
-                Collectivités
-              </Link>
-              <Link
-                href="/services/entreprises"
-                aria-label="Accéder à la page des services pour entreprises"
-              >
-                Entreprises
-              </Link>
+              <Link href="/services/particuliers">Particuliers</Link>
+              <Link href="/services/collectivites">Collectivités</Link>
+              <Link href="/services/entreprises">Entreprises</Link>
             </div>
 
-            <Link aria-label="Accéder à la page d'à propos" href="/about">
-              À propos
-            </Link>
-            <Link aria-label="Accéder à la page d'emploi" href="/careers">
-              Emplois
-            </Link>
+            <Link href="/about">À propos</Link>
+            <Link href="/careers">Emplois</Link>
           </div>
           <div className={style.footerBody__bottom__left}>
             <Address />

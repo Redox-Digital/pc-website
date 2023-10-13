@@ -22,6 +22,8 @@ type Realisation = {
 
 type Service = {
   slug: 'particuliers' | 'collectivites' | 'entreprises';
+  cssClass?: string;
+  heroOverlayOpacity?: number;
   heroTitle: string;
   heroSubtitle: string;
   introTitle: string;
@@ -61,6 +63,8 @@ const otherServices: {
 const servicesStatic: Service[] = [
   {
     slug: 'particuliers',
+    cssClass: style.particuliers,
+    heroOverlayOpacity: 0.3,
     heroTitle: 'Particuliers',
     heroSubtitle: 'Laisser libre cours à ses envies',
     introTitle: 'Réalisation sur-mesure',
@@ -79,6 +83,8 @@ const servicesStatic: Service[] = [
   },
   {
     slug: 'collectivites',
+    cssClass: style.collectivites,
+    heroOverlayOpacity: 0.3,
     heroTitle: 'Collectivités',
     heroSubtitle: 'Un engagement durable',
     introTitle: 'Engagement sur-mesure',
@@ -97,6 +103,8 @@ const servicesStatic: Service[] = [
   },
   {
     slug: 'entreprises',
+    cssClass: style.entreprises,
+    heroOverlayOpacity: 0.4,
     heroTitle: 'Entreprises',
     introTitle: 'Partenariat sur-mesure',
     heroSubtitle: "L'échange et la confiance dans la fierté du travail bien fait",
@@ -131,6 +139,8 @@ export default function Service() {
         title={service.heroTitle}
         subtitle={service.heroSubtitle}
         source={`/layouts/${service.slug}-hero.webp`}
+        addClass={service.cssClass}
+        opacity={service.heroOverlayOpacity}
       />
       <main className={style.service}>
         <section className={`${style.service__intro} light`}>

@@ -78,28 +78,25 @@ export default function MobileMenu(props: Props) {
         </div>
         <div className={style.mobileSubMenu__body}>
           <Link
-            aria-label="Accéder à nos services pour les particuliers"
             href="/services/particuliers"
             onClick={toggleAllMenus}
-            style={{ backgroundImage: 'url(/layouts/particuliers-hero.webp)' }}
+            style={{ backgroundImage: 'url(/layouts/particuliers-thumbnail.webp)' }}
           >
             <div className={style.overlay}></div>
             <h5>Particuliers</h5>
           </Link>
           <Link
-            aria-label="Accéder à nos services pour les collectivités"
             href="/services/collectivites"
             onClick={toggleAllMenus}
-            style={{ backgroundImage: 'url(/layouts/collectivites-hero.webp)' }}
+            style={{ backgroundImage: 'url(/layouts/collectivites-thumbnail.webp)' }}
           >
             <div className={style.overlay}></div>
             <h5>Collectivités</h5>
           </Link>
           <Link
-            aria-label="Accéder à nos services pour les entreprises"
             href="/services/entreprises"
             onClick={toggleAllMenus}
-            style={{ backgroundImage: 'url(/layouts/entreprises-hero.webp)' }}
+            style={{ backgroundImage: 'url(/layouts/entreprises-thumbnail.webp)' }}
           >
             <div className={style.overlay}></div>
             <h5>Entreprises</h5>
