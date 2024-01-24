@@ -42,10 +42,10 @@ export default function MobileMenu(props: Props) {
           <button aria-label="Afficher nos services" type="button" onClick={toggleSubMenu}>
             Services
           </button>
-          <Link href="/about" onClick={toggleMenu} aria-label="Accéder à la page d'à propos">
+          <Link href="/a-propos" onClick={toggleMenu} aria-label="Accéder à la page d'à propos">
             À propos
           </Link>
-          <Link href="/careers" onClick={toggleMenu} aria-label="Accéder à la page d'emplois">
+          <Link href="/emplois" onClick={toggleMenu} aria-label="Accéder à la page d'emplois">
             Emplois
           </Link>
           <Link href="/contact" onClick={toggleMenu} aria-label="Accéder à la page de contact">

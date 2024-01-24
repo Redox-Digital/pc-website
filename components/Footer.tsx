@@ -31,8 +31,8 @@ export default function Footer() {
               <Link href="/services/entreprises">Entreprises</Link>
             </div>
 
-            <Link href="/about">À propos</Link>
-            <Link href="/careers">Emplois</Link>
+            <Link href="/a-propos">À propos</Link>
+            <Link href="/emplois">Emplois</Link>
           </div>
           <div className={style.footerBody__bottom__left}>
             <Address />
