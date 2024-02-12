@@ -64,6 +64,8 @@ export default function Home() {
       <Head>
         <title>Construction métallique à Boudry | Paris & Comtesse SA</title>
 
+        <link rel="canonical" href="https://pc-sa.ch" />
+
         <meta
           name="keywords"
           content="construction métallique, construction métallique Neuchâtel, Neuchâtel"
