@@ -20,7 +20,7 @@ export default function TextImageSection({ title, surtitle, children, light, img
         <div
           className={style.txtImgSection__image}
           style={{ backgroundImage: `url(${imgPath})` }}
-        ></div>
+        />
         <div className={style.txtImgSection__content}>
           <h5 className={light ? 'color-dark' : ''}>{surtitle}</h5>
           {title === 'logo' ? (

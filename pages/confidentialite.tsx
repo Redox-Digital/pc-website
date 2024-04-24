@@ -22,7 +22,7 @@ export default function Confidentialite({ handleCookiePolicy }: Props) {
       <Hero
         title="Confidentialité"
         subtitle="Déclaration de protection des données & mentions légales"
-        source="/layouts/about-company-2.webp"
+        imgUrl="/layouts/about-company-2.webp"
       />
       <main className={css.lpd}>
         <section className="light">

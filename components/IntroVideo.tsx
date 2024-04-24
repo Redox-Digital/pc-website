@@ -1,11 +1,41 @@
+import css from '@/styles/components/IntroVideo.module.scss';
+
 type Props = {
-  url: string;
+  videoUrl: string;
+  mobileUrl: string;
+  imgUrl: string;
 };
 
-export default function IntroVideo({ url }: Props) {
-  return (
-    <video autoPlay playsInline muted loop aria-hidden>
-      <source src={url} type="video/mp4" />
-    </video>
-  );
+export default function IntroVideo({ videoUrl, imgUrl, mobileUrl }: Props) {
+  const video: string = `<video
+  class="${css.desktop}"
+      autoplay
+      loop
+      aria-hidden
+      controls="false"
+      playsinline
+      muted="true"
+      poster="${imgUrl}"
+    >
+      <source
+        src="${videoUrl}"
+        type="video/mp4"
+      />
+    </video><video
+    class="${css.mobile}"
+    autoplay
+    loop
+    aria-hidden
+    controls="false"
+    playsinline
+    muted="true"
+    poster="${imgUrl}"
+  >
+    <source
+      src="${mobileUrl}"
+      type="video/mp4"
+    />
+  </video>`;
+
+  return <div className={css.video} dangerouslySetInnerHTML={{ __html: video }}></div>;
 }

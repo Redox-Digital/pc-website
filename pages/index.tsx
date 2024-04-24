@@ -90,7 +90,7 @@ export default function Home() {
         title="Paris & Comtesse SA"
         home
         subtitle="Construction métallique à Boudry, Neuchâtel"
-        source="./layouts/home-hero.webp"
+        imgUrl="./layouts/home-hero.webp"
       />
       <main className="home">
         <TextImageSection

@@ -10,7 +10,7 @@ type Props = {
   addClass?: string;
   blank?: boolean;
   ariaLabel?: string;
-  children: string;
+  children?: string;
 };
 
 const getSize = (param: string | undefined) => {

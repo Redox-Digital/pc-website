@@ -30,6 +30,11 @@ section {
     background-color: var(--gold-white);
     color: var(--black);
   }
+
+  &.white {
+    background-color: var(--white);
+    color: var(--dark);
+  }
 }
 
 .container {

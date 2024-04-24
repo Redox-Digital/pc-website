@@ -5,7 +5,7 @@ import ContactForm from '@/components/ContactForm';
 import Address from '@/components/Address';
 import TextImageSection from '@/components/TextImageSection';
 
-const Contact = () => {
+export default function Contact() {
   return (
     <>
       <Head>
@@ -18,7 +18,7 @@ const Contact = () => {
       <Hero
         title="Contact"
         subtitle="Notre équipe est à votre disposition pour échanger sur votre projet"
-        source="/layouts/contact-hero.webp"
+        imgUrl="/layouts/contact-hero.webp"
       />
       <TextImageSection
         title={'logo'}
@@ -32,6 +32,4 @@ const Contact = () => {
       <ContactForm />
     </>
   );
-};
-
-export default Contact;
+}

@@ -84,7 +84,7 @@ export default function Careers() {
           content="Nous sommes une entreprise dynamique et passionnée, spécialisée dans la construction métallique. Nous sommes constamment à la recherche de nouveaux talents pour rejoindre notre équipe."
         />
       </Head>
-      <Hero title="Emplois" subtitle="Nous rejoindre" source="/layouts/careers-hero.webp" />
+      <Hero title="Emplois" subtitle="Nous rejoindre" imgUrl="/layouts/careers-hero.webp" />
       <main className={style.careers}>
         <section className={`${style.careers__intro} light`}>
           <div className="container">

@@ -45,7 +45,7 @@ const companySlides = [
     desc: (
       <>
         <p>
-          De par ses plus de 50 ans d’expérience dans le domaine de la construction métallique,
+          De par ses plus de 60 ans d’expérience dans le domaine de la construction métallique,
           Paris & Comtesse SA est reconnu pour son savoir-faire.
         </p>
         <p>
@@ -55,7 +55,7 @@ const companySlides = [
         </p>
       </>
     ),
-    img1: '/layouts/about-company-1.webp',
+    img1: '/layouts/about-company-team.webp',
   },
   {
     id: 1,
@@ -158,13 +158,13 @@ export default function About() {
         <title>À propos | Paris & Comtesse SA</title>
         <meta
           name="description"
-          content="Avec plus de 50 ans d'expérience dans le domaine de la construction métallique, Paris & Comtesse SA est reconnu pour son savoir-faire."
+          content="Avec plus de 60 ans d'expérience dans le domaine de la construction métallique, Paris & Comtesse SA est reconnu pour son savoir-faire."
         />
       </Head>
       <Hero
         title="À propos"
         subtitle="Découvrez notre histoire et notre engagement envers la qualité et le savoir-faire"
-        source="/layouts/about-hero.webp"
+        imgUrl="/layouts/about-hero.webp"
       />
 
       <main className="about">

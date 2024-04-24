@@ -7,7 +7,7 @@
   position: relative;
 
   word-break: break-word;
-  overflow: hidden;
+  // overflow: hidden;
 
   display: flex;
   flex-direction: column;
@@ -15,6 +15,10 @@
   align-items: flex-start;
 
   padding: 0 var(--sct-horiz-margin);
+
+  > img {
+    object-fit: cover;
+  }
 
   &__overlay {
     position: absolute;
@@ -26,19 +30,6 @@
     width: 100%;
     background-color: var(--black);
     z-index: 1;
-  }
-
-  > video {
-    // display: none;
-    z-index: 0;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
   }
 
   > .hero__content {
@@ -78,6 +69,16 @@
       height: fit-content;
       z-index: 2;
       margin: 0 auto;
+
+      &.anniversary {
+        max-width: 400px;
+        @media screen and (min-width: 900px) {
+          max-width: 550px;
+        }
+        @media screen and (min-width: 1200px) {
+          max-width: 700px;
+        }
+      }
     }
   }
 

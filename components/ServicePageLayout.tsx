@@ -47,7 +47,7 @@ export default function ServicePageLayout(service: Service) {
       <Hero
         title={service.heroTitle}
         subtitle={service.heroSubtitle}
-        source={`/layouts/${service.slug}-hero.webp`}
+        imgUrl={`/layouts/${service.slug}-hero.webp`}
         addClass={service.cssClass}
         opacity={service.heroOverlayOpacity}
       />
