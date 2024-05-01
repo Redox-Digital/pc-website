@@ -12,11 +12,12 @@ export default function HeroInfoBlock({ desktop }: Props) {
         <b>Concours des 60 ans</b>
       </p>
       <small>
-        Pour l&rsquo;anniversaire de Paris & Comtesse, nous organisons un concours spécial!
+        À venir: pour l&rsquo;anniversaire de Paris & Comtesse, nous organisons un concours spécial!
       </small>
-      <Button variation="black" size="small" to={'/concours'}>
+      {/*      
+      <Button variation="black" size="small" to={'/concours'} disabled>
         Participer
-      </Button>
+  </Button> */}
     </aside>
   );
 }

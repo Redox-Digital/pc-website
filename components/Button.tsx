@@ -11,6 +11,7 @@ type Props = {
   blank?: boolean;
   ariaLabel?: string;
   children?: string;
+  disabled?: boolean;
 };
 
 const getSize = (param: string | undefined) => {
