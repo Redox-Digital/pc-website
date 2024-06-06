@@ -31,7 +31,7 @@ export default function ContactForm() {
     event.preventDefault();
     setStatus('sending');
 
-    const endpoint = 'https://pc.redoxdigital.ch/items/formulaires';
+    const endpoint = 'https://cms.pc-sa.ch/items/formulaires';
 
     // Form the request for sending data to the server.
     const options: RequestInit = {

@@ -2,9 +2,9 @@ import Image from 'next/image';
 import style from '@/styles/components/Hero.module.scss';
 import Link from 'next/link';
 import arrowDown from '/public/pictograms/arrow-down.svg';
-// import logo from '/public/logo/p-c_logo_bj.svg';
+import logo from '/public/logo/p-c_logo_bj.svg';
 // uniquement pour les 60 ans
-import logo from '/public/logo/60ans_PC_bj.svg';
+//import logo from '/public/logo/60ans_PC_bj.svg';
 import IntroVideo from './IntroVideo';
 import { useEffect, useState } from 'react';
 import HeroInfoBlock from './HeroInfoBlock';
@@ -35,8 +35,8 @@ const Hero = ({ title, subtitle, imgUrl, home, opacity, addClass }: Props) => {
         <div className={style.hero__content}>
           {home ? (
             <>
-              {/* <Image src={logo} alt={''} width="1200" priority /> */}
-              <Image src={logo} className={style.anniversary} alt={''} width="700" priority />
+              <Image src={logo} alt={''} width="1200" priority />
+              {/* <Image src={logo} className={style.anniversary} alt={''} width="700" priority /> */}
 
               {/* Pour optimiser : https://beta.nextjs.org/docs/optimizing/lazy-loading#example-adding-a-custom-loading-component */}
             </>
@@ -56,15 +56,15 @@ const Hero = ({ title, subtitle, imgUrl, home, opacity, addClass }: Props) => {
             </Link>
           )}
         </div>
-        {home && <HeroInfoBlock desktop />}
+        {/* home && <HeroInfoBlock desktop /> */}
       </header>
       <span id="intro">{/* Anchor */}</span>
 
-      {home && (
+      {/* home && (
         <div className="container">
           <HeroInfoBlock />
         </div>
-      )}
+      )*/}
     </>
   );
 };
