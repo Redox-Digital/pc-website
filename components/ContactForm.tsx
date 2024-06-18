@@ -31,14 +31,14 @@ export default function ContactForm() {
     event.preventDefault();
     setStatus('sending');
 
-    const endpoint = 'https://cms.pc-sa.ch/items/formulaires';
+    const endpoint = `${process.env.api}/items/formulaires`;
 
     // Form the request for sending data to the server.
     const options: RequestInit = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer syMIEC9W_nDrIdxhgjxfQSxZUZFB6g-f',
+        'Authorization': `Bearer ${process.env.bearer}`,
       },
       body: JSON.stringify(formInputs),
     };

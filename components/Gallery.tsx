@@ -32,7 +32,7 @@ export default function Gallery({ title, surtitle, slug }: Props) {
   useEffect(() => {
     try {
       setLoading(true);
-      fetch(`https://pc.redoxdigital.ch/items/realisation?search=${slug}`)
+      fetch(`${process.env.api}/items/realisation?search=${slug}`)
         .then((res) => res.json())
         .then((realisations) => {
           setRealisations(realisations.data);
@@ -144,10 +144,7 @@ export default function Gallery({ title, surtitle, slug }: Props) {
               <i className="fa-solid fa-spinner" />
 
               <Image
-                src={
-                  `https://pc.redoxdigital.ch/assets/${displayedRealisations?.[realArrPos].image}` ||
-                  ''
-                }
+                src={`${process.env.api}/assets/${displayedRealisations?.[realArrPos].image}` || ''}
                 alt={''}
                 width={1500}
                 height={1500}

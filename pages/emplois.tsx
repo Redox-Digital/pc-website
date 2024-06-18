@@ -53,7 +53,7 @@ export default function Careers() {
   useEffect(() => {
     try {
       setLoading(true);
-      fetch('https://pc.redoxdigital.ch/items/job?filter={"archived": {"_eq": false}}')
+      fetch(`${process.env.api}/items/job?filter={"archived": {"_eq": false}}`)
         .then((res) => res.json())
         .then((jobs) => {
           setJobs(jobs.data);
@@ -71,7 +71,7 @@ export default function Careers() {
       return <h3>Actuellement aucune offre n&rsquo;est disponible sur notre site.</h3>;
 
     return jobs.map((job) => (
-      <JobOffer key={job.id} job={job} baseUrl="https://pc.redoxdigital.ch/assets/" />
+      <JobOffer key={job.id} job={job} baseUrl={`${process.env.api}/assets/`} />
     ));
   };
 

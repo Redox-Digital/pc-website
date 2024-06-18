@@ -12,7 +12,7 @@ export default function ImageGallery({ description, image, id, showImg }: Props)
   return (
     <figure className={style.image} onClick={() => showImg(id)}>
       <Image
-        src={`https://pc.redoxdigital.ch/assets/${image}?key=thumbnail` || ''}
+        src={`${process.env.api}/assets/${image}?key=thumbnail` || ''}
         alt={description}
         width={500}
         height={500}
