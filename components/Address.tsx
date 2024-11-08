@@ -5,10 +5,15 @@ export default function Address() {
   return (
     <div className={style.address}>
       <div className={style.address__elt}>
-        <h5>Téléphone</h5>
+        <h5>Contact</h5>
         <p>
-          <Link href="tel:+41 32 846 14 30" aria-label="Nous téléphoner">
+          <Link href={`tel:${process.env.phone}`} aria-label="Nous téléphoner">
             <span id="phone"></span>
+          </Link>
+        </p>
+        <p>
+          <Link href={`mailto:${process.env.mail}`} aria-label="Nous contacter par mail">
+            <span id="mail"></span>
           </Link>
         </p>
       </div>
