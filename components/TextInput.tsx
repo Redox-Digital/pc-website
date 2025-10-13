@@ -11,7 +11,8 @@ type Props = {
   placeholder?: string;
   min?: number;
   max?: number;
-  children: string;
+  children: string | React.ReactNode;
+  className?: string;
 };
 
 export default function TextInput({
@@ -26,15 +27,16 @@ export default function TextInput({
   max,
   children,
   value,
+  className,
 }: Props) {
   if (type === 'textarea') {
     return (
-      <label htmlFor={id} className={`${css.input} ${css.textarea}`}>
+      <label htmlFor={id} className={`${css.input} ${css.textarea} ${className}`}>
         <textarea
           id={id}
           name={id}
           required={required}
-          placeholder={placeholder || children}
+          placeholder={placeholder || children?.toString()}
           value={value}
           onChange={changeHandler}
         />
@@ -43,13 +45,13 @@ export default function TextInput({
     );
   } else {
     return (
-      <label htmlFor={id} className={css.input}>
+      <label htmlFor={id} className={`${css.input} ${className}`}>
         <input
           type={type}
           id={id}
           name={id}
           required={required}
-          placeholder={placeholder || children}
+          placeholder={placeholder || children?.toString()}
           pattern={regex}
           title={errorMsg}
           minLength={min}

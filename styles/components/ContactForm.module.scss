@@ -27,6 +27,19 @@
     background: var(--white);
     border: 1px solid var(--gray);
     font-size: var(--fs-sm);
+
+    &:focus {
+      outline: solid 1px var(--accent);
+      border: solid 1px var(--accent);
+    }
+
+    &:invalid {
+      border: solid 1px rgb(202, 0, 0);
+
+      &:focus {
+        outline: solid 1px rgb(202, 0, 0);
+      }
+    }
   }
 
   > textarea {
@@ -41,6 +54,24 @@
     font-size: var(--fs-h5);
     letter-spacing: 0.08em;
     text-transform: uppercase;
+
+    > small {
+      text-transform: none;
+      letter-spacing: normal;
+    }
+  }
+}
+
+// Status styles
+.error {
+  > input {
+    border: solid 1px rgb(202, 0, 0) !important;
+  }
+}
+
+.success {
+  > input {
+    border: solid 1px green !important;
   }
 }
 

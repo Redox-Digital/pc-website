@@ -1,12 +1,22 @@
 import style from '@/styles/components/ContactForm.module.scss';
 import btn from '@/styles/components/Button.module.scss';
 import Link from 'next/link';
-import { FormEventHandler, RefObject, useState } from 'react';
+import { FormEventHandler, RefObject, useEffect, useState } from 'react';
 import TextInput from './TextInput';
 import React from 'react';
 
+const getRandomInteger = (min: number, max: number): number => {
+  return Math.floor(Math.random() * (max - min) + min);
+};
+
 export default function ContactForm() {
   const [status, setStatus] = useState<'sending' | 'success' | 'error' | 'cooldown' | 'captcha'>();
+
+  const [antispam, setAntispam] = useState<[number, number]>([0, 0]);
+
+  useEffect(() => {
+    setAntispam([getRandomInteger(1, 10), getRandomInteger(1, 10)]);
+  }, []);
 
   const [formInputs, setFormInputs] = useState({
     name: '',
@@ -15,6 +25,7 @@ export default function ContactForm() {
     type: 'particulier',
     company: '',
     message: '',
+    antispam: '',
   });
 
   const handleChange = (e: any) => {
@@ -30,6 +41,12 @@ export default function ContactForm() {
     // Stop the form from submitting and refreshing the page.
     event.preventDefault();
     setStatus('sending');
+
+    // Home made anti-spam
+    if (parseInt(formInputs.antispam) !== antispam[0] + antispam[1]) {
+      setStatus('captcha');
+      return;
+    }
 
     const endpoint = `${process.env.api}/items/formulaires`;
 
@@ -56,6 +73,7 @@ export default function ContactForm() {
           type: 'particulier',
           company: '',
           message: '',
+          antispam: '',
         });
       }
     } catch (error) {
@@ -106,7 +124,7 @@ export default function ContactForm() {
             <TextInput
               type={'text'}
               id={'phone'}
-              placeholder="+41 123 ..."
+              placeholder="+41 32 ..."
               min={10}
               max={18}
               value={formInputs.phone}
@@ -123,6 +141,25 @@ export default function ContactForm() {
               </select>
               <span>Type de client</span>
             </label>
+
+            <TextInput
+              type={'number'}
+              id={'antispam'}
+              placeholder="..."
+              required
+              value={formInputs.antispam}
+              changeHandler={handleChange}
+              className={
+                formInputs.antispam && antispam[0] + antispam[1] !== parseInt(formInputs.antispam)
+                  ? style.error
+                  : ''
+              }
+            >
+              Anti-Spam{' '}
+              <small>
+                Combien font {antispam[0]} + {antispam[1]} ?
+              </small>
+            </TextInput>
 
             <TextInput
               type={'textarea'}
@@ -180,7 +217,9 @@ export default function ContactForm() {
               )}
 
               {status === 'captcha' && (
-                <small className={style.status__sending}>Merci de cocher le reCAPTCHA.</small>
+                <small className={style.status__sending}>
+                  Merci de remplir correctement le champ d&apos;anti-spam.
+                </small>
               )}
             </div>
           </form>
