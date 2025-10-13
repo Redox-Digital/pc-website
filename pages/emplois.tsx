@@ -5,6 +5,8 @@ import style from '@/styles/layouts/Careers.module.scss';
 import Newsletter from '@/components/Newsletter';
 import JobOffer from '@/components/JobOffer';
 import { useEffect, useState } from 'react';
+import Button from '@/components/Button';
+import Link from 'next/link';
 
 const ourMotivations = [
   {
@@ -68,7 +70,11 @@ export default function Careers() {
   const displayJobs = () => {
     if (isLoading) return <p>Chargement...</p>;
     if (!jobs || jobs.length === 0)
-      return <h3>Actuellement aucune offre n&rsquo;est disponible sur notre site.</h3>;
+      return (
+        <p>
+          <i>Actuellement aucune offre n&rsquo;est disponible sur notre site.</i>
+        </p>
+      );
 
     return jobs.map((job) => (
       <JobOffer key={job.id} job={job} baseUrl={`${process.env.api}/assets/`} />
@@ -111,6 +117,26 @@ export default function Careers() {
           <h2>Nos offres d&rsquo;emplois</h2>
 
           {displayJobs()}
+
+          <div className={style.careers__jobs__spontaneous}>
+            <h4>Postulation spontanée</h4>
+            <p>
+              Nous recherchons ponctuellement de nouveaux talents pour rejoindre notre équipe. Si
+              notre entreprise vous intéresse, n&apos;hésitez pas à nous envoyer votre candidature
+              spontanée.
+            </p>
+            <p>
+              Envoyez-nous votre dossier de candidature (CV et lettre de motivation) à
+              l&apos;adresse suivante :{' '}
+              <Link
+                href={`mailto:${process.env.mail}`}
+                target="_blank"
+                aria-label="Nous contacter par mail"
+              >
+                <span id="mail"></span>
+              </Link>
+            </p>
+          </div>
         </section>
         <div
           className={style.careers__imgBanner}

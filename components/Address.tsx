@@ -7,19 +7,27 @@ export default function Address() {
       <div className={style.address__elt}>
         <h5>Contact</h5>
         <p>
-          <Link href={`tel:${process.env.phone}`} aria-label="Nous téléphoner">
+          <Link href={`tel:${process.env.phone}`} target="_blank" aria-label="Nous téléphoner">
             <span id="phone"></span>
           </Link>
         </p>
         <p>
-          <Link href={`mailto:${process.env.mail}`} aria-label="Nous contacter par mail">
+          <Link
+            href={`mailto:${process.env.mail}`}
+            target="_blank"
+            aria-label="Nous contacter par mail"
+          >
             <span id="mail"></span>
           </Link>
         </p>
       </div>
       <div className={style.address__elt}>
         <h5>Adresse</h5>
-        <p>Baconnière 55, 2017 Boudry</p>
+        <p>
+          <Link href="https://maps.app.goo.gl/xJE6HVyw3Jr2EYBPA" target="_blank">
+            Baconnière 55, 2017 Boudry
+          </Link>
+        </p>
       </div>
       <div className={style.address__elt}>
         <h5>Horaires</h5>

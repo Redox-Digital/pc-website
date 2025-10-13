@@ -17,6 +17,25 @@
     align-items: center;
     text-align: center;
     gap: var(--vert-spacing);
+
+    &__spontaneous {
+      max-width: 1200px;
+      text-wrap: balance;
+
+      > h4 {
+        margin-bottom: var(--padding);
+        color: var(--accent);
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: underline;
+
+        &:hover {
+          color: var(--accent-dark);
+        }
+      }
+    }
   }
 }
 
