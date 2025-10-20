@@ -110,19 +110,26 @@
       text-align: center;
 
       > a {
-        width: 60px;
-        height: 60px;
-        border: solid 1px var(--accent-dark);
+        width: 44px;
+        height: 44px;
+        // border: solid 1px var(--accent-dark);
         display: flex;
         justify-content: center;
         align-items: center;
         position: absolute;
         bottom: 50px;
+        outline: solid 0px var(--dark);
+
+        > img {
+          width: 100%;
+          height: auto;
+        }
 
         &:hover {
           animation: none;
           transition: all 0.3s ease-in-out;
           background-color: var(--dark);
+          outline: solid 6px var(--dark);
         }
       }
     }

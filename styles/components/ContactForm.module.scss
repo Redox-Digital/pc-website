@@ -33,12 +33,9 @@
       border: solid 1px var(--accent);
     }
 
-    &:invalid {
+    &:invalid:focus {
       border: solid 1px rgb(202, 0, 0);
-
-      &:focus {
-        outline: solid 1px rgb(202, 0, 0);
-      }
+      outline: solid 1px rgb(202, 0, 0);
     }
   }
 
