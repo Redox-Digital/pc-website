@@ -12,7 +12,6 @@ export default function IntroVideo({ videoUrl, imgUrl, mobileUrl }: Props) {
       autoplay
       loop
       aria-hidden
-      controls="false"
       playsinline
       muted="true"
       poster="${imgUrl}"
@@ -26,7 +25,6 @@ export default function IntroVideo({ videoUrl, imgUrl, mobileUrl }: Props) {
     autoplay
     loop
     aria-hidden
-    controls="false"
     playsinline
     muted="true"
     poster="${imgUrl}"

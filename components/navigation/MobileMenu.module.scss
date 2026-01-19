@@ -43,13 +43,13 @@
 
       &:hover {
         transition: color 0.3s ease-in-out;
-        color: var(--accent-dark);
+        color: var(--yellow);
         cursor: pointer;
       }
 
       &::after {
         content: ' ▸';
-        color: var(--accent);
+        color: var(--gold);
       }
     }
 
@@ -70,7 +70,7 @@
     gap: 30px;
 
     &__elt > h5 {
-      color: var(--accent-dark);
+      color: var(--yellow);
     }
   }
 
@@ -82,7 +82,7 @@
     gap: 30px;
     padding: 20px 0;
     > a {
-      color: var(--accent);
+      color: var(--gold);
     }
   }
 }
@@ -126,13 +126,13 @@
 
       &:hover {
         transition: color 0.3s ease-in-out;
-        color: var(--accent-dark);
+        color: var(--yellow);
         cursor: pointer;
       }
 
       &::before {
         content: '◂ ';
-        color: var(--accent);
+        color: var(--gold);
       }
     }
   }

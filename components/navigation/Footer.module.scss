@@ -1,5 +1,5 @@
 .footer {
-  border-top: 4px solid var(--accent-dark);
+  border-top: 4px solid var(--yellow);
 
   &__submenu > a {
     font-size: var(--fs-sm);
@@ -51,7 +51,7 @@
         letter-spacing: 1em;
 
         > a {
-          color: var(--accent);
+          color: var(--gold);
         }
       }
     }
@@ -91,7 +91,7 @@
 
         &__elt {
           > h5 {
-            color: var(--accent-dark);
+            color: var(--yellow);
           }
 
           > p {
@@ -137,7 +137,7 @@
 
 @media screen and (min-width: 768px) {
   .footer {
-    border-top: 4px solid var(--accent-dark);
+    border-top: 4px solid var(--yellow);
 
     &__submenu > a {
       font-size: var(--fs-sm);

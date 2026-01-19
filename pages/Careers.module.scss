@@ -1,7 +1,7 @@
 .careers {
   &__intro > div {
     flex-direction: column;
-    gap: var(--title-text-space);
+    gap: var(--md);
     padding-bottom: 0px;
   }
 
@@ -24,15 +24,15 @@
 
       > h4 {
         margin-bottom: var(--padding);
-        color: var(--accent);
+        color: var(--gold);
       }
 
       a {
-        color: var(--accent);
+        color: var(--gold);
         text-decoration: underline;
 
         &:hover {
-          color: var(--accent-dark);
+          color: var(--yellow);
         }
       }
     }

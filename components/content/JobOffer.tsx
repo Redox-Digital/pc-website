@@ -26,21 +26,15 @@ export default function JobOffer(props: { job: Job; baseUrl: string }) {
       </div>
       <div className={style.job__btns}>
         {url ? (
-          <Button ariaLabel="Ouvrir l'offre d'emploi sur un site externe" href={url} blank>
+          <Button href={url} blank>
             Voir l&rsquo;annonce
           </Button>
         ) : (
           ''
         )}
         {pdf ? (
-          <Button
-            href={`${baseUrl}${pdf}`}
-            ariaLabel="Ouvrir le fichier PDF de l'offre d'emploi"
-            blank
-            icon="fa-regular fa-file-pdf"
-            variation="outline"
-          >
-            Télécharger le pdf
+          <Button href={`${baseUrl}${pdf}`} blank outline>
+            <i className="fa-regular fa-file-pdf" /> Télécharger le pdf
           </Button>
         ) : (
           ''

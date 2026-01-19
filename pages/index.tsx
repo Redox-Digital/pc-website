@@ -1,44 +1,13 @@
 import css from './Home.module.scss';
 import Head from 'next/head';
-import Hero from '@/components/layouts/Hero';
+import Hero, { HomeHero } from '@/components/layouts/Hero';
 import Infography from '@/components/content/InfographySection';
 import TextImageSection from '@/components/layouts/TextImageSection';
 import Newsletter from '@/components/forms/Newsletter';
 import Button from '@/components/navigation/Button';
 import ServicesSection from '@/components/layouts/ServicesSection';
-
-const ourValues = [
-  {
-    slug: 'quality',
-    path: '/pictograms/p-c_qualite.svg',
-    title: 'Qualité',
-    desc: 'Engagement à fournir des produits et services de haute qualité',
-  },
-  {
-    slug: 'innovation',
-    path: '/pictograms/p-c_innovation.svg',
-    title: 'Innovation',
-    desc: 'Encouragement à la créativité et l’exploration de nouvelles idées',
-  },
-  {
-    slug: 'know-how',
-    path: '/pictograms/p-c_savoir-faire.svg',
-    title: 'Savoir-Faire',
-    desc: 'Expertise et expérience de notre équipe',
-  },
-  {
-    slug: 'entrepreneurship',
-    path: '/pictograms/p-c_passion-entreprendre.svg',
-    title: "Passion d'entreprendre",
-    desc: 'Essentiel pour construire une entreprise durable et résiliente',
-  },
-  {
-    slug: 'clients-satisfaction',
-    path: '/pictograms/p-c_satisfaction.svg',
-    title: 'Satisfaction client',
-    desc: 'Comprendre les besoins et être à l’écoute des suggestions',
-  },
-];
+import { ourValues } from '@/constants/projectSpecifics';
+import { GoogleMyBusinessCTA, JobCTA } from '@/components/content/CTAs';
 
 const structuredData = {
   '@context': 'https://schema.org/',
@@ -58,6 +27,10 @@ const structuredData = {
 };
 
 export default function Home() {
+  const [pageTitle, pageDesc] = [
+    'Construction métallique à Neuchâtel',
+    "Depuis plus de 60 ans, l'entreprise Paris & Comtesse SA conçoit, fabrique et installe des structures métalliques sur mesure, répondant aux exigences et besoins spécifiques de ses clients.",
+  ];
   return (
     <>
       <Head>
@@ -85,45 +58,55 @@ export default function Home() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </Head>
-      <Hero
-        title="Paris & Comtesse SA"
-        home
-        subtitle="Construction métallique à Boudry, Neuchâtel"
-        imgUrl="./layouts/home-hero.webp"
+      <HomeHero
+        title={pageTitle}
+        subtitle={
+          <>
+            Depuis plus de 60 ans, l&apos;entreprise <em>Paris & Comtesse SA</em> conçoit, fabrique
+            et installe des structures métalliques sur mesure, répondant aux exigences et besoins
+            spécifiques de ses clients.
+          </>
+        }
+        imgUrl="/layouts/home-hero.webp"
       />
       <main className="home">
+        <h3>Section Dernières réalisations</h3>
+
+        <ServicesSection />
+
         <TextImageSection
-          title={'sur-mesure'}
-          surtitle={'Un engagement'}
-          imgPath="./layouts/home-sur-mesure.webp"
+          title={'Notre équipe'}
+          surtitle={'Soudés depuis 60 ans'}
+          imgPath="/layouts/home-sur-mesure.webp"
         >
           <>
             <p>
-              Notre entreprise conçoit des ouvrages sur-mesure permettant une personnalisation
-              complète pour répondre aux besoins spécifiques de nos clients.
+              De par ses plus de 60 ans d’expérience dans le domaine de la construction métallique,
+              Paris & Comtesse SA est reconnu pour son savoir-faire.
             </p>
             <p>
-              Chaque projet est étudié de la conception par notre bureau technique à la fabrication
-              avec soin et savoir-faire dans notre atelier et à la pose par nos collaborateurs
-              qualifiés.
+              Avec une équipe qualifiée et soudée, soucieuse de la qualité, nous réalisons des
+              pièces dans les règles de l’art afin de répondre précisément à chaque demande et
+              satisfaire notre clientèle.
             </p>
-            <p>
-              Les ouvrages sont conçus et fabriqués avec une attention particulière aux détails et à
-              la qualité afin de garantir une longue durée de vie.
-            </p>
-            <Button href={'/a-propos'}>Découvrez notre entreprise</Button>
+            <Button href={'/entreprise'}>Découvrez notre entreprise</Button>
           </>
         </TextImageSection>
+
+        <h3>Section certifications</h3>
+
         <Infography
           title="Nos valeurs"
           desc="Nous sommes fiers de vous présenter les valeurs fondamentales qui guident notre entreprise."
           blocks={ourValues}
         />
-        <ServicesSection />
+
+        <JobCTA />
+
         <TextImageSection
           title={'Le métal'}
           surtitle={'Un choix éco-responsable'}
-          imgPath="./layouts/home-metal.webp"
+          imgPath="/layouts/home-metal.webp"
           light
         >
           <>
@@ -139,10 +122,10 @@ export default function Home() {
               La main de l&rsquo;homme reste essentielle pour travailler le métal avec précision et
               créer des pièces uniques et personnalisées.
             </p>
-            <Button href={'/a-propos'}>Nos valeurs</Button>
           </>
         </TextImageSection>
-        <Newsletter />
+
+        <GoogleMyBusinessCTA />
       </main>
     </>
   );

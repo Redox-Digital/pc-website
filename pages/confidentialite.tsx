@@ -130,7 +130,7 @@ export default function Confidentialite({ handleCookiePolicy }: Props) {
             Redox Digital Sàrl
           </a>
 
-          <Button addClass={css.btn} href={'/'}>
+          <Button className={css.btn} href={'/'}>
             Retour à l&rsquo;accueil
           </Button>
         </section>
@@ -317,7 +317,7 @@ export default function Confidentialite({ handleCookiePolicy }: Props) {
             </b>
           </p>
 
-          <Button addClass={css.btn} href={'/'}>
+          <Button className={css.btn} href={'/'}>
             Retour à l&rsquo;accueil
           </Button>
         </section>

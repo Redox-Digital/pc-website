@@ -60,7 +60,7 @@
       border-bottom: 2px solid transparent;
 
       &:hover {
-        border-bottom: 2px solid var(--accent-dark);
+        border-bottom: 2px solid var(--yellow);
       }
     }
   }
@@ -103,7 +103,7 @@
     position: absolute;
     height: 4px;
     width: 100%;
-    background: var(--accent);
+    background: var(--gold);
     opacity: 1;
     left: 0;
     -webkit-transform: rotate(0deg);
@@ -170,7 +170,7 @@
 
 .submenu::after {
   padding-left: 8px;
-  color: var(--accent);
+  color: var(--gold);
   content: '▾';
 }
 
@@ -234,7 +234,9 @@
         max-height: 500px;
         height: fit-content;
         opacity: 1;
-        transition: opacity 0.25s, max-height 0.3s;
+        transition:
+          opacity 0.25s,
+          max-height 0.3s;
       }
     }
 
@@ -245,7 +247,9 @@
       max-height: 0px;
       opacity: 0;
       text-align: center;
-      transition: opacity 0.25s, max-height 0.3s;
+      transition:
+        opacity 0.25s,
+        max-height 0.3s;
     }
   }
 }

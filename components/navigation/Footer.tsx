@@ -37,9 +37,7 @@ export default function Footer() {
           <div className={style.footerBody__bottom__left}>
             <Address />
 
-            <Button ariaLabel="Vers le formulaire de contact" size="big" href="/contact">
-              Contact
-            </Button>
+            <Button href="/contact">Contact</Button>
           </div>
         </div>
       </div>

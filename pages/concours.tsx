@@ -38,8 +38,8 @@ export default function Concours() {
             <li>Couleur : gris anthracite</li>
             <li>Poids : 14 kg</li>
           </ul>
-          <Button href={'#formulaire'} icon="fa-solid fa-caret-down">
-            Participer
+          <Button href={'#formulaire'}>
+            <i className="fa-solid fa-caret-down" /> Participer
           </Button>
         </>
       </TextImageSection>

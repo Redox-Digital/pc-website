@@ -7,7 +7,7 @@
   &__titles {
     display: flex;
     flex-direction: column;
-    gap: var(--title-surtitle-space);
+    gap: var(--sm);
     text-align: center;
   }
 
@@ -49,7 +49,7 @@
         }
 
         &.checked {
-          color: var(--accent-dark);
+          color: var(--yellow);
           transition: all 0.3s ease-in-out;
           opacity: 0;
           height: 0;
@@ -65,7 +65,7 @@
 
         &:hover {
           cursor: pointer;
-          color: var(--accent);
+          color: var(--gold);
           transition: all 0.3s ease-in-out;
         }
 
@@ -82,10 +82,16 @@
   display: flex;
   flex-direction: column;
   height: fit-content;
-  transition: opacity 300ms, display 600ms, transform 400ms;
+  transition:
+    opacity 300ms,
+    display 600ms,
+    transform 400ms;
 
   &.hide {
-    transition: opacity 300ms, display 300ms, transform 300ms;
+    transition:
+      opacity 300ms,
+      display 300ms,
+      transform 300ms;
     // transform: translateY(40px);
     opacity: 0;
     height: 0;
@@ -108,7 +114,7 @@
     > h5 {
       // font-size: var(--fs-h3);
       margin-top: var(--margin);
-      color: var(--accent-dark);
+      color: var(--yellow);
 
       &::before {
         content: '■';
@@ -175,11 +181,17 @@
     flex-direction: row;
     gap: 70px;
     transform: translateX(0px);
-    transition: opacity 800ms, display 0ms, transform 1000ms;
+    transition:
+      opacity 800ms,
+      display 0ms,
+      transform 1000ms;
 
     &.hide {
       transform: translateX(100px);
-      transition: opacity 800ms, display 0ms, transform 1000ms;
+      transition:
+        opacity 800ms,
+        display 0ms,
+        transform 1000ms;
     }
 
     &__texts {

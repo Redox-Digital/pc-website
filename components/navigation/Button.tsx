@@ -1,78 +1,55 @@
 import Link from 'next/link';
-import style from './Button.module.scss';
+import css from './Button.module.scss';
 
 type Props = {
   href: string;
-  size?: undefined | 'small' | 'big';
-  // type?: undefined | "submit";
-  variation?: undefined | 'secondary' | 'black' | 'outline';
-  icon?: undefined | string;
-  addClass?: string;
-  blank?: boolean;
-  ariaLabel?: string;
-  children?: string;
+  big?: boolean;
+  secondary?: boolean;
+  outline?: boolean;
   disabled?: boolean;
+  className?: string;
+  children?: string | React.ReactNode;
+  blank?: boolean;
+  title?: string;
+  type?: 'button' | 'submit' | 'reset';
+  onClick?: () => void;
 };
 
-const getSize = (param: string | undefined) => {
-  switch (param) {
-    case 'small':
-      return style.btn__small;
-
-    case 'big':
-      return style.btn__big;
-
-    default:
-      return '';
-  }
-};
-
-const getVariation = (param: string | undefined) => {
-  switch (param) {
-    case 'secondary':
-      return style.btn__secondary;
-
-    case 'black':
-      return style.btn__black;
-
-    case 'outline':
-      return style.btn__outline;
-
-    default:
-      return '';
-  }
-};
-
-/**
- *
- * @param to : URL
- * @param size : undefined | "small" | "big";
- * @param variation : undefined | "secondary" | "black" | "outline"
- * @param addClass : undefined | string;
- * @param children: string, text on button;
- * @param blank : boolean
- * @returns
- */
 export default function Button({
   href,
-  // type,
-  size,
   children,
-  icon,
-  variation,
-  addClass,
+  big,
+  secondary,
+  outline,
+  disabled,
+  className,
   blank,
-  ariaLabel,
+  title,
+  type,
+  onClick,
 }: Props) {
-  return (
+  return href ? (
     <Link
       href={href}
-      className={`${style.btn} ${getSize(size)} ${getVariation(variation)} ${addClass}`}
+      className={`${css.btn} ${secondary && css.secondary} ${big && css.big} ${
+        outline && css.outline
+      } ${className}`}
       target={blank ? '_blank' : ''}
-      aria-label={ariaLabel}
+      onClick={onClick}
+      title={title}
     >
       {children}
-      {icon ? <i className={icon}></i> : ''}
     </Link>
+  ) : (
+    <button
+      type={type}
+      className={`${css.btn} ${big && css.big} ${outline && css.outline}
+       ${className}`}
+      onClick={onClick ? onClick : () => null}
+      title={title}
+      disabled={disabled}
+    >
+      {children}
+    </button>
   );
 }

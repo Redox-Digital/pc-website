@@ -1,32 +1,21 @@
 import Link from 'next/link';
+import { socialLinks } from '@/constants/navigation';
 
 export default function Socials() {
   return (
     <>
-      <Link
-        href="https://www.instagram.com/parisetcomtesse/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Accéder à notre compte Instagram"
-      >
-        <i className="fa-brands fa-instagram"></i>
-      </Link>
-      <Link
-        href="https://www.facebook.com/parisetcomtesse"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Accéder à notre page Facebook"
-      >
-        <i className="fa-brands fa-facebook"></i>
-      </Link>
-      <Link
-        href="https://www.linkedin.com/company/paris-comtesse-sa"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Accéder à notre page LinkedIn"
-      >
-        <i className="fa-brands fa-linkedin-in"></i>
-      </Link>
+      {socialLinks.map((l) => (
+        <Link
+          key={l.url}
+          href={l.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          title={l.label}
+          aria-label={l.label}
+        >
+          <i className={`fa-brands ${l.icon}`} />
+        </Link>
+      ))}
     </>
   );
 }

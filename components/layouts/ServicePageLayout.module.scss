@@ -8,10 +8,10 @@
   &__titles {
     display: flex;
     flex-direction: column;
-    gap: var(--title-surtitle-space);
+    gap: var(--sm);
 
     > h5 {
-      color: var(--accent);
+      color: var(--gold);
     }
   }
 

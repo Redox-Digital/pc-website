@@ -89,12 +89,7 @@ const Header = () => {
 
               <Link href="/a-propos">À propos</Link>
               <Link href="/emplois">Emplois</Link>
-              <Button
-                ariaLabel="Vers le formulaire de contact"
-                href="/contact"
-                size="small"
-                addClass="btn"
-              >
+              <Button href="/contact" className="btn">
                 Contact
               </Button>
             </div>

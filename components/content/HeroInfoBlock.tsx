@@ -16,8 +16,6 @@ export default function HeroInfoBlock({ desktop }: Props) {
       </small>
 
       <Button
-        variation="black"
-        size="small"
         href={'https://www.instagram.com/p/C6ytB_OI8H6?utm_source=website&utm_campaign=concours'}
         blank
       >

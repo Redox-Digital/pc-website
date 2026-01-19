@@ -9,7 +9,7 @@ import RealisationsParticuliers from '@/data/particuliers';
 import RealisationsEntreprises from '@/data/entreprises';
 import RealisationsCollectivites from '@/data/collectivites';
 import { useEffect, useState } from 'react';
-import ContactCTA from '../content/ContactCTA';
+import ContactCTA from '../content/CTAs';
 import Gallery from './Gallery';
 
 type Realisation = {

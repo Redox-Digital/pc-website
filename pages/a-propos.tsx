@@ -143,8 +143,8 @@ const historySlides = [
     desc: (
       <p>
         Création de la société Paris & Comtesse par M. Albert{' '}
-        <span style={{ color: 'var(--accent-dark)' }}>Paris</span> et son beau-frère Jean-Pierre{' '}
-        <span style={{ color: 'var(--accent-dark)' }}>Comtesse</span> dans un local à Bevaix.
+        <span style={{ color: 'var(--yellow)' }}>Paris</span> et son beau-frère Jean-Pierre{' '}
+        <span style={{ color: 'var(--yellow)' }}>Comtesse</span> dans un local à Bevaix.
       </p>
     ),
     img: '/layouts/about-2.webp',

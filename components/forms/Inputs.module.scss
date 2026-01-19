@@ -18,8 +18,8 @@
     font-size: var(--fs-sm);
 
     &:focus {
-      outline: solid 1px var(--accent);
-      border: solid 1px var(--accent);
+      outline: solid 1px var(--gold);
+      border: solid 1px var(--gold);
     }
 
     &:invalid:focus {

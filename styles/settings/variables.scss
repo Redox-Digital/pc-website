@@ -1,4 +1,5 @@
 * {
+  // COLORS
   --white: #fafafa;
   --gold-white: #f9f7f1;
   --dark: #1d1f22;
@@ -8,37 +9,76 @@
 
   --dark-rgb: 29, 31, 34;
 
-  --accent: #a88d44;
-  --accent-dark: #fcc238;
+  --gold: #a88d44;
+  --yellow: #fcc238;
 
   --shadow-hover: 0px 2px 4px rgba(0, 0, 0, 0.25);
   --shadow-clicked: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
 
-  --fs-h1: 50px;
-  --fs-h2: 36px;
+  // FONT SIZES
+  --fs-h1-home: 30px;
+  --fs-h1: 42px;
+  --fs-h2: 33px;
   --fs-h2-caps: 50px;
-  --fs-h3: 22px;
-  --fs-h4: 20px;
-  --fs-h5: 18px;
-  --fs-h6: 15px;
+  --fs-h3: 27px;
+  --fs-h4: 21px;
+  --fs-h5: 17px;
+  --fs-h6: 14px;
   --fs-p: 17px;
   --fs-sm: 14px;
 
-  --margin: 15px;
-  --padding: 10px;
-  --vert-spacing: 50px;
-  --title-surtitle-space: 10px;
-  --title-text-space: 30px;
+  // SPACINGS
 
-  --sct-vert-margin: 100px;
-  --sct-horiz-margin: 15px;
+  --xs: 6px;
+  --sm: 12px;
+  --md: 24px;
+  --lg: 48px;
+  --xl: 96px;
 
-  --navbar-height: 80px;
+  --margin: var(--md);
+  --padding: var(--sm);
+  --vert-spacing: var(--lg);
+
+  --sct-vert-margin: var(--xl);
+  --sct-horiz-margin: var(--sm);
+  --sct-default-margins: var(--sct-vert-margin) var(--sct-horiz-margin);
+
+  --navbar-height: 78px;
+
+  --max-paragraph-width: 100%;
   --max-block-width: 100%;
-  --max-container-width: 1300px;
 
-  --large-content-width: 100%;
-  --gallery-img-height: 500px;
+  --max-container-width: 1300px;
+  --large-content-width: 100%; // max-width for large screens
+  --gallery-img-height: 177px;
+
+  @media screen and (min-width: 900px) {
+    --fs-h1-home: 65px;
+    --fs-h1: 100px;
+    --fs-h2: 50px;
+    --fs-h2-caps: 100px;
+    --fs-h3: 37px;
+    --fs-h4: 28px;
+    --fs-h5: 21px;
+    --fs-h6: 16px;
+    --fs-p: 21px;
+    --fs-sm: 16px;
+
+    // SPACINGS
+    --vert-spacing: 72px;
+
+    --sct-vert-margin: 120px;
+    --sct-horiz-margin: 72px;
+
+    --navbar-height: 120px;
+
+    --max-paragraph-width: 960px;
+    --max-block-width: 1200px;
+
+    --max-container-width: 1440px;
+    --large-content-width: 1600px; // max-width for large screens
+    --gallery-img-height: 424px;
+  }
 }
 
 #phone::before {
@@ -49,61 +89,4 @@
 #mail::before {
   content: 'info@pc-sa.ch';
   display: inline;
-}
-
-/*
-@media screen and (min-width: 768px) {
-  * {
-    --fs-h1: 120px;
-    --fs-h2: 70px;
-    --fs-h2-caps: 100px;
-    --fs-h3: 40px;
-    --fs-h4: 30px;
-    --fs-h5: 22px;
-    --fs-h6: 15px;
-    --fs-p: 21px;
-    --fs-sm: 16px;
-
-    --margin: 20px;
-    --padding: 15px;
-    --title-surtitle-space: 15px;
-    --title-text-space: 30px;
-    --vert-spacing: 75px;
-
-    --sct-vert-margin: 150px;
-    --sct-horiz-margin: 70px;
-
-    --navbar-height: 140px;
-    --max-block-width: 1200px;
-
-    --large-content-width: 1200px;
-  }
-}
-*/
-@media screen and (min-width: 992px) {
-  * {
-    --fs-h1: 120px;
-    --fs-h2: 70px;
-    --fs-h2-caps: 100px;
-    --fs-h3: 40px;
-    --fs-h4: 30px;
-    --fs-h5: 22px;
-    --fs-h6: 15px;
-    --fs-p: 21px;
-    --fs-sm: 16px;
-
-    --margin: 20px;
-    --padding: 15px;
-    --title-surtitle-space: 15px;
-    --title-text-space: 30px;
-    --vert-spacing: 75px;
-
-    --sct-vert-margin: 150px;
-    --sct-horiz-margin: 70px;
-
-    --navbar-height: 140px;
-    --max-block-width: 1300px;
-
-    --large-content-width: 1300px;
-  }
 }

@@ -48,7 +48,7 @@
 
   &:hover {
     background: var(--dark);
-    border: solid 1px var(--accent-dark);
+    border: solid 1px var(--yellow);
 
     > small,
     h5 {
@@ -56,8 +56,8 @@
     }
 
     > div:last-of-type {
-      background-color: var(--accent);
-      border-color: var(--accent);
+      background-color: var(--gold);
+      border-color: var(--gold);
       color: var(--white);
     }
 

@@ -23,11 +23,11 @@
   h2,
   h3,
   h4 {
-    margin-bottom: var(--title-text-space);
+    margin-bottom: var(--md);
   }
 
   h2 {
-    margin-top: var(--title-text-space);
+    margin-top: var(--md);
   }
 
   h3,
@@ -46,7 +46,7 @@
 
   a:not(.btn) {
     text-decoration: underline;
-    color: var(--accent);
+    color: var(--gold);
     &:hover {
       cursor: pointer;
       color: var(--dark-gray);

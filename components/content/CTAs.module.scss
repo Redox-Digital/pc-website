@@ -1,0 +1,140 @@
+.contactCTA {
+  height: 400px;
+  padding: var(--margin);
+  flex-direction: column;
+  gap: var(--padding);
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+
+  > .container {
+    min-width: 100%;
+    width: 100%;
+    z-index: 1;
+
+    @media screen and (min-width: 900px) {
+      min-width: 640px;
+      width: 50%;
+    }
+
+    > a {
+      margin-top: var(--padding);
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+
+    // Background color : gold-white
+    --start-opacity: 0;
+    --end-opacity: 0.9;
+    --angle: 180deg;
+    --start: 0%;
+    --end: 60%;
+
+    background: linear-gradient(
+      var(--angle),
+      hsla(45, 40%, 96%, var(--start-opacity)) var(--start),
+      hsla(45, 40%, 96%, var(--end-opacity)) var(--end)
+    );
+    background: -moz-linear-gradient(
+      var(--angle),
+      hsla(45, 40%, 96%, var(--start-opacity)) var(--start),
+      hsla(45, 40%, 96%, var(--end-opacity)) var(--end)
+    );
+    background: -webkit-linear-gradient(
+      var(--angle),
+      hsla(45, 40%, 96%, var(--start-opacity)) var(--start),
+      hsla(45, 40%, 96%, var(--end-opacity)) var(--end)
+    );
+
+    @media screen and (min-width: 900px) {
+      --angle: 0deg;
+      --end: 50%;
+      --start: 0%;
+    }
+
+    @media screen and (min-width: 1200px) {
+      --angle: 0deg;
+      --end: 80%;
+      --start: 20%;
+    }
+  }
+}
+
+.jobCTA,
+.gmbCTA {
+  position: relative;
+
+  > img {
+    inset: 0;
+    z-index: -1;
+    object-fit: cover;
+  }
+
+  > .overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  > .content {
+    z-index: 1;
+  }
+
+  .texts {
+  }
+
+  > a {
+    z-index: 1;
+  }
+}
+
+.jobCTA {
+  padding: var(--vert-spacing) var(--sct-horiz-margin);
+
+  > .content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+
+    gap: var(--md);
+    max-width: var(--max-container-width);
+    margin-inline: auto;
+
+    > .texts {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sm);
+
+      max-width: var(--max-paragraph-width);
+    }
+  }
+
+  > .overlay {
+    background: linear-gradient(-90deg, rgba(29, 31, 34, 0) -0.01%, rgba(29, 31, 34, 0.8) 61.52%);
+  }
+}
+
+.gmbCTA {
+  padding: var(--sct-default-margins);
+
+  > .content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sm);
+    max-width: var(--max-paragraph-width);
+  }
+
+  > .overlay {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+  }
+}

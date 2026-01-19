@@ -6,7 +6,7 @@
   text-align: center;
 
   > h5 {
-    color: var(--accent-dark);
+    color: var(--yellow);
     padding: 0 var(--margin) var(--vert-spacing);
   }
 
@@ -60,7 +60,7 @@
     z-index: 2;
     display: flex;
     flex-direction: column;
-    gap: var(--title-text-space);
+    gap: var(--md);
 
     > small,
     > h3 {
@@ -134,8 +134,8 @@
 
       > div:last-of-type {
         color: var(--white);
-        background-color: var(--accent);
-        border-color: var(--accent);
+        background-color: var(--gold);
+        border-color: var(--gold);
       }
 
       .otherServiceBlock__overlay {

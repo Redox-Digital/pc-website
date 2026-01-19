@@ -199,7 +199,7 @@ export default function ContactForm() {
                   <br />
                   Le cas échéant, vous pouvez nous transmettre votre demande à l&rsquo;adresse
                   suivante :{' '}
-                  <Link href={'mailto:info@pc-sa.ch'} style={{ color: 'var(--accent)' }}>
+                  <Link href={'mailto:info@pc-sa.ch'} style={{ color: 'var(--gold)' }}>
                     <span id="mail" />
                   </Link>
                 </small>
