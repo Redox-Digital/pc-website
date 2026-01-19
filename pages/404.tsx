@@ -1,5 +1,5 @@
-import Button from '@/components/Button';
-import style from '@/styles/layouts/404.module.scss';
+import Button from '@/components/navigation/Button';
+import style from './404.module.scss';
 
 export default function NotFoundPage() {
   return (

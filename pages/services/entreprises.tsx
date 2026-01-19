@@ -1,5 +1,5 @@
-import ServicePageLayout from '@/components/ServicePageLayout';
-import css from '@/styles/layouts/Services.module.scss';
+import ServicePageLayout from '@/components/layouts/ServicePageLayout';
+import css from '@/components/layouts/ServicePageLayout.module.scss';
 
 type OtherService = {
   slug: 'particuliers' | 'collectivites' | 'entreprises';

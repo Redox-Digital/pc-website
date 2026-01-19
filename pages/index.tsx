@@ -1,12 +1,11 @@
-import styles from '@/styles/layouts/Home.module.scss';
+import css from './Home.module.scss';
 import Head from 'next/head';
-import Hero from '@/components/Hero';
-import Infography from '@/components/InfographySection';
-import TextImageSection from '@/components/TextImageSection';
-import Newsletter from '@/components/Newsletter';
-import Button from '@/components/Button';
-import ServicesSection from '@/components/ServicesSection';
-import Script from 'next/script';
+import Hero from '@/components/layouts/Hero';
+import Infography from '@/components/content/InfographySection';
+import TextImageSection from '@/components/layouts/TextImageSection';
+import Newsletter from '@/components/forms/Newsletter';
+import Button from '@/components/navigation/Button';
+import ServicesSection from '@/components/layouts/ServicesSection';
 
 const ourValues = [
   {
@@ -112,7 +111,7 @@ export default function Home() {
               Les ouvrages sont conçus et fabriqués avec une attention particulière aux détails et à
               la qualité afin de garantir une longue durée de vie.
             </p>
-            <Button to={'/a-propos'}>Découvrez notre entreprise</Button>
+            <Button href={'/a-propos'}>Découvrez notre entreprise</Button>
           </>
         </TextImageSection>
         <Infography
@@ -140,7 +139,7 @@ export default function Home() {
               La main de l&rsquo;homme reste essentielle pour travailler le métal avec précision et
               créer des pièces uniques et personnalisées.
             </p>
-            <Button to={'/a-propos'}>Nos valeurs</Button>
+            <Button href={'/a-propos'}>Nos valeurs</Button>
           </>
         </TextImageSection>
         <Newsletter />

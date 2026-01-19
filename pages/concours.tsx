@@ -1,12 +1,10 @@
 import Head from 'next/head';
-import Hero from '@/components/Hero';
-import Map from '@/components/Map';
-import ContactForm from '@/components/ContactForm';
-import Address from '@/components/Address';
-import TextImageSection from '@/components/TextImageSection';
-import Button from '@/components/Button';
-import css from '@/styles/layouts/Concours.module.scss';
+import Hero from '@/components/layouts/Hero';
+import TextImageSection from '@/components/layouts/TextImageSection';
+import Button from '@/components/navigation/Button';
+import css from './Concours.module.scss';
 import Link from 'next/link';
+import ContactForm from '@/components/forms/ContactForm';
 
 export default function Concours() {
   return (
@@ -40,7 +38,7 @@ export default function Concours() {
             <li>Couleur : gris anthracite</li>
             <li>Poids : 14 kg</li>
           </ul>
-          <Button to={'#formulaire'} icon="fa-solid fa-caret-down">
+          <Button href={'#formulaire'} icon="fa-solid fa-caret-down">
             Participer
           </Button>
         </>

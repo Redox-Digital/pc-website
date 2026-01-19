@@ -1,4 +1,4 @@
-import ServicesSection from '@/components/ServicesSection';
+import ServicesSection from '@/components/layouts/ServicesSection';
 import Head from 'next/head';
 
 export default function Services() {

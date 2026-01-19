@@ -1,7 +1,6 @@
-import Header from './Menu';
-import Footer from './Footer';
-import Head from 'next/head';
+import Header from './navigation/Menu';
 import Script from 'next/script';
+import Footer from './navigation/Footer';
 
 type Props = {
   children: string | JSX.Element;

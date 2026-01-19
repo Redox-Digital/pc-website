@@ -4,8 +4,8 @@ import type { AppProps } from 'next/app';
 
 import { setCookie, getCookie } from '@/components/helpers/CookiesHelper';
 import { useEffect, useState } from 'react';
-import GAnalytics from '@/components/GAnalytics';
-import CookiesPopUp from '@/components/CookiesPopUp';
+import GAnalytics from '@/components/helpers/GAnalytics';
+import CookiesPopUp from '@/components/content/CookiesPopUp';
 
 export default function App({ Component, pageProps }: AppProps) {
   const gKey = 'G-5H18VW1W7E';

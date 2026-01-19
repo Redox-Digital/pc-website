@@ -1,9 +1,9 @@
 import Head from 'next/head';
-import Hero from '@/components/Hero';
-import Map from '@/components/Map';
-import ContactForm from '@/components/ContactForm';
-import Address from '@/components/Address';
-import TextImageSection from '@/components/TextImageSection';
+import Hero from '@/components/layouts/Hero';
+import Map from '@/components/content/Map';
+import Address from '@/components/content/Address';
+import TextImageSection from '@/components/layouts/TextImageSection';
+import ContactForm from '@/components/forms/ContactForm';
 
 export default function Contact() {
   return (

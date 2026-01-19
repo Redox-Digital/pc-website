@@ -1,7 +1,7 @@
-import Button from '@/components/Button';
-import Hero from '@/components/Hero';
+import Button from '@/components/navigation/Button';
+import Hero from '@/components/layouts/Hero';
 import { deleteAllCookies } from '@/components/helpers/CookiesHelper';
-import css from '@/styles/layouts/Confidentialite.module.scss';
+import css from './Confidentialite.module.scss';
 import Head from 'next/head';
 
 type Props = {
@@ -130,7 +130,7 @@ export default function Confidentialite({ handleCookiePolicy }: Props) {
             Redox Digital Sàrl
           </a>
 
-          <Button addClass={css.btn} to={'/'}>
+          <Button addClass={css.btn} href={'/'}>
             Retour à l&rsquo;accueil
           </Button>
         </section>
@@ -317,7 +317,7 @@ export default function Confidentialite({ handleCookiePolicy }: Props) {
             </b>
           </p>
 
-          <Button addClass={css.btn} to={'/'}>
+          <Button addClass={css.btn} href={'/'}>
             Retour à l&rsquo;accueil
           </Button>
         </section>

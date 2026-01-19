@@ -1,9 +1,9 @@
 import Head from 'next/head';
-import Hero from '@/components/Hero';
-import Infography from '@/components/InfographySection';
-import Newsletter from '@/components/Newsletter';
-import CompanySection from '@/components/CompanySection';
-import HistorySection from '@/components/HistorySection';
+import Hero from '@/components/layouts/Hero';
+import Infography from '@/components/content/InfographySection';
+import Newsletter from '@/components/forms/Newsletter';
+import CompanySection from '@/components/layouts/CompanySection';
+import HistorySection from '@/components/layouts/HistorySection';
 
 const ourValues = [
   {

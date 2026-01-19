@@ -1,11 +1,10 @@
-import Hero from '@/components/Hero';
-import InfographySection from '@/components/InfographySection';
+import Hero from '@/components/layouts/Hero';
+import InfographySection from '@/components/content/InfographySection';
 import Head from 'next/head';
-import style from '@/styles/layouts/Careers.module.scss';
-import Newsletter from '@/components/Newsletter';
-import JobOffer from '@/components/JobOffer';
+import style from './Careers.module.scss';
+import Newsletter from '@/components/forms/Newsletter';
+import JobOffer from '@/components/content/JobOffer';
 import { useEffect, useState } from 'react';
-import Button from '@/components/Button';
 import Link from 'next/link';
 
 const ourMotivations = [
