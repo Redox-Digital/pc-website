@@ -11,6 +11,7 @@ import RealisationsCollectivites from '@/data/collectivites';
 import { useEffect, useState } from 'react';
 import ContactCTA from '../content/CTAs';
 import Gallery from './Gallery';
+import Metadata from '../content/Metadata';
 
 type Realisation = {
   id: number;
@@ -38,12 +39,10 @@ type OtherService = {
 };
 
 export default function ServicePageLayout(service: Service) {
+  const [pageTitle, pageDesc] = [`Pour les ${service.heroTitle}`, service.introDesc];
   return (
     <>
-      <Head>
-        <title>Pour les {service.heroTitle} | Paris & Comtesse SA</title>
-        <meta name="description" content={service.introDesc} />
-      </Head>
+      <Metadata title={pageTitle} description={pageDesc} />
       <Hero
         title={service.heroTitle}
         subtitle={service.heroSubtitle}

@@ -8,6 +8,7 @@ import Button from '@/components/navigation/Button';
 import ServicesSection from '@/components/layouts/ServicesSection';
 import { ourValues } from '@/constants/projectSpecifics';
 import { GoogleMyBusinessCTA, JobCTA } from '@/components/content/CTAs';
+import Metadata from '@/components/content/Metadata';
 
 const structuredData = {
   '@context': 'https://schema.org/',
@@ -33,31 +34,7 @@ export default function Home() {
   ];
   return (
     <>
-      <Head>
-        <title>Construction métallique à Boudry | Paris & Comtesse SA</title>
-
-        <link rel="canonical" href="https://pc-sa.ch" />
-
-        <meta
-          name="keywords"
-          content="construction métallique, construction métallique Neuchâtel, Neuchâtel"
-        />
-        <meta
-          name="description"
-          content="Notre entreprise conçoit des ouvrages sur-mesure permettant une personnalisation complète pour répondre aux besoins spécifiques de nos clients."
-        />
-        <meta name="author" content="Redox Digital, Steve Mettraux" />
-        <script
-          type="txt"
-          dangerouslySetInnerHTML={{
-            __html: `/* Realisation : Redox Digital Sàrl [redoxdigital.ch] & Steve Mettraux [github.com/Smettraux] */`,
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
-      </Head>
+      <Metadata description={pageDesc} />
       <HomeHero
         title={pageTitle}
         subtitle={

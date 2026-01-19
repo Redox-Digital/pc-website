@@ -3,6 +3,7 @@ import Hero from '@/components/layouts/Hero';
 import { deleteAllCookies } from '@/components/helpers/CookiesHelper';
 import css from './Confidentialite.module.scss';
 import Head from 'next/head';
+import Metadata from '@/components/content/Metadata';
 
 type Props = {
   handleCookiePolicy: (answer: boolean) => void;
@@ -16,9 +17,11 @@ export default function Confidentialite({ handleCookiePolicy }: Props) {
 
   return (
     <>
-      <Head>
-        <title>Protection des données & mentions légales | Paris & Comtesse SA</title>
-      </Head>
+      <Metadata
+        title={'Protection des données & mentions légales'}
+        description={'Déclaration de protection des données & mentions légales'}
+      />
+
       <Hero
         title="Confidentialité"
         subtitle="Déclaration de protection des données & mentions légales"

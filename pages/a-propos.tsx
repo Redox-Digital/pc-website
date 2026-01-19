@@ -4,39 +4,8 @@ import Infography from '@/components/content/InfographySection';
 import Newsletter from '@/components/forms/Newsletter';
 import CompanySection from '@/components/layouts/CompanySection';
 import HistorySection from '@/components/layouts/HistorySection';
-
-const ourValues = [
-  {
-    slug: 'quality',
-    path: '/pictograms/p-c_qualite.svg',
-    title: 'Qualité',
-    desc: 'Engagement à fournir des produits et services de haute qualité',
-  },
-  {
-    slug: 'innovation',
-    path: '/pictograms/p-c_innovation.svg',
-    title: 'Innovation',
-    desc: 'Encouragement à la créativité et l’exploration de nouvelles idées',
-  },
-  {
-    slug: 'know-how',
-    path: '/pictograms/p-c_savoir-faire.svg',
-    title: 'Savoir-Faire',
-    desc: 'Expertise et expérience de notre équipe',
-  },
-  {
-    slug: 'entrepreneurship',
-    path: '/pictograms/p-c_passion-entreprendre.svg',
-    title: "Passion d'entreprendre",
-    desc: 'Essentiel pour construire une entreprise durable et résiliente',
-  },
-  {
-    slug: 'clients-satisfaction',
-    path: '/pictograms/p-c_satisfaction.svg',
-    title: 'Satisfaction client',
-    desc: 'Comprendre les besoins et être à l’écoute des suggestions',
-  },
-];
+import Metadata from '@/components/content/Metadata';
+import { ourValues } from '@/constants/projectSpecifics';
 
 const companySlides = [
   {
@@ -152,17 +121,17 @@ const historySlides = [
 ];
 
 export default function About() {
+  const [pageTitle, pageDesc] = [
+    'À propos',
+    "Avec plus de 60 ans d'expérience dans le domaine de la construction métallique, Paris & Comtesse SA est reconnu pour son savoir-faire.",
+  ];
+
   return (
     <>
-      <Head>
-        <title>À propos | Paris & Comtesse SA</title>
-        <meta
-          name="description"
-          content="Avec plus de 60 ans d'expérience dans le domaine de la construction métallique, Paris & Comtesse SA est reconnu pour son savoir-faire."
-        />
-      </Head>
+      <Metadata title={pageTitle} description={pageDesc} />
+
       <Hero
-        title="À propos"
+        title={pageTitle}
         subtitle="Découvrez notre histoire et notre engagement envers la qualité et le savoir-faire"
         imgUrl="/layouts/about-hero.webp"
       />

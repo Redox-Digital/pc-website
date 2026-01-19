@@ -6,6 +6,7 @@ import Newsletter from '@/components/forms/Newsletter';
 import JobOffer from '@/components/content/JobOffer';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Metadata from '@/components/content/Metadata';
 
 const ourMotivations = [
   {
@@ -80,16 +81,15 @@ export default function Careers() {
     ));
   };
 
+  const [pageTitle, pageDesc] = [
+    'Emplois',
+    'Nous sommes une entreprise dynamique et passionnée, spécialisée dans la construction métallique. Nous sommes constamment à la recherche de nouveaux talents pour rejoindre notre équipe.',
+  ];
+
   return (
     <>
-      <Head>
-        <title>Emplois | Paris & Comtesse SA</title>
-        <meta
-          name="description"
-          content="Nous sommes une entreprise dynamique et passionnée, spécialisée dans la construction métallique. Nous sommes constamment à la recherche de nouveaux talents pour rejoindre notre équipe."
-        />
-      </Head>
-      <Hero title="Emplois" subtitle="Nous rejoindre" imgUrl="/layouts/careers-hero.webp" />
+      <Metadata title={pageTitle} description={pageDesc} />
+      <Hero title={pageTitle} subtitle="Nous rejoindre" imgUrl="/layouts/careers-hero.webp" />
       <main className={style.careers}>
         <section className={`${style.careers__intro} light`}>
           <div className="container">

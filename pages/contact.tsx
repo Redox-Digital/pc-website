@@ -4,22 +4,20 @@ import Map from '@/components/content/Map';
 import Address from '@/components/content/Address';
 import TextImageSection from '@/components/layouts/TextImageSection';
 import ContactForm from '@/components/forms/ContactForm';
+import Metadata from '@/components/content/Metadata';
 
 export default function Contact() {
+  const [pageTitle, pageDesc] = [
+    'Nous contacter',
+    'Notre équipe est à votre disposition pour échanger sur votre projet.',
+  ];
+
   return (
     <>
-      <Head>
-        <title>Nous contacter | Paris & Comtesse SA</title>
-        <meta
-          name="description"
-          content="Notre équipe est à votre disposition pour échanger sur votre projet."
-        />
-      </Head>
-      <Hero
-        title="Contact"
-        subtitle="Notre équipe est à votre disposition pour échanger sur votre projet"
-        imgUrl="/layouts/contact-hero.webp"
-      />
+      <Metadata title={pageTitle} description={pageDesc} />
+
+      <Hero title="Contact" subtitle={pageDesc} imgUrl="/layouts/contact-hero.webp" />
+
       <TextImageSection
         title={'logo'}
         surtitle={'Nos coordonnées'}
