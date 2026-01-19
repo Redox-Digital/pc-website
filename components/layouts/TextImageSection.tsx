@@ -5,7 +5,7 @@ import logo from '/public/logo/p-c_logo_bj.svg';
 type Props = {
   title: string;
   surtitle: string;
-  children: string | JSX.Element;
+  children: string | React.ReactNode;
   imgPath: string;
   light?: boolean;
 };

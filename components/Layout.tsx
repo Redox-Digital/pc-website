@@ -3,7 +3,7 @@ import Script from 'next/script';
 import Footer from './navigation/Footer';
 
 type Props = {
-  children: string | JSX.Element;
+  children: string | React.ReactNode;
 };
 
 export default function Layout({ children }: Props) {

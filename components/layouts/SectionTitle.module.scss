@@ -1,0 +1,23 @@
+.titles {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: var(--max-paragraph-width);
+  margin-inline: auto;
+
+  text-align: center;
+
+  .surtitle {
+    margin-bottom: var(--xs);
+    color: var(--gold);
+    text-transform: uppercase;
+    font-size: var(--fs-h5);
+    letter-spacing: 0.08em;
+  }
+
+  .description {
+    margin-top: var(--sm);
+  }
+}

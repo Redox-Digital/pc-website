@@ -5,27 +5,11 @@ import Infography from '@/components/content/InfographySection';
 import TextImageSection from '@/components/layouts/TextImageSection';
 import Newsletter from '@/components/forms/Newsletter';
 import Button from '@/components/navigation/Button';
-import ServicesSection from '@/components/layouts/ServicesSection';
+import ServicesSection from '@/components/content/ServicesSection';
 import { ourValues } from '@/constants/projectSpecifics';
-import { GoogleMyBusinessCTA, JobCTA } from '@/components/content/CTAs';
+import ContactCTA, { GoogleMyBusinessCTA, JobCTA } from '@/components/content/CTAs';
 import Metadata from '@/components/content/Metadata';
-
-const structuredData = {
-  '@context': 'https://schema.org/',
-  '@type': 'Organization',
-  'url': 'https://www.pc-sa.ch',
-  'name': 'Paris & Comtesse SA',
-  'address': {
-    '@type': 'PostalAddress',
-    'streetAddress': 'Chemin de la Baconnière 55',
-    'addressLocality': 'Boudry',
-    'addressRegion': 'NE',
-    'postalCode': '2017',
-    'addressCountry': 'CH',
-  },
-  'logo': 'https://pc-sa.ch/logo/p-c_logo_slogan_nj.svg',
-  'telephone': '+41 32 846 14 30',
-};
+import LatestProjects from '@/components/layouts/LatestProjects';
 
 export default function Home() {
   const [pageTitle, pageDesc] = [
@@ -47,9 +31,11 @@ export default function Home() {
         imgUrl="/layouts/home-hero.webp"
       />
       <main className="home">
-        <h3>Section Dernières réalisations</h3>
+        <LatestProjects />
 
         <ServicesSection />
+
+        <ContactCTA />
 
         <TextImageSection
           title={'Notre équipe'}

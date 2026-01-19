@@ -2,12 +2,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import logo from '/public/logo/p-c_logo_bj.svg';
 import DropdownMenu from './DropdownMenu';
-import style from './Menu.module.scss';
+import css from './Menu.module.scss';
+import burgerCss from './Burger.module.scss';
 import Button from './Button';
 import { useEffect, useState } from 'react';
 import MobileMenu from './MobileMenu';
+import { mainNavLinks, NavLinkType } from '@/constants/navigation';
 
-const Header = () => {
+export default function Header() {
   //navbar scroll when active state
   const [navbar, setNavbar] = useState<boolean>(false);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -16,7 +18,7 @@ const Header = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const changeBackground = () => {
-    if (window.scrollY > 50) {
+    if (window.scrollY > 120) {
       setNavbar(true);
     } else {
       setNavbar(false);
@@ -39,7 +41,7 @@ const Header = () => {
     if (typeof window !== 'undefined') {
       const displayOnScroll = () => {
         if (typeof window !== 'undefined') {
-          if (window.scrollY >= lastScrollY) {
+          if (window.scrollY >= lastScrollY && lastScrollY >= 0) {
             // if scroll down hide the navbar
             setScrollingUp(false);
           } else {
@@ -63,51 +65,67 @@ const Header = () => {
   return (
     <>
       <nav
-        className={`${style.menu} ${navbar ? style.menu__scrolling : ''} ${
-          menuOpen ? style.menu__open : ''
-        } ${scrollingUp ? '' : style.menu__hidden}`}
+        className={`${css.menu} ${navbar ? css.menu__scrolling : ''} ${
+          menuOpen ? css.menu__open : ''
+        } ${scrollingUp ? '' : css.menu__hidden}`}
       >
-        <div className={style.mainMenu}>
-          <div className={style.mainMenu__container}>
-            <Link href="/" className={style.logo} aria-label="Accéder à la page d'accueil">
+        <div className={css.mainMenu}>
+          <div className={css.mainMenu__container}>
+            <Link href="/" className={css.logo} aria-label="Accéder à la page d'accueil">
               <Image src={logo} alt="" height={30} className="logo" />
             </Link>
 
-            <div className={style.menu__links}>
-              <Link href="/" aria-label="Accéder à la page d'accueil">
-                Accueil
-              </Link>
-              <Link
-                href="#"
-                scroll={false}
-                className={style.submenu}
-                aria-label="Afficher nos services"
-              >
-                Services
-              </Link>
-              <DropdownMenu />
+            <div className={css.menu__links}>
+              {mainNavLinks.map((l: NavLinkType) => (
+                <>
+                  {l.subLinks && l.subLinks.length !== 0 ? (
+                    <div key={l.url}>
+                      <span>{l.label}</span>
 
-              <Link href="/a-propos">À propos</Link>
-              <Link href="/emplois">Emplois</Link>
-              <Button href="/contact" className="btn">
-                Contact
-              </Button>
+                      <div className={css.sublinks}>
+                        {l.subLinks.map((sub) => (
+                          <Link key={sub.url} href={sub.url}>
+                            {sub.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ) : l.btn ? (
+                    <Button key={l.url} href={l.url}>
+                      {l.label}
+                    </Button>
+                  ) : (
+                    <Link href={l.url} key={l.url}>
+                      {l.label}
+                    </Link>
+                  )}
+                </>
+              ))}
             </div>
-            <button
-              className={`${style.burger} ${menuOpen ? style.burger__closed : ''}`}
-              onClick={toggleMenu}
-              aria-label="Ouvrir la navigation mobile"
-            >
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
+            <Burger toggleMenu={toggleMenu} menuOpen />
           </div>
         </div>
       </nav>
       <MobileMenu open={menuOpen} toggleMenu={toggleMenu} />
     </>
   );
+}
+
+type BurgerProps = {
+  toggleMenu: () => void;
+  menuOpen?: boolean;
 };
 
-export default Header;
+function Burger({ toggleMenu, menuOpen }: BurgerProps) {
+  return (
+    <button
+      className={`${burgerCss.burger} ${menuOpen ? burgerCss.burger__closed : ''}`}
+      onClick={toggleMenu}
+      aria-label="Ouvrir la navigation mobile"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  );
+}

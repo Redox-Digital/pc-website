@@ -3,7 +3,7 @@ export type NavLinkType = {
   label: string;
   icon?: string;
   btn?: boolean;
-  subLinks?: NavLinkType[];
+  subLinks?: { url: string; label: string }[];
 };
 
 export const mainNavLinks: NavLinkType[] = [

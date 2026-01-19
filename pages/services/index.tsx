@@ -1,5 +1,5 @@
 import Metadata from '@/components/content/Metadata';
-import ServicesSection from '@/components/layouts/ServicesSection';
+import ServicesSection from '@/components/content/ServicesSection';
 import Head from 'next/head';
 
 export default function Services() {

@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import css from './Hero.module.scss';
 import Link from 'next/link';
-import arrowDown from '/public/pictograms/arrow-down.svg';
-import logo from '/public/logo/p-c_logo_bj.svg';
+import arrowDown from '@/public/pictograms/arrow-down.svg';
+import logo from '@/public/logo/p-c_logo_bj.svg';
 // uniquement pour les 60 ans
 //import logo from '/public/logo/60ans_PC_bj.svg';
 import IntroVideo from '../content/IntroVideo';

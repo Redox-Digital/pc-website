@@ -80,9 +80,13 @@
         font-size: var(--fs-h1-home);
       }
 
-      > p > em {
-        font-style: normal;
-        color: var(--yellow);
+      > p {
+        max-width: var(--max-paragraph-width);
+
+        > em {
+          font-style: normal;
+          color: var(--yellow);
+        }
       }
     }
 
@@ -96,6 +100,7 @@
       > .ctas {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         gap: var(--sm);
       }
     }
