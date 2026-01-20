@@ -1,4 +1,4 @@
-import { ProjectPreviewProps, ServicePreviewType, StaticServicePageType } from './types';
+import { ServicePreviewType, StaticServicePageType } from './types';
 
 export const ourValues = [
   {
@@ -45,38 +45,6 @@ export const servicesPreview: ServicePreviewType[] = [
     desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at diam vel leo tempus ultricies. Maecenas suscipit eget augue sagittis vehicula.',
     img: '/layouts/about-1.webp', // DEV changer
     url: '/tolerie',
-  },
-];
-
-export const staticsProjects: ProjectPreviewProps[] = [
-  {
-    id: 'fadsfadsfasdf',
-    title: 'Barrières & fenêtres pour un immeuble de 5 étages',
-    description: 'Description court du projet. Ce projet est vraiment top, il est à Gorgier.',
-    year: 2026,
-    location: 'Gorgier',
-    url: '#', // DEV
-    img: '/layouts/about-1.webp', // DEV
-  },
-  {
-    id: 'gssthsths',
-    title: 'Titre du projet',
-    description: 'Description court du projet. Ce projet est vraiment top, il est à Neuchâtel.',
-
-    year: 2025,
-    location: 'Neuchâtel',
-    url: '#', // DEV
-    img: '/layouts/about-1.webp', // DEV
-  },
-  {
-    id: 'arherhhergad',
-    title: 'Titre du projet',
-    description: 'Description court du projet. Ce projet est vraiment top, il est à Boudry.',
-
-    year: 2024,
-    location: 'Boudry',
-    url: '#', // DEV
-    img: '/layouts/about-1.webp', // DEV
   },
 ];
 

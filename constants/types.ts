@@ -51,3 +51,23 @@ export type ProjectApiType = {
     blocks: DirectusBlock[];
   };
 };
+
+export type DirectusFileType = {
+  id: number;
+  description?: string;
+  category: string;
+  image: {
+    id: string;
+    type: string;
+    width: number;
+    height: number;
+    title: string;
+  };
+};
+
+// DEV UNUSED FOR NOW
+export type DirectusGalleryApiType = {
+  id: string;
+  order?: number;
+  directus_files_id: DirectusFileType;
+};

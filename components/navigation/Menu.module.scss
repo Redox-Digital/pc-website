@@ -157,17 +157,19 @@
   .sublinks {
     position: absolute;
     left: calc(var(--xs) * -1); // same as horiz padding
-    bottom: calc((var(--fs-sm) + var(--sm)) * -1);
+    top: calc(var(--navbar-height) / 2 + var(--fs-p) - var(--sm));
 
     display: flex;
     flex-direction: column;
     gap: var(--sm);
-    background-color: var(--black);
+    background-color: transparent;
     padding: 0px;
 
     height: fit-content;
     max-height: 0px;
     overflow: hidden;
+
+    transition: all 0.3s ease-in-out;
 
     > a {
       padding-inline: var(--xs);
@@ -188,7 +190,9 @@
     }
 
     > .sublinks {
+      transition: all 0.3s ease-in-out;
       max-height: 100px;
+      background-color: var(--black);
     }
   }
 }

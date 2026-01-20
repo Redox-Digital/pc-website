@@ -1,4 +1,3 @@
-import { staticsProjects } from '@/constants/projectSpecifics';
 import { ProjectCard } from '../content/ProjectPreview';
 import Button from '../navigation/Button';
 import css from './LatestProjects.module.scss';

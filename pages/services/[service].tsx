@@ -1,17 +1,14 @@
 import Hero from '@/components/layouts/Hero';
-import Newsletter from '@/components/forms/Newsletter';
-import OtherServices from '@/components/layouts/OtherServices';
 import css from './ServicePage.module.scss';
 import { useEffect, useState } from 'react';
 import Metadata from '@/components/content/Metadata';
 import { useRouter } from 'next/router';
-import { staticServices, staticsProjects } from '@/constants/projectSpecifics';
+import { staticServices } from '@/constants/projectSpecifics';
 import ContactCTA from '@/components/content/CTAs';
 import SectionTitle from '@/components/layouts/SectionTitle';
 import { ProjectApiType, StaticServicePageType } from '@/constants/types';
-import ProjectPreview from '@/components/content/ProjectPreview';
 import ProjectsList from '@/components/layouts/ProjectsList';
-import Gallery from '@/components/layouts/RealisationsGallery';
+import Gallery from '@/components/layouts/gallery/GalleryAPI';
 
 type Props = {
   service: 'construction-metallique' | 'tolerie';
@@ -96,26 +93,14 @@ export default function ServicePageLayout({ service }: Props) {
           </div>
         </section>
 
-        <section className={`${css.projects} light`}>
-          <div className="container">
-            <SectionTitle
-              title="Découvrez nos réalisations"
-              surtitle={'une image vaut mille mots'}
-              className={css.titles}
-              alignLeft
-            />
-
-            <p>Filtres</p>
-
-            <p>Galerie photo (Masonry)</p>
-
-            {/* DEV: à implémenter */}
-          </div>
-        </section>
+        {/* DEV: mettre à jour avec search correct */}
+        <Gallery
+          masonry
+          viewer
+          apiUrl={`${process.env.api}/items/realisation?search=${router.query.service === 'construction-metallique' ? 'entreprise' : 'collectivites'}&fields=*,image.*`}
+        />
 
         <ContactCTA />
-
-        <Gallery surtitle={'une image vaut mille mots'} title={'Découvrez nos réalisations'} />
       </main>
     </>
   );

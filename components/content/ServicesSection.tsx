@@ -1,9 +1,10 @@
 import css from './ServicesSection.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ServicePreviewType, servicesPreview } from '@/constants/projectSpecifics';
+import { servicesPreview } from '@/constants/projectSpecifics';
 import SectionTitle from '../layouts/SectionTitle';
 import arrowRight from '@/public/pictograms/arrow-right.svg';
+import { ServicePreviewType } from '@/constants/types';
 
 export default function ServicesSection() {
   return (
