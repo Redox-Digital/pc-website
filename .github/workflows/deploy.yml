@@ -22,10 +22,10 @@ jobs:
       - name: Test SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.SFTP_HOST }}
-          username: ${{ secrets.SFTP_USER }}
-          key: ${{ secrets.SFTP_PRIVATE_KEY }}
-          port: ${{ secrets.SFTP_PORT }}
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PSW }}
+          port: ${{ secrets.SSH_PORT }}
           script: echo "SSH OK"
 
       - name: Install dependencies
@@ -37,34 +37,34 @@ jobs:
       - name: Ensure temp folder exists
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.SFTP_HOST }}
-          username: ${{ secrets.SFTP_USER }}
-          key: ${{ secrets.SFTP_PRIVATE_KEY }}
-          port: ${{ secrets.SFTP_PORT }}
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PSW }}
+          port: ${{ secrets.SSH_PORT }}
           script: |
             mkdir -p ~/_tmp
 
       - name: Upload to temp folder via SFTP
         uses: appleboy/scp-action@v0.1.7
         with:
-          host: ${{ secrets.SFTP_HOST }}
-          username: ${{ secrets.SFTP_USER }}
-          key: ${{ secrets.SFTP_PRIVATE_KEY }}
-          port: ${{ secrets.SFTP_PORT }}
-          source: 'out/*'
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PSW }}
+          port: ${{ secrets.SSH_PORT }}
+          source: 'out'
           target: '~/_tmp/'
           strip_components: 1
 
       - name: Move temp to prod
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.SFTP_HOST }}
-          username: ${{ secrets.SFTP_USER }}
-          key: ${{ secrets.SFTP_PRIVATE_KEY }}
-          port: ${{ secrets.SFTP_PORT }}
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PSW }}
+          port: ${{ secrets.SSH_PORT }}
           script: |
-            rm -rf ${{ secrets.SFTP_REMOTE_PATH }}/*
-            mv ~/_tmp/* ${{ secrets.SFTP_REMOTE_PATH }}/
+            rm -rf ${{ secrets.SSH_REMOTE_PATH }}/*
+            mv ~/_tmp/* ${{ secrets.SSH_REMOTE_PATH }}/
             rm -rf ~/_tmp/*
 
       - name: Notify Discord
