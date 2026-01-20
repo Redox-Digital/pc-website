@@ -38,13 +38,13 @@ export const servicesPreview: ServicePreviewType[] = [
     title: 'Construction métallique',
     desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at diam vel leo tempus ultricies. Maecenas suscipit eget augue sagittis vehicula.',
     img: '/layouts/about-1.webp', // DEV changer
-    url: '/construction-metallique',
+    url: '/services/construction-metallique',
   },
   {
     title: 'Tôlerie',
     desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at diam vel leo tempus ultricies. Maecenas suscipit eget augue sagittis vehicula.',
     img: '/layouts/about-1.webp', // DEV changer
-    url: '/tolerie',
+    url: '/services/tolerie',
   },
 ];
 
