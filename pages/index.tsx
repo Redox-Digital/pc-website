@@ -1,9 +1,7 @@
 import css from './Home.module.scss';
-import Head from 'next/head';
 import Hero, { HomeHero } from '@/components/layouts/Hero';
 import Infography from '@/components/content/InfographySection';
 import TextImageSection from '@/components/layouts/TextImageSection';
-import Newsletter from '@/components/forms/Newsletter';
 import Button from '@/components/navigation/Button';
 import ServicesSection from '@/components/content/ServicesSection';
 import { ourValues } from '@/constants/projectSpecifics';
@@ -16,6 +14,7 @@ export default function Home() {
     'Construction métallique à Neuchâtel',
     "Depuis plus de 60 ans, l'entreprise Paris & Comtesse SA conçoit, fabrique et installe des structures métalliques sur mesure, répondant aux exigences et besoins spécifiques de ses clients.",
   ];
+
   return (
     <>
       <Metadata description={pageDesc} />

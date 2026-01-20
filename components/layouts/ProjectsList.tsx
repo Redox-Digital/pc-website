@@ -1,10 +1,11 @@
-import { ProjectPreviewProps } from '@/constants/types';
+import { ProjectApiType, ProjectPreviewProps } from '@/constants/types';
 import css from './ProjectsList.module.scss';
 import ProjectPreview from '../content/ProjectPreview';
 import Button from '../navigation/Button';
+import { timestampToString } from '../helpers/DateHelper';
 
 type Props = {
-  projects: ProjectPreviewProps[];
+  projects: ProjectApiType[];
 };
 
 export default function ProjectsList({ projects }: Props) {
@@ -12,10 +13,18 @@ export default function ProjectsList({ projects }: Props) {
   return (
     <div className={css.list}>
       {projects.map((p, key) => (
-        <ProjectPreview key={p.id} {...p} inverted={key % 2 === 0} />
+        <ProjectPreview
+          key={p.id}
+          inverted={key % 2 === 0}
+          {...p}
+          year={timestampToString(p.date, true)}
+          url={`/projets/${p.id}`}
+          img={`${process.env.api}/assets/${p.cover}`} // DEV : ajouter tailles de l'image
+        />
       ))}
 
-      <Button>En voir plus</Button>
+      {/* DEV : à implémenter plus tard : PAGINATION 
+      <Button>En voir plus</Button> */}
     </div>
   );
 }

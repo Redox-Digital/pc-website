@@ -6,10 +6,10 @@ export type ServicePreviewType = {
 };
 
 export type ProjectPreviewProps = {
-  id: string;
+  id: number;
   title: string;
   description?: string;
-  year: number;
+  year: string;
   location: string;
   url: string;
   img: string;
@@ -26,5 +26,28 @@ export type StaticServicePageType = {
     description: string;
 
     keywords: string[];
+  };
+};
+
+export type DirectusBlock = {
+  id: string;
+  // DEV : manque Quoteblock
+  type: 'image' | 'header' | 'paragraph' | 'embed';
+  data: any;
+};
+
+export type ProjectApiType = {
+  id: number;
+  title: string;
+  cover: string;
+  location: string;
+  date: string;
+  shortDescription: string;
+  introText: string;
+  pdf: string;
+
+  service: 'construction-metallique' | 'tolerie';
+  contentBlocks: {
+    blocks: DirectusBlock[];
   };
 };

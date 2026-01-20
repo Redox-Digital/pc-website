@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import css from './ProjectPreview.module.scss';
+import btnCss from '@/components/navigation/Button.module.scss';
 import Image from 'next/image';
 import arrowRight from '@/public/pictograms/arrow-right.svg';
 import { ProjectPreviewProps } from '@/constants/types';
@@ -20,7 +21,7 @@ export default function ProjectPreview({
   inverted,
 }: ProjectArticleProps) {
   return (
-    <article className={`${css.article} ${inverted && css.inverted}`}>
+    <Link href={url} className={`${css.article} ${inverted && css.inverted}`}>
       <Image src={img} width={600} height={400} alt={`${title} - ${location}, ${year}`} />
 
       <div className={css.texts}>
@@ -29,11 +30,9 @@ export default function ProjectPreview({
           {year} | {location}
         </small>
         {description && <p>{description}</p>}
-        <Button href={url} outline>
-          Le projet
-        </Button>
+        <span className={`${btnCss.btn} ${btnCss.outline}`}>Le projet</span>
       </div>
-    </article>
+    </Link>
   );
 }
 

@@ -8,9 +8,10 @@ import { useRouter } from 'next/router';
 import { staticServices, staticsProjects } from '@/constants/projectSpecifics';
 import ContactCTA from '@/components/content/CTAs';
 import SectionTitle from '@/components/layouts/SectionTitle';
-import { StaticServicePageType } from '@/constants/types';
+import { ProjectApiType, StaticServicePageType } from '@/constants/types';
 import ProjectPreview from '@/components/content/ProjectPreview';
 import ProjectsList from '@/components/layouts/ProjectsList';
+import Gallery from '@/components/layouts/RealisationsGallery';
 
 type Props = {
   service: 'construction-metallique' | 'tolerie';
@@ -30,6 +31,24 @@ export default function ServicePageLayout({ service }: Props) {
   // Check if slug changes
   useEffect(() => {
     setStaticService(staticServices[getStaticServiceSlug()]);
+  }, [router.query.service]);
+
+  const [projectsApi, setProjects] = useState<ProjectApiType[] | null>(null);
+  const [projectsLoading, setLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    try {
+      setLoading(true);
+      fetch(`${process.env.api}/items/projets?search=${router.query.service}`)
+        .then((res) => res.json())
+        .then((projects) => {
+          setProjects(projects.data);
+          setLoading(false);
+        });
+    } catch (err) {
+      console.warn(err);
+      setLoading(false);
+    }
   }, [router.query.service]);
 
   return (
@@ -69,8 +88,11 @@ export default function ServicePageLayout({ service }: Props) {
               className={css.titles}
             />
 
-            {/* DEV: dynamic à implémenter */}
-            <ProjectsList projects={staticsProjects} />
+            {projectsApi && !projectsLoading ? (
+              <ProjectsList projects={projectsApi} />
+            ) : (
+              <i>Chargement en cours...</i>
+            )}
           </div>
         </section>
 
@@ -93,13 +115,7 @@ export default function ServicePageLayout({ service }: Props) {
 
         <ContactCTA />
 
-        {/*
-
-        <Gallery
-          surtitle={'une image vaut mille mots'}
-          title={'Découvrez nos réalisations'}
-          slug={service.slug}
-        />*/}
+        <Gallery surtitle={'une image vaut mille mots'} title={'Découvrez nos réalisations'} />
       </main>
     </>
   );
