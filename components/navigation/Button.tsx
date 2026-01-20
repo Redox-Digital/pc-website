@@ -2,11 +2,11 @@ import Link from 'next/link';
 import css from './Button.module.scss';
 
 type Props = {
-  href: string;
+  href?: string;
   big?: boolean;
+  small?: boolean;
   secondary?: boolean;
   outline?: boolean;
-  disabled?: boolean;
   className?: string;
   children?: string | React.ReactNode;
   blank?: boolean;
@@ -19,21 +19,24 @@ export default function Button({
   href,
   children,
   big,
+  small,
   secondary,
   outline,
-  disabled,
   className,
   blank,
   title,
   type,
   onClick,
 }: Props) {
+  const getClassnames = () =>
+    `${css.btn} ${secondary && css.secondary} ${big && css.big} ${small && css.small} ${
+      outline && css.outline
+    } ${className}`;
+
   return href ? (
     <Link
       href={href}
-      className={`${css.btn} ${secondary && css.secondary} ${big && css.big} ${
-        outline && css.outline
-      } ${className}`}
+      className={getClassnames()}
       target={blank ? '_blank' : ''}
       onClick={onClick}
       title={title}
@@ -43,11 +46,10 @@ export default function Button({
   ) : (
     <button
       type={type}
-      className={`${css.btn} ${big && css.big} ${outline && css.outline}
-       ${className}`}
+      className={getClassnames()}
       onClick={onClick ? onClick : () => null}
       title={title}
-      disabled={disabled}
+      disabled={!href && !onClick}
     >
       {children}
     </button>
