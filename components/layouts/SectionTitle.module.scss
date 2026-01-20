@@ -9,6 +9,10 @@
 
   text-align: center;
 
+  &.left {
+    text-align: left;
+  }
+
   .surtitle {
     margin-bottom: var(--xs);
     color: var(--gold);
