@@ -1,9 +1,11 @@
-import style from './MobileMenu.module.scss';
+import css from './MobileMenu.module.scss';
 import menu from './Menu.module.scss';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Address from '../content/Address';
 import Socials from '../content/Socials';
+import { mainNavLinks, NavLinkType } from '@/constants/navigation';
+import Button from './Button';
 
 type Props = {
   open: boolean;
@@ -30,77 +32,27 @@ export default function MobileMenu(props: Props) {
 
   return (
     <>
-      <nav
-        className={`${style.mobileMenu} ${
-          open ? style.mobileMenu__open : style.mobileMenu__closed
-        }`}
-      >
-        <div className={style.mobileMenu__links}>
-          <Link href="/" onClick={toggleMenu} aria-label="Accéder à la page d'accueil">
-            Accueil
-          </Link>
-          <button aria-label="Afficher nos services" type="button" onClick={toggleSubMenu}>
-            Services
-          </button>
-          <Link href="/a-propos" onClick={toggleMenu} aria-label="Accéder à la page d'à propos">
-            À propos
-          </Link>
-          <Link href="/emplois" onClick={toggleMenu} aria-label="Accéder à la page d'emplois">
-            Emplois
-          </Link>
-          <Link href="/contact" onClick={toggleMenu} aria-label="Accéder à la page de contact">
-            Contact
-          </Link>
+      <nav className={`${css.mobileMenu} ${open ? css.mobileMenu__open : css.mobileMenu__closed}`}>
+        <div className={css.mobileMenu__links}>
+          {mainNavLinks.map((l: NavLinkType) => (
+            <>
+              {l.subLinks && l.subLinks.length !== 0 ? (
+                l.subLinks.map((sub) => (
+                  <Link key={sub.url} href={sub.url} onClick={toggleMenu}>
+                    {sub.label}
+                  </Link>
+                ))
+              ) : (
+                <Link href={l.url} key={l.url} onClick={toggleMenu}>
+                  {l.label}
+                </Link>
+              )}
+            </>
+          ))}
         </div>
         <Address />
-        <div className={style.mobileMenu__socials}>
+        <div className={css.mobileMenu__socials}>
           <Socials />
-        </div>
-      </nav>
-      <nav
-        className={`${style.mobileSubMenu} ${
-          subMenuOpen ? style.mobileSubMenu__open : style.mobileSubMenu__closed
-        }`}
-      >
-        <div className={style.mobileSubMenu__top}>
-          <button aria-label="Afficher nos services" type="button" onClick={toggleSubMenu}>
-            Services
-          </button>
-          <button
-            aria-label="Ouvrir la navigation mobile"
-            className={`${menu.burger} ${open ? menu.burger__closed : ''}`}
-            onClick={toggleAllMenus}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
-        <div className={style.mobileSubMenu__body}>
-          <Link
-            href="/services/particuliers"
-            onClick={toggleAllMenus}
-            style={{ backgroundImage: 'url(/layouts/particuliers-thumbnail.webp)' }}
-          >
-            <div className={style.overlay}></div>
-            <h5>Particuliers</h5>
-          </Link>
-          <Link
-            href="/services/collectivites"
-            onClick={toggleAllMenus}
-            style={{ backgroundImage: 'url(/layouts/collectivites-thumbnail.webp)' }}
-          >
-            <div className={style.overlay}></div>
-            <h5>Collectivités</h5>
-          </Link>
-          <Link
-            href="/services/entreprises"
-            onClick={toggleAllMenus}
-            style={{ backgroundImage: 'url(/layouts/entreprises-thumbnail.webp)' }}
-          >
-            <div className={style.overlay}></div>
-            <h5>Entreprises</h5>
-          </Link>
         </div>
       </nav>
     </>

@@ -12,11 +12,11 @@ export const mainNavLinks: NavLinkType[] = [
     label: 'Accueil',
   },
   {
-    url: '/construction-metallique/',
+    url: '/services/construction-metallique/',
     label: 'Construction métallique',
   },
   {
-    url: '/tolerie/',
+    url: '/services/tolerie/',
     label: 'Tôlerie',
   },
   {
@@ -28,7 +28,7 @@ export const mainNavLinks: NavLinkType[] = [
         label: 'À propos',
       },
       {
-        url: '/emploi/',
+        url: '/emplois/',
         label: 'Emplois',
       },
     ],

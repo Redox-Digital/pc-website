@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from '/public/logo/p-c_logo_bj.svg';
-import DropdownMenu from './DropdownMenu';
 import css from './Menu.module.scss';
 import burgerCss from './Burger.module.scss';
 import Button from './Button';
@@ -79,8 +78,12 @@ export default function Header() {
               {mainNavLinks.map((l: NavLinkType) => (
                 <>
                   {l.subLinks && l.subLinks.length !== 0 ? (
-                    <div key={l.url}>
-                      <span>{l.label}</span>
+                    <div key={l.url} className={css.submenu}>
+                      <label htmlFor={l.url}>
+                        {/* DEV : not working yet ... */}
+                        <input type="checkbox" id={l.url} name={l.url} />
+                        <span>{l.label}</span>
+                      </label>
 
                       <div className={css.sublinks}>
                         {l.subLinks.map((sub) => (
@@ -102,7 +105,7 @@ export default function Header() {
                 </>
               ))}
             </div>
-            <Burger toggleMenu={toggleMenu} menuOpen />
+            <Burger toggleMenu={toggleMenu} menuOpen={menuOpen} />
           </div>
         </div>
       </nav>
@@ -119,13 +122,15 @@ type BurgerProps = {
 function Burger({ toggleMenu, menuOpen }: BurgerProps) {
   return (
     <button
-      className={`${burgerCss.burger} ${menuOpen ? burgerCss.burger__closed : ''}`}
+      className={burgerCss.clickableZone}
       onClick={toggleMenu}
       aria-label="Ouvrir la navigation mobile"
     >
-      <span></span>
-      <span></span>
-      <span></span>
+      <div className={`${burgerCss.burger} ${menuOpen ? burgerCss.burger__closed : ''}`}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </button>
   );
 }
