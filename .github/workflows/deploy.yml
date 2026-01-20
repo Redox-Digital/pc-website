@@ -63,8 +63,8 @@ jobs:
         uses: Ilshidur/action-discord@master
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          DISCORD_USERNAME: pc-sa.ch
-          DISCORD_AVATAR: https://pc-sa.ch/socials/social_thumbnail.png
+          DISCORD_USERNAME: dev.pc-sa.ch
+          DISCORD_AVATAR: https://dev.pc-sa.ch/socials/social_thumbnail.jpg
         with:
           args: |
             ${{ job.status == 'success' && 'Déploiement terminé ✅' || 'Déploiement échoué ❌' }}
