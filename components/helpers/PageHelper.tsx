@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import css from '../../pages/projets/Project.module.scss';
+import css from '../../pages/projets/ProjectPage.module.scss';
 import { DirectusBlock } from '@/constants/types';
 
 export const buildPage = (blocks: DirectusBlock[]) => {

@@ -5,6 +5,10 @@ import { ProjectApiType } from '@/constants/types';
 import Metadata from '@/components/content/Metadata';
 import ProjectHero from '@/components/layouts/ProjectHero';
 import { timestampToString } from '@/components/helpers/DateHelper';
+import IntroVideo from '@/components/content/IntroVideo';
+import ProjectPreview from '@/components/content/ProjectPreview';
+import Button from '@/components/navigation/Button';
+import { buildPage } from '@/components/helpers/PageHelper';
 
 export default function ProjectPage() {
   const router = useRouter();
@@ -15,7 +19,7 @@ export default function ProjectPage() {
   useEffect(() => {
     try {
       setLoading(true);
-      fetch(`${process.env.api}/items/projets/${router.query.projectId}`)
+      fetch(`${process.env.api}/items/projets/${router.query.projectId}?fields=*,nextProject_id.*`)
         .then((res) => res.json())
         .then((project) => {
           setProject(project.data);
@@ -26,6 +30,8 @@ export default function ProjectPage() {
       setLoading(false);
     }
   }, [router.query.projectId]);
+
+  const pageContent = buildPage(projectApi?.contentBlocks.blocks || []);
 
   if (projectApi && !projectLoading) {
     return (
@@ -38,6 +44,39 @@ export default function ProjectPage() {
           subtitle={`${timestampToString(projectApi.date, true)} | ${projectApi.location}`}
           img={`${process.env.api}/assets/${projectApi.cover}`}
         />
+
+        <main className={css.project}>
+          <div className={css.container}>
+            <section className={css.intro}>
+              <p>{projectApi.introText}</p>
+              {/* projectApi.pdf && (
+                <Button href={`${process.env.api}/assets/${projectApi.pdf}`} blank>
+                  Fiche technique <i className="fa-solid fa-pdf" />
+                </Button>
+              ) */}
+
+              <Button href={`${process.env.api}/assets/${projectApi.pdf}`} blank>
+                Fiche technique <i className="fa-regular fa-file-pdf" />
+              </Button>
+            </section>
+
+            <article className={css.blocks}>{pageContent}</article>
+
+            <section className={css.nextProjectSct}>
+              {projectApi.nextProject_id ? (
+                <ProjectPreview
+                  {...projectApi.nextProject_id}
+                  inverted
+                  year={timestampToString(projectApi.nextProject_id.date, true)}
+                  url={`/projets/${projectApi.nextProject_id.id}`}
+                  img={`${process.env.api}/assets/${projectApi.nextProject_id.cover}`}
+                />
+              ) : (
+                ''
+              )}
+            </section>
+          </div>
+        </main>
       </>
     );
   }

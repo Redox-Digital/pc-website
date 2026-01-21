@@ -50,6 +50,8 @@ export type ProjectApiType = {
   contentBlocks: {
     blocks: DirectusBlock[];
   };
+
+  nextProject_id?: ProjectApiType;
 };
 
 export type DirectusFileType = {
