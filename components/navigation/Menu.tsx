@@ -7,8 +7,11 @@ import Button from './Button';
 import { useEffect, useState } from 'react';
 import MobileMenu from './MobileMenu';
 import { mainNavLinks, NavLinkType } from '@/constants/navigation';
+import { useRouter } from 'next/router';
 
 export default function Header() {
+  const router = useRouter();
+
   //navbar scroll when active state
   const [navbar, setNavbar] = useState<boolean>(false);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -66,7 +69,7 @@ export default function Header() {
       <nav
         className={`${css.menu} ${navbar ? css.menu__scrolling : ''} ${
           menuOpen ? css.menu__open : ''
-        } ${scrollingUp ? '' : css.menu__hidden}`}
+        } ${scrollingUp ? '' : css.menu__hidden} ${router.pathname.includes('projets') && css.blackTexts}`}
       >
         <div className={css.mainMenu}>
           <div className={css.mainMenu__container}>

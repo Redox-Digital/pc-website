@@ -10,7 +10,12 @@ import ProjectPreview from '@/components/content/ProjectPreview';
 import Button from '@/components/navigation/Button';
 import { buildPage } from '@/components/helpers/PageHelper';
 
-export default function ProjectPage() {
+type ParamsType = { params: { projectId: string } };
+
+type Props = { projectId: number };
+
+// Unused projectId, but usefull to generate the static pages
+export default function ProjectPage({ projectId }: Props) {
   const router = useRouter();
 
   const [projectApi, setProject] = useState<ProjectApiType>();
@@ -84,4 +89,27 @@ export default function ProjectPage() {
   if (projectLoading) {
     return <ProjectHero title={''} description={'Chargement en cours...'} subtitle={``} img={``} />;
   }
+}
+
+export async function getStaticPaths() {
+  const data = await fetch(
+    `${process.env.api}/items/projets?fields=id&filter[status][_eq]=published`
+  )
+    .then((res) => res.json())
+    .then((json) => json.data);
+
+  const paths: { params: { projectId: string } }[] = data.map((elt: { id: number }) => ({
+    params: { projectId: elt.id.toString() },
+  }));
+
+  return {
+    paths: paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }: ParamsType) {
+  const { projectId } = params;
+
+  return { props: { projectId: { projectId } } };
 }
