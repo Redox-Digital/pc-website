@@ -54,17 +54,19 @@ export type ProjectApiType = {
   nextProject_id?: ProjectApiType;
 };
 
+type DirectusImageType = {
+  id: string;
+  type: string;
+  width: number;
+  height: number;
+  title: string;
+};
+
 export type DirectusFileType = {
   id: number;
   description?: string;
   category: string;
-  image: {
-    id: string;
-    type: string;
-    width: number;
-    height: number;
-    title: string;
-  };
+  image: DirectusImageType;
 };
 
 // DEV UNUSED FOR NOW
@@ -72,4 +74,12 @@ export type DirectusGalleryApiType = {
   id: string;
   order?: number;
   directus_files_id: DirectusFileType;
+};
+
+export type RealisationApiType = {
+  id: number;
+  description?: string;
+  image: DirectusImageType;
+  category: string; // DEV : mettre la liste limitée des catégories
+  tags?: string[];
 };

@@ -3,53 +3,37 @@ import btnCss from '@/components/navigation/Button.module.scss';
 import { useEffect, useRef, useState } from 'react';
 import Overlay from './GalleryOverlay';
 import SquareImage, { MasonryImage } from './GalleryImage';
-import { DirectusFileType } from '@/constants/types';
+import { DirectusFileType, RealisationApiType } from '@/constants/types';
 import SectionTitle from '../SectionTitle';
 
 type Props = {
   masonry?: boolean;
   viewer?: boolean;
   pagination?: number;
-  apiUrl: string;
+  media: RealisationApiType[];
 };
 
-export default function Gallery({ masonry, viewer, pagination, apiUrl }: Props) {
+export default function Gallery({ masonry, viewer, pagination, media }: Props) {
   // ### GET MEDIA FROM API ###
-  const [mediaApi, setMedia] = useState<DirectusFileType[]>([]);
-  const [isLoading, setLoading] = useState<boolean>(false);
-
-  useEffect(() => {
-    try {
-      setLoading(true);
-      // Fetching all Gallery objects
-      fetch(apiUrl)
-        .then((res) => res.json())
-        .then((media) => {
-          setMedia(media.data);
-        });
-    } catch (err) {
-      console.warn(err);
-    } finally {
-      setLoading(false);
-    }
-  }, [apiUrl]);
+  const [displayedMedia, setDisplayedMedia] = useState<RealisationApiType[]>(media);
 
   // ### IMAGE FULL-SIZE VIEWER ###
-  const [fullImage, setFullImage] = useState<DirectusFileType>();
-  const toggleOverlay = (file?: DirectusFileType) => setFullImage(file);
+  const [fullImage, setFullImage] = useState<RealisationApiType>();
+  const toggleOverlay = (file?: RealisationApiType) => setFullImage(file);
 
   const nextImg = () => {
     if (fullImage) {
-      if (mediaApi.indexOf(fullImage) + 1 < mediaApi.length)
-        setFullImage(mediaApi[mediaApi.indexOf(fullImage) + 1]);
-      else setFullImage(mediaApi[0]);
+      if (displayedMedia.indexOf(fullImage) + 1 < displayedMedia.length)
+        setFullImage(displayedMedia[displayedMedia.indexOf(fullImage) + 1]);
+      else setFullImage(displayedMedia[0]);
     }
   };
 
   const prevImg = () => {
     if (fullImage) {
-      if (mediaApi.indexOf(fullImage) - 1 < 0) setFullImage(mediaApi[mediaApi.length - 1]);
-      else setFullImage(mediaApi[mediaApi.indexOf(fullImage) - 1]);
+      if (displayedMedia.indexOf(fullImage) - 1 < 0)
+        setFullImage(displayedMedia[displayedMedia.length - 1]);
+      else setFullImage(displayedMedia[displayedMedia.indexOf(fullImage) - 1]);
     }
   };
 
@@ -59,37 +43,77 @@ export default function Gallery({ masonry, viewer, pagination, apiUrl }: Props) 
       : (document.body.style.overflow = 'auto');
   }, [fullImage]);
 
+  const staticFilters: { slug: string; label: string }[] = [
+    { slug: 'filtre-1', label: 'Filtre 1' },
+    { slug: 'filtre-2', label: 'Filtre 2' },
+    { slug: 'filtre-3', label: 'Filtre 3' },
+  ];
+
+  const [activeFilter, setActiveFilter] = useState<string>('');
+
+  useEffect(() => {
+    if (activeFilter) {
+      setDisplayedMedia(media.filter((m) => m.tags?.includes(activeFilter)));
+    } else {
+      setDisplayedMedia(media);
+    }
+  }, [activeFilter, media]);
+
   return (
     <section className={`${css.gallery} light`}>
       <div className="container">
         <SectionTitle
           title="Découvrez nos réalisations"
-          surtitle={'une image vaut mille mots'}
+          surtitle={'Une image vaut mille mots'}
           alignLeft
           className={css.titles}
         />
 
-        <p>FILTRES</p>
+        <div className={css.filters}>
+          <button
+            type="reset"
+            className={`${css.tag} ${activeFilter === '' && css.active}`}
+            onClick={() => setActiveFilter('')}
+          >
+            Tous
+          </button>
+          {staticFilters.map((f) => (
+            <label key={f.slug} className={`${css.tag} ${activeFilter === f.slug && css.active}`}>
+              <input
+                type="radio"
+                name="filter"
+                id={f.slug}
+                checked={activeFilter === f.slug}
+                onClick={() => setActiveFilter(f.slug)}
+              />
+              <span>{f.label}</span>
+            </label>
+          ))}
+        </div>
 
-        {isLoading && <i>Chargement de la galerie.</i>}
-        {mediaApi &&
-          (masonry ? (
+        {displayedMedia && displayedMedia.length > 0 ? (
+          masonry ? (
             <MasonryGallery
-              media={mediaApi}
+              media={displayedMedia}
               viewer={viewer}
               breakpoints={{ default: 2, 900: 3, 1200: 4 }}
               toggleOverlay={toggleOverlay}
             />
           ) : (
             <SquareGallery
-              media={mediaApi}
+              media={displayedMedia}
               toggleOverlay={toggleOverlay}
               viewer={viewer}
               pagination={pagination}
             />
-          ))}
+          )
+        ) : (
+          <p>
+            <i>Aucun projet ne correspond à vos filtres.</i>
+          </p>
+        )}
 
-        {!mediaApi && <p>Un problème est survenu. Impossible de charger les réalisations.</p>}
+        {!media && <p>Un problème est survenu. Impossible de charger les réalisations.</p>}
 
         {/* OVERLAY */}
         {fullImage && viewer ? (
@@ -157,10 +181,10 @@ function SquareGallery({ media, viewer, pagination = 0, toggleOverlay }: SquareG
 }
 
 type MasonryGalleryProps = {
-  media: DirectusFileType[];
+  media: RealisationApiType[];
   viewer?: boolean;
   breakpoints?: BreakpointsType;
-  toggleOverlay: (file?: DirectusFileType) => void;
+  toggleOverlay: (file?: RealisationApiType) => void;
 };
 
 /**
@@ -196,9 +220,9 @@ function MasonryGallery({
   );
 }
 
-export function createMasonryColumns(media: DirectusFileType[], colCount: number) {
+export function createMasonryColumns(media: RealisationApiType[], colCount: number) {
   // Initialize N empty columns
-  const columns: DirectusFileType[][] = Array.from({ length: colCount }, () => []);
+  const columns: RealisationApiType[][] = Array.from({ length: colCount }, () => []);
   const columnHeights = Array(colCount).fill(0);
 
   for (const item of media) {

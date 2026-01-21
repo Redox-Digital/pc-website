@@ -5,7 +5,7 @@ import Metadata from '@/components/content/Metadata';
 import { staticServices } from '@/constants/projectSpecifics';
 import ContactCTA from '@/components/content/CTAs';
 import SectionTitle from '@/components/layouts/SectionTitle';
-import { ProjectApiType, StaticServicePageType } from '@/constants/types';
+import { ProjectApiType, RealisationApiType, StaticServicePageType } from '@/constants/types';
 import ProjectsList from '@/components/layouts/ProjectsList';
 import Gallery from '@/components/layouts/gallery/GalleryAPI';
 import { GetServerSideProps } from 'next';
@@ -13,9 +13,10 @@ import { GetServerSideProps } from 'next';
 type Props = {
   service: string;
   projects: ProjectApiType[];
+  realisations: RealisationApiType[];
 };
 
-export default function ServicePageLayout({ service, projects }: Props) {
+export default function ServicePageLayout({ service, projects, realisations }: Props) {
   // Permet de faire le pont entre le nom de la page et de l'objet, et de définir "tolerie" comme page par défaut.
   const getStaticServiceSlug = (s: string): 'constructionMetallique' | 'tolerie' =>
     s === 'construction-metallique' ? 'constructionMetallique' : 'tolerie';
@@ -75,11 +76,7 @@ export default function ServicePageLayout({ service, projects }: Props) {
         </section>
 
         {/* DEV: mettre à jour avec search correct */}
-        <Gallery
-          masonry
-          viewer
-          apiUrl={`${process.env.api}/items/realisation?search=${service === 'construction-metallique' ? 'entreprise' : 'collectivites'}&fields=*,image.*`}
-        />
+        <Gallery masonry viewer media={realisations} />
 
         <ContactCTA />
       </main>
@@ -94,10 +91,21 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     .then((res) => res.json())
     .then((json) => json.data);
 
+  {
+    /* DEV: mettre à jour avec search correct */
+  }
+
+  const realisations = await fetch(
+    `${process.env.api}/items/realisation?search=${service === 'construction-metallique' ? 'entreprise' : 'collectivites'}&fields=*,image.*`
+  )
+    .then((res) => res.json())
+    .then((json) => json.data);
+
   return {
     props: {
       service,
       projects,
+      realisations,
     },
   };
 };

@@ -20,14 +20,20 @@
   align-items: center;
   justify-content: center;
 
+  cursor: pointer;
+
+  transition: all 0.3s ease-in-out;
+
   &:hover {
     background-color: var(--yellow);
     color: var(--dark);
     border-color: var(--yellow);
+    transition: all 0.3s ease-in-out;
   }
 
   &:active {
     border-color: var(--white);
+    transition: all 0s;
   }
 
   &.big {
