@@ -10,6 +10,21 @@
     transition: all 0.3s ease-in-out;
   }
 
+  &.blackTexts:not(.menu__open):not(.menu__scrolling) {
+    .menu__links > a,
+    .menu__links label {
+      color: var(--dark);
+    }
+
+    .blackLogo {
+      > path,
+      > polygon {
+        fill: var(--dark);
+        transition: fill 0.3s ease-in-out;
+      }
+    }
+  }
+
   > .mainMenu {
     width: 100%;
     height: var(--navbar-height);
@@ -39,6 +54,20 @@
       background: var(--black);
       transition: all 0.3s ease-in-out;
       border-bottom: 1px solid rgba(125, 125, 125, 0.5);
+    }
+
+    &.blackTexts:not(.menu__open):not(.menu__scrolling) {
+      .menu__links > a,
+      .menu__links label {
+        color: var(--white);
+      }
+
+      .blackLogo {
+        > path,
+        > polygon {
+          fill: #fff;
+        }
+      }
     }
   }
 
@@ -76,6 +105,15 @@
 
 .logo {
   display: flex;
+
+  > path,
+  > polygon {
+    fill: #fff;
+
+    &.yellow {
+      fill: var(--yellow) !important;
+    }
+  }
 }
 
 .menu__scrolling {
@@ -129,13 +167,15 @@
       display: flex;
       flex-direction: row;
       gap: 5px;
+      transition: all 0.3s ease-in-out;
+
       &::after {
         display: block;
         color: var(--gold);
         content: '▾';
         transform: rotate(-90deg);
         transform-origin: center;
-        transition: transform 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
       }
     }
 
