@@ -40,10 +40,10 @@ export default function ServicePageLayout({ service }: Props) {
         .then((res) => res.json())
         .then((projects) => {
           setProjects(projects.data);
-          setLoading(false);
         });
     } catch (err) {
       console.warn(err);
+    } finally {
       setLoading(false);
     }
   }, [router.query.service]);
