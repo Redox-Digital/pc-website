@@ -44,7 +44,7 @@ export type ProjectApiType = {
   date: string;
   shortDescription: string;
   introText: string;
-  pdf: string;
+  pdf?: string;
 
   service: 'construction-metallique' | 'tolerie';
   contentBlocks: {

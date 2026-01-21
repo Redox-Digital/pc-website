@@ -8,8 +8,13 @@ import { ourValues } from '@/constants/projectSpecifics';
 import ContactCTA, { GoogleMyBusinessCTA, JobCTA } from '@/components/content/CTAs';
 import Metadata from '@/components/content/Metadata';
 import LatestProjects from '@/components/layouts/LatestProjects';
+import { ProjectApiType } from '@/constants/types';
 
-export default function Home() {
+type Props = {
+  projects: ProjectApiType[];
+};
+
+export default function Home({ projects }: Props) {
   const [pageTitle, pageDesc] = [
     'Construction métallique à Neuchâtel',
     "Depuis plus de 60 ans, l'entreprise Paris & Comtesse SA conçoit, fabrique et installe des structures métalliques sur mesure, répondant aux exigences et besoins spécifiques de ses clients.",
@@ -30,7 +35,7 @@ export default function Home() {
         imgUrl="/layouts/home-hero.webp"
       />
       <main className="home">
-        <LatestProjects />
+        <LatestProjects projects={projects} />
 
         <ServicesSection />
 
@@ -92,3 +97,17 @@ export default function Home() {
     </>
   );
 }
+
+export const getServerSideProps = async () => {
+  const projects = await fetch(
+    `${process.env.api}/items/projets?sort=-date&filter[highlighted][_eq]=true&limit=3`
+  )
+    .then((res) => res.json())
+    .then((json) => json.data);
+
+  return {
+    props: {
+      projects,
+    },
+  };
+};

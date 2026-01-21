@@ -7,39 +7,17 @@ import { ProjectApiType } from '@/constants/types';
 import { timestampToString } from '../helpers/DateHelper';
 
 type Props = {
-  limit?: number;
+  projects: ProjectApiType[];
 };
 
-export default function LatestProjects({ limit }: Props) {
-  const [starredProjApi, setProjects] = useState<ProjectApiType[] | null>(null);
-  const [projectsLoading, setLoading] = useState<boolean>(false);
-
-  useEffect(() => {
-    try {
-      setLoading(true);
-      fetch(
-        `${process.env.api}/items/projets?sort=-date&filter[highlighted][_eq]=true&limit=${limit || 3}`
-      )
-        .then((res) => res.json())
-        .then((projects) => {
-          setProjects(projects.data);
-          setLoading(false);
-        });
-    } catch (err) {
-      console.warn(err);
-      setLoading(false);
-    }
-  }, [limit]);
-
-  console.log(starredProjApi);
-
+export default function LatestProjects({ projects }: Props) {
   return (
     <section className={`light ${css.section}`}>
       <SectionTitle title="Nos dernières réalisations" surtitle="Construction métallique" />
 
-      {starredProjApi && !projectsLoading ? (
+      {projects && projects.length > 0 ? (
         <ul className={css.grid}>
-          {starredProjApi.map((p) => (
+          {projects.map((p) => (
             <li key={p.id}>
               <ProjectCard
                 year={timestampToString(p.date, true)}

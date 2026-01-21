@@ -1,115 +1,77 @@
-import { useRouter } from 'next/router';
 import css from './ProjectPage.module.scss';
-import { useEffect, useState } from 'react';
 import { ProjectApiType } from '@/constants/types';
 import Metadata from '@/components/content/Metadata';
 import ProjectHero from '@/components/layouts/ProjectHero';
 import { timestampToString } from '@/components/helpers/DateHelper';
-import IntroVideo from '@/components/content/IntroVideo';
 import ProjectPreview from '@/components/content/ProjectPreview';
 import Button from '@/components/navigation/Button';
 import { buildPage } from '@/components/helpers/PageHelper';
+import { GetServerSideProps } from 'next';
 
-type ParamsType = { params: { projectId: string } };
+type Props = { project: ProjectApiType };
 
-type Props = { projectId: number };
+export default function ProjectPage({ project }: Props) {
+  const pageContent = buildPage(project.contentBlocks.blocks || []);
 
-// Unused projectId, but usefull to generate the static pages
-export default function ProjectPage({ projectId }: Props) {
-  const router = useRouter();
+  return (
+    <>
+      <Metadata title={project.title} description={project.shortDescription} />
 
-  const [projectApi, setProject] = useState<ProjectApiType>();
-  const [projectLoading, setLoading] = useState<boolean>(false);
+      <ProjectHero
+        title={project.title}
+        description={project.shortDescription}
+        subtitle={`${timestampToString(project.date, true)} | ${project.location}`}
+        img={`${process.env.api}/assets/${project.cover}`}
+      />
 
-  useEffect(() => {
-    try {
-      setLoading(true);
-      fetch(`${process.env.api}/items/projets/${router.query.projectId}?fields=*,nextProject_id.*`)
-        .then((res) => res.json())
-        .then((project) => {
-          setProject(project.data);
-        });
-    } catch (err) {
-      console.warn(err);
-    } finally {
-      setLoading(false);
-    }
-  }, [router.query.projectId]);
-
-  const pageContent = buildPage(projectApi?.contentBlocks.blocks || []);
-
-  if (projectApi && !projectLoading) {
-    return (
-      <>
-        <Metadata title={projectApi.title} description={projectApi.shortDescription} />
-
-        <ProjectHero
-          title={projectApi.title}
-          description={projectApi.shortDescription}
-          subtitle={`${timestampToString(projectApi.date, true)} | ${projectApi.location}`}
-          img={`${process.env.api}/assets/${projectApi.cover}`}
-        />
-
-        <main className={css.project}>
-          <div className={css.container}>
-            <section className={css.intro}>
-              <p>{projectApi.introText}</p>
-              {/* projectApi.pdf && (
-                <Button href={`${process.env.api}/assets/${projectApi.pdf}`} blank>
-                  Fiche technique <i className="fa-solid fa-pdf" />
-                </Button>
-              ) */}
-
-              <Button href={`${process.env.api}/assets/${projectApi.pdf}`} blank>
+      <main className={css.project}>
+        <div className={css.container}>
+          <section className={css.intro}>
+            <p>{project.introText}</p>
+            {project.pdf && (
+              <Button href={`${process.env.api}/assets/${project.pdf}`} blank>
                 Fiche technique <i className="fa-regular fa-file-pdf" />
               </Button>
-            </section>
+            )}
+          </section>
 
-            <article className={css.blocks}>{pageContent}</article>
+          <article className={css.blocks}>{pageContent}</article>
 
-            <section className={css.nextProjectSct}>
-              {projectApi.nextProject_id ? (
-                <ProjectPreview
-                  {...projectApi.nextProject_id}
-                  inverted
-                  year={timestampToString(projectApi.nextProject_id.date, true)}
-                  url={`/projets/${projectApi.nextProject_id.id}`}
-                  img={`${process.env.api}/assets/${projectApi.nextProject_id.cover}`}
-                />
-              ) : (
-                ''
-              )}
-            </section>
-          </div>
-        </main>
-      </>
-    );
-  }
-
-  if (projectLoading) {
-    return <ProjectHero title={''} description={'Chargement en cours...'} subtitle={``} img={``} />;
-  }
+          <section className={css.nextProjectSct}>
+            {project.nextProject_id ? (
+              <ProjectPreview
+                {...project.nextProject_id}
+                inverted
+                year={timestampToString(project.nextProject_id.date, true)}
+                url={`/projets/${project.nextProject_id.id}`}
+                img={`${process.env.api}/assets/${project.nextProject_id.cover}`}
+              />
+            ) : (
+              ''
+            )}
+          </section>
+        </div>
+      </main>
+    </>
+  );
 }
 
-export async function getStaticPaths() {
-  const data = await fetch(
-    `${process.env.api}/items/projets?fields=id&filter[status][_eq]=published`
-  )
-    .then((res) => res.json())
-    .then((json) => json.data);
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { projectId } = context.params as { projectId: string };
 
-  const paths: { params: { projectId: string } }[] = data.map((elt: { id: number }) => ({
-    params: { projectId: elt.id.toString() },
-  }));
+  const res = await fetch(
+    `${process.env.api}/items/projets/${projectId}?fields=*,nextProject_id.*&filter[status][_eq]=published`
+  );
+
+  if (!res.ok) {
+    return { notFound: true };
+  }
+
+  const project = await res.json().then((json) => json.data);
 
   return {
-    paths: paths,
-    fallback: false,
+    props: {
+      project,
+    },
   };
-}
-
-export async function getStaticProps({ params }: ParamsType) {
-  const { projectId } = params;
-
-  return { props: { projectId: { projectId } } };
-}
+};

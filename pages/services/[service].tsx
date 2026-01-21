@@ -2,51 +2,32 @@ import Hero from '@/components/layouts/Hero';
 import css from './ServicePage.module.scss';
 import { useEffect, useState } from 'react';
 import Metadata from '@/components/content/Metadata';
-import { useRouter } from 'next/router';
 import { staticServices } from '@/constants/projectSpecifics';
 import ContactCTA from '@/components/content/CTAs';
 import SectionTitle from '@/components/layouts/SectionTitle';
 import { ProjectApiType, StaticServicePageType } from '@/constants/types';
 import ProjectsList from '@/components/layouts/ProjectsList';
 import Gallery from '@/components/layouts/gallery/GalleryAPI';
+import { GetServerSideProps } from 'next';
 
 type Props = {
-  service: 'construction-metallique' | 'tolerie';
+  service: string;
+  projects: ProjectApiType[];
 };
 
-export default function ServicePageLayout({ service }: Props) {
-  const router = useRouter();
-
+export default function ServicePageLayout({ service, projects }: Props) {
   // Permet de faire le pont entre le nom de la page et de l'objet, et de définir "tolerie" comme page par défaut.
-  const getStaticServiceSlug = (): 'constructionMetallique' | 'tolerie' =>
-    router.query.service === 'construction-metallique' ? 'constructionMetallique' : 'tolerie';
+  const getStaticServiceSlug = (s: string): 'constructionMetallique' | 'tolerie' =>
+    s === 'construction-metallique' ? 'constructionMetallique' : 'tolerie';
 
   const [staticService, setStaticService] = useState<StaticServicePageType>(
-    staticServices[getStaticServiceSlug()]
+    staticServices[getStaticServiceSlug(service)]
   );
 
-  // Check if slug changes
+  // Met à jour les données statiques en cas de changement d'URL
   useEffect(() => {
-    setStaticService(staticServices[getStaticServiceSlug()]);
-  }, [router.query.service]);
-
-  const [projectsApi, setProjects] = useState<ProjectApiType[] | null>(null);
-  const [projectsLoading, setLoading] = useState<boolean>(false);
-
-  useEffect(() => {
-    try {
-      setLoading(true);
-      fetch(`${process.env.api}/items/projets?search=${router.query.service}`)
-        .then((res) => res.json())
-        .then((projects) => {
-          setProjects(projects.data);
-        });
-    } catch (err) {
-      console.warn(err);
-    } finally {
-      setLoading(false);
-    }
-  }, [router.query.service]);
+    setStaticService(staticServices[getStaticServiceSlug(service)]);
+  }, [service]);
 
   return (
     <>
@@ -85,10 +66,10 @@ export default function ServicePageLayout({ service }: Props) {
               className={css.titles}
             />
 
-            {projectsApi && !projectsLoading ? (
-              <ProjectsList projects={projectsApi} />
+            {projects && projects.length > 0 ? (
+              <ProjectsList projects={projects} />
             ) : (
-              <i>Chargement en cours...</i>
+              <i>Aucun projet à afficher.</i>
             )}
           </div>
         </section>
@@ -97,7 +78,7 @@ export default function ServicePageLayout({ service }: Props) {
         <Gallery
           masonry
           viewer
-          apiUrl={`${process.env.api}/items/realisation?search=${router.query.service === 'construction-metallique' ? 'entreprise' : 'collectivites'}&fields=*,image.*`}
+          apiUrl={`${process.env.api}/items/realisation?search=${service === 'construction-metallique' ? 'entreprise' : 'collectivites'}&fields=*,image.*`}
         />
 
         <ContactCTA />
@@ -105,3 +86,18 @@ export default function ServicePageLayout({ service }: Props) {
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { service } = context.params as { service: string };
+
+  const projects = await fetch(`${process.env.api}/items/projets?search=${service}`)
+    .then((res) => res.json())
+    .then((json) => json.data);
+
+  return {
+    props: {
+      service,
+      projects,
+    },
+  };
+};
