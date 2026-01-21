@@ -9,6 +9,7 @@ import ContactCTA, { GoogleMyBusinessCTA, JobCTA } from '@/components/content/CT
 import Metadata from '@/components/content/Metadata';
 import LatestProjects from '@/components/layouts/LatestProjects';
 import { ProjectApiType } from '@/constants/types';
+import CertificationsSection from '@/components/content/CertificationsSection';
 
 type Props = {
   projects: ProjectApiType[];
@@ -60,7 +61,7 @@ export default function Home({ projects }: Props) {
           </>
         </TextImageSection>
 
-        <h3>Section certifications</h3>
+        <CertificationsSection />
 
         <Infography
           title="Nos valeurs"
