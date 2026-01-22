@@ -19,7 +19,7 @@ export default function ProjectsList({ projects }: Props) {
           {...p}
           year={timestampToString(p.date, true)}
           url={`/projets/${p.id}`}
-          img={`${process.env.api}/assets/${p.cover}`} // DEV : ajouter tailles de l'image
+          img={`${process.env.api}/assets/${p.cover}?width=560&height=400&fit=cover`}
         />
       ))}
 

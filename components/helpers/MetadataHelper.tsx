@@ -8,7 +8,6 @@ import {
 // Constants used on every pages.
 const defUrl = process.env.domain || 'https://pc-sa.ch';
 
-// DEV: to be customized per project
 export const organization = {
   '@type': 'Organization',
   '@id': `${defUrl}/#organization`,

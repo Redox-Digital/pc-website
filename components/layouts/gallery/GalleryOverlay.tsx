@@ -51,9 +51,8 @@ export default function Overlay({
         <i className="icon-spinner9" />
 
         <Image
-          // DEV : static URL
           // Getting full size media
-          src={`${process.env.api}/assets/${fullImage.image.id}` || ''}
+          src={`${process.env.api}/assets/${fullImage.image.id}?height=1500&fit=cover` || ''}
           alt={''}
           width={1500}
           height={1500}

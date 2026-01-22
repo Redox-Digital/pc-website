@@ -1,8 +1,6 @@
 import Hero from '@/components/layouts/Hero';
 import InfographySection from '@/components/content/InfographySection';
-import Head from 'next/head';
 import style from './Careers.module.scss';
-import Newsletter from '@/components/forms/Newsletter';
 import JobOffer from '@/components/content/JobOffer';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -148,8 +146,6 @@ export default function Careers() {
           }
           blocks={ourMotivations}
         ></InfographySection>
-
-        <Newsletter />
       </main>
     </>
   );

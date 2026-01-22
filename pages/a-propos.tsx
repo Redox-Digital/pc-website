@@ -1,11 +1,10 @@
-import Head from 'next/head';
 import Hero from '@/components/layouts/Hero';
 import Infography from '@/components/content/InfographySection';
-import Newsletter from '@/components/forms/Newsletter';
 import CompanySection from '@/components/layouts/CompanySection';
 import HistorySection from '@/components/layouts/HistorySection';
 import Metadata from '@/components/content/Metadata';
 import { ourValues } from '@/constants/projectSpecifics';
+import ContactCTA from '@/components/content/CTAs';
 
 const companySlides = [
   {
@@ -145,7 +144,7 @@ export default function About() {
         />
         <HistorySection slides={historySlides} />
 
-        <Newsletter />
+        <ContactCTA />
       </main>
     </>
   );

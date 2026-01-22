@@ -75,7 +75,6 @@ export default function ServicePageLayout({ service, projects, realisations }: P
           </div>
         </section>
 
-        {/* DEV: mettre à jour avec search correct */}
         <Gallery masonry viewer media={realisations} />
 
         <ContactCTA />
@@ -94,7 +93,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   {
     /* DEV: mettre à jour avec search correct */
   }
-
   const realisations = await fetch(
     `${process.env.api}/items/realisation?search=${service === 'construction-metallique' ? 'entreprise' : 'collectivites'}&fields=*,image.*`
   )

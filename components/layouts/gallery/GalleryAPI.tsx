@@ -208,7 +208,7 @@ function MasonryGallery({
           {col.map((medium) => (
             <MasonryImage
               key={medium.id}
-              src={`${process.env.api}/assets/${medium.image.id}`} // DEV : img size
+              src={`${process.env.api}/assets/${medium.image.id}?width=400`}
               {...medium}
               onClick={() => toggleOverlay(medium)}
               viewer={viewer}

@@ -25,13 +25,7 @@ GalleryMediaType) {
       className={`${css.image} ${css.sqImage} ${viewer || css.readOnly} ${className}`}
       onClick={viewer ? onClick : () => null}
     >
-      <Image
-        // DEV : static URL
-        src={src}
-        alt={description || ''}
-        width={500}
-        height={500}
-      />
+      <Image src={src} alt={description || ''} width={500} height={500} />
       {viewer && (
         <figcaption className={css.imageOverlay}>
           <p>{description}</p>

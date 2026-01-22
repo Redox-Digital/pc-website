@@ -22,7 +22,7 @@ export default function LatestProjects({ projects }: Props) {
               <ProjectCard
                 year={timestampToString(p.date, true)}
                 url={`/projets/${p.id}`}
-                img={`${process.env.api}/assets/${p.cover}`} // DEV : ajouter tailles
+                img={`${process.env.api}/assets/${p.cover}?width=520&height=340&fit=cover`}
                 {...p}
               />
             </li>

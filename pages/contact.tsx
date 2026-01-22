@@ -5,6 +5,7 @@ import Address from '@/components/content/Address';
 import TextImageSection from '@/components/layouts/TextImageSection';
 import ContactForm from '@/components/forms/ContactForm';
 import Metadata from '@/components/content/Metadata';
+import { GoogleMyBusinessCTA } from '@/components/content/CTAs';
 
 export default function Contact() {
   const [pageTitle, pageDesc] = [
@@ -28,6 +29,8 @@ export default function Contact() {
       <Map />
 
       <ContactForm />
+
+      <GoogleMyBusinessCTA />
     </>
   );
 }

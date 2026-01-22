@@ -1,4 +1,4 @@
-name: Deploy Static NextTS site
+name: Deploy Static NextTS site on Node Host
 
 on:
   push:
@@ -13,19 +13,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build static site
-        run: npm run build
-
-      - name: Ensure temp folder exists
+      - name: Connect to distant server, pull & rebuild # tester s'il faut relancer aussi npm start
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -33,30 +21,9 @@ jobs:
           password: ${{ secrets.SSH_PSW }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            mkdir -p ~/_tmp
-
-      - name: Upload to temp folder via SFTP
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          password: ${{ secrets.SSH_PSW }}
-          port: ${{ secrets.SSH_PORT }}
-          source: 'out'
-          target: '~/_tmp/'
-          strip_components: 1
-
-      - name: Move temp to prod
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          password: ${{ secrets.SSH_PSW }}
-          port: ${{ secrets.SSH_PORT }}
-          script: |
-            rm -rf ${{ secrets.SSH_REMOTE_PATH }}/*
-            mv ~/_tmp/* ${{ secrets.SSH_REMOTE_PATH }}/
-            rm -rf ~/_tmp/*
+            cd ${{ secrets.SSH_REMOTE_PATH }}
+            git pull
+            npm i && npm run build
 
       - name: Notify Discord
         if: always() # Toujours exécuté, même si le job échoue
