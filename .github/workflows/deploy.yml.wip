@@ -1,0 +1,43 @@
+# NOT WORKING YET : IK NODE HOST DOESN'T SUPPORT AUTO-PULL YET.
+
+# name: Deploy Static NextTS site on Node Host
+
+# on:
+#   push:
+#     branches:
+#       - production
+
+# jobs:
+#   build-and-deploy:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout repo
+#         uses: actions/checkout@v4
+
+#       - name: Connect to distant server, pull & rebuild # tester s'il faut relancer aussi npm start
+#         uses: appleboy/ssh-action@v1.0.3
+#         with:
+#           host: ${{ secrets.SSH_HOST }}
+#           username: ${{ secrets.SSH_USER }}
+#           password: ${{ secrets.SSH_PSW }}
+#           port: ${{ secrets.SSH_PORT }}
+#           script: |
+#             cd ${{ secrets.SSH_REMOTE_PATH }}
+#             git pull
+#             npm i && npm run build
+
+#       - name: Notify Discord
+#         if: always() # Toujours exécuté, même si le job échoue
+#         uses: Ilshidur/action-discord@master
+#         env:
+#           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+#           DISCORD_USERNAME: dev.pc-sa.ch
+#           DISCORD_AVATAR: https://dev.pc-sa.ch/socials/social_thumbnail.jpg
+#         with:
+#           args: |
+#             ${{ job.status == 'success' && 'Déploiement terminé ✅' || 'Déploiement échoué ❌' }}
+
+#             Update: `${{ github.event.head_commit.message }}`
+#             Repository: `${{ github.repository }}`
+#             Commit: `${{ github.sha }}`
