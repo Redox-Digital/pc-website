@@ -36,13 +36,13 @@ export const ourValues = [
 export const servicesPreview: ServicePreviewType[] = [
   {
     title: 'Construction métallique',
-    desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at diam vel leo tempus ultricies. Maecenas suscipit eget augue sagittis vehicula.',
+    desc: 'Conception, fabrication et pose d’ouvrages métalliques sur mesure, alliant précision technique, sécurité, durabilité et intégration architecturale harmonieuse.',
     img: '/layouts/about-1.webp', // DEV changer
     url: '/services/construction-metallique',
   },
   {
     title: 'Tôlerie',
-    desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at diam vel leo tempus ultricies. Maecenas suscipit eget augue sagittis vehicula.',
+    desc: 'Fabrication et façonnage de pièces en tôle sur mesure, alliant précision, finitions soignées et adaptation aux exigences techniques.',
     img: '/layouts/about-1.webp', // DEV changer
     url: '/services/tolerie',
   },
@@ -54,11 +54,9 @@ export const staticServices: {
 } = {
   constructionMetallique: {
     title: 'Construction métallique',
-    subtitle: 'Laisser libre cours à ses envies',
     heroImg: '/layouts/about-1.webp', // DEV
 
     intro: {
-      surtitle: 'Pour les particuliers',
       title: 'Réalisation sur-mesure',
       description:
         'Nous sommes convaincus que chaque client est unique, avec des besoins et des demandes spécifiques, c’est pourquoi nous nous efforçons de personnaliser nos services pour répondre à ces besoins individuels. Nous travaillons en étroite collaboration avec nos clients pour comprendre leurs envies et leurs attentes afin de concevoir des solutions sur-mesure. Cette approche garantit que chaque projet est unique en s’adaptant aux choix esthétiques et contraintes techniques.',
@@ -79,7 +77,6 @@ export const staticServices: {
     heroImg: '/layouts/about-1.webp', // DEV
 
     intro: {
-      surtitle: 'Pour les particuliers',
       title: 'Réalisation sur-mesure',
       description:
         'Nous sommes convaincus que chaque client est unique, avec des besoins et des demandes spécifiques, c’est pourquoi nous nous efforçons de personnaliser nos services pour répondre à ces besoins individuels. Nous travaillons en étroite collaboration avec nos clients pour comprendre leurs envies et leurs attentes afin de concevoir des solutions sur-mesure. Cette approche garantit que chaque projet est unique en s’adaptant aux choix esthétiques et contraintes techniques.',

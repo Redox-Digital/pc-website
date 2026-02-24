@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import css from './Galleries.module.scss';
-import arrowDown from '/public/pictograms/arrow-down.svg';
+import arrowDown from '@/public/pictograms/arrow-down.svg';
 import { DirectusFileType } from '@/constants/types';
 
 type OverlayProps = {

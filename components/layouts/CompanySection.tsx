@@ -7,7 +7,7 @@ type Slide = {
   id: number;
   label: string;
   desc: string | JSX.Element;
-  img1: string;
+  img1?: string;
 };
 
 type Props = {
@@ -55,9 +55,11 @@ export default function CompanySection({ slides }: Props) {
                 className={`${style.slide} ${slide.id === selectedSlide ? '' : style.hide}`}
               >
                 <div className={style.slide__text}>{slide.desc}</div>
-                <div className={style.slide__images}>
-                  <Image src={slide.img1} width="500" height="500" alt="" />
-                </div>
+                {slide.img1 && (
+                  <div className={style.slide__images}>
+                    <Image src={slide.img1} width="500" height="500" alt="" />
+                  </div>
+                )}
               </div>
             ))}
           </div>

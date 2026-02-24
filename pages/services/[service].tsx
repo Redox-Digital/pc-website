@@ -59,21 +59,40 @@ export default function ServicePageLayout({ service, projects, realisations }: P
           </div>
         </section>
 
-        <section className={`${css.projects} light`}>
-          <div className="container">
-            <SectionTitle
-              title="Nos réalisations"
-              surtitle={staticService.title}
-              className={css.titles}
-            />
+        {getStaticServiceSlug(service) === 'constructionMetallique' ? (
+          <section className={`${css.projects} light`}>
+            <div className="container">
+              <SectionTitle
+                title="Nos réalisations"
+                surtitle={staticService.title}
+                className={css.titles}
+              />
 
-            {projects && projects.length > 0 ? (
-              <ProjectsList projects={projects} />
-            ) : (
-              <i>Aucun projet à afficher.</i>
-            )}
-          </div>
-        </section>
+              {projects && projects.length > 0 ? (
+                <ProjectsList projects={projects} />
+              ) : (
+                <i>Aucun projet à afficher.</i>
+              )}
+            </div>
+          </section>
+        ) : (
+          <>
+            <section>
+              <h2>Catalogues</h2>
+            </section>
+            <section>
+              <h2>Notre technologie</h2>
+              <ul>
+                <li>Plieuse CNC Amada</li>
+                <li>Cisaille à tôle Amada, épaisseur jusqu’à 10mm</li>
+                <li>Encocheuse </li>
+                <li>Poinçonneuse </li>
+                <li>Rouleuse pour forte épaisseur et gros diamètre</li>
+                <li>Rouleuse pour petite épaisseur et petit diamètre</li>
+              </ul>
+            </section>
+          </>
+        )}
 
         <Gallery masonry viewer media={realisations} />
 

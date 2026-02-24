@@ -10,8 +10,7 @@ export default function ServicesSection() {
   return (
     <section className={css.services}>
       <SectionTitle title="Nos services">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at diam vel leo tempus
-        ultricies. Maecenas suscipit eget augue sagittis vehicula.
+        Deux expertises au service de vos projets : construction métallique et tôlerie sur mesure.
       </SectionTitle>
 
       <div className={css.blocks}>

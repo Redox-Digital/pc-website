@@ -5,6 +5,8 @@ import style from './Footer.module.scss';
 import Socials from '../content/Socials';
 import Address from '../content/Address';
 import Button from './Button';
+import React from 'react';
+import { mainNavLinks } from '@/constants/navigation';
 
 export default function Footer() {
   return (
@@ -21,18 +23,22 @@ export default function Footer() {
         </div>
         <div className={style.footerBody__bottom}>
           <div className={style.footerBody__bottom__right}>
-            <Link aria-label="Accéder à la page d'accueil" href="/">
-              Accueil
-            </Link>
-            <div className={style.footer__submenu}>
-              <h5>Services</h5>
-              <Link href="/services/particuliers">Particuliers</Link>
-              <Link href="/services/collectivites">Collectivités</Link>
-              <Link href="/services/entreprises">Entreprises</Link>
-            </div>
-
-            <Link href="/a-propos">À propos</Link>
-            <Link href="/emplois">Emplois</Link>
+            {mainNavLinks.map((l) => (
+              <React.Fragment key={l.url}>
+                {l.subLinks ? (
+                  <div className={style.footer__submenu}>
+                    <h5>{l.label}</h5>
+                    {l.subLinks.map((sub) => (
+                      <Link key={sub.url} href={sub.url}>
+                        {sub.label}
+                      </Link>
+                    ))}
+                  </div>
+                ) : (
+                  <Link href={l.url}>{l.label}</Link>
+                )}
+              </React.Fragment>
+            ))}
           </div>
           <div className={style.footerBody__bottom__left}>
             <Address />
@@ -44,7 +50,7 @@ export default function Footer() {
       <div className={style.footerBottom}>
         <div className="container">
           <small>
-            &copy; 2023 Paris & Comtesse SA – Site web réalisé par{' '}
+            &copy; 2026 Paris & Comtesse SA – Site web réalisé par{' '}
             <Link
               aria-label="Accéder au site de Redox Digital"
               href="https://redoxdigital.ch"

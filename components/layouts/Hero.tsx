@@ -20,7 +20,7 @@ export default function Hero({ title, subtitle, imgUrl, opacity, addClass }: Pro
   return (
     <>
       <header className={`${css.hero} ${addClass}`}>
-        <Image src={imgUrl} alt={''} fill />
+        <Image src={imgUrl} alt={''} fill priority />
 
         <div className={css.hero__overlay} style={{ opacity: opacity || 0.5 }} />
         <div className={css.hero__content}>

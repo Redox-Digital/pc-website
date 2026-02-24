@@ -23,7 +23,7 @@ const companySlides = [
         </p>
       </>
     ),
-    img1: '/layouts/about-company-team.webp',
+    // img1: '/layouts/about-company-team.webp',
   },
   {
     id: 1,

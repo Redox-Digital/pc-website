@@ -17,11 +17,11 @@ export type ProjectPreviewProps = {
 
 export type StaticServicePageType = {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   heroImg: string;
 
   intro: {
-    surtitle: string;
+    surtitle?: string;
     title: string;
     description: string;
 
