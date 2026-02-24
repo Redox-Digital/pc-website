@@ -1,6 +1,4 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import logo from '/public/logo/p-c_logo_bj.svg';
 import css from './Menu.module.scss';
 import burgerCss from './Burger.module.scss';
 import Button from './Button';
@@ -8,6 +6,7 @@ import { useEffect, useState } from 'react';
 import MobileMenu from './MobileMenu';
 import { mainNavLinks, NavLinkType } from '@/constants/navigation';
 import { useRouter } from 'next/router';
+import React from 'react';
 
 export default function Header() {
   const router = useRouter();
@@ -80,9 +79,9 @@ export default function Header() {
 
             <div className={css.menu__links}>
               {mainNavLinks.map((l: NavLinkType) => (
-                <>
+                <React.Fragment key={l.url}>
                   {l.subLinks && l.subLinks.length !== 0 ? (
-                    <div key={l.url} className={css.submenu}>
+                    <div className={css.submenu}>
                       <label htmlFor={l.url}>
                         {/* DEV : not working yet ... */}
                         <input type="checkbox" id={l.url} name={l.url} />
@@ -98,15 +97,11 @@ export default function Header() {
                       </div>
                     </div>
                   ) : l.btn ? (
-                    <Button key={l.url} href={l.url}>
-                      {l.label}
-                    </Button>
+                    <Button href={l.url}>{l.label}</Button>
                   ) : (
-                    <Link href={l.url} key={l.url}>
-                      {l.label}
-                    </Link>
+                    <Link href={l.url}>{l.label}</Link>
                   )}
-                </>
+                </React.Fragment>
               ))}
             </div>
             <Burger toggleMenu={toggleMenu} menuOpen={menuOpen} />

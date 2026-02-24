@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import style from './CompanySection.module.scss';
-import logo from '/public/logo/p-c_logo_bj.svg';
+import logo from '@/public/logo/p-c_logo_bj.svg';
 
 type Slide = {
   id: number;

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import style from './TextImageSection.module.scss';
-import logo from '/public/logo/p-c_logo_bj.svg';
+import logo from '@/public/logo/p-c_logo_bj.svg';
 
 type Props = {
   title: string;

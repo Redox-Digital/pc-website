@@ -6,6 +6,7 @@ import Address from '../content/Address';
 import Socials from '../content/Socials';
 import { mainNavLinks, NavLinkType } from '@/constants/navigation';
 import Button from './Button';
+import React from 'react';
 
 type Props = {
   open: boolean;
@@ -35,7 +36,7 @@ export default function MobileMenu(props: Props) {
       <nav className={`${css.mobileMenu} ${open ? css.mobileMenu__open : css.mobileMenu__closed}`}>
         <div className={css.mobileMenu__links}>
           {mainNavLinks.map((l: NavLinkType) => (
-            <>
+            <React.Fragment key={l.url}>
               {l.subLinks && l.subLinks.length !== 0 ? (
                 l.subLinks.map((sub) => (
                   <Link key={sub.url} href={sub.url} onClick={toggleMenu}>
@@ -43,11 +44,11 @@ export default function MobileMenu(props: Props) {
                   </Link>
                 ))
               ) : (
-                <Link href={l.url} key={l.url} onClick={toggleMenu}>
+                <Link href={l.url} onClick={toggleMenu}>
                   {l.label}
                 </Link>
               )}
-            </>
+            </React.Fragment>
           ))}
         </div>
         <Address />

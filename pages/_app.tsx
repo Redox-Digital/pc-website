@@ -1,5 +1,10 @@
 import Layout from '@/components/Layout';
-import '@/styles/globals.scss';
+
+import '@/styles/normalize.scss';
+import '@/styles/global.scss';
+import '@/styles/variables.scss';
+import '@/styles/typographies.scss';
+
 import type { AppProps } from 'next/app';
 
 import { setCookie, getCookie } from '@/components/helpers/CookiesHelper';

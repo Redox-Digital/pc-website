@@ -1,39 +1,24 @@
 {
   "name": "pc-website",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export": "next export",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postbuild": "node ./scripts/generate-sitemap.js"
   },
   "dependencies": {
-    "@react-email/container": "0.0.7",
-    "@react-email/html": "0.0.4",
-    "@react-email/render": "^0.0.6",
-    "@react-email/section": "0.0.8",
-    "@react-email/text": "0.0.4",
     "@types/node": "18.14.6",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
-    "eslint": "8.35.0",
-    "eslint-config-next": "13.2.3",
-    "mailersend": "^2.0.5",
-    "next": "^14.2.3",
-    "nodemailer": "^7.0.12",
+    "eslint": "^10.0.2",
+    "eslint-config-next": "^0.2.4",
+    "next": "^16.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-email": "^4.2.3",
-    "react-google-recaptcha": "^2.1.0",
-    "react-google-recaptcha-v3": "^1.10.1",
     "sass": "^1.59.3",
     "typescript": "4.9.5"
-  },
-  "devDependencies": {
-    "@types/nodemailer": "^6.4.7",
-    "@types/react-google-recaptcha": "^2.1.5",
-    "sass": "^1.58.3"
   }
 }
