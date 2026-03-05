@@ -196,9 +196,7 @@ function MasonryGallery({
   breakpoints = { default: 1, 500: 2, 900: 3, 1200: 4 },
   toggleOverlay,
 }: MasonryGalleryProps) {
-  // DEV : static value
   const columnCount = useResponsiveColumns(breakpoints);
-
   const columns = createMasonryColumns(media, columnCount);
 
   return (

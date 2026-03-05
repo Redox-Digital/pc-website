@@ -31,8 +31,7 @@ export type StaticServicePageType = {
 
 export type DirectusBlock = {
   id: string;
-  // DEV : manque Quoteblock
-  type: 'image' | 'header' | 'paragraph' | 'embed';
+  type: 'image' | 'header' | 'paragraph' | 'embed' | 'nestedlist';
   data: any;
 };
 

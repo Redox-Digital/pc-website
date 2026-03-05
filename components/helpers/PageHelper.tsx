@@ -3,13 +3,13 @@ import css from '../../pages/projets/ProjectPage.module.scss';
 import { DirectusBlock } from '@/constants/types';
 
 export const buildPage = (blocks: DirectusBlock[]) => {
-  return blocks.map((block, key) => {
+  return blocks.map((block) => {
     switch (block.type) {
       case 'header':
-        return <h4 key={key} dangerouslySetInnerHTML={{ __html: block.data.text }} />;
+        return <h4 key={block.id} dangerouslySetInnerHTML={{ __html: block.data.text }} />;
       case 'embed':
         return (
-          <div key={key} className={css.iframeHolder}>
+          <div key={block.id} className={css.iframeHolder}>
             <iframe
               src={`${block.data.embed}&rel=0&loop=1`}
               title="YouTube Video Player"
@@ -20,7 +20,10 @@ export const buildPage = (blocks: DirectusBlock[]) => {
         );
       case 'image':
         return (
-          <figure key={key} className={block.data.stretched ? css.fullwidthImg : css.containerImg}>
+          <figure
+            key={block.id}
+            className={block.data.stretched ? css.fullwidthImg : css.containerImg}
+          >
             <Image
               src={`${process.env.api}${block.data.file.url}`}
               width={block.data.file.width || 1000}
@@ -35,10 +38,29 @@ export const buildPage = (blocks: DirectusBlock[]) => {
           </figure>
         );
 
+      case 'nestedlist':
+        if (block.data.style === 'ordered') {
+          return (
+            <ol key={block.id}>
+              {block.data.items.map((i: { content: string; items: any[] }, key: number) => (
+                <li key={`${block.id}-${key}`}>{i.content}</li>
+              ))}
+            </ol>
+          );
+        } else {
+          return (
+            <ul key={block.id}>
+              {block.data.items.map((i: { content: string; items: any[] }, key: number) => (
+                <li key={`${block.id}-${key}`}>{i.content}</li>
+              ))}
+            </ul>
+          );
+        }
+
       default: // "paragraph"
         return (
           <p
-            key={key}
+            key={block.id}
             className={css.textBlock}
             dangerouslySetInnerHTML={{ __html: block.data.text }}
           />
