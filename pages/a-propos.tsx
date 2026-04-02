@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Hero from '@/components/layouts/Hero';
 import Infography from '@/components/content/InfographySection';
 import Newsletter from '@/components/forms/Newsletter';
-import CompanySection from '@/components/layouts/CompanySection';
+import CompanySection, { Slide } from '@/components/layouts/CompanySection';
 import HistorySection from '@/components/layouts/HistorySection';
 
 const ourValues = [
@@ -38,7 +38,7 @@ const ourValues = [
   },
 ];
 
-const companySlides = [
+const companySlides: Slide[] = [
   {
     id: 0,
     label: 'Qui sommes-nous ?',
@@ -55,7 +55,7 @@ const companySlides = [
         </p>
       </>
     ),
-    img1: '/layouts/about-company-team.webp',
+    // img1: '/layouts/about-company-team.webp',
   },
   {
     id: 1,
@@ -81,7 +81,7 @@ const companySlides = [
         </p>
       </>
     ),
-    img1: '/layouts/about-company-2.webp',
+    img: '/layouts/about-company-2.webp',
   },
   {
     id: 2,
@@ -103,7 +103,7 @@ const companySlides = [
         </p>
       </>
     ),
-    img1: '/layouts/about-company-3.webp',
+    img: '/layouts/about-company-3.webp',
   },
 ];
 

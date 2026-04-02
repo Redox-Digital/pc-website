@@ -80,9 +80,15 @@
         font-size: var(--fs-h1-home);
       }
 
-      > p > em {
-        font-style: normal;
-        color: var(--yellow);
+      > p {
+        max-width: calc(
+          var(--max-paragraph-width) + 40px
+        ); // Addition arbitraire pour que le texte s'affiche que sur 2 lignes.
+
+        > em {
+          font-style: normal;
+          color: var(--yellow);
+        }
       }
     }
 

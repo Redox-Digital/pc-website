@@ -2,7 +2,7 @@ import Image from 'next/image';
 import style from './Gallery.module.scss';
 import btn from '@/components/navigation/Button.module.scss';
 import { useEffect, useState } from 'react';
-import arrowDown from '/public/pictograms/arrow-down.svg';
+import arrowDown from '@/public/pictograms/arrow-down.svg';
 import ImageGallery from '../content/ImageGallery';
 
 type Realisation = {

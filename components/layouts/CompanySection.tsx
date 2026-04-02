@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import style from './CompanySection.module.scss';
-import logo from '/public/logo/p-c_logo_bj.svg';
+import logo from '@/public/logo/p-c_logo_bj.svg';
 
-type Slide = {
+export type Slide = {
   id: number;
   label: string;
-  desc: string | JSX.Element;
-  img1: string;
+  desc: string | React.ReactNode;
+  img?: string;
 };
 
 type Props = {
@@ -55,9 +55,13 @@ export default function CompanySection({ slides }: Props) {
                 className={`${style.slide} ${slide.id === selectedSlide ? '' : style.hide}`}
               >
                 <div className={style.slide__text}>{slide.desc}</div>
-                <div className={style.slide__images}>
-                  <Image src={slide.img1} width="500" height="500" alt="" />
-                </div>
+                {slide.img ? (
+                  <div className={style.slide__images}>
+                    <Image src={slide.img} width="500" height="500" alt="" />
+                  </div>
+                ) : (
+                  ''
+                )}
               </div>
             ))}
           </div>

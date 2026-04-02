@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Construction métallique à Boudry | Paris & Comtesse SA</title>
+        <title>Construction métallique à Neuchâtel | Paris & Comtesse SA</title>
 
         <link rel="canonical" href="https://pc-sa.ch" />
 
@@ -58,6 +58,7 @@ export default function Home() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </Head>
+
       <HomeHero
         title={pageTitle}
         subtitle={
@@ -70,30 +71,28 @@ export default function Home() {
         imgUrl="/layouts/home-hero.webp"
       />
       <main className="home">
-        <h3>Section Dernières réalisations</h3>
-
-        <ServicesSection />
-
         <TextImageSection
-          title={'Notre équipe'}
-          surtitle={'Soudés depuis 60 ans'}
+          title={'sur-mesure'}
+          surtitle={'Un engagement'}
           imgPath="/layouts/home-sur-mesure.webp"
         >
           <>
             <p>
-              De par ses plus de 60 ans d’expérience dans le domaine de la construction métallique,
-              Paris & Comtesse SA est reconnu pour son savoir-faire.
+              Notre entreprise conçoit des ouvrages sur-mesure permettant une personnalisation
+              complète pour répondre aux besoins spécifiques de nos clients.
             </p>
             <p>
-              Avec une équipe qualifiée et soudée, soucieuse de la qualité, nous réalisons des
-              pièces dans les règles de l’art afin de répondre précisément à chaque demande et
-              satisfaire notre clientèle.
+              Chaque projet est étudié de la conception par notre bureau technique à la fabrication
+              avec soin et savoir-faire dans notre atelier et à la pose par nos collaborateurs
+              qualifiés.
             </p>
-            <Button href={'/entreprise'}>Découvrez notre entreprise</Button>
+            <p>
+              Les ouvrages sont conçus et fabriqués avec une attention particulière aux détails et à
+              la qualité afin de garantir une longue durée de vie.
+            </p>
+            <Button href={'/a-propos'}>Découvrez notre entreprise</Button>
           </>
         </TextImageSection>
-
-        <h3>Section certifications</h3>
 
         <Infography
           title="Nos valeurs"
@@ -101,7 +100,9 @@ export default function Home() {
           blocks={ourValues}
         />
 
-        <JobCTA />
+        {/* <JobCTA /> */}
+
+        <ServicesSection />
 
         <TextImageSection
           title={'Le métal'}

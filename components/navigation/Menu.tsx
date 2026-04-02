@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import logo from '/public/logo/p-c_logo_bj.svg';
+import logo from '@/public/logo/p-c_logo_bj.svg';
 import DropdownMenu from './DropdownMenu';
 import style from './Menu.module.scss';
 import Button from './Button';

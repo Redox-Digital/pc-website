@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import css from './Hero.module.scss';
 import Link from 'next/link';
-import arrowDown from '/public/pictograms/arrow-down.svg';
-import logo from '/public/logo/p-c_logo_bj.svg';
+import arrowDown from '@/public/pictograms/arrow-down.svg';
 // uniquement pour les 60 ans
 //import logo from '/public/logo/60ans_PC_bj.svg';
 import IntroVideo from '../content/IntroVideo';
 import Button from '../navigation/Button';
+import HeroInfoBlock from '../content/HeroInfoBlock';
 
 type Props = {
   title: string | React.ReactNode;
@@ -50,28 +50,27 @@ export function HomeHero({ title, subtitle, imgUrl, opacity, addClass }: Props) 
           </div>
 
           <div className={css.btns}>
-            <div className={css.ctas}>
+            {/* <div className={css.ctas}>
               <Button outline secondary href={'/construction-metallique'}>
                 Construction métallique
               </Button>
               <Button outline secondary href={'/tolerie'}>
                 Tôlerie
               </Button>
-            </div>
+            </div> */}
 
             <Link href="#intro" scroll={false} aria-hidden className={css.arrow}>
               <Image src={arrowDown} alt={''}></Image>
             </Link>
           </div>
         </div>
-        {/* <HeroInfoBlock desktop /> */}
+        <HeroInfoBlock desktop />
       </header>
       <span id="intro">{/* Anchor */}</span>
-      {/* 
-        <div className="container">
-          <HeroInfoBlock />
-        </div>
-      */}
+
+      <div className="container">
+        <HeroInfoBlock />
+      </div>
     </>
   );
 }
