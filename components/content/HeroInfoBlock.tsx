@@ -1,5 +1,6 @@
 import Button from '../navigation/Button';
 import css from './HeroInfoBlock.module.scss';
+import Image from 'next/image';
 
 type Props = {
   desktop?: boolean;
@@ -8,19 +9,36 @@ type Props = {
 export default function HeroInfoBlock({ desktop }: Props) {
   return (
     <aside className={`${css.block} ${desktop ? css.desktop : css.mobile}`}>
-      <p>
-        <b>Concours des 60 ans</b>
-      </p>
-      <small>
-        Pour l&rsquo;anniversaire de Paris & Comtesse, nous organisons un concours spécial!
-      </small>
+      <div className={css.content}>
+        <div className={css.head}>
+          <small>Et si on se rencontrait autrement ?</small>
+        </div>
+        <div className={css.body}>
+          <h2>
+            Vous{' '}
+            <Image src="/logo/p-c_logo_monogramme_j_nomargin.svg" width={18} height={20} alt="&" />{' '}
+            Nous
+          </h2>
+          <p>– Autour de nouvelles façons de concevoir</p>
+        </div>
 
-      <Button
-        href={'https://www.instagram.com/p/C6ytB_OI8H6?utm_source=website&utm_campaign=concours'}
-        blank
-      >
-        Rendez-vous sur Instagram
-      </Button>
+        <div className={css.foot}>
+          <Image
+            src="/layouts/sine/pc-os.png"
+            width={205}
+            height={22}
+            alt="Paris & Comtesse | Optimum Swiss Solar"
+          />
+
+          <span className={css.badge}>
+            Stand <b>84</b>
+          </span>
+        </div>
+      </div>
+
+      <div className={css.imgHolder}>
+        <Image src="/layouts/sine/sine-affiche-2026.png" width={140} height={130} alt="" />
+      </div>
     </aside>
   );
 }

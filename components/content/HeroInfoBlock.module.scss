@@ -11,19 +11,103 @@
 
 .block {
   z-index: 5;
-  background-color: var(--yellow);
-  color: var(--dark);
-  padding: var(--padding);
+  background-color: var(--gold-white);
   display: flex;
-  flex-direction: column;
-  gap: var(--padding);
-  max-width: 400px;
-  box-shadow: var(--shadow-hover);
+  flex-direction: row;
+  color: var(--dark);
+
+  width: 100%;
+
+  width: fit-content;
+
+  @media screen and (min-width: 900px) {
+    max-height: 150px;
+  }
+
+  > .imgHolder {
+    background: #fff;
+    width: 150px;
+    height: auto;
+
+    padding: 10px 5px;
+    display: flex;
+  }
+
+  > .content {
+    display: flex;
+    flex-direction: column;
+    padding: var(--padding);
+    justify-content: space-between;
+    gap: var(--padding);
+
+    .head {
+      display: flex;
+
+      > small {
+        font-size: 10px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        font-weight: 500;
+        color: var(--gold);
+      }
+    }
+
+    .body {
+      h2 {
+        font-size: 26px;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+      }
+
+      p {
+        font-size: 15px;
+        letter-spacing: 0.01em;
+        opacity: 0.75;
+      }
+    }
+
+    .foot {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: var(--padding);
+
+      > img {
+        object-fit: contain;
+        width: 100%;
+        max-width: 200px;
+      }
+    }
+  }
+
+  .badge {
+    border: 1px solid var(--gold);
+    color: var(--gold);
+
+    font-size: 10px;
+    text-transform: uppercase;
+
+    padding: 6px 10px;
+
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+
+    max-height: 24px;
+
+    > b {
+      color: var(--dark);
+    }
+  }
 
   &.desktop {
     display: none;
     position: absolute;
-    bottom: -120px;
+    bottom: -75px;
     right: var(--sct-horiz-margin);
     margin-left: var(--sct-horiz-margin);
     animation: fadeIn ease-in-out 0.5s;
@@ -34,11 +118,8 @@
   }
 
   &.mobile {
-    margin: var(--padding) auto;
-    width: calc(100% - 2 * var(--sct-horiz-margin));
-    max-width: 390px;
-    text-align: center;
-    align-items: center;
+    margin-inline: auto;
+    max-width: 500px;
     transform: translateY(-25px);
 
     @media screen and (min-width: 998px) {
