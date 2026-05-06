@@ -64,13 +64,11 @@ export function HomeHero({ title, subtitle, imgUrl, opacity, addClass }: Props) 
             </Link>
           </div>
         </div>
-        <HeroInfoBlock desktop />
+        {/* <HeroInfoBlock desktop /> */}
       </header>
       <span id="intro">{/* Anchor */}</span>
 
-      <div className="container">
-        <HeroInfoBlock />
-      </div>
+      <div className="container">{/* <HeroInfoBlock /> */}</div>
     </>
   );
 }
